@@ -18,9 +18,8 @@ public class VeiculoDAO {
     }
 
     public Veiculo cadastraVeiculo(Veiculo veiculo) {
-        try {
-            String sql = "INSERT INTO veiculo(placa, datahoraregistro, marca, modelo, anofabricacao, anomodelo, cor) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement stmt = conexao.prepareStatement(sql);
+        String sql = "INSERT INTO veiculo(placa, datahoraregistro, marca, modelo, anofabricacao, anomodelo, cor) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        try(PreparedStatement stmt = conexao.prepareStatement(sql)) {            
             stmt.setString(1, veiculo.getPlaca());
             stmt.setString(2, veiculo.getDataHoraRegistro());
             stmt.setString(3, veiculo.getMarca());
@@ -29,7 +28,6 @@ public class VeiculoDAO {
             stmt.setString(6, veiculo.getAnoModelo());
             stmt.setString(7, veiculo.getCor());
             stmt.executeUpdate();
-            stmt.close();
             veiculo = verificaCadastroVeiculo(veiculo);
         } catch (SQLException ex) {
             Logger.getLogger(VeiculoDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -38,20 +36,17 @@ public class VeiculoDAO {
     }
 
     public Veiculo verificaCadastroVeiculo(Veiculo veiculo) {
-        try {
-            String sql = "SELECT * FROM veiculo WHERE placa=?";
-            PreparedStatement stmt = conexao.prepareStatement(sql);
+        String sql = "SELECT * FROM veiculo WHERE placa=?";
+        try (PreparedStatement stmt = conexao.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()){ 
             stmt.setString(1, veiculo.getPlaca());
-            ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 veiculo.setIdVeiculo(rs.getInt("id_veiculo"));
                 veiculo.setPlaca(rs.getString("placa"));
             }
-            rs.close();
-            stmt.close();
         } catch (SQLException ex) {
             Logger.getLogger(VeiculoDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
         return veiculo;
     }
 }
