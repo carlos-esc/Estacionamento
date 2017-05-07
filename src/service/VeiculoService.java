@@ -12,7 +12,7 @@ public class VeiculoService {
     }
     
     public Veiculo verificarCadastroVeiculo (Veiculo veiculo) {
-        veiculoDAO.verificaCadastroVeiculo(veiculo);
+        veiculo = veiculoDAO.verificaCadastroVeiculo(veiculo);
         return veiculo;
     }
   

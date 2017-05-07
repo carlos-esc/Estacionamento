@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -45,7 +46,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     SimpleDateFormat hora = new SimpleDateFormat("HH:mm");
 
-    VerificadorDado verificaDado = new VerificadorDado();
+    VerificadorDado verificadorDado = new VerificadorDado();
 
     DefaultListModel rotativoTipoLista = new DefaultListModel(); //Carregar o jList
 
@@ -98,14 +99,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonEntradaVeiculoSim1 = new javax.swing.JButton();
         jPanelMenuF = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        jButtonF1 = new javax.swing.JButton();
+        jButtonF2 = new javax.swing.JButton();
+        jButtonF3 = new javax.swing.JButton();
+        jButtonF10 = new javax.swing.JButton();
+        jButtonF8 = new javax.swing.JButton();
+        jButtonF4 = new javax.swing.JButton();
+        jButtonF5 = new javax.swing.JButton();
+        jButtonF6 = new javax.swing.JButton();
         jPanelCabecalho = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanelOpcoes = new javax.swing.JPanel();
@@ -183,7 +184,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTextAreaMovimentacoes = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         jPanelMensal = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         jPanelPacote = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -611,97 +614,107 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opções", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 18))); // NOI18N
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setText("F1 (Entrada/Saída)");
-        jButton2.setFocusable(false);
-        jButton2.setMaximumSize(new java.awt.Dimension(165, 40));
-        jButton2.setMinimumSize(new java.awt.Dimension(165, 40));
-        jButton2.setPreferredSize(new java.awt.Dimension(165, 40));
-        jButton2.setRequestFocusEnabled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonF1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonF1.setText("F1 (Entrada/Saída)");
+        jButtonF1.setFocusable(false);
+        jButtonF1.setMaximumSize(new java.awt.Dimension(165, 40));
+        jButtonF1.setMinimumSize(new java.awt.Dimension(165, 40));
+        jButtonF1.setPreferredSize(new java.awt.Dimension(165, 40));
+        jButtonF1.setRequestFocusEnabled(false);
+        jButtonF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonF1ActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton3.setText("F2 (Mensal)");
-        jButton3.setFocusable(false);
-        jButton3.setMaximumSize(new java.awt.Dimension(165, 40));
-        jButton3.setMinimumSize(new java.awt.Dimension(165, 40));
-        jButton3.setPreferredSize(new java.awt.Dimension(165, 40));
-        jButton3.setRequestFocusEnabled(false);
-
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton4.setText("F3 (Pacote)");
-        jButton4.setFocusable(false);
-        jButton4.setMaximumSize(new java.awt.Dimension(165, 40));
-        jButton4.setMinimumSize(new java.awt.Dimension(165, 40));
-        jButton4.setPreferredSize(new java.awt.Dimension(165, 40));
-        jButton4.setRequestFocusEnabled(false);
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("F10 (Sair)");
-        jButton1.setFocusable(false);
-        jButton1.setMaximumSize(new java.awt.Dimension(165, 40));
-        jButton1.setMinimumSize(new java.awt.Dimension(165, 40));
-        jButton1.setPreferredSize(new java.awt.Dimension(165, 40));
-        jButton1.setRequestFocusEnabled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonF2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonF2.setText("F2 (Mensal)");
+        jButtonF2.setFocusable(false);
+        jButtonF2.setMaximumSize(new java.awt.Dimension(165, 40));
+        jButtonF2.setMinimumSize(new java.awt.Dimension(165, 40));
+        jButtonF2.setPreferredSize(new java.awt.Dimension(165, 40));
+        jButtonF2.setRequestFocusEnabled(false);
+        jButtonF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonF2ActionPerformed(evt);
             }
         });
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton5.setText("F8 (Configurações)");
-        jButton5.setFocusable(false);
-        jButton5.setMaximumSize(new java.awt.Dimension(165, 40));
-        jButton5.setMinimumSize(new java.awt.Dimension(165, 40));
-        jButton5.setPreferredSize(new java.awt.Dimension(165, 40));
-        jButton5.setRequestFocusEnabled(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jButtonF3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonF3.setText("F3 (Pacote)");
+        jButtonF3.setFocusable(false);
+        jButtonF3.setMaximumSize(new java.awt.Dimension(165, 40));
+        jButtonF3.setMinimumSize(new java.awt.Dimension(165, 40));
+        jButtonF3.setPreferredSize(new java.awt.Dimension(165, 40));
+        jButtonF3.setRequestFocusEnabled(false);
+        jButtonF3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jButtonF3ActionPerformed(evt);
             }
         });
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton6.setText("F4 (Rotativo)");
-        jButton6.setFocusable(false);
-        jButton6.setMaximumSize(new java.awt.Dimension(165, 40));
-        jButton6.setMinimumSize(new java.awt.Dimension(165, 40));
-        jButton6.setPreferredSize(new java.awt.Dimension(165, 40));
-        jButton6.setRequestFocusEnabled(false);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jButtonF10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonF10.setText("F10 (Sair)");
+        jButtonF10.setFocusable(false);
+        jButtonF10.setMaximumSize(new java.awt.Dimension(165, 40));
+        jButtonF10.setMinimumSize(new java.awt.Dimension(165, 40));
+        jButtonF10.setPreferredSize(new java.awt.Dimension(165, 40));
+        jButtonF10.setRequestFocusEnabled(false);
+        jButtonF10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jButtonF10ActionPerformed(evt);
             }
         });
 
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton7.setText("F5 (Pátio)");
-        jButton7.setFocusable(false);
-        jButton7.setMaximumSize(new java.awt.Dimension(165, 40));
-        jButton7.setMinimumSize(new java.awt.Dimension(165, 40));
-        jButton7.setPreferredSize(new java.awt.Dimension(165, 40));
-        jButton7.setRequestFocusEnabled(false);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        jButtonF8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonF8.setText("F8 (Configurações)");
+        jButtonF8.setFocusable(false);
+        jButtonF8.setMaximumSize(new java.awt.Dimension(165, 40));
+        jButtonF8.setMinimumSize(new java.awt.Dimension(165, 40));
+        jButtonF8.setPreferredSize(new java.awt.Dimension(165, 40));
+        jButtonF8.setRequestFocusEnabled(false);
+        jButtonF8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                jButtonF8ActionPerformed(evt);
             }
         });
 
-        jButton9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton9.setText("F6 (Movimento)");
-        jButton9.setFocusable(false);
-        jButton9.setMaximumSize(new java.awt.Dimension(165, 40));
-        jButton9.setMinimumSize(new java.awt.Dimension(165, 40));
-        jButton9.setPreferredSize(new java.awt.Dimension(165, 40));
-        jButton9.setRequestFocusEnabled(false);
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        jButtonF4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonF4.setText("F4 (Rotativo)");
+        jButtonF4.setFocusable(false);
+        jButtonF4.setMaximumSize(new java.awt.Dimension(165, 40));
+        jButtonF4.setMinimumSize(new java.awt.Dimension(165, 40));
+        jButtonF4.setPreferredSize(new java.awt.Dimension(165, 40));
+        jButtonF4.setRequestFocusEnabled(false);
+        jButtonF4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                jButtonF4ActionPerformed(evt);
+            }
+        });
+
+        jButtonF5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonF5.setText("F5 (Pátio)");
+        jButtonF5.setFocusable(false);
+        jButtonF5.setMaximumSize(new java.awt.Dimension(165, 40));
+        jButtonF5.setMinimumSize(new java.awt.Dimension(165, 40));
+        jButtonF5.setPreferredSize(new java.awt.Dimension(165, 40));
+        jButtonF5.setRequestFocusEnabled(false);
+        jButtonF5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonF5ActionPerformed(evt);
+            }
+        });
+
+        jButtonF6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonF6.setText("F6 (Movimento)");
+        jButtonF6.setFocusable(false);
+        jButtonF6.setMaximumSize(new java.awt.Dimension(165, 40));
+        jButtonF6.setMinimumSize(new java.awt.Dimension(165, 40));
+        jButtonF6.setPreferredSize(new java.awt.Dimension(165, 40));
+        jButtonF6.setRequestFocusEnabled(false);
+        jButtonF6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonF6ActionPerformed(evt);
             }
         });
 
@@ -716,40 +729,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButtonF2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonF3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButtonF4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonF5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButtonF6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonF1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jButtonF10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonF8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonF1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonF2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonF3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonF4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonF5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonF6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonF8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonF10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1556,28 +1569,54 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jTabbedPaneOpcoes.addTab("ENTRADA/SAÍDA", jPanelEntradaSaida);
 
+        jButton1.setText("Sair");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelMensalLayout = new javax.swing.GroupLayout(jPanelMensal);
         jPanelMensal.setLayout(jPanelMensalLayout);
         jPanelMensalLayout.setHorizontalGroup(
             jPanelMensalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1124, Short.MAX_VALUE)
+            .addGroup(jPanelMensalLayout.createSequentialGroup()
+                .addGap(403, 403, 403)
+                .addComponent(jButton1)
+                .addContainerGap(670, Short.MAX_VALUE))
         );
         jPanelMensalLayout.setVerticalGroup(
             jPanelMensalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 648, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMensalLayout.createSequentialGroup()
+                .addContainerGap(323, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(302, 302, 302))
         );
 
         jTabbedPaneOpcoes.addTab("MENSAL", jPanelMensal);
+
+        jButton2.setText("Sair");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelPacoteLayout = new javax.swing.GroupLayout(jPanelPacote);
         jPanelPacote.setLayout(jPanelPacoteLayout);
         jPanelPacoteLayout.setHorizontalGroup(
             jPanelPacoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1124, Short.MAX_VALUE)
+            .addGroup(jPanelPacoteLayout.createSequentialGroup()
+                .addGap(407, 407, 407)
+                .addComponent(jButton2)
+                .addContainerGap(666, Short.MAX_VALUE))
         );
         jPanelPacoteLayout.setVerticalGroup(
             jPanelPacoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 648, Short.MAX_VALUE)
+            .addGroup(jPanelPacoteLayout.createSequentialGroup()
+                .addGap(279, 279, 279)
+                .addComponent(jButton2)
+                .addContainerGap(346, Short.MAX_VALUE))
         );
 
         jTabbedPaneOpcoes.addTab("PACOTE", jPanelPacote);
@@ -2431,7 +2470,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         dadoEntrada = jTextFieldDadoEntrada.getText();
         switch (evt.getKeyCode()) {
             case KeyEvent.VK_ENTER:
-                dadoDigitado(dadoEntrada);
+                verificaDadoDigitado(dadoEntrada);
                 break;
             case KeyEvent.VK_F2:
                 mensal();
@@ -2551,9 +2590,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         entradaVeiculoNao();
     }//GEN-LAST:event_jDialogConfirmaEntradaVeiculoWindowClosing
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonF10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF10ActionPerformed
         confirmaSaidaSistema();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonF10ActionPerformed
 
     private void jDialogConfirmaSaidaSistemaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDialogConfirmaSaidaSistemaMouseReleased
         // TODO add your handling code here:
@@ -2572,20 +2611,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonEntradaVeiculoSim1ActionPerformed
 
     private void jButtonEntradaVeiculoNao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntradaVeiculoNao1ActionPerformed
+        botoesHabilitar();
         jDialogConfirmaSaidaSistema.dispose();
     }//GEN-LAST:event_jButtonEntradaVeiculoNao1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jButtonF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF1ActionPerformed
+        entradaSaida();
+    }//GEN-LAST:event_jButtonF1ActionPerformed
 
     private void jTextFieldRotativoPreco30minutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRotativoPreco30minutosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldRotativoPreco30minutosActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void jButtonF4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF4ActionPerformed
         rotativo();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_jButtonF4ActionPerformed
 
     private void jButtonRotativoSairCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRotativoSairCancelarActionPerformed
         rotativoSairCancelar();
@@ -2631,9 +2671,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldRotativoIncluirAlterarTipoActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jButtonF8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF8ActionPerformed
         configuracoes();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jButtonF8ActionPerformed
 
     private void jButtonConfiguracoesAlterarOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfiguracoesAlterarOkActionPerformed
         configuracoesAlterarOk();
@@ -2711,46 +2751,41 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtInformacoesPernoiteTerminoActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void jButtonF5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF5ActionPerformed
         patio();
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_jButtonF5ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        jTabbedPaneOpcoes.setEnabledAt(0, true);
-        jTabbedPaneOpcoes.setEnabledAt(1, false);
-        jTabbedPaneOpcoes.setEnabledAt(2, false);
-        jTabbedPaneOpcoes.setEnabledAt(3, false);
-        jTabbedPaneOpcoes.setEnabledAt(4, false);
-        jTabbedPaneOpcoes.setEnabledAt(5, false);
-        jTabbedPaneOpcoes.setEnabledAt(6, false);
-        jTabbedPaneOpcoes.setSelectedIndex(0);
+        entradaSaida();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        jTabbedPaneOpcoes.setEnabledAt(0, true);
-        jTabbedPaneOpcoes.setEnabledAt(1, false);
-        jTabbedPaneOpcoes.setEnabledAt(2, false);
-        jTabbedPaneOpcoes.setEnabledAt(3, false);
-        jTabbedPaneOpcoes.setEnabledAt(4, false);
-        jTabbedPaneOpcoes.setEnabledAt(5, false);
-        jTabbedPaneOpcoes.setEnabledAt(6, false);
-        jTabbedPaneOpcoes.setSelectedIndex(0);
+        entradaSaida();
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        
+
     }//GEN-LAST:event_jButton11ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        jTabbedPaneOpcoes.setEnabledAt(0, false);
-        jTabbedPaneOpcoes.setEnabledAt(1, false);
-        jTabbedPaneOpcoes.setEnabledAt(2, false);
-        jTabbedPaneOpcoes.setEnabledAt(3, false);
-        jTabbedPaneOpcoes.setEnabledAt(4, false);
-        jTabbedPaneOpcoes.setEnabledAt(5, true);
-        jTabbedPaneOpcoes.setEnabledAt(6, false);
-        jTabbedPaneOpcoes.setSelectedIndex(5);
-    }//GEN-LAST:event_jButton9ActionPerformed
+    private void jButtonF6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF6ActionPerformed
+        movimento();
+    }//GEN-LAST:event_jButtonF6ActionPerformed
+
+    private void jButtonF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF2ActionPerformed
+        mensal();
+    }//GEN-LAST:event_jButtonF2ActionPerformed
+
+    private void jButtonF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF3ActionPerformed
+        pacote();
+    }//GEN-LAST:event_jButtonF3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        entradaSaida();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        entradaSaida();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2793,19 +2828,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JButton jButtonConfiguracoesAlterarOk;
     private javax.swing.JButton jButtonConfiguracoesSairCancelar;
     private javax.swing.JButton jButtonEntradaVeiculoNao;
     private javax.swing.JButton jButtonEntradaVeiculoNao1;
     private javax.swing.JButton jButtonEntradaVeiculoSim;
     private javax.swing.JButton jButtonEntradaVeiculoSim1;
+    private javax.swing.JButton jButtonF1;
+    private javax.swing.JButton jButtonF10;
+    private javax.swing.JButton jButtonF2;
+    private javax.swing.JButton jButtonF3;
+    private javax.swing.JButton jButtonF4;
+    private javax.swing.JButton jButtonF5;
+    private javax.swing.JButton jButtonF6;
+    private javax.swing.JButton jButtonF8;
     private javax.swing.JButton jButtonRotativoAlterarOk;
     private javax.swing.JButton jButtonRotativoExcluirCancelar;
     private javax.swing.JButton jButtonRotativoIncluirOk;
@@ -3025,8 +3062,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }
 
-    private void dadoDigitado(String dadoEntrada) {
-        dadoRetornoTipo = verificaDado.verificaDadoTipo(dadoEntrada);
+    private void verificaDadoDigitado(String dadoEntrada) {
+        dadoRetornoTipo = verificadorDado.verificaDadoTipo(dadoEntrada);
         switch (dadoRetornoTipo) {
             case "placa":
                 veiculo.setPlaca(dadoEntrada);
@@ -3044,14 +3081,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void mensal() {
-
+        botoesDesabilitar();
+        jTabbedPaneOpcoes.setEnabledAt(0, false);
+        jTabbedPaneOpcoes.setEnabledAt(1, true);
+        jTabbedPaneOpcoes.setEnabledAt(2, false);
+        jTabbedPaneOpcoes.setEnabledAt(3, false);
+        jTabbedPaneOpcoes.setEnabledAt(4, false);
+        jTabbedPaneOpcoes.setEnabledAt(5, false);
+        jTabbedPaneOpcoes.setEnabledAt(6, false);
+        jTabbedPaneOpcoes.setSelectedIndex(1);
     }
 
     private void pacote() {
-
+        botoesDesabilitar();
+        jTabbedPaneOpcoes.setEnabledAt(0, false);
+        jTabbedPaneOpcoes.setEnabledAt(1, false);
+        jTabbedPaneOpcoes.setEnabledAt(2, true);
+        jTabbedPaneOpcoes.setEnabledAt(3, false);
+        jTabbedPaneOpcoes.setEnabledAt(4, false);
+        jTabbedPaneOpcoes.setEnabledAt(5, false);
+        jTabbedPaneOpcoes.setEnabledAt(6, false);
+        jTabbedPaneOpcoes.setSelectedIndex(2);
     }
 
     private void confirmaSaidaSistema() {
+        botoesDesabilitar();
         jDialogConfirmaSaidaSistema.setVisible(true);
     }
 
@@ -3291,6 +3345,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void configuracoes() {
+        botoesDesabilitar();
         jTabbedPaneOpcoes.setEnabledAt(0, false);
         jTabbedPaneOpcoes.setEnabledAt(1, false);
         jTabbedPaneOpcoes.setEnabledAt(2, false);
@@ -3306,6 +3361,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void rotativo() {
+        botoesDesabilitar();
         jTabbedPaneOpcoes.setEnabledAt(0, false);
         jTabbedPaneOpcoes.setEnabledAt(1, false);
         jTabbedPaneOpcoes.setEnabledAt(2, false);
@@ -3387,12 +3443,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 }
 
                 if (ref != null && ref.equals("02")) {//Se Status for igual a "sim"
-                    setBackground(Color.GREEN);//Preenche a linha de verde
-                    setForeground(Color.BLACK);//E a fonte de branco
+                    setBackground(new Color(46, 139, 87));//Preenche a linha de verde
+                    setForeground(new Color(255, 255, 255));//E a fonte de branco
+                    setFont(new Font("",Font.BOLD,15));//("Nome da fonte", estilo da fonte, tamanho da fonte)
                 }
 
                 if (isSelected) {
-                    setBackground(Color.ORANGE);
+                    setBackground(new Color(205, 179, 139));
                 }
                 return this;
             }
@@ -3439,14 +3496,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void rotativoSairCancelar() {
         switch (jButtonRotativoSairCancelar.getText()) {
             case "Sair":
-                jTabbedPaneOpcoes.setEnabledAt(0, true);
-                jTabbedPaneOpcoes.setEnabledAt(1, false);
-                jTabbedPaneOpcoes.setEnabledAt(2, false);
-                jTabbedPaneOpcoes.setEnabledAt(3, false);
-                jTabbedPaneOpcoes.setEnabledAt(4, false);
-                jTabbedPaneOpcoes.setEnabledAt(5, false);
-                jTabbedPaneOpcoes.setEnabledAt(6, false);
-                jTabbedPaneOpcoes.setSelectedIndex(0);
+                entradaSaida();
                 carregarRotativoTipoPrecoTabela();
                 break;
             case "Cancelar":
@@ -3757,14 +3807,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void configuracoesSairCancelar() {
         switch (jButtonConfiguracoesSairCancelar.getText()) {
             case "Sair":
-                jTabbedPaneOpcoes.setEnabledAt(0, true);
-                jTabbedPaneOpcoes.setEnabledAt(1, false);
-                jTabbedPaneOpcoes.setEnabledAt(2, false);
-                jTabbedPaneOpcoes.setEnabledAt(3, false);
-                jTabbedPaneOpcoes.setEnabledAt(4, false);
-                jTabbedPaneOpcoes.setEnabledAt(5, false);
-                jTabbedPaneOpcoes.setEnabledAt(6, false);
-                jTabbedPaneOpcoes.setSelectedIndex(0);
+                entradaSaida();
                 break;
             case "Cancelar":
                 jListConfiguracoes.setEnabled(true);
@@ -3791,6 +3834,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void patio() {
+        botoesDesabilitar();
         jTabbedPaneOpcoes.setEnabledAt(0, false);
         jTabbedPaneOpcoes.setEnabledAt(1, false);
         jTabbedPaneOpcoes.setEnabledAt(2, false);
@@ -3800,5 +3844,51 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTabbedPaneOpcoes.setEnabledAt(6, false);
         jTabbedPaneOpcoes.setSelectedIndex(4);
         patioListaVeiculo();
+    }
+
+    private void entradaSaida() {
+        botoesHabilitar();
+        jTabbedPaneOpcoes.setEnabledAt(0, true);
+        jTabbedPaneOpcoes.setEnabledAt(1, false);
+        jTabbedPaneOpcoes.setEnabledAt(2, false);
+        jTabbedPaneOpcoes.setEnabledAt(3, false);
+        jTabbedPaneOpcoes.setEnabledAt(4, false);
+        jTabbedPaneOpcoes.setEnabledAt(5, false);
+        jTabbedPaneOpcoes.setEnabledAt(6, false);
+        jTabbedPaneOpcoes.setSelectedIndex(0);
+    }
+    
+    private void botoesHabilitar (){
+        jButtonF1.setEnabled(true);
+        jButtonF2.setEnabled(true);
+        jButtonF3.setEnabled(true);
+        jButtonF4.setEnabled(true);
+        jButtonF5.setEnabled(true);
+        jButtonF6.setEnabled(true);
+        jButtonF8.setEnabled(true);
+        jButtonF10.setEnabled(true);
+    }
+    
+    private void botoesDesabilitar(){
+        jButtonF1.setEnabled(false);
+        jButtonF2.setEnabled(false);
+        jButtonF3.setEnabled(false);
+        jButtonF4.setEnabled(false);
+        jButtonF5.setEnabled(false);
+        jButtonF6.setEnabled(false);
+        jButtonF8.setEnabled(false);
+        jButtonF10.setEnabled(false);
+    }
+
+    private void movimento() {
+        botoesDesabilitar();
+        jTabbedPaneOpcoes.setEnabledAt(0, false);
+        jTabbedPaneOpcoes.setEnabledAt(1, false);
+        jTabbedPaneOpcoes.setEnabledAt(2, false);
+        jTabbedPaneOpcoes.setEnabledAt(3, false);
+        jTabbedPaneOpcoes.setEnabledAt(4, false);
+        jTabbedPaneOpcoes.setEnabledAt(5, true);
+        jTabbedPaneOpcoes.setEnabledAt(6, false);
+        jTabbedPaneOpcoes.setSelectedIndex(5);
     }
 }
