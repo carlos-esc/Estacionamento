@@ -56,6 +56,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     List<Patio> patioLista = new ArrayList<>();
     DefaultTableModel patioTabela = new DefaultTableModel();
 
+    DefaultTableModel movimentacoesTabela = new DefaultTableModel();
+
     String dadoEntrada, dadoRetornoTipo;
     SimpleDateFormat dataAtual = new SimpleDateFormat("dd/MM/yyyy");
     SimpleDateFormat horaAtual = new SimpleDateFormat("HH:mm");
@@ -180,13 +182,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTextFieldSaidaValor = new javax.swing.JTextField();
         jLabelPlacaOuPrisma = new javax.swing.JLabel();
         jTextFieldDadoEntrada = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextAreaMovimentacoes = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
+        jScrollPaneMovimentacoes = new javax.swing.JScrollPane();
+        jTableMovimentacoes = new javax.swing.JTable();
         jPanelMensal = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jPanelPacote = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -602,7 +606,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
-        setBounds(new java.awt.Rectangle(0, 0, 1400, 820));
+        setBounds(new java.awt.Rectangle(0, 0, 1400, 900));
         setMinimumSize(new java.awt.Dimension(1400, 820));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -1143,7 +1147,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanelVeiculoEntradaLayout.setHorizontalGroup(
             jPanelVeiculoEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVeiculoEntradaLayout.createSequentialGroup()
-                .addContainerGap(217, Short.MAX_VALUE)
+                .addContainerGap(136, Short.MAX_VALUE)
                 .addGroup(jPanelVeiculoEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelVeiculoEntradaLayout.createSequentialGroup()
                         .addComponent(jLabel4)
@@ -1160,31 +1164,32 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelVeiculoEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelVeiculoEntradaLayout.createSequentialGroup()
-                        .addComponent(jTextFieldRotativoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldEntradaPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(193, 193, 193))
+                .addGroup(jPanelVeiculoEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+                    .addComponent(jTextFieldRotativoTipo))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextFieldEntradaPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(153, 153, 153))
         );
         jPanelVeiculoEntradaLayout.setVerticalGroup(
             jPanelVeiculoEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelVeiculoEntradaLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(jPanelVeiculoEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelVeiculoEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6)
-                        .addComponent(jTextFieldRotativoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5)
-                        .addComponent(jTextFieldEntradaPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVeiculoEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(jTextFieldEntradaPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanelVeiculoEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelVeiculoEntradaLayout.createSequentialGroup()
+                        .addGroup(jPanelVeiculoEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jTextFieldRotativoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(jTextFieldEntradaPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelVeiculoEntradaLayout.createSequentialGroup()
+                        .addGroup(jPanelVeiculoEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jTextFieldEntradaPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelVeiculoEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
@@ -1192,11 +1197,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanelVeiculoEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(jTextFieldEntradaHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanelVeiculoEntradaLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap(196, Short.MAX_VALUE))
+                            .addComponent(jTextFieldEntradaHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jTabbedPaneVeiculoEntradaSaida.addTab("Entrada", jPanelVeiculoEntrada);
@@ -1519,26 +1521,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jTextAreaMovimentacoes.setEditable(false);
-        jTextAreaMovimentacoes.setColumns(20);
-        jTextAreaMovimentacoes.setRows(5);
-        jTextAreaMovimentacoes.setFocusable(false);
-        jTextAreaMovimentacoes.setRequestFocusEnabled(false);
-        jScrollPane2.setViewportView(jTextAreaMovimentacoes);
-
         jLabel9.setText("Ultimas movimentações (Entrada/Saída)");
+
+        jTableMovimentacoes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPaneMovimentacoes.setViewportView(jTableMovimentacoes);
 
         javax.swing.GroupLayout jPanelEntradaSaidaLayout = new javax.swing.GroupLayout(jPanelEntradaSaida);
         jPanelEntradaSaida.setLayout(jPanelEntradaSaidaLayout);
         jPanelEntradaSaidaLayout.setHorizontalGroup(
             jPanelEntradaSaidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelEntradaSaidaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelEntradaSaidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTabbedPaneVeiculoEntradaSaida))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEntradaSaidaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelEntradaSaidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEntradaSaidaLayout.createSequentialGroup()
@@ -1548,9 +1550,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addComponent(jTextFieldDadoEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(464, 464, 464))))
             .addGroup(jPanelEntradaSaidaLayout.createSequentialGroup()
-                .addGap(464, 464, 464)
-                .addComponent(jLabel9)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanelEntradaSaidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelEntradaSaidaLayout.createSequentialGroup()
+                        .addGap(464, 464, 464)
+                        .addComponent(jLabel9)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanelEntradaSaidaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanelEntradaSaidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPaneMovimentacoes, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTabbedPaneVeiculoEntradaSaida))))
+                .addContainerGap())
         );
         jPanelEntradaSaidaLayout.setVerticalGroup(
             jPanelEntradaSaidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1564,7 +1574,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPaneMovimentacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         jTabbedPaneOpcoes.addTab("ENTRADA/SAÍDA", jPanelEntradaSaida);
@@ -1588,7 +1599,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanelMensalLayout.setVerticalGroup(
             jPanelMensalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMensalLayout.createSequentialGroup()
-                .addContainerGap(323, Short.MAX_VALUE)
+                .addContainerGap(389, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(302, 302, 302))
         );
@@ -1602,21 +1613,41 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane13.setViewportView(jTable1);
+
         javax.swing.GroupLayout jPanelPacoteLayout = new javax.swing.GroupLayout(jPanelPacote);
         jPanelPacote.setLayout(jPanelPacoteLayout);
         jPanelPacoteLayout.setHorizontalGroup(
             jPanelPacoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPacoteLayout.createSequentialGroup()
-                .addGap(407, 407, 407)
-                .addComponent(jButton2)
-                .addContainerGap(666, Short.MAX_VALUE))
+                .addGroup(jPanelPacoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelPacoteLayout.createSequentialGroup()
+                        .addGap(494, 494, 494)
+                        .addComponent(jButton2))
+                    .addGroup(jPanelPacoteLayout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(503, Short.MAX_VALUE))
         );
         jPanelPacoteLayout.setVerticalGroup(
             jPanelPacoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelPacoteLayout.createSequentialGroup()
-                .addGap(279, 279, 279)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPacoteLayout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 484, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addContainerGap(346, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
 
         jTabbedPaneOpcoes.addTab("PACOTE", jPanelPacote);
@@ -1928,7 +1959,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
 
         jTabbedPaneOpcoes.addTab("ROTATIVO", jPanel1);
@@ -1972,7 +2003,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel23Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -2046,7 +2077,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel25Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2422,8 +2453,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
             jPanelOpcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelOpcoesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPaneOpcoes, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jTabbedPaneOpcoes)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -2443,13 +2474,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelMenuF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanelCabecalho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanelOpcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(44, 44, 44))
+                        .addComponent(jPanelOpcoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         bindingGroup.bind();
@@ -2944,7 +2975,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -2952,10 +2983,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JScrollPane jScrollPaneMovimentacoes;
     private javax.swing.JTabbedPane jTabbedPaneConfiguracoesItemAlteracao;
     private javax.swing.JTabbedPane jTabbedPaneOpcoes;
     private javax.swing.JTabbedPane jTabbedPaneRotativoInclusaoAlteracaoConsulta;
     private javax.swing.JTabbedPane jTabbedPaneVeiculoEntradaSaida;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableMovimentacoes;
     private javax.swing.JTable jTableMovimento;
     private javax.swing.JTable jTablePatio;
     private javax.swing.JTable jTableRotativoTipoPrecoTabelaInformacoes;
@@ -2964,7 +2998,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextArea jTextAreaMovimentacoes;
     private javax.swing.JTextField jTextFieldConfirmaSaidaPlaca;
     private javax.swing.JTextField jTextFieldConfirmaSaidaPlaca1;
     private javax.swing.JTextField jTextFieldConfirmaSaidaPrisma;
@@ -3057,6 +3090,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jTableRotativoTipoPrecoTabelaInformacoes.setFocusable(false);
         jTableRotativoTipoPrecoTabelaInformacoes.setEnabled(false);
+        carregarMovimentacoesTabelaCabecalho();
         carregarRotativoTipoPrecoTabela();
         carregarInformacoesConfiguracoes();
 
@@ -3236,30 +3270,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jDialogConfirmaSaidaVeiculo.dispose();
     }
 
-    private void movimentacoesEntrada() {
-        jTextAreaMovimentacoes.append("ENTRADA-> "
-                + "Placa:" + patio.getPlaca()
-                + " | Prisma:" + patio.getPrisma()
-                + " | Tipo:" + patio.getTipo()
-                + " | Data entrada:" + patio.getDataEntrada()
-                + " | Hora entrada:" + patio.getHoraEntrada()
-                + " | Nº Controle:" + patio.getRps()
-                + "\n");
-    }
-
-    private void movimentacoesSaida() {
-        jTextAreaMovimentacoes.append("SAÍDA-> "
-                + "Placa:" + patio.getPlaca()
-                + " | Prisma:" + patio.getPrisma()
-                + " | Tipo:" + patio.getTipo()
-                + " | Data entrada:" + patio.getDataEntrada()
-                + " | Hora entrada:" + patio.getHoraEntrada()
-                + " | Data saída:" + patio.getDataSaida()
-                + " | Hora saída:" + patio.getHoraSaida()
-                + " | Nº Controle:" + patio.getRps()
-                + "\n");
-    }
-
     private void prepararEntradaVeiculoNoPatio() {
         SimpleDateFormat rps = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         jTextFieldEntradaData.setText(dataAtual.format(new Date()));
@@ -3398,6 +3408,36 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }
 
+    private void movimentacoesEntrada() {
+        movimentacoesTabela.addRow(new String[]{
+            "ENTRADA",
+            patio.getPlaca(),
+            patio.getPrisma(),
+            patio.getTipo(),
+            patio.getDataEntrada(),
+            patio.getHoraEntrada(),
+            "-------------",
+            "-------------",
+            patio.getRps()
+        });
+        jTableMovimentacoes.changeSelection(jTableMovimentacoes.getRowCount() - 1,jTableMovimentacoes.getRowCount(),false,false);
+    }
+
+    private void movimentacoesSaida() {
+        movimentacoesTabela.addRow(new String[]{
+            "SAÍDA",
+            patio.getPlaca(),
+            patio.getPrisma(),
+            patio.getTipo(),
+            patio.getDataEntrada(),
+            patio.getHoraEntrada(),
+            patio.getDataSaida(),
+            patio.getHoraSaida(),
+            patio.getRps()
+        });
+        jTableMovimentacoes.changeSelection(jTableMovimentacoes.getRowCount() - 1,jTableMovimentacoes.getRowCount(),false,false);
+    }
+
     private void patioListaVeiculo() {
         patioLista.clear();
         ((DefaultTableModel) jTablePatio.getModel()).setRowCount(0);
@@ -3445,7 +3485,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 if (ref != null && ref.equals("02")) {//Se Status for igual a "sim"
                     setBackground(new Color(46, 139, 87));//Preenche a linha de verde
                     setForeground(new Color(255, 255, 255));//E a fonte de branco
-                    setFont(new Font("",Font.BOLD,15));//("Nome da fonte", estilo da fonte, tamanho da fonte)
+                    setFont(new Font("", Font.BOLD, 15));//("Nome da fonte", estilo da fonte, tamanho da fonte)
                 }
 
                 if (isSelected) {
@@ -3857,8 +3897,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTabbedPaneOpcoes.setEnabledAt(6, false);
         jTabbedPaneOpcoes.setSelectedIndex(0);
     }
-    
-    private void botoesHabilitar (){
+
+    private void botoesHabilitar() {
         jButtonF1.setEnabled(true);
         jButtonF2.setEnabled(true);
         jButtonF3.setEnabled(true);
@@ -3868,8 +3908,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonF8.setEnabled(true);
         jButtonF10.setEnabled(true);
     }
-    
-    private void botoesDesabilitar(){
+
+    private void botoesDesabilitar() {
         jButtonF1.setEnabled(false);
         jButtonF2.setEnabled(false);
         jButtonF3.setEnabled(false);
@@ -3890,5 +3930,62 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTabbedPaneOpcoes.setEnabledAt(5, true);
         jTabbedPaneOpcoes.setEnabledAt(6, false);
         jTabbedPaneOpcoes.setSelectedIndex(5);
+    }
+
+    private void carregarMovimentacoesTabelaCabecalho() {
+        ((DefaultTableModel) jTableMovimentacoes.getModel()).setRowCount(0);
+        ((DefaultTableModel) jTableMovimentacoes.getModel()).setColumnCount(0);
+        movimentacoesTabela.addColumn("Ação");
+        movimentacoesTabela.addColumn("Placa");
+        movimentacoesTabela.addColumn("Prisma");
+        movimentacoesTabela.addColumn("Tipo");
+        movimentacoesTabela.addColumn("Data Entrada");
+        movimentacoesTabela.addColumn("Hora Entrada");
+        movimentacoesTabela.addColumn("Data Saída");
+        movimentacoesTabela.addColumn("Hora Saída");
+        movimentacoesTabela.addColumn("Nº Controle");
+        jTableMovimentacoes.setModel(movimentacoesTabela);
+        jTableMovimentacoes.getColumnModel().getColumn(0).setPreferredWidth(40);
+        jTableMovimentacoes.getColumnModel().getColumn(1).setPreferredWidth(40);
+        jTableMovimentacoes.getColumnModel().getColumn(2).setPreferredWidth(20);
+        jTableMovimentacoes.getColumnModel().getColumn(3).setPreferredWidth(200);
+        jTableMovimentacoes.getColumnModel().getColumn(4).setPreferredWidth(45);
+        jTableMovimentacoes.getColumnModel().getColumn(5).setPreferredWidth(45);
+        jTableMovimentacoes.getColumnModel().getColumn(6).setPreferredWidth(45);
+        jTableMovimentacoes.getColumnModel().getColumn(7).setPreferredWidth(45);
+        jTableMovimentacoes.getColumnModel().getColumn(8).setPreferredWidth(150);
+        jTableMovimentacoes.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(
+                    JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                //A coluna do status é 1
+                Object ref = table.getValueAt(row, 0);//Coluna Status
+                //Coloca cor em todas as linhas em que a COLUNA(1) tiver valor "Escolha aqui o valor"
+
+                if (row % 2 == 0) {
+                    setBackground(null);
+                    setForeground(null);
+                } else {
+                    setBackground(null);
+                    setForeground(null);
+                }
+
+                if (ref != null && ref.equals("ENTRADA")) {//Se Status for igual a ""
+                    setBackground(new Color(46, 139, 87));//Preenche a linha de verde
+                    setForeground(new Color(255, 255, 255));//E a fonte de branco
+                    setFont(new Font("", Font.BOLD, 15));//("Nome da fonte", estilo da fonte, tamanho da fonte)
+                } else {
+                    setBackground(new Color(205, 51, 51));//Preenche a linha de vermelho
+                    setForeground(new Color(255, 255, 255));//E a fonte de branco
+                    setFont(new Font("", Font.BOLD, 15));//("Nome da fonte", estilo da fonte, tamanho da fonte)
+                }
+
+                if (isSelected) {
+                    setBackground(new Color(205, 179, 139));
+                }
+                return this;
+            }
+        });
     }
 }

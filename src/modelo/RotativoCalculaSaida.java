@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import service.ConfiguracoesService;
 
 public class RotativoCalculaSaida {
-    
+
     private RotativoTipoPreco rotativo = new RotativoTipoPreco();
     private ConfiguracoesService configuracoesService = new ConfiguracoesService();
     private Configuracoes configuracoes = new Configuracoes();
@@ -101,14 +101,14 @@ public class RotativoCalculaSaida {
         patio.setDataEntradaHoras("");
         patio.setDataEntradaMinutos("");
         Date pernoiteInicio = null, pernoiteTermino = null;
-        
+
         try {
             pernoiteInicio = sdfHora.parse(configuracoes.getPernoiteInicio());
             pernoiteTermino = sdfHora.parse(configuracoes.getPernoiteTermino());
         } catch (ParseException ex) {
             Logger.getLogger(RotativoCalculaSaida.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         if (horaEntrada.getTime() < pernoiteInicio.getTime()) {
             diferencaHorasMinutos = pernoiteInicio.getTime() - horaEntrada.getTime();
             horasRotativoNoDiaEntrada = diferencaHorasMinutos / (60 * 60 * 1000) % 24;

@@ -14,7 +14,7 @@ public class TelaLogin extends javax.swing.JFrame {
         //conj.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));     
         //telaPrincipal.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, conj);
         telaPrincipal.setResizable(false); //proibe que redimensionamento da tela pelo mouse
-        telaPrincipal.setBounds(0, 0, 1400, 860);
+        telaPrincipal.setBounds(0, 0, 1400, 900);
         telaPrincipal.setLocationRelativeTo(null); //cria jform centro da tela
         telaPrincipal.setVisible(true);
         //telaPrincipal.setUndecorated(true); //remove barra de titulo
