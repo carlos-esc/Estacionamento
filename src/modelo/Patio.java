@@ -1,9 +1,10 @@
 package modelo;
 
-public class Patio {
+public class Patio {    
+    //bdestacionamento/patio (Preenchidos na ENTRADA do veículo)
     private int idPatio;
     private int idVeiculoFk;
-    private String placa;
+    private String placaFk;
     private String rps;
     private String prisma;
     private String tipo;
@@ -14,36 +15,29 @@ public class Patio {
     private float precoPernoite;
     private String estacionado;
     private String dataEntrada;
-    private String dataEntradaHoras;
-    private String dataEntradaMinutos;
     private String horaEntrada;
+    private int toleranciaDesistencia;
+    private int toleranciaEntreFracoes;
+    private int diariaHoras;
+    private int diariaMinutos;
+    private String pernoiteInicio;
+    private String pernoiteTermino;
+    //bdestacionamento/patio (Preenchidos na SAÍDA do veículo)
     private String dataSaida;
-    private String dataSaidaHoras;
-    private String dataSaidaMinutos;
     private String horaSaida;
+    private String permanencia;
+    private float valorTotal;
+    private String horaMinutoDataEntrada;
+    private String horaMinutoDataSaida; 
+    
+    //modelo/RotativoCalculaSaida
     private int diariaQuantidade;
     private float diariasValorTotal;
     private int pernoiteQuantidade;
     private float pernoitesValorTotal;
-    private String permanencia;
     private float valorDataEntrada;
     private float valorDataSaida;
-    private float valorTotal;
-
-    /**
-     * @return the placa
-     */
-    public String getPlaca() {
-        return placa;
-    }
-
-    /**
-     * @param placa the placa to set
-     */
-    public void setPlaca(String placa) {
-        this.placa = placa;
-    }
-
+    
     /**
      * @return the rps
      */
@@ -114,35 +108,7 @@ public class Patio {
         this.dataEntrada = dataEntrada;
     }
 
-    /**
-     * @return the dataEntradaHoras
-     */
-    public String getDataEntradaHoras() {
-        return dataEntradaHoras;
-    }
-
-    /**
-     * @param dataEntradaHoras the dataEntradaHoras to set
-     */
-    public void setDataEntradaHoras(String dataEntradaHoras) {
-        this.dataEntradaHoras = dataEntradaHoras;
-    }
-
-    /**
-     * @return the dataEntradaMinutos
-     */
-    public String getDataEntradaMinutos() {
-        return dataEntradaMinutos;
-    }
-
-    /**
-     * @param dataEntradaMinutos the dataEntradaMinutos to set
-     */
-    public void setDataEntradaMinutos(String dataEntradaMinutos) {
-        this.dataEntradaMinutos = dataEntradaMinutos;
-    }
-
-    /**
+     /**
      * @return the horaEntrada
      */
     public String getHoraEntrada() {
@@ -168,34 +134,6 @@ public class Patio {
      */
     public void setDataSaida(String dataSaida) {
         this.dataSaida = dataSaida;
-    }
-
-    /**
-     * @return the dataSaidaHoras
-     */
-    public String getDataSaidaHoras() {
-        return dataSaidaHoras;
-    }
-
-    /**
-     * @param dataSaidaHoras the dataSaidaHoras to set
-     */
-    public void setDataSaidaHoras(String dataSaidaHoras) {
-        this.dataSaidaHoras = dataSaidaHoras;
-    }
-
-    /**
-     * @return the dataSaidaMinutos
-     */
-    public String getDataSaidaMinutos() {
-        return dataSaidaMinutos;
-    }
-
-    /**
-     * @param dataSaidaMinutos the dataSaidaMinutos to set
-     */
-    public void setDataSaidaMinutos(String dataSaidaMinutos) {
-        this.dataSaidaMinutos = dataSaidaMinutos;
     }
 
     /**
@@ -420,5 +358,47 @@ public class Patio {
      */
     public void setPrecoPernoite(float precoPernoite) {
         this.precoPernoite = precoPernoite;
+    }
+
+    /**
+     * @return the horaMinutoDataEntrada
+     */
+    public String getHoraMinutoDataEntrada() {
+        return horaMinutoDataEntrada;
+    }
+
+    /**
+     * @param horaMinutoDataEntrada the horaMinutoDataEntrada to set
+     */
+    public void setHoraMinutoDataEntrada(String horaMinutoDataEntrada) {
+        this.horaMinutoDataEntrada = horaMinutoDataEntrada;
+    }
+
+    /**
+     * @return the horaMinutoDataSaida
+     */
+    public String getHoraMinutoDataSaida() {
+        return horaMinutoDataSaida;
+    }
+
+    /**
+     * @param horaMinutoDataSaida the horaMinutoDataSaida to set
+     */
+    public void setHoraMinutoDataSaida(String horaMinutoDataSaida) {
+        this.horaMinutoDataSaida = horaMinutoDataSaida;
+    }
+
+    /**
+     * @return the placaFk
+     */
+    public String getPlacaFk() {
+        return placaFk;
+    }
+
+    /**
+     * @param placaFk the placaFk to set
+     */
+    public void setPlacaFk(String placaFk) {
+        this.placaFk = placaFk;
     }
 }

@@ -35,7 +35,7 @@ public class PatioDAO {
                 patio.setDataSaida(dataAtual.format(new Date()));
                 patio.setHoraSaida(horaAtual.format(new Date()));
                 
-                patio.setPlaca(rs.getString("placa"));
+                patio.setPlacaFk(rs.getString("placa"));
                 patio.setPrisma(rs.getString("prisma"));
                 patio.setDataEntrada(rs.getString("dataentrada"));
                 patio.setHoraEntrada(rs.getString("horaentrada"));
@@ -82,15 +82,15 @@ public class PatioDAO {
 
     public void retiraVeiculo(Patio patio) {
         try {
-            String sql = "UPDATE patio SET estacionado=?, datasaida=?, horasaida=?, permanencia=?, valortotal=?, hmdiaentrada=?, hmdiasaida=?, diarias=?, pernoites=? WHERE prisma=? AND estacionado='sim'";
+            String sql = "UPDATE patio SET estacionado=?, datasaida=?, horasaida=?, permanencia=?, valortotal=?, horaminutodataentrada=?, horaminutodatasaida=?, diarias=?, pernoites=? WHERE prisma=? AND estacionado='sim'";
             PreparedStatement stmt = conexao.prepareStatement(sql);
             stmt.setString(1, "nao");
             stmt.setString(2, patio.getDataSaida());
             stmt.setString(3, patio.getHoraSaida());
             stmt.setString(4, patio.getPermanencia());
             stmt.setFloat(5, patio.getValorTotal());
-            stmt.setString(6, patio.getDataEntradaHoras() + patio.getDataEntradaMinutos());
-            stmt.setString(7, patio.getDataSaidaHoras() + patio.getDataSaidaMinutos());
+            stmt.setString(6, patio.getHoraMinutoDataEntrada());
+            stmt.setString(7, patio.getHoraMinutoDataSaida());
             stmt.setInt(8, patio.getDiariaQuantidade());
             stmt.setInt(9, patio.getPernoiteQuantidade());
             stmt.setString(10, patio.getPrisma());
@@ -114,8 +114,8 @@ public class PatioDAO {
             stmt.setInt(1, patio.getIdVeiculoFk());
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                patio.setPlaca(rs.getString("placa"));
-                System.out.println("Placa: " + patio.getPlaca());
+                patio.setPlacaFk(rs.getString("placa"));
+                System.out.println("Placa: " + patio.getPlacaFk());
                 patio.setPrisma(rs.getString("prisma"));
                 System.out.println("Prisma: " + patio.getPrisma());
                 patio.setEstacionado("sim");
@@ -141,8 +141,8 @@ public class PatioDAO {
             if (rs.next()) {
                 patio.setRps(rs.getString("rps"));
                 System.out.println("Rps: " + patio.getRps());
-                patio.setPlaca(rs.getString("placa"));
-                System.out.println("Placa: " + patio.getPlaca());
+                patio.setPlacaFk(rs.getString("placa"));
+                System.out.println("Placa: " + patio.getPlacaFk());
                 patio.setPrisma(rs.getString("prisma"));
                 System.out.println("Prisma: " + patio.getPrisma());
                 patio.setTipo(rs.getString("tipo"));

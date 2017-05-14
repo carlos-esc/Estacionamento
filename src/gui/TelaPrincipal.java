@@ -189,8 +189,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jPanelPacote = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        jScrollPane13 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -1613,39 +1611,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane13.setViewportView(jTable1);
-
         javax.swing.GroupLayout jPanelPacoteLayout = new javax.swing.GroupLayout(jPanelPacote);
         jPanelPacote.setLayout(jPanelPacoteLayout);
         jPanelPacoteLayout.setHorizontalGroup(
             jPanelPacoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPacoteLayout.createSequentialGroup()
-                .addGroup(jPanelPacoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelPacoteLayout.createSequentialGroup()
-                        .addGap(494, 494, 494)
-                        .addComponent(jButton2))
-                    .addGroup(jPanelPacoteLayout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(503, Short.MAX_VALUE))
+                .addGap(494, 494, 494)
+                .addComponent(jButton2)
+                .addContainerGap(579, Short.MAX_VALUE))
         );
         jPanelPacoteLayout.setVerticalGroup(
             jPanelPacoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPacoteLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 484, Short.MAX_VALUE)
+                .addContainerGap(661, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(30, 30, 30))
         );
@@ -1928,6 +1906,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             }
         ));
+        jTableRotativoTipoPrecoTabelaRotativo.setFocusable(false);
+        jTableRotativoTipoPrecoTabelaRotativo.setRequestFocusEnabled(false);
         jScrollPane6.setViewportView(jTableRotativoTipoPrecoTabelaRotativo);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -2975,7 +2955,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
-    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -2988,7 +2967,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPaneOpcoes;
     private javax.swing.JTabbedPane jTabbedPaneRotativoInclusaoAlteracaoConsulta;
     private javax.swing.JTabbedPane jTabbedPaneVeiculoEntradaSaida;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTableMovimentacoes;
     private javax.swing.JTable jTableMovimento;
     private javax.swing.JTable jTablePatio;
@@ -3148,7 +3126,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         if (veiculo.getIdVeiculo() != 0) {
             System.out.println("O veiculo ID:[" + veiculo.getIdVeiculo() + "] Placa:" + veiculo.getPlaca() + " Esta cadastrado!!!");
             patio.setIdVeiculoFk(veiculo.getIdVeiculo());
-            patio.setPlaca(veiculo.getPlaca());
+            patio.setPlacaFk(veiculo.getPlaca());
             veiculoNoPatio(patio);
         } else {
             System.out.println("O veiculo ID:[Nulo] Placa:" + veiculo.getPlaca() + " NÃO esta cadastrado!!!");
@@ -3167,7 +3145,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         } else if (jLabelPlacaOuPrisma.getText().equalsIgnoreCase("Digite o prisma")) {
             if (patio.getEstacionado().equalsIgnoreCase("sim")) {
-                JOptionPane.showMessageDialog(this, "O Prisma[" + patio.getPrisma() + "]  Já esta sendo utilizado pelo veiculo de Placa: " + patio.getPlaca());
+                JOptionPane.showMessageDialog(this, "O Prisma[" + patio.getPrisma() + "]  Já esta sendo utilizado pelo veiculo de Placa: " + patio.getPlacaFk());
                 jTextFieldDadoEntrada.setText(null);
             } else {
                 System.out.println("prepararEntradaVeiculoNoPatio");
@@ -3189,17 +3167,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         patio.setIdPatio(0);
         patio.setIdVeiculoFk(0);
         patio.setRps("");
-        patio.setPlaca("");
+        patio.setPlacaFk("");
         patio.setPrisma("");
         patio.setEstacionado("");
         patio.setTipo("");
         patio.setDataEntrada("");
-        patio.setDataEntradaHoras("");
-        patio.setDataEntradaMinutos("");
+        patio.setHoraMinutoDataEntrada("");
         patio.setHoraEntrada("");
         patio.setDataSaida("");
-        patio.setDataSaidaHoras("");
-        patio.setDataSaidaMinutos("");
+        patio.setHoraMinutoDataSaida("");
         patio.setHoraSaida("");
         patio.setDiariaQuantidade(0);
         patio.setDiariasValorTotal(0);
@@ -3245,7 +3221,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             veiculo.setDataHoraRegistro(sdf.format(new Date()));
             veiculo = veiculoService.cadastrarVeiculo(veiculo);
             patio.setIdVeiculoFk(veiculo.getIdVeiculo());
-            patio.setPlaca(veiculo.getPlaca());
+            patio.setPlacaFk(veiculo.getPlaca());
         }
         patioService.estacionarVeiculo(patio);
         movimentacoesEntrada();
@@ -3303,7 +3279,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTabbedPaneVeiculoEntradaSaida.setEnabledAt(1, false);
         jTabbedPaneVeiculoEntradaSaida.setEnabledAt(2, true);
         jTabbedPaneVeiculoEntradaSaida.setSelectedIndex(2);
-        jTextFieldSaidaPlaca.setText(patio.getPlaca());
+        jTextFieldSaidaPlaca.setText(patio.getPlacaFk());
         jTextFieldSaidaPrisma.setText(patio.getPrisma());
         jTextFieldSaidaTipo.setText(patio.getTipo());
         jTextFieldSaidaDataEntrada.setText(patio.getDataEntrada());
@@ -3313,10 +3289,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         RotativoCalculaSaida rotativoCalculaSaida = new RotativoCalculaSaida();
         patio = rotativoCalculaSaida.calcularPermanenciaValor(patio);
 
-        jTextFieldSaidaHMEntrada.setText(patio.getDataEntradaHoras() + patio.getDataEntradaMinutos());
+        jTextFieldSaidaHMEntrada.setText(patio.getHoraMinutoDataEntrada());
         jTextFieldSaidaDiarias.setText(String.valueOf(patio.getDiariaQuantidade()));
         jTextFieldSaidaPernoites.setText(String.valueOf(patio.getPernoiteQuantidade()));
-        jTextFieldSaidaHMSaida.setText(patio.getDataSaidaHoras() + patio.getDataSaidaMinutos());
+        jTextFieldSaidaHMSaida.setText(patio.getHoraMinutoDataSaida());
         jTextFieldSaidaValor.setText(new DecimalFormat("#,##0.00").format(patio.getValorTotal()));
         jTextFieldSaidaPermanenciaTotal.setText(patio.getPermanencia());
 
@@ -3327,11 +3303,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         patio = patioService.verificarVeiculo(patio);
         switch (patio.getEstacionado()) {
             case "sim":
-                JOptionPane.showMessageDialog(this, "O Veiculo placa: " + patio.getPlaca() + " Já está no pátio! O número do prisma é: " + patio.getPrisma());
+                JOptionPane.showMessageDialog(this, "O Veiculo placa: " + patio.getPlacaFk() + " Já está no pátio! O número do prisma é: " + patio.getPrisma());
                 limparObjetosPatio();
                 break;
             default:
-                System.out.println("O veiculo ID:[" + patio.getIdVeiculoFk() + "] Placa:" + patio.getPlaca() + " Não esta no Pátio!!!");
+                System.out.println("O veiculo ID:[" + patio.getIdVeiculoFk() + "] Placa:" + patio.getPlacaFk() + " Não esta no Pátio!!!");
                 System.out.println("Registrar no Pátio");
                 escolhaRotativoTipo();
                 break;
@@ -3411,7 +3387,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void movimentacoesEntrada() {
         movimentacoesTabela.addRow(new String[]{
             "ENTRADA",
-            patio.getPlaca(),
+            patio.getPlacaFk(),
             patio.getPrisma(),
             patio.getTipo(),
             patio.getDataEntrada(),
@@ -3426,7 +3402,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void movimentacoesSaida() {
         movimentacoesTabela.addRow(new String[]{
             "SAÍDA",
-            patio.getPlaca(),
+            patio.getPlacaFk(),
             patio.getPrisma(),
             patio.getTipo(),
             patio.getDataEntrada(),
@@ -3453,7 +3429,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         patioTabela.addColumn("Valor Atual");
 
         for (int i = 0; i < patioLista.size(); i++) {
-            patioTabela.addRow(new String[]{patioLista.get(i).getPlaca(),
+            patioTabela.addRow(new String[]{patioLista.get(i).getPlacaFk(),
                 patioLista.get(i).getPrisma(),
                 patioLista.get(i).getDataEntrada(),
                 patioLista.get(i).getHoraEntrada(),
