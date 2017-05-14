@@ -1,0 +1,10 @@
+No yoga o diretório do git é projetos/Estacionamento
+--------------------------------------------------------------
+git push //enviar para nuvem
+git pull //baixar da nuvem
+git log //?
+git checkout master // muda para o branch master
+git checkout develop // muda para o branch develop
+git status //
+git marge develop //manda o branch develop para o branch master
+git commit -m "Mensagem"
