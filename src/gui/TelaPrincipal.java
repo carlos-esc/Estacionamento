@@ -3266,6 +3266,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         patio.setEstacionado("sim");
         patio.setDataEntrada(jTextFieldEntradaData.getText());
         patio.setHoraEntrada(jTextFieldEntradaHora.getText());
+        patio.setToleranciaDesistencia(configuracoes.getToleranciaDesistencia());
+        patio.setToleranciaEntreFracoes(configuracoes.getToleranciaFracoes());
+        patio.setDiariaHoras(configuracoes.getDiariaHora());
+        patio.setDiariaMinutos(configuracoes.getDiariaMinuto());
+        patio.setPernoiteInicio(configuracoes.getPernoiteInicio());
+        patio.setPernoiteTermino(configuracoes.getPernoiteTermino());
 
         jDialogConfirmaEntradaVeiculo.setVisible(true);
     }

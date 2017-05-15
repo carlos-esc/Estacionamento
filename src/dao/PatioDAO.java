@@ -17,6 +17,7 @@ import modelo.RotativoCalculaSaida;
 public class PatioDAO {
 
     private Connection conexao;
+    //RotativoCalculaSaida rotativoCalculaSaida = new RotativoCalculaSaida();
 
     public PatioDAO() {
         this.conexao = new ConexaoFactory().getConnection();
@@ -37,15 +38,21 @@ public class PatioDAO {
                 
                 patio.setPlacaFk(rs.getString("placa"));
                 patio.setPrisma(rs.getString("prisma"));
-                patio.setDataEntrada(rs.getString("dataentrada"));
-                patio.setHoraEntrada(rs.getString("horaentrada"));
-                patio.setTipo(rs.getString("tipo"));
                 patio.setRps(rs.getString("rps"));
+                patio.setTipo(rs.getString("tipo"));
                 patio.setPreco30Minutos(rs.getFloat("preco30minutos"));
                 patio.setPreco60Minutos(rs.getFloat("preco60minutos"));
                 patio.setPrecoDemaisFracoes(rs.getFloat("precodemaisfracoes"));
                 patio.setPrecoDiaria(rs.getFloat("precodiaria"));
                 patio.setPrecoPernoite(rs.getFloat("precopernoite"));
+                patio.setDataEntrada(rs.getString("dataentrada"));
+                patio.setHoraEntrada(rs.getString("horaentrada"));
+                patio.setToleranciaDesistencia(rs.getInt("toleranciadesistencia"));
+                patio.setToleranciaEntreFracoes(rs.getInt("toleranciaentrefracoes"));
+                patio.setDiariaHoras(rs.getInt("diariahoras"));
+                patio.setDiariaMinutos(rs.getInt("diariaminutos"));
+                patio.setPernoiteInicio(rs.getString("pernoiteinicio"));
+                patio.setPernoiteTermino(rs.getString("pernoitetermino"));
                 patio = rotativoCalculaSaida.calcularPermanenciaValor(patio);
                 patioLista.add(patio);
             }
@@ -59,20 +66,27 @@ public class PatioDAO {
 
     public void estacionaVeiculo(Patio patio) {
         try {
-            String sql = "INSERT INTO patio(id_veiculo_fk, rps, prisma, tipo, preco30minutos, preco60minutos, precodemaisfracoes, precodiaria, precopernoite, estacionado, dataentrada, horaentrada) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO patio(id_veiculo_fk, placa_fk, rps, prisma, tipo, preco30minutos, preco60minutos, precodemaisfracoes, precodiaria, precopernoite, estacionado, dataentrada, horaentrada, toleranciadesistencia, toleranciaentrefracoes, diariahoras, diariaminutos, pernoiteinicio, pernoitetermino) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement stmt = conexao.prepareStatement(sql);
             stmt.setInt(1, patio.getIdVeiculoFk());
-            stmt.setString(2, patio.getRps());
-            stmt.setString(3, patio.getPrisma());
-            stmt.setString(4, patio.getTipo());
-            stmt.setFloat(5, patio.getPreco30Minutos());
-            stmt.setFloat(6, patio.getPreco60Minutos());
-            stmt.setFloat(7, patio.getPrecoDemaisFracoes());
-            stmt.setFloat(8, patio.getPrecoDiaria());
-            stmt.setFloat(9, patio.getPrecoPernoite());
-            stmt.setString(10, patio.getEstacionado());
-            stmt.setString(11, patio.getDataEntrada());
-            stmt.setString(12, patio.getHoraEntrada());
+            stmt.setString(2, patio.getPlacaFk());
+            stmt.setString(3, patio.getRps());
+            stmt.setString(4, patio.getPrisma());
+            stmt.setString(5, patio.getTipo());
+            stmt.setFloat(6, patio.getPreco30Minutos());
+            stmt.setFloat(7, patio.getPreco60Minutos());
+            stmt.setFloat(8, patio.getPrecoDemaisFracoes());
+            stmt.setFloat(9, patio.getPrecoDiaria());
+            stmt.setFloat(10, patio.getPrecoPernoite());
+            stmt.setString(11, patio.getEstacionado());
+            stmt.setString(12, patio.getDataEntrada());
+            stmt.setString(13, patio.getHoraEntrada());
+            stmt.setInt(14, patio.getToleranciaDesistencia());
+            stmt.setInt(15, patio.getToleranciaEntreFracoes());
+            stmt.setInt(16, patio.getDiariaHoras());
+            stmt.setInt(17, patio.getDiariaMinutos());
+            stmt.setString(18, patio.getPernoiteInicio());
+            stmt.setString(19, patio.getPernoiteTermino());
             stmt.executeUpdate();
             stmt.close();
         } catch (SQLException ex) {
@@ -139,6 +153,8 @@ public class PatioDAO {
             stmt.setString(1, patio.getPrisma());
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
+                patio.setEstacionado(rs.getString("estacionado"));
+                System.out.println("Estacionado?: " + patio.getEstacionado());
                 patio.setRps(rs.getString("rps"));
                 System.out.println("Rps: " + patio.getRps());
                 patio.setPlacaFk(rs.getString("placa"));
@@ -161,9 +177,12 @@ public class PatioDAO {
                 System.out.println("Data Entrada: " + patio.getDataEntrada());
                 patio.setHoraEntrada(rs.getString("horaentrada"));
                 System.out.println("Hora Entrada: " + patio.getHoraEntrada());
-                patio.setEstacionado("sim");
-                System.out.println("Estacionado?: " + patio.getEstacionado());
-
+                patio.setToleranciaDesistencia(rs.getInt("toleranciadesistencia"));
+                patio.setToleranciaEntreFracoes(rs.getInt("toleranciaentrefracoes"));
+                patio.setDiariaHoras(rs.getInt("diariahoras"));
+                patio.setDiariaMinutos(rs.getInt("diariaminutos"));
+                patio.setPernoiteInicio(rs.getString("pernoiteinicio"));
+                patio.setPernoiteTermino(rs.getString("pernoitetermino"));
             } else {
                 patio.setEstacionado("nao");
                 System.out.println("Estacionado?: " + patio.getEstacionado());

@@ -401,4 +401,88 @@ public class Patio {
     public void setPlacaFk(String placaFk) {
         this.placaFk = placaFk;
     }
+
+    /**
+     * @return the toleranciaDesistencia
+     */
+    public int getToleranciaDesistencia() {
+        return toleranciaDesistencia;
+    }
+
+    /**
+     * @param toleranciaDesistencia the toleranciaDesistencia to set
+     */
+    public void setToleranciaDesistencia(int toleranciaDesistencia) {
+        this.toleranciaDesistencia = toleranciaDesistencia;
+    }
+
+    /**
+     * @return the toleranciaEntreFracoes
+     */
+    public int getToleranciaEntreFracoes() {
+        return toleranciaEntreFracoes;
+    }
+
+    /**
+     * @param toleranciaEntreFracoes the toleranciaEntreFracoes to set
+     */
+    public void setToleranciaEntreFracoes(int toleranciaEntreFracoes) {
+        this.toleranciaEntreFracoes = toleranciaEntreFracoes;
+    }
+
+    /**
+     * @return the diariaHoras
+     */
+    public int getDiariaHoras() {
+        return diariaHoras;
+    }
+
+    /**
+     * @param diariaHoras the diariaHoras to set
+     */
+    public void setDiariaHoras(int diariaHoras) {
+        this.diariaHoras = diariaHoras;
+    }
+
+    /**
+     * @return the diariaMinutos
+     */
+    public int getDiariaMinutos() {
+        return diariaMinutos;
+    }
+
+    /**
+     * @param diariaMinutos the diariaMinutos to set
+     */
+    public void setDiariaMinutos(int diariaMinutos) {
+        this.diariaMinutos = diariaMinutos;
+    }
+
+    /**
+     * @return the pernoiteInicio
+     */
+    public String getPernoiteInicio() {
+        return pernoiteInicio;
+    }
+
+    /**
+     * @param pernoiteInicio the pernoiteInicio to set
+     */
+    public void setPernoiteInicio(String pernoiteInicio) {
+        this.pernoiteInicio = pernoiteInicio;
+    }
+
+    /**
+     * @return the pernoiteTermino
+     */
+    public String getPernoiteTermino() {
+        return pernoiteTermino;
+    }
+
+    /**
+     * @param pernoiteTermino the pernoiteTermino to set
+     */
+    public void setPernoiteTermino(String pernoiteTermino) {
+        this.pernoiteTermino = pernoiteTermino;
+    }
 }
