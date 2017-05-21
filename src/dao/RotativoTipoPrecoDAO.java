@@ -5,18 +5,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import modelo.RotativoTipoPreco;
 
-public class PrecosDAO {
+public class RotativoTipoPrecoDAO {
 
     private Connection conexao;
     
-    public PrecosDAO() {
+    public RotativoTipoPrecoDAO() {
         this.conexao = new ConexaoFactory().getConnection();
     }
     
@@ -36,8 +35,7 @@ public class PrecosDAO {
             Logger.getLogger(VeiculoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-     
+        
     public void rotativoExcluirTipoPrecos(RotativoTipoPreco rotativoTipoPreco) {
         try {                         
             String sql = "DELETE FROM rotativotipopreco WHERE tipo=?";

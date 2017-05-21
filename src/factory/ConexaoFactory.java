@@ -2,7 +2,7 @@ package factory;
 
 import java.sql.Connection;     //Conexão SQL para java
 import java.sql.DriverManager;  //Drive de conexão SQL para java
-import java.sql.SQLException;   //Classe para tratamento deexceções
+import java.sql.SQLException;   //Classe para tratamento de exceções
 
 public class ConexaoFactory {
     public Connection getConnection() {

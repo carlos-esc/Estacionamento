@@ -18,7 +18,7 @@ import modelo.Veiculo;
 import modelo.Patio;
 import service.VeiculoService;
 import service.PatioService;
-import service.RotativoService;
+import service.RotativoTipoPrecoService;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -38,7 +38,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     PatioService patioService = new PatioService();
     Patio patio = new Patio();
 
-    RotativoService rotativoService = new RotativoService();
+    RotativoTipoPrecoService rotativoService = new RotativoTipoPrecoService();
     RotativoTipoPreco rotativoTipoPreco = new RotativoTipoPreco();
 
     ConfiguracoesService configuracoesService = new ConfiguracoesService();

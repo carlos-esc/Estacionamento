@@ -1,13 +1,13 @@
 package service;
 
-import dao.PrecosDAO;
+import dao.RotativoTipoPrecoDAO;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import modelo.RotativoTipoPreco;
 
-public class RotativoService {
+public class RotativoTipoPrecoService {
 
-    PrecosDAO precosDAO = new PrecosDAO();
+    RotativoTipoPrecoDAO precosDAO = new RotativoTipoPrecoDAO();
 
     public RotativoTipoPreco rotativoIncluirTipoPrecos(RotativoTipoPreco rotativoTipoPreco){
         precosDAO.rotativoIncluirTipoPrecos(rotativoTipoPreco);
