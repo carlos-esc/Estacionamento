@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Patio;
-import modelo.RotativoCalculaSaida;
+import calculo.RotativoCalculoSaida;
 
 public class PatioDAO {
 
@@ -30,7 +30,7 @@ public class PatioDAO {
             ResultSet rs = stmt.executeQuery();
             SimpleDateFormat dataAtual = new SimpleDateFormat("dd/MM/yyyy");
             SimpleDateFormat horaAtual = new SimpleDateFormat("HH:mm");
-            RotativoCalculaSaida rotativoCalculaSaida = new RotativoCalculaSaida();
+            RotativoCalculoSaida rotativoCalculaSaida = new RotativoCalculoSaida();
             while (rs.next()) {               
                 Patio patio = new Patio();
                 patio.setDataSaida(dataAtual.format(new Date()));

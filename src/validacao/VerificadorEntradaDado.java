@@ -1,6 +1,6 @@
 package validacao;
 
-public class VerificadorDado {
+public class VerificadorEntradaDado {
 
     private final String placa = "[A-Z]{3}[0-9]{4}";
     private final String prisma = "[0-9]{2,4}";

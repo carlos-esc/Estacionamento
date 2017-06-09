@@ -1,6 +1,6 @@
 package modelo;
 
-public class RotativoTipoPreco {
+public class Rotativo {
     
     private int idRotativo;
     private String tipoRotativo;

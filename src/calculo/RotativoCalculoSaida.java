@@ -1,4 +1,4 @@
-package modelo;
+package calculo;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -7,10 +7,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modelo.Patio;
+import modelo.Rotativo;
 
-public class RotativoCalculaSaida {
+public class RotativoCalculoSaida {
 
-    private RotativoTipoPreco rotativo = new RotativoTipoPreco();
+    private Rotativo rotativo = new Rotativo();
 
     private Calendar calendario;
     private SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
@@ -32,7 +34,7 @@ public class RotativoCalculaSaida {
             permanenciaTotal = (dataSaida.getTime() + horaSaida.getTime()) - (dataEntrada.getTime() + horaEntrada.getTime());
             calcularPermanenciaTotal(permanenciaTotal, patio);
         } catch (ParseException ex) {
-            Logger.getLogger(RotativoCalculaSaida.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RotativoCalculoSaida.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (dataSaida.equals(dataEntrada)) {
             calcularRotativoComSaidaNoMesmoDia(patio);
@@ -92,7 +94,7 @@ public class RotativoCalculaSaida {
             pernoiteInicio = sdfHora.parse(patio.getPernoiteInicio());
             pernoiteTermino = sdfHora.parse(patio.getPernoiteTermino());
         } catch (ParseException ex) {
-            Logger.getLogger(RotativoCalculaSaida.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RotativoCalculoSaida.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         if (horaEntrada.getTime() < pernoiteInicio.getTime()) {
@@ -149,7 +151,7 @@ public class RotativoCalculaSaida {
             pernoiteInicio = sdfHora.parse(patio.getPernoiteInicio());
             pernoiteTermino = sdfHora.parse(patio.getPernoiteTermino());
         } catch (ParseException ex) {
-            Logger.getLogger(RotativoCalculaSaida.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RotativoCalculoSaida.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (horaSaida.getTime() <= pernoiteTermino.getTime()) {
             patio.setHoraMinutoDataSaida("Pernoite");

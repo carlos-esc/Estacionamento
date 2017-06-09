@@ -9,17 +9,17 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-import modelo.RotativoTipoPreco;
+import modelo.Rotativo;
 
-public class RotativoTipoPrecoDAO {
+public class RotativoDAO {
 
     private Connection conexao;
     
-    public RotativoTipoPrecoDAO() {
+    public RotativoDAO() {
         this.conexao = new ConexaoFactory().getConnection();
     }
     
-    public void rotativoIncluirTipoPrecos(RotativoTipoPreco rotativoTipoPreco) {
+    public void rotativoIncluirTipoPrecos(Rotativo rotativoTipoPreco) {
         try {                         
             String sql = "INSERT INTO rotativotipopreco(tipo, preco30minutos, preco60minutos, precodemaisfracoes, precodiaria, precopernoite) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement stmt = conexao.prepareStatement(sql);
@@ -36,7 +36,7 @@ public class RotativoTipoPrecoDAO {
         }
     }
         
-    public void rotativoExcluirTipoPrecos(RotativoTipoPreco rotativoTipoPreco) {
+    public void rotativoExcluirTipoPrecos(Rotativo rotativoTipoPreco) {
         try {                         
             String sql = "DELETE FROM rotativotipopreco WHERE tipo=?";
             PreparedStatement stmt = conexao.prepareStatement(sql);
@@ -48,7 +48,7 @@ public class RotativoTipoPrecoDAO {
         }
     }
     
-    public RotativoTipoPreco rotativoCarregarPrecos(RotativoTipoPreco rotativoTipoPreco) {
+    public Rotativo rotativoCarregarPrecos(Rotativo rotativoTipoPreco) {
         try {
             String sql = "SELECT * FROM rotativotipopreco WHERE tipo=?";
             PreparedStatement stmt = conexao.prepareStatement(sql);
@@ -72,7 +72,7 @@ public class RotativoTipoPrecoDAO {
         return rotativoTipoPreco;
     }
 
-    public void rotativoAlterarPrecos(String rotativoTipoAnterior, RotativoTipoPreco rotativoTipoPreco) {
+    public void rotativoAlterarPrecos(String rotativoTipoAnterior, Rotativo rotativoTipoPreco) {
         try {
             String sql = "UPDATE rotativotipopreco SET tipo=?, preco30minutos=?, preco60minutos=?, precodemaisfracoes=?, precodiaria=?, precopernoite=? WHERE tipo=?";
             PreparedStatement stmt = conexao.prepareStatement(sql);
@@ -119,7 +119,7 @@ public class RotativoTipoPrecoDAO {
             PreparedStatement stmt = conexao.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                RotativoTipoPreco rotativoTipoPreco = new RotativoTipoPreco();
+                Rotativo rotativoTipoPreco = new Rotativo();
                 rotativoTipoPreco.setIdRotativo(rs.getInt("id_rotativo"));
                 rotativoTipoPreco.setTipoRotativo(rs.getString("tipo"));
                 rotativoTipoPreco.setPreco30Minutos(rs.getFloat("preco30minutos"));

@@ -1,30 +1,30 @@
 package service;
 
-import dao.RotativoTipoPrecoDAO;
+import dao.RotativoDAO;
 import java.util.List;
 import javax.swing.DefaultListModel;
-import modelo.RotativoTipoPreco;
+import modelo.Rotativo;
 
-public class RotativoTipoPrecoService {
+public class RotativoService {
 
-    RotativoTipoPrecoDAO precosDAO = new RotativoTipoPrecoDAO();
+    RotativoDAO precosDAO = new RotativoDAO();
 
-    public RotativoTipoPreco rotativoIncluirTipoPrecos(RotativoTipoPreco rotativoTipoPreco){
+    public Rotativo rotativoIncluirTipoPrecos(Rotativo rotativoTipoPreco){
         precosDAO.rotativoIncluirTipoPrecos(rotativoTipoPreco);
         return rotativoTipoPreco;
     }
     
-    public RotativoTipoPreco rotativoExcluirTipoPrecos(RotativoTipoPreco rotativoTipoPreco){
+    public Rotativo rotativoExcluirTipoPrecos(Rotativo rotativoTipoPreco){
         precosDAO.rotativoExcluirTipoPrecos(rotativoTipoPreco);
         return rotativoTipoPreco;
     }
     
-    public RotativoTipoPreco rotativoCarregarPrecos(RotativoTipoPreco rotativoTipoPreco){
+    public Rotativo rotativoCarregarPrecos(Rotativo rotativoTipoPreco){
         precosDAO.rotativoCarregarPrecos(rotativoTipoPreco);
         return rotativoTipoPreco;
     }
     
-    public RotativoTipoPreco rotativoAlterarPrecos(String rotativoTipoAnterior, RotativoTipoPreco rotativoTipoPreco){
+    public Rotativo rotativoAlterarPrecos(String rotativoTipoAnterior, Rotativo rotativoTipoPreco){
         precosDAO.rotativoAlterarPrecos(rotativoTipoAnterior, rotativoTipoPreco);
         return rotativoTipoPreco;
     }
