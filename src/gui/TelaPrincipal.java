@@ -26,44 +26,56 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import mascarasentrada.EntradaHora;
 import modelo.Configuracoes;
+import modelo.Pacote;
 import modelo.Rotativo;
 import service.ConfiguracoesService;
+import service.PacoteService;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
-    private String ok;
-
+    //VEÍCULO******************************************************************************************
     VeiculoService veiculoService = new VeiculoService();
     Veiculo veiculo = new Veiculo();
 
-    PatioService patioService = new PatioService();
-    Patio patio = new Patio();
-
+    //ROTATIVO*****************************************************************************************
     RotativoService rotativoService = new RotativoService();
     Rotativo rotativo = new Rotativo();
-
-    ConfiguracoesService configuracoesService = new ConfiguracoesService();
-    Configuracoes configuracoes = new Configuracoes();
-
-    SimpleDateFormat hora = new SimpleDateFormat("HH:mm");
-
-    VerificadorEntradaDado verificadorEntradaDado = new VerificadorEntradaDado();
-
-    DefaultListModel rotativoDefaultListModel = new DefaultListModel(); //Carregar o jList com os tipos de rotativo EX: carro, moto, bicicleta ETC...
-
     List<Rotativo> rotativoArrayList = new ArrayList<>();
+    DefaultListModel rotativoDefaultListModel = new DefaultListModel(); //Carregar o jList com os tipos de rotativo EX: carro, moto, bicicleta ETC...
     DefaultTableModel rotativoDefaultTableModel = new DefaultTableModel() {
         public boolean isCellEditable(int row, int column) {
             return false;
         }
     };
+    String rotativoNomeAnterior;
 
+    //PACOTE*****************************************************************************************
+    PacoteService pacoteService = new PacoteService();
+    Pacote pacote = new Pacote();
+    List<Pacote> pacoteArrayList = new ArrayList<>();
+    DefaultListModel pacoteDefaultListModel = new DefaultListModel(); //Carregar o jList com os tipos de rotativo EX: carro, moto, bicicleta ETC...
+    DefaultTableModel pacoteDefaultTableModel = new DefaultTableModel() {
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+    };
+    String pacoteNomeAnterior;
+
+    //PÁTIO********************************************************************************************
+    PatioService patioService = new PatioService();
+    Patio patio = new Patio();
     List<Patio> patioArrayList = new ArrayList<>();
     DefaultTableModel patioDefaultTableModel = new DefaultTableModel();
 
-    DefaultTableModel movimentacoesDefaultTableModel = new DefaultTableModel();
+    //CONGRAÇÕES***************************************************************************************
+    ConfiguracoesService configuracoesService = new ConfiguracoesService();
+    Configuracoes configuracoes = new Configuracoes();
 
-    String dadoEntrada, dadoRetornoTipo;
+    //OUTROS*******************************************************************************************
+    VerificadorEntradaDado verificadorEntradaDado = new VerificadorEntradaDado();
+    DefaultTableModel movimentacoesDefaultTableModel = new DefaultTableModel();
+    private String ok, dadoEntrada, dadoRetornoTipo;
+    SimpleDateFormat hora = new SimpleDateFormat("HH:mm");
     SimpleDateFormat dataAtual = new SimpleDateFormat("dd/MM/yyyy");
     SimpleDateFormat horaAtual = new SimpleDateFormat("HH:mm");
 
@@ -102,24 +114,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jDialogConfirmaSaidaSistema = new javax.swing.JDialog();
         jPanel7 = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
-        jButtonEntradaVeiculoNao1 = new javax.swing.JButton();
-        jButtonEntradaVeiculoSim1 = new javax.swing.JButton();
+        jButtonSaidaSistemaNao = new javax.swing.JButton();
+        jButtonSaidaSistemaSim = new javax.swing.JButton();
         jPanelMenuF = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jButtonF1 = new javax.swing.JButton();
         jButtonF2 = new javax.swing.JButton();
         jButtonF3 = new javax.swing.JButton();
-        jButtonF10 = new javax.swing.JButton();
-        jButtonF8 = new javax.swing.JButton();
         jButtonF4 = new javax.swing.JButton();
         jButtonF5 = new javax.swing.JButton();
         jButtonF6 = new javax.swing.JButton();
+        jButtonF8 = new javax.swing.JButton();
+        jButtonF10 = new javax.swing.JButton();
         jPanelCabecalho = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanelOpcoes = new javax.swing.JPanel();
         jTabbedPaneOpcoes = new javax.swing.JTabbedPane();
         jPanelEntradaSaida = new javax.swing.JPanel();
-        jTabbedPaneVeiculoEntradaSaida = new javax.swing.JTabbedPane();
+        jTabbedPaneEntradaSaida = new javax.swing.JTabbedPane();
         jPanelApresentacao = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -191,36 +203,27 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jScrollPaneMovimentacoes = new javax.swing.JScrollPane();
         jTableEntradaSaidaMovimentacoesRotativo = new javax.swing.JTable();
         jPanelMensal = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        jButtonMensalistaSair = new javax.swing.JButton();
         jPanel32 = new javax.swing.JPanel();
         jPanelPacote = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
         jPanel26 = new javax.swing.JPanel();
         jScrollPane13 = new javax.swing.JScrollPane();
         jTablePacote = new javax.swing.JTable();
         jPanel27 = new javax.swing.JPanel();
         jPanel28 = new javax.swing.JPanel();
         jLabelPacoteQtdDiasOuUtilizacoes = new javax.swing.JLabel();
-        jLabel52 = new javax.swing.JLabel();
-        jLabel53 = new javax.swing.JLabel();
-        jTextFieldPacoteQtdDiasOuUtilizacoes = new javax.swing.JTextField();
-        jTextFieldPacoteDataInicio = new javax.swing.JTextField();
-        jTextFieldPacoteDataTermino = new javax.swing.JTextField();
+        jTextFieldPacoteQuantidade = new javax.swing.JTextField();
         jButtonPacoteAlterarOk = new javax.swing.JButton();
         jButtonPacoteSairCancelar = new javax.swing.JButton();
         jLabel54 = new javax.swing.JLabel();
         jTextFieldPacoteValor = new javax.swing.JTextField();
         jButtonPacoteIncluirOk = new javax.swing.JButton();
         jButtonPacoteExcluirCancelar = new javax.swing.JButton();
-        jTabbedPanePacoteInclusaoAlteracaoConsulta = new javax.swing.JTabbedPane();
-        jPanel29 = new javax.swing.JPanel();
-        jScrollPane14 = new javax.swing.JScrollPane();
-        jListPacoteListaTipo = new javax.swing.JList<>();
-        jPanel30 = new javax.swing.JPanel();
-        jTextFieldPacoteIncluirAlterarTipo = new javax.swing.JTextField();
         jPanel34 = new javax.swing.JPanel();
-        jRadioButtonQtdDias = new javax.swing.JRadioButton();
-        jRadioButtonQtdUtilizacoes = new javax.swing.JRadioButton();
+        jRadioButtonDias = new javax.swing.JRadioButton();
+        jRadioButtonUtilizacoes = new javax.swing.JRadioButton();
+        jTextFieldPacoteIncluirAlterar = new javax.swing.JTextField();
+        jLabel55 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -230,15 +233,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         txtRotativoPreco30minutos = new javax.swing.JTextField();
         txtRotativoPreco60minutos = new javax.swing.JTextField();
         txtRotativoPrecoDemaisFracoes = new javax.swing.JTextField();
-        jButtonRotativoAlterarOk = new javax.swing.JButton();
-        jButtonRotativoSairCancelar = new javax.swing.JButton();
         jLabel47 = new javax.swing.JLabel();
         txtRotativoPrecoDiaria = new javax.swing.JTextField();
         jLabel48 = new javax.swing.JLabel();
         txtRotativoPrecoPernoite = new javax.swing.JTextField();
         jButtonRotativoIncluirOk = new javax.swing.JButton();
         jButtonRotativoExcluirCancelar = new javax.swing.JButton();
-        jTextFieldRotativoIncluirAlterarTipo = new javax.swing.JTextField();
+        jButtonRotativoAlterarOk = new javax.swing.JButton();
+        jButtonRotativoSairCancelar = new javax.swing.JButton();
+        jTextFieldRotativoIncluirAlterar = new javax.swing.JTextField();
+        jLabel56 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTableRotativo = new javax.swing.JTable();
@@ -246,11 +250,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel23 = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
         jTablePatio = new javax.swing.JTable();
-        jButton8 = new javax.swing.JButton();
+        jButtonPatioSair = new javax.swing.JButton();
         jPanel24 = new javax.swing.JPanel();
         jPanel25 = new javax.swing.JPanel();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        jButtonMovimentoSair = new javax.swing.JButton();
+        jButtonMovimentoListar = new javax.swing.JButton();
         jScrollPane12 = new javax.swing.JScrollPane();
         jTableMovimento = new javax.swing.JTable();
         jPanel14 = new javax.swing.JPanel();
@@ -566,23 +570,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel39.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel39.setText("Confirma saída do sistema?");
 
-        jButtonEntradaVeiculoNao1.setMnemonic('N');
-        jButtonEntradaVeiculoNao1.setText("Não");
-        jButtonEntradaVeiculoNao1.setPreferredSize(new java.awt.Dimension(110, 25));
-        jButtonEntradaVeiculoNao1.setRequestFocusEnabled(false);
-        jButtonEntradaVeiculoNao1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSaidaSistemaNao.setMnemonic('N');
+        jButtonSaidaSistemaNao.setText("Não");
+        jButtonSaidaSistemaNao.setPreferredSize(new java.awt.Dimension(110, 25));
+        jButtonSaidaSistemaNao.setRequestFocusEnabled(false);
+        jButtonSaidaSistemaNao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEntradaVeiculoNao1ActionPerformed(evt);
+                jButtonSaidaSistemaNaoActionPerformed(evt);
             }
         });
 
-        jButtonEntradaVeiculoSim1.setMnemonic('S');
-        jButtonEntradaVeiculoSim1.setText("Sim");
-        jButtonEntradaVeiculoSim1.setPreferredSize(new java.awt.Dimension(110, 25));
-        jButtonEntradaVeiculoSim1.setRequestFocusEnabled(false);
-        jButtonEntradaVeiculoSim1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSaidaSistemaSim.setMnemonic('S');
+        jButtonSaidaSistemaSim.setText("Sim");
+        jButtonSaidaSistemaSim.setPreferredSize(new java.awt.Dimension(110, 25));
+        jButtonSaidaSistemaSim.setRequestFocusEnabled(false);
+        jButtonSaidaSistemaSim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEntradaVeiculoSim1ActionPerformed(evt);
+                jButtonSaidaSistemaSimActionPerformed(evt);
             }
         });
 
@@ -594,9 +598,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(234, 234, 234)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jButtonEntradaVeiculoSim1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonSaidaSistemaSim, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(100, 100, 100)
-                        .addComponent(jButtonEntradaVeiculoNao1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonSaidaSistemaNao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel39))
                 .addContainerGap(237, Short.MAX_VALUE))
         );
@@ -607,8 +611,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel39)
                 .addGap(20, 20, 20)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonEntradaVeiculoNao1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonEntradaVeiculoSim1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonSaidaSistemaNao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonSaidaSistemaSim, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -629,11 +633,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setAlwaysOnTop(true);
         setBounds(new java.awt.Rectangle(0, 0, 1400, 900));
         setMinimumSize(new java.awt.Dimension(1400, 820));
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
@@ -682,32 +689,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButtonF10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonF10.setText("F10 (Sair)");
-        jButtonF10.setFocusable(false);
-        jButtonF10.setMaximumSize(new java.awt.Dimension(165, 40));
-        jButtonF10.setMinimumSize(new java.awt.Dimension(165, 40));
-        jButtonF10.setPreferredSize(new java.awt.Dimension(165, 40));
-        jButtonF10.setRequestFocusEnabled(false);
-        jButtonF10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonF10ActionPerformed(evt);
-            }
-        });
-
-        jButtonF8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonF8.setText("F8 (Configurações)");
-        jButtonF8.setFocusable(false);
-        jButtonF8.setMaximumSize(new java.awt.Dimension(165, 40));
-        jButtonF8.setMinimumSize(new java.awt.Dimension(165, 40));
-        jButtonF8.setPreferredSize(new java.awt.Dimension(165, 40));
-        jButtonF8.setRequestFocusEnabled(false);
-        jButtonF8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonF8ActionPerformed(evt);
-            }
-        });
-
         jButtonF4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonF4.setText("F4 (Rotativo)");
         jButtonF4.setFocusable(false);
@@ -744,6 +725,32 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonF6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonF6ActionPerformed(evt);
+            }
+        });
+
+        jButtonF8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonF8.setText("F8 (Configurações)");
+        jButtonF8.setFocusable(false);
+        jButtonF8.setMaximumSize(new java.awt.Dimension(165, 40));
+        jButtonF8.setMinimumSize(new java.awt.Dimension(165, 40));
+        jButtonF8.setPreferredSize(new java.awt.Dimension(165, 40));
+        jButtonF8.setRequestFocusEnabled(false);
+        jButtonF8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonF8ActionPerformed(evt);
+            }
+        });
+
+        jButtonF10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonF10.setText("F10 (Sair)");
+        jButtonF10.setFocusable(false);
+        jButtonF10.setMaximumSize(new java.awt.Dimension(165, 40));
+        jButtonF10.setMinimumSize(new java.awt.Dimension(165, 40));
+        jButtonF10.setPreferredSize(new java.awt.Dimension(165, 40));
+        jButtonF10.setRequestFocusEnabled(false);
+        jButtonF10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonF10ActionPerformed(evt);
             }
         });
 
@@ -839,9 +846,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTabbedPaneOpcoes.setFocusable(false);
         jTabbedPaneOpcoes.setRequestFocusEnabled(false);
 
-        jTabbedPaneVeiculoEntradaSaida.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jTabbedPaneVeiculoEntradaSaida.setFocusable(false);
-        jTabbedPaneVeiculoEntradaSaida.setRequestFocusEnabled(false);
+        jTabbedPaneEntradaSaida.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jTabbedPaneEntradaSaida.setFocusable(false);
+        jTabbedPaneEntradaSaida.setRequestFocusEnabled(false);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Coelho´s Parking Preços", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 18))); // NOI18N
 
@@ -859,6 +866,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             }
         ));
+        jTableEntradaSaidaInformacoesRotativo.setFocusable(false);
         jScrollPane5.setViewportView(jTableEntradaSaidaInformacoesRotativo);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -1109,7 +1117,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPaneVeiculoEntradaSaida.addTab("Informações", jPanelApresentacao);
+        jTabbedPaneEntradaSaida.addTab("Informações", jPanelApresentacao);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Placa");
@@ -1226,7 +1234,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        jTabbedPaneVeiculoEntradaSaida.addTab("Entrada", jPanelVeiculoEntrada);
+        jTabbedPaneEntradaSaida.addTab("Entrada", jPanelVeiculoEntrada);
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel17.setText("Placa");
@@ -1534,7 +1542,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPaneVeiculoEntradaSaida.addTab("Saída", jPanelVeiculoSaida);
+        jTabbedPaneEntradaSaida.addTab("Saída", jPanelVeiculoSaida);
 
         jLabelPlacaOuPrisma.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelPlacaOuPrisma.setText("Placa ou Prisma");
@@ -1564,6 +1572,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             }
         ));
+        jTableEntradaSaidaMovimentacoesRotativo.setFocusable(false);
         jScrollPaneMovimentacoes.setViewportView(jTableEntradaSaidaMovimentacoesRotativo);
 
         javax.swing.GroupLayout jPanelEntradaSaidaLayout = new javax.swing.GroupLayout(jPanelEntradaSaida);
@@ -1589,7 +1598,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanelEntradaSaidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPaneMovimentacoes, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTabbedPaneVeiculoEntradaSaida))))
+                            .addComponent(jTabbedPaneEntradaSaida))))
                 .addContainerGap())
         );
         jPanelEntradaSaidaLayout.setVerticalGroup(
@@ -1600,7 +1609,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEntradaPlacaOuPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPaneVeiculoEntradaSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPaneEntradaSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1610,10 +1619,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jTabbedPaneOpcoes.addTab("ENTRADA/SAÍDA", jPanelEntradaSaida);
 
-        jButton1.setText("Sair");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonMensalistaSair.setText("Sair");
+        jButtonMensalistaSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonMensalistaSairActionPerformed(evt);
             }
         });
 
@@ -1636,7 +1645,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(181, 181, 181)
                 .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71)
-                .addComponent(jButton1)
+                .addComponent(jButtonMensalistaSair)
                 .addContainerGap(670, Short.MAX_VALUE))
         );
         jPanelMensalLayout.setVerticalGroup(
@@ -1645,18 +1654,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(194, Short.MAX_VALUE)
                 .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(201, 201, 201)
-                .addComponent(jButton1)
+                .addComponent(jButtonMensalistaSair)
                 .addGap(302, 302, 302))
         );
 
-        jTabbedPaneOpcoes.addTab("MENSAL", jPanelMensal);
-
-        jButton2.setText("Sair");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jTabbedPaneOpcoes.addTab("MENSALISTA", jPanelMensal);
 
         jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pacotes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 16))); // NOI18N
         jPanel26.setFocusable(false);
@@ -1673,8 +1675,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             }
         ));
-        jTablePacote.setFocusable(false);
         jTablePacote.setRequestFocusEnabled(false);
+        jTablePacote.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTablePacoteMousePressed(evt);
+            }
+        });
+        jTablePacote.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTablePacoteKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTablePacoteKeyTyped(evt);
+            }
+        });
         jScrollPane13.setViewportView(jTablePacote);
 
         javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
@@ -1698,28 +1712,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabelPacoteQtdDiasOuUtilizacoes.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelPacoteQtdDiasOuUtilizacoes.setText("Quant. de dias");
 
-        jLabel52.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel52.setText("Data início");
-
-        jLabel53.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel53.setText("Data término");
-
-        jTextFieldPacoteQtdDiasOuUtilizacoes.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jTextFieldPacoteQtdDiasOuUtilizacoes.setFocusable(false);
-        jTextFieldPacoteQtdDiasOuUtilizacoes.setRequestFocusEnabled(false);
-        jTextFieldPacoteQtdDiasOuUtilizacoes.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldPacoteQuantidade.setEditable(false);
+        jTextFieldPacoteQuantidade.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jTextFieldPacoteQuantidade.setFocusable(false);
+        jTextFieldPacoteQuantidade.setRequestFocusEnabled(false);
+        jTextFieldPacoteQuantidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPacoteQtdDiasOuUtilizacoesActionPerformed(evt);
+                jTextFieldPacoteQuantidadeActionPerformed(evt);
             }
         });
-
-        jTextFieldPacoteDataInicio.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jTextFieldPacoteDataInicio.setFocusable(false);
-        jTextFieldPacoteDataInicio.setRequestFocusEnabled(false);
-
-        jTextFieldPacoteDataTermino.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jTextFieldPacoteDataTermino.setFocusable(false);
-        jTextFieldPacoteDataTermino.setRequestFocusEnabled(false);
 
         jButtonPacoteAlterarOk.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButtonPacoteAlterarOk.setMnemonic('A');
@@ -1744,6 +1745,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel54.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel54.setText("Valor R$");
 
+        jTextFieldPacoteValor.setEditable(false);
         jTextFieldPacoteValor.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jTextFieldPacoteValor.setFocusable(false);
         jTextFieldPacoteValor.setRequestFocusEnabled(false);
@@ -1773,87 +1775,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jTabbedPanePacoteInclusaoAlteracaoConsulta.setFocusable(false);
-        jTabbedPanePacoteInclusaoAlteracaoConsulta.setRequestFocusEnabled(false);
-
-        jListPacoteListaTipo.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jListPacoteListaTipo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jListPacoteListaTipoKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jListPacoteListaTipoKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jListPacoteListaTipoKeyTyped(evt);
-            }
-        });
-        jScrollPane14.setViewportView(jListPacoteListaTipo);
-
-        javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
-        jPanel29.setLayout(jPanel29Layout);
-        jPanel29Layout.setHorizontalGroup(
-            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel29Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel29Layout.setVerticalGroup(
-            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel29Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        jTabbedPanePacoteInclusaoAlteracaoConsulta.addTab("", jPanel29);
-
-        jPanel30.setFocusable(false);
-        jPanel30.setRequestFocusEnabled(false);
-
-        jTextFieldPacoteIncluirAlterarTipo.setEditable(false);
-        jTextFieldPacoteIncluirAlterarTipo.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jTextFieldPacoteIncluirAlterarTipo.setFocusable(false);
-        jTextFieldPacoteIncluirAlterarTipo.setRequestFocusEnabled(false);
-        jTextFieldPacoteIncluirAlterarTipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPacoteIncluirAlterarTipoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel30Layout = new javax.swing.GroupLayout(jPanel30);
-        jPanel30.setLayout(jPanel30Layout);
-        jPanel30Layout.setHorizontalGroup(
-            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel30Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextFieldPacoteIncluirAlterarTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel30Layout.setVerticalGroup(
-            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel30Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextFieldPacoteIncluirAlterarTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        jTabbedPanePacoteInclusaoAlteracaoConsulta.addTab("", jPanel30);
-
         jPanel34.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jRadioButtonQtdDias.setText("Quant. Dias");
-        jRadioButtonQtdDias.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonDias.setText(" Dias");
+        jRadioButtonDias.setEnabled(false);
+        jRadioButtonDias.setFocusable(false);
+        jRadioButtonDias.setRequestFocusEnabled(false);
+        jRadioButtonDias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonQtdDiasActionPerformed(evt);
+                jRadioButtonDiasActionPerformed(evt);
             }
         });
 
-        jRadioButtonQtdUtilizacoes.setText("Quant. Utilizações");
-        jRadioButtonQtdUtilizacoes.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonUtilizacoes.setText("Utilizações");
+        jRadioButtonUtilizacoes.setEnabled(false);
+        jRadioButtonUtilizacoes.setFocusable(false);
+        jRadioButtonUtilizacoes.setRequestFocusEnabled(false);
+        jRadioButtonUtilizacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonQtdUtilizacoesActionPerformed(evt);
+                jRadioButtonUtilizacoesActionPerformed(evt);
             }
         });
 
@@ -1862,38 +1802,52 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel34Layout.setHorizontalGroup(
             jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel34Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jRadioButtonQtdDias)
+                .addGap(19, 19, 19)
+                .addComponent(jRadioButtonDias)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRadioButtonQtdUtilizacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jRadioButtonUtilizacoes)
+                .addGap(25, 25, 25))
         );
         jPanel34Layout.setVerticalGroup(
             jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jRadioButtonQtdDias)
-                .addComponent(jRadioButtonQtdUtilizacoes))
+                .addComponent(jRadioButtonDias)
+                .addComponent(jRadioButtonUtilizacoes))
         );
+
+        jTextFieldPacoteIncluirAlterar.setEditable(false);
+        jTextFieldPacoteIncluirAlterar.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jTextFieldPacoteIncluirAlterar.setFocusable(false);
+        jTextFieldPacoteIncluirAlterar.setRequestFocusEnabled(false);
+        jTextFieldPacoteIncluirAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPacoteIncluirAlterarActionPerformed(evt);
+            }
+        });
+
+        jLabel55.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel55.setText("Nome");
 
         javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
         jPanel28.setLayout(jPanel28Layout);
         jPanel28Layout.setHorizontalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
-                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel28Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel28Layout.createSequentialGroup()
-                                .addComponent(jButtonPacoteIncluirOk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonPacoteExcluirCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel28Layout.createSequentialGroup()
-                                .addComponent(jButtonPacoteAlterarOk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonPacoteSairCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jButtonPacoteIncluirOk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonPacoteExcluirCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel28Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonPacoteAlterarOk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonPacoteSairCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18))
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel28Layout.createSequentialGroup()
+                        .addContainerGap(35, Short.MAX_VALUE)
                         .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel28Layout.createSequentialGroup()
                                 .addComponent(jLabel54)
@@ -1902,48 +1856,33 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addGroup(jPanel28Layout.createSequentialGroup()
                                 .addComponent(jLabelPacoteQtdDiasOuUtilizacoes)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldPacoteQtdDiasOuUtilizacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel28Layout.createSequentialGroup()
-                                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel52)
-                                    .addComponent(jLabel53))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldPacoteDataInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldPacoteDataTermino))))))
-                .addGap(18, 18, 18))
-            .addGroup(jPanel28Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldPacoteQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jPanel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextFieldPacoteIncluirAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))))
                     .addGroup(jPanel28Layout.createSequentialGroup()
-                        .addComponent(jTabbedPanePacoteInclusaoAlteracaoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanel34, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(119, 119, 119)
+                        .addComponent(jLabel55)))
+                .addGap(42, 42, 42))
         );
         jPanel28Layout.setVerticalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
-                .addComponent(jTabbedPanePacoteInclusaoAlteracaoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(17, 17, 17)
+                .addComponent(jLabel55)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldPacoteIncluirAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jTextFieldPacoteQtdDiasOuUtilizacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPacoteQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelPacoteQtdDiasOuUtilizacoes))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldPacoteDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel52))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldPacoteDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel53))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldPacoteValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel54))
-                .addGap(18, 18, 18)
+                .addGap(106, 106, 106)
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonPacoteIncluirOk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonPacoteExcluirCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1976,16 +1915,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanelPacoteLayout.setHorizontalGroup(
             jPanelPacoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPacoteLayout.createSequentialGroup()
-                .addGroup(jPanelPacoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelPacoteLayout.createSequentialGroup()
-                        .addGap(494, 494, 494)
-                        .addComponent(jButton2))
-                    .addGroup(jPanelPacoteLayout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addGap(66, 66, 66)
+                .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76))
         );
         jPanelPacoteLayout.setVerticalGroup(
             jPanelPacoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1994,9 +1928,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanelPacoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(30, 30, 30))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
 
         jTabbedPaneOpcoes.addTab("PACOTE", jPanelPacote);
@@ -2036,28 +1968,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         txtRotativoPrecoDemaisFracoes.setFocusable(false);
         txtRotativoPrecoDemaisFracoes.setRequestFocusEnabled(false);
 
-        jButtonRotativoAlterarOk.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButtonRotativoAlterarOk.setMnemonic('A');
-        jButtonRotativoAlterarOk.setText("Alterar");
-        jButtonRotativoAlterarOk.setPreferredSize(new java.awt.Dimension(90, 30));
-        jButtonRotativoAlterarOk.setRequestFocusEnabled(false);
-        jButtonRotativoAlterarOk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRotativoAlterarOkActionPerformed(evt);
-            }
-        });
-
-        jButtonRotativoSairCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButtonRotativoSairCancelar.setMnemonic('S');
-        jButtonRotativoSairCancelar.setText("Sair");
-        jButtonRotativoSairCancelar.setPreferredSize(new java.awt.Dimension(90, 30));
-        jButtonRotativoSairCancelar.setRequestFocusEnabled(false);
-        jButtonRotativoSairCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRotativoSairCancelarActionPerformed(evt);
-            }
-        });
-
         jLabel47.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel47.setText("Diária R$");
 
@@ -2065,11 +1975,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         txtRotativoPrecoDiaria.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txtRotativoPrecoDiaria.setFocusable(false);
         txtRotativoPrecoDiaria.setRequestFocusEnabled(false);
-        txtRotativoPrecoDiaria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRotativoPrecoDiariaActionPerformed(evt);
-            }
-        });
 
         jLabel48.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel48.setText("Pernoite R$");
@@ -2078,11 +1983,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         txtRotativoPrecoPernoite.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txtRotativoPrecoPernoite.setFocusable(false);
         txtRotativoPrecoPernoite.setRequestFocusEnabled(false);
-        txtRotativoPrecoPernoite.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRotativoPrecoPernoiteActionPerformed(evt);
-            }
-        });
 
         jButtonRotativoIncluirOk.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButtonRotativoIncluirOk.setMnemonic('I');
@@ -2106,15 +2006,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldRotativoIncluirAlterarTipo.setEditable(false);
-        jTextFieldRotativoIncluirAlterarTipo.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jTextFieldRotativoIncluirAlterarTipo.setFocusable(false);
-        jTextFieldRotativoIncluirAlterarTipo.setRequestFocusEnabled(false);
-        jTextFieldRotativoIncluirAlterarTipo.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRotativoAlterarOk.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButtonRotativoAlterarOk.setMnemonic('A');
+        jButtonRotativoAlterarOk.setText("Alterar");
+        jButtonRotativoAlterarOk.setPreferredSize(new java.awt.Dimension(90, 30));
+        jButtonRotativoAlterarOk.setRequestFocusEnabled(false);
+        jButtonRotativoAlterarOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldRotativoIncluirAlterarTipoActionPerformed(evt);
+                jButtonRotativoAlterarOkActionPerformed(evt);
             }
         });
+
+        jButtonRotativoSairCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButtonRotativoSairCancelar.setMnemonic('S');
+        jButtonRotativoSairCancelar.setText("Sair");
+        jButtonRotativoSairCancelar.setPreferredSize(new java.awt.Dimension(90, 30));
+        jButtonRotativoSairCancelar.setRequestFocusEnabled(false);
+        jButtonRotativoSairCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRotativoSairCancelarActionPerformed(evt);
+            }
+        });
+
+        jTextFieldRotativoIncluirAlterar.setEditable(false);
+        jTextFieldRotativoIncluirAlterar.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jTextFieldRotativoIncluirAlterar.setFocusable(false);
+        jTextFieldRotativoIncluirAlterar.setRequestFocusEnabled(false);
+        jTextFieldRotativoIncluirAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldRotativoIncluirAlterarActionPerformed(evt);
+            }
+        });
+
+        jLabel56.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel56.setText("Nome");
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -2147,7 +2072,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextFieldRotativoIncluirAlterarTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldRotativoIncluirAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel13Layout.createSequentialGroup()
                                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2160,13 +2085,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                     .addComponent(txtRotativoPreco60minutos)
                                     .addComponent(txtRotativoPreco30minutos, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(26, 26, 26))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel56)
+                .addGap(125, 125, 125))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jTextFieldRotativoIncluirAlterarTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addComponent(jLabel56)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldRotativoIncluirAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(txtRotativoPreco30minutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel44))
@@ -2303,12 +2234,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jScrollPane11.setViewportView(jTablePatio);
 
-        jButton8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton8.setText("Sair");
-        jButton8.setPreferredSize(new java.awt.Dimension(90, 30));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        jButtonPatioSair.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButtonPatioSair.setText("Sair");
+        jButtonPatioSair.setPreferredSize(new java.awt.Dimension(90, 30));
+        jButtonPatioSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                jButtonPatioSairActionPerformed(evt);
             }
         });
 
@@ -2322,7 +2253,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel23Layout.createSequentialGroup()
                 .addGap(500, 500, 500)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonPatioSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(502, Short.MAX_VALUE))
         );
         jPanel23Layout.setVerticalGroup(
@@ -2331,7 +2262,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonPatioSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -2356,20 +2287,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel25.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Movimento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 16))); // NOI18N
 
-        jButton10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton10.setText("Sair");
-        jButton10.setPreferredSize(new java.awt.Dimension(90, 30));
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        jButtonMovimentoSair.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButtonMovimentoSair.setText("Sair");
+        jButtonMovimentoSair.setPreferredSize(new java.awt.Dimension(90, 30));
+        jButtonMovimentoSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                jButtonMovimentoSairActionPerformed(evt);
             }
         });
 
-        jButton11.setText("Listar");
-        jButton11.setPreferredSize(new java.awt.Dimension(90, 30));
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        jButtonMovimentoListar.setText("Listar");
+        jButtonMovimentoListar.setPreferredSize(new java.awt.Dimension(90, 30));
+        jButtonMovimentoListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                jButtonMovimentoListarActionPerformed(evt);
             }
         });
 
@@ -2390,9 +2321,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel25Layout.createSequentialGroup()
                 .addGap(500, 500, 500)
-                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonMovimentoSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonMovimentoListar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(391, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel25Layout.createSequentialGroup()
                 .addContainerGap()
@@ -2406,8 +2337,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonMovimentoSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonMovimentoListar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -2830,19 +2761,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 verificaDadoDigitado(dadoEntrada);
                 break;
             case KeyEvent.VK_F2:
-                mensal();
+                menuPrincipal("mensalista");
                 break;
             case KeyEvent.VK_F3:
-                pacote();
+                menuPrincipal("pacote");
                 break;
             case KeyEvent.VK_F4:
-                menuPrincipalRotativo();
+                menuPrincipal("rotativo");
                 break;
             case KeyEvent.VK_F5:
-                patio();
+                menuPrincipal("patio");
                 break;
             case KeyEvent.VK_F8:
-                configuracoes();
+                menuPrincipal("configuracoes");
                 break;
             case KeyEvent.VK_F10:
                 confirmaSaidaSistema();
@@ -2967,17 +2898,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jDialogConfirmaSaidaSistemaWindowClosing
 
-    private void jButtonEntradaVeiculoSim1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntradaVeiculoSim1ActionPerformed
+    private void jButtonSaidaSistemaSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaidaSistemaSimActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jButtonEntradaVeiculoSim1ActionPerformed
+    }//GEN-LAST:event_jButtonSaidaSistemaSimActionPerformed
 
-    private void jButtonEntradaVeiculoNao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntradaVeiculoNao1ActionPerformed
-        menuPrincipalBotoesHabilitar();
+    private void jButtonSaidaSistemaNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaidaSistemaNaoActionPerformed
         jDialogConfirmaSaidaSistema.dispose();
-    }//GEN-LAST:event_jButtonEntradaVeiculoNao1ActionPerformed
+    }//GEN-LAST:event_jButtonSaidaSistemaNaoActionPerformed
 
     private void jButtonF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF1ActionPerformed
-        menuPrincipalEntradaSaida();
+        //menuPrincipal("entradasaida");
     }//GEN-LAST:event_jButtonF1ActionPerformed
 
     private void txtRotativoPreco30minutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRotativoPreco30minutosActionPerformed
@@ -2985,39 +2915,164 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtRotativoPreco30minutosActionPerformed
 
     private void jButtonF4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF4ActionPerformed
-        menuPrincipalRotativo();
+        menuPrincipal("rotativo");
     }//GEN-LAST:event_jButtonF4ActionPerformed
 
     private void jButtonRotativoSairCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRotativoSairCancelarActionPerformed
-        rotativoBotaoSairCancelar();
+        switch (jButtonRotativoSairCancelar.getText()) {
+            case "Sair":
+                menuPrincipal("entradasaida");
+                rotativoTabelaRotativo();
+                break;
+            case "Cancelar":
+                jButtonRotativoIncluirOk.setEnabled(true);
+                jButtonRotativoExcluirCancelar.setEnabled(true);
+                jButtonRotativoAlterarOk.setText("Alterar");
+                jButtonRotativoSairCancelar.setText("Sair");
+                jButtonRotativoAlterarOk.setMnemonic('A');
+                jButtonRotativoSairCancelar.setMnemonic('S');
+                rotativoCamposStatus(false);
+                JOptionPane.showMessageDialog(this, "Alterações canceladas!!!");
+                break;
+            default:
+                break;
+        }
     }//GEN-LAST:event_jButtonRotativoSairCancelarActionPerformed
 
     private void jButtonRotativoAlterarOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRotativoAlterarOkActionPerformed
-        rotativoBotaoAlterarOk();
+        switch (jButtonRotativoAlterarOk.getText()) {
+            case "Alterar":
+                if (jTableRotativo.getRowCount() != 0 && jTableRotativo.getSelectedRowCount() != 0) {
+                    jButtonRotativoIncluirOk.setEnabled(false);
+                    jButtonRotativoExcluirCancelar.setEnabled(false);
+                    jButtonRotativoAlterarOk.setText("Ok");
+                    jButtonRotativoAlterarOk.setMnemonic('O');
+                    jButtonRotativoSairCancelar.setText("Cancelar");
+                    jButtonRotativoSairCancelar.setMnemonic('C');
+                    rotativoNomeAnterior = jTextFieldRotativoIncluirAlterar.getText();
+                    rotativoCamposStatus(true);
+                    rotativoExibirAtributos();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Selecione um dos rotativos da tabela para alteração!!!");
+                }
+                break;
+            case "Ok":
+                rotativo.setNome(jTextFieldRotativoIncluirAlterar.getText());
+                rotativo.setIdRotativo(0);
+                rotativo = rotativoService.rotativoVerificaExistencia(rotativo);
+                if (rotativo.getIdRotativo() != 0) {
+                    JOptionPane.showMessageDialog(this, "Já existe um rotativo chamado:" + rotativo.getNome() + "\n Escolha outro nome para este rotativo!!!");
+                    jTextFieldRotativoIncluirAlterar.requestFocus();
+                    break;
+                } else {
+                    jButtonRotativoIncluirOk.setEnabled(true);
+                    jButtonRotativoExcluirCancelar.setEnabled(true);
+                    jButtonRotativoAlterarOk.setText("Alterar");
+                    jButtonRotativoAlterarOk.setMnemonic('A');
+                    jButtonRotativoSairCancelar.setText("Sair");
+                    jButtonRotativoSairCancelar.setMnemonic('S');
+                    rotativo.setNome(jTextFieldRotativoIncluirAlterar.getText());
+                    rotativo.setPreco30Minutos(Float.parseFloat(txtRotativoPreco30minutos.getText().replaceAll("\\.", "").replaceAll(",", ".")));
+                    rotativo.setPreco60Minutos(Float.parseFloat(txtRotativoPreco60minutos.getText().replaceAll("\\.", "").replaceAll(",", ".")));
+                    rotativo.setPrecoDemaisFracoes(Float.parseFloat(txtRotativoPrecoDemaisFracoes.getText().replaceAll("\\.", "").replaceAll(",", ".")));
+                    rotativo.setPrecoDiaria(Float.parseFloat(txtRotativoPrecoDiaria.getText().replaceAll("\\.", "").replaceAll(",", ".")));
+                    rotativo.setPrecoPernoite(Float.parseFloat(txtRotativoPrecoPernoite.getText().replaceAll("\\.", "").replaceAll(",", ".")));
+                    rotativoService.rotativoAlterarPrecos(rotativoNomeAnterior, rotativo);
+                    rotativoCamposStatus(false);
+                    rotativoTabelaRotativo();
+                    JOptionPane.showMessageDialog(this, "Alterações efetuadas com sucesso!!!");
+                }
+            default:
+                break;
+        }
     }//GEN-LAST:event_jButtonRotativoAlterarOkActionPerformed
 
-    private void txtRotativoPrecoDiariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRotativoPrecoDiariaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRotativoPrecoDiariaActionPerformed
-
-    private void txtRotativoPrecoPernoiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRotativoPrecoPernoiteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRotativoPrecoPernoiteActionPerformed
-
     private void jButtonRotativoIncluirOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRotativoIncluirOkActionPerformed
-        rotativoBotaoIncluirOk();
+        switch (jButtonRotativoIncluirOk.getText()) {
+            case "Incluir":
+                ok = "Incluir";
+                jButtonRotativoAlterarOk.setEnabled(false);
+                jButtonRotativoSairCancelar.setEnabled(false);
+                jButtonRotativoIncluirOk.setText("Ok");
+                jButtonRotativoIncluirOk.setMnemonic('O');
+                jButtonRotativoExcluirCancelar.setText("Cancelar");
+                jButtonRotativoExcluirCancelar.setMnemonic('C');
+                rotativoCamposStatus(true);
+                break;
+            case "Ok":
+                if (ok.equalsIgnoreCase("Excluir")) { //Ok para exclusão
+                    jTableRotativo.setEnabled(true);
+                    rotativo.setNome(String.valueOf(jTableRotativo.getValueAt(jTableRotativo.getSelectedRow(), 0)));
+                    rotativoService.rotativoExcluirTipoPrecos(rotativo);
+                    JOptionPane.showMessageDialog(this, "Exclusão efetuadas com sucesso!!!");
+                } else { //Ok para Inclusão
+                    rotativo.setNome(jTextFieldRotativoIncluirAlterar.getText());
+                    rotativo.setIdRotativo(0);
+                    rotativo = rotativoService.rotativoVerificaExistencia(rotativo);
+                    if (rotativo.getIdRotativo() != 0) {
+                        JOptionPane.showMessageDialog(this, "Já existe um rotativo chamado:" + rotativo.getNome() + "\n Escolha outro nome para este rotativo!!!");
+                        jTextFieldRotativoIncluirAlterar.requestFocus();
+                        break;
+                    } else {
+                        rotativo.setNome(jTextFieldRotativoIncluirAlterar.getText());
+                        rotativo.setPreco30Minutos(Float.parseFloat(txtRotativoPreco30minutos.getText().replaceAll("\\.", "").replaceAll(",", ".")));
+                        rotativo.setPreco60Minutos(Float.parseFloat(txtRotativoPreco60minutos.getText().replaceAll("\\.", "").replaceAll(",", ".")));
+                        rotativo.setPrecoDemaisFracoes(Float.parseFloat(txtRotativoPrecoDemaisFracoes.getText().replaceAll("\\.", "").replaceAll(",", ".")));
+                        rotativo.setPrecoDiaria(Float.parseFloat(txtRotativoPrecoDiaria.getText().replaceAll("\\.", "").replaceAll(",", ".")));
+                        rotativo.setPrecoPernoite(Float.parseFloat(txtRotativoPrecoPernoite.getText().replaceAll("\\.", "").replaceAll(",", ".")));
+                        rotativoService.rotativoIncluirTipoPrecos(rotativo);
+                        JOptionPane.showMessageDialog(this, "Inclusão efetuada com sucesso!!!");
+                    }
+                }
+                jButtonRotativoAlterarOk.setEnabled(true);
+                jButtonRotativoSairCancelar.setEnabled(true);
+                jButtonRotativoIncluirOk.setText("Incluir");
+                jButtonRotativoIncluirOk.setMnemonic('I');
+                jButtonRotativoExcluirCancelar.setText("Excluir");
+                jButtonRotativoExcluirCancelar.setMnemonic('E');
+                rotativoTabelaRotativo();
+            default:
+                break;
+        }
     }//GEN-LAST:event_jButtonRotativoIncluirOkActionPerformed
 
     private void jButtonRotativoExcluirCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRotativoExcluirCancelarActionPerformed
-        rotativoBotaoExcluirCancelar();
+        switch (jButtonRotativoExcluirCancelar.getText()) {
+            case "Excluir":
+                if (jTableRotativo.getRowCount() != 0 && jTableRotativo.getSelectedRowCount() != 0) {
+                    ok = "Excluir";
+                    jTableRotativo.setEnabled(false);
+                    jButtonRotativoAlterarOk.setEnabled(false);
+                    jButtonRotativoSairCancelar.setEnabled(false);
+                    jButtonRotativoIncluirOk.setText("Ok");
+                    jButtonRotativoIncluirOk.setMnemonic('O');
+                    jButtonRotativoExcluirCancelar.setText("Cancelar");
+                    jButtonRotativoExcluirCancelar.setMnemonic('C');
+                } else {
+                    JOptionPane.showMessageDialog(this, "Selecione um dos rotativos da tabela para exclusão!!!");
+                }
+                break;
+            case "Cancelar":
+                jTableRotativo.setEnabled(true);
+                jButtonRotativoAlterarOk.setEnabled(true);
+                jButtonRotativoSairCancelar.setEnabled(true);
+                jButtonRotativoIncluirOk.setText("Incluir");
+                jButtonRotativoIncluirOk.setMnemonic('I');
+                jButtonRotativoExcluirCancelar.setText("Excluir");
+                jButtonRotativoExcluirCancelar.setMnemonic('E');
+                rotativoCamposStatus(false);
+                JOptionPane.showMessageDialog(this, "Modificação cancelada!!!");
+            default:
+                break;
+        }
     }//GEN-LAST:event_jButtonRotativoExcluirCancelarActionPerformed
 
-    private void jTextFieldRotativoIncluirAlterarTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRotativoIncluirAlterarTipoActionPerformed
+    private void jTextFieldRotativoIncluirAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRotativoIncluirAlterarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldRotativoIncluirAlterarTipoActionPerformed
+    }//GEN-LAST:event_jTextFieldRotativoIncluirAlterarActionPerformed
 
     private void jButtonF8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF8ActionPerformed
-        configuracoes();
+        menuPrincipal("configuracoes");
     }//GEN-LAST:event_jButtonF8ActionPerformed
 
     private void jButtonConfiguracoesAlterarOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfiguracoesAlterarOkActionPerformed
@@ -3097,124 +3152,36 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtInformacoesPernoiteTerminoActionPerformed
 
     private void jButtonF5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF5ActionPerformed
-        patio();
+        menuPrincipal("patio");
     }//GEN-LAST:event_jButtonF5ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        menuPrincipalEntradaSaida();
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void jButtonPatioSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPatioSairActionPerformed
+        menuPrincipal("entradasaida");
+    }//GEN-LAST:event_jButtonPatioSairActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        menuPrincipalEntradaSaida();
-    }//GEN-LAST:event_jButton10ActionPerformed
+    private void jButtonMovimentoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMovimentoSairActionPerformed
+        menuPrincipal("entradasaida");
+    }//GEN-LAST:event_jButtonMovimentoSairActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void jButtonMovimentoListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMovimentoListarActionPerformed
 
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_jButtonMovimentoListarActionPerformed
 
     private void jButtonF6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF6ActionPerformed
-        movimento();
+        menuPrincipal("movimento");
     }//GEN-LAST:event_jButtonF6ActionPerformed
 
     private void jButtonF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF2ActionPerformed
-        mensal();
+        menuPrincipal("mensalista");
     }//GEN-LAST:event_jButtonF2ActionPerformed
 
     private void jButtonF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF3ActionPerformed
-        pacote();
+        menuPrincipal("pacote");
     }//GEN-LAST:event_jButtonF3ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        menuPrincipalEntradaSaida();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        menuPrincipalEntradaSaida();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jTextFieldPacoteQtdDiasOuUtilizacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPacoteQtdDiasOuUtilizacoesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPacoteQtdDiasOuUtilizacoesActionPerformed
-
-    private void jButtonPacoteAlterarOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPacoteAlterarOkActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonPacoteAlterarOkActionPerformed
-
-    private void jButtonPacoteSairCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPacoteSairCancelarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonPacoteSairCancelarActionPerformed
-
-    private void jTextFieldPacoteValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPacoteValorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPacoteValorActionPerformed
-
-    private void jButtonPacoteIncluirOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPacoteIncluirOkActionPerformed
-        switch (jButtonPacoteIncluirOk.getText()) {
-            case "Incluir":
-                jButtonPacoteIncluirOk.setText("Ok");
-                jButtonPacoteExcluirCancelar.setText("Cancelar");
-                jButtonRotativoAlterarOk.setEnabled(false);
-                jButtonPacoteSairCancelar.setEnabled(false);
-                break;
-            case "Ok":
-                jButtonPacoteIncluirOk.setText("Incluir");
-                jButtonPacoteExcluirCancelar.setText("Excluir");
-                jButtonRotativoAlterarOk.setEnabled(true);
-                jButtonPacoteSairCancelar.setEnabled(true);
-                break;
-            default:
-                break;
-        }
-    }//GEN-LAST:event_jButtonPacoteIncluirOkActionPerformed
-
-    private void jButtonPacoteExcluirCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPacoteExcluirCancelarActionPerformed
-        switch (jButtonPacoteExcluirCancelar.getText()) {
-            case "Excluir":
-                jButtonPacoteIncluirOk.setText("Ok");
-                jButtonPacoteExcluirCancelar.setText("Cancelar");
-                jButtonPacoteAlterarOk.setEnabled(false);
-                jButtonPacoteSairCancelar.setEnabled(false);
-                break;
-            case "Cancelar":
-                jButtonPacoteIncluirOk.setText("Incluir");
-                jButtonPacoteExcluirCancelar.setText("Excluir");
-                jButtonPacoteAlterarOk.setEnabled(true);
-                jButtonPacoteSairCancelar.setEnabled(true);
-                break;
-            default:
-                break;
-        }
-    }//GEN-LAST:event_jButtonPacoteExcluirCancelarActionPerformed
-
-    private void jListPacoteListaTipoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jListPacoteListaTipoKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jListPacoteListaTipoKeyPressed
-
-    private void jListPacoteListaTipoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jListPacoteListaTipoKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jListPacoteListaTipoKeyReleased
-
-    private void jListPacoteListaTipoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jListPacoteListaTipoKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jListPacoteListaTipoKeyTyped
-
-    private void jTextFieldPacoteIncluirAlterarTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPacoteIncluirAlterarTipoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPacoteIncluirAlterarTipoActionPerformed
-
-    private void jRadioButtonQtdDiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonQtdDiasActionPerformed
-        if (jRadioButtonQtdDias.isSelected());
-        jRadioButtonQtdDias.setSelected(true);
-        jRadioButtonQtdUtilizacoes.setSelected(false);
-        jLabelPacoteQtdDiasOuUtilizacoes.setText("Quant. de dias");
-    }//GEN-LAST:event_jRadioButtonQtdDiasActionPerformed
-
-    private void jRadioButtonQtdUtilizacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonQtdUtilizacoesActionPerformed
-        if (jRadioButtonQtdUtilizacoes.isSelected());
-        jRadioButtonQtdUtilizacoes.setSelected(true);
-        jRadioButtonQtdDias.setSelected(false);
-        jLabelPacoteQtdDiasOuUtilizacoes.setText("Quant. de utilizações");
-    }//GEN-LAST:event_jRadioButtonQtdUtilizacoesActionPerformed
+    private void jButtonMensalistaSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMensalistaSairActionPerformed
+        menuPrincipal("entradasaida");
+    }//GEN-LAST:event_jButtonMensalistaSairActionPerformed
 
     private void jTablePatioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTablePatioKeyPressed
 
@@ -3229,7 +3196,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTableRotativoMouseClicked
 
     private void jTableRotativoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableRotativoMousePressed
-        rotativoExibirDados();
+        rotativoExibirAtributos();
     }//GEN-LAST:event_jTableRotativoMousePressed
 
     private void jTableRotativoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableRotativoKeyTyped
@@ -3238,13 +3205,215 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jTableRotativoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableRotativoKeyReleased
         if (evt.getKeyCode() == KeyEvent.VK_TAB) {
-            rotativoExibirDados();
+            rotativoExibirAtributos();
         }
     }//GEN-LAST:event_jTableRotativoKeyReleased
 
     private void jTextFieldSaidaPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSaidaPrismaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldSaidaPrismaActionPerformed
+
+    private void jTablePacoteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePacoteMousePressed
+        pacoteExibirAtributos();
+    }//GEN-LAST:event_jTablePacoteMousePressed
+
+    private void jTextFieldPacoteIncluirAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPacoteIncluirAlterarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPacoteIncluirAlterarActionPerformed
+
+    private void jRadioButtonUtilizacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonUtilizacoesActionPerformed
+        if (jRadioButtonUtilizacoes.isSelected());
+        jRadioButtonUtilizacoes.setSelected(true);
+        jRadioButtonDias.setSelected(false);
+        jLabelPacoteQtdDiasOuUtilizacoes.setText("Quant. de utilizações");
+    }//GEN-LAST:event_jRadioButtonUtilizacoesActionPerformed
+
+    private void jRadioButtonDiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonDiasActionPerformed
+        if (jRadioButtonDias.isSelected());
+        jRadioButtonDias.setSelected(true);
+        jRadioButtonUtilizacoes.setSelected(false);
+        jLabelPacoteQtdDiasOuUtilizacoes.setText("Quant. de dias");
+    }//GEN-LAST:event_jRadioButtonDiasActionPerformed
+
+    private void jButtonPacoteExcluirCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPacoteExcluirCancelarActionPerformed
+        switch (jButtonPacoteExcluirCancelar.getText()) {
+            case "Excluir":
+                if (jTablePacote.getRowCount() != 0 && jTablePacote.getSelectedRowCount() != 0) {
+                    ok = "Excluir";
+                    jTablePacote.setEnabled(false);
+                    jButtonPacoteIncluirOk.setText("Ok");
+                    jButtonPacoteIncluirOk.setMnemonic('O');
+                    jButtonPacoteExcluirCancelar.setText("Cancelar");
+                    jButtonPacoteExcluirCancelar.setMnemonic('C');
+                    jButtonPacoteAlterarOk.setEnabled(false);
+                    jButtonPacoteSairCancelar.setEnabled(false);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Selecione um dos pacotes da tabela para exclusão!!!");
+                }
+                break;
+            case "Cancelar":
+                jTablePacote.setEnabled(true);
+                jButtonPacoteIncluirOk.setText("Incluir");
+                jButtonPacoteIncluirOk.setMnemonic('I');
+                jButtonPacoteExcluirCancelar.setText("Excluir");
+                jButtonPacoteExcluirCancelar.setMnemonic('E');
+                jButtonPacoteAlterarOk.setEnabled(true);
+                jButtonPacoteSairCancelar.setEnabled(true);
+                pacoteCamposStatus(false);
+                JOptionPane.showMessageDialog(this, "Modificação cancelada!!!");
+                break;
+            default:
+                break;
+        }
+    }//GEN-LAST:event_jButtonPacoteExcluirCancelarActionPerformed
+
+    private void jButtonPacoteIncluirOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPacoteIncluirOkActionPerformed
+        switch (jButtonPacoteIncluirOk.getText()) {
+            case "Incluir":
+                ok = "Incluir";
+                jButtonPacoteIncluirOk.setText("Ok");
+                jButtonPacoteIncluirOk.setMnemonic('O');
+                jButtonPacoteExcluirCancelar.setText("Cancelar");
+                jButtonPacoteExcluirCancelar.setMnemonic('C');
+                jButtonPacoteAlterarOk.setEnabled(false);
+                jButtonPacoteSairCancelar.setEnabled(false);
+                pacoteCamposStatus(true);
+                break;
+            case "Ok":
+                if (ok.equalsIgnoreCase("Excluir")) {
+                    jTablePacote.setEnabled(true);
+                    pacote.setNome(String.valueOf(jTablePacote.getValueAt(jTablePacote.getSelectedRow(), 0)));
+                    pacoteService.pacoteExcluir(pacote);
+                    JOptionPane.showMessageDialog(this, "Exclusão efetuadas com sucesso!!!");
+                } else if (ok.equalsIgnoreCase("Incluir")) { //ok para Incluir
+                    pacote.setNome(jTextFieldPacoteIncluirAlterar.getText());
+                    pacote.setIdPacote(0);
+                    pacote = pacoteService.pacoteVerificaExistencia(pacote);
+                    if (pacote.getIdPacote() != 0) {
+                        JOptionPane.showMessageDialog(this, "Já existe um pacote chamado:" + pacote.getNome() + "\n Escolha outro nome para este pacote!!!");
+                        jTextFieldPacoteIncluirAlterar.requestFocus();
+                        break;
+                    } else {
+                        if (jRadioButtonDias.isSelected()) {
+                            pacote.setUtilizacoesOuDias("Dias");
+                        } else if (jRadioButtonUtilizacoes.isSelected()) {
+                            pacote.setUtilizacoesOuDias("Utilizações");
+                        }
+                        pacote.setQuantidade(Integer.valueOf(jTextFieldPacoteQuantidade.getText()));
+                        pacote.setValor(Float.valueOf(jTextFieldPacoteValor.getText().replaceAll("\\.", "").replaceAll(",", ".")));
+                        jTextFieldPacoteIncluirAlterar.setEditable(false);
+                        jRadioButtonDias.setEnabled(false);
+                        jRadioButtonUtilizacoes.setEnabled(false);
+                        jTextFieldPacoteQuantidade.setEditable(false);
+                        jTextFieldPacoteValor.setEditable(false);
+                        pacoteService.pacoteIncluir(pacote);
+                        JOptionPane.showMessageDialog(this, "Inclusão efetuada com sucesso!!!");
+                    }
+                }
+                jButtonPacoteAlterarOk.setEnabled(true);
+                jButtonPacoteSairCancelar.setEnabled(true);
+                jButtonPacoteIncluirOk.setText("Incluir");
+                jButtonPacoteIncluirOk.setMnemonic('I');
+                jButtonPacoteExcluirCancelar.setText("Excluir");
+                jButtonPacoteExcluirCancelar.setMnemonic('E');
+                pacoteTabelaPacote();
+                break;
+            default:
+                break;
+        }
+    }//GEN-LAST:event_jButtonPacoteIncluirOkActionPerformed
+
+    private void jTextFieldPacoteValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPacoteValorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPacoteValorActionPerformed
+
+    private void jButtonPacoteSairCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPacoteSairCancelarActionPerformed
+        switch (jButtonPacoteSairCancelar.getText()) {
+            case "Sair":
+                menuPrincipal("entradasaida");
+                break;
+            case "Cancelar":
+                jButtonPacoteAlterarOk.setText("Alterar");
+                jButtonPacoteAlterarOk.setMnemonic('A');
+                jButtonPacoteSairCancelar.setText("Sair");
+                jButtonPacoteSairCancelar.setMnemonic('S');
+                jButtonPacoteIncluirOk.setEnabled(true);
+                jButtonPacoteExcluirCancelar.setEnabled(true);
+                pacoteCamposStatus(false);
+                break;
+            default:
+                break;
+        }
+    }//GEN-LAST:event_jButtonPacoteSairCancelarActionPerformed
+
+    private void jButtonPacoteAlterarOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPacoteAlterarOkActionPerformed
+        switch (jButtonPacoteAlterarOk.getText()) {
+            case "Alterar":
+                if (jTablePacote.getRowCount() != 0 && jTablePacote.getSelectedRowCount() != 0) {
+                    jButtonPacoteAlterarOk.setText("Ok");
+                    jButtonPacoteAlterarOk.setMnemonic('O');
+                    jButtonPacoteSairCancelar.setText("Cancelar");
+                    jButtonPacoteSairCancelar.setMnemonic('C');
+                    jButtonPacoteIncluirOk.setEnabled(false);
+                    jButtonPacoteExcluirCancelar.setEnabled(false);
+                    pacoteNomeAnterior = jTextFieldPacoteIncluirAlterar.getText();
+                    pacoteCamposStatus(true);
+                    pacoteExibirAtributos();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Selecione um dos pacotes da tabela para alteração!!!");
+                }
+                break;
+            case "Ok":
+                pacote.setNome(jTextFieldPacoteIncluirAlterar.getText());
+                pacote.setIdPacote(0);
+                pacote = pacoteService.pacoteVerificaExistencia(pacote);
+                if (pacote.getIdPacote() != 0) {
+                    JOptionPane.showMessageDialog(this, "Já existe um pacote chamado:" + pacote.getNome() + "\n Escolha outro nome para este pacote!!!");
+                    jTextFieldPacoteIncluirAlterar.requestFocus();
+                    break;
+                } else {
+                    jButtonPacoteAlterarOk.setText("Alterar");
+                    jButtonPacoteAlterarOk.setMnemonic('A');
+                    jButtonPacoteSairCancelar.setText("Sair");
+                    jButtonPacoteSairCancelar.setMnemonic('S');
+                    jButtonPacoteIncluirOk.setEnabled(true);
+                    jButtonPacoteExcluirCancelar.setEnabled(true);
+                    pacote.setNome(jTextFieldPacoteIncluirAlterar.getText());
+                    if (jRadioButtonDias.isSelected()) {
+                        pacote.setUtilizacoesOuDias("Dias");
+                    } else if (jRadioButtonUtilizacoes.isSelected()) {
+                        pacote.setUtilizacoesOuDias("Utilizações");
+                    }
+                    pacote.setQuantidade(Integer.valueOf(jTextFieldPacoteQuantidade.getText()));
+                    pacote.setValor(Float.valueOf(jTextFieldPacoteValor.getText().replaceAll("\\.", "").replaceAll(",", ".")));
+                    pacoteService.pacoteAlterar(pacoteNomeAnterior, pacote);
+                    pacoteCamposStatus(false);
+                    pacoteTabelaPacote();
+                    JOptionPane.showMessageDialog(this, "Alteração efetuada com sucesso!!!");
+                }
+                break;
+            default:
+                break;
+        }
+    }//GEN-LAST:event_jButtonPacoteAlterarOkActionPerformed
+
+    private void jTextFieldPacoteQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPacoteQuantidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPacoteQuantidadeActionPerformed
+
+    private void jTablePacoteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTablePacoteKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_UP || evt.getKeyCode() == KeyEvent.VK_DOWN) {
+            pacoteExibirAtributos();
+        }
+    }//GEN-LAST:event_jTablePacoteKeyReleased
+
+    private void jTablePacoteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTablePacoteKeyTyped
+        pacoteExibirAtributos();
+    }//GEN-LAST:event_jTablePacoteKeyTyped
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        confirmaSaidaSistema();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -3283,17 +3452,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButtonConfiguracoesAlterarOk;
     private javax.swing.JButton jButtonConfiguracoesSairCancelar;
     private javax.swing.JButton jButtonEntradaVeiculoNao;
-    private javax.swing.JButton jButtonEntradaVeiculoNao1;
     private javax.swing.JButton jButtonEntradaVeiculoSim;
-    private javax.swing.JButton jButtonEntradaVeiculoSim1;
     private javax.swing.JButton jButtonF1;
     private javax.swing.JButton jButtonF10;
     private javax.swing.JButton jButtonF2;
@@ -3302,14 +3464,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonF5;
     private javax.swing.JButton jButtonF6;
     private javax.swing.JButton jButtonF8;
+    private javax.swing.JButton jButtonMensalistaSair;
+    private javax.swing.JButton jButtonMovimentoListar;
+    private javax.swing.JButton jButtonMovimentoSair;
     private javax.swing.JButton jButtonPacoteAlterarOk;
     private javax.swing.JButton jButtonPacoteExcluirCancelar;
     private javax.swing.JButton jButtonPacoteIncluirOk;
     private javax.swing.JButton jButtonPacoteSairCancelar;
+    private javax.swing.JButton jButtonPatioSair;
     private javax.swing.JButton jButtonRotativoAlterarOk;
     private javax.swing.JButton jButtonRotativoExcluirCancelar;
     private javax.swing.JButton jButtonRotativoIncluirOk;
     private javax.swing.JButton jButtonRotativoSairCancelar;
+    private javax.swing.JButton jButtonSaidaSistemaNao;
+    private javax.swing.JButton jButtonSaidaSistemaSim;
     private javax.swing.JButton jButtonSaidaVeiculoNao;
     private javax.swing.JButton jButtonSaidaVeiculoSim;
     private javax.swing.JDialog jDialogConfirmaEntradaVeiculo;
@@ -3361,9 +3529,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -3371,7 +3539,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPacoteQtdDiasOuUtilizacoes;
     private javax.swing.JLabel jLabelPlacaOuPrisma;
     private javax.swing.JList<String> jListConfiguracoes;
-    private javax.swing.JList<String> jListPacoteListaTipo;
     private javax.swing.JList<String> jListRotativoTipo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel12;
@@ -3392,9 +3559,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
-    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel34;
     private javax.swing.JPanel jPanel4;
@@ -3412,14 +3577,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelPacote;
     private javax.swing.JPanel jPanelVeiculoEntrada;
     private javax.swing.JPanel jPanelVeiculoSaida;
-    private javax.swing.JRadioButton jRadioButtonQtdDias;
-    private javax.swing.JRadioButton jRadioButtonQtdUtilizacoes;
+    private javax.swing.JRadioButton jRadioButtonDias;
+    private javax.swing.JRadioButton jRadioButtonUtilizacoes;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
-    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
@@ -3428,9 +3592,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JScrollPane jScrollPaneMovimentacoes;
     private javax.swing.JTabbedPane jTabbedPaneConfiguracoesItemAlteracao;
+    private javax.swing.JTabbedPane jTabbedPaneEntradaSaida;
     private javax.swing.JTabbedPane jTabbedPaneOpcoes;
-    private javax.swing.JTabbedPane jTabbedPanePacoteInclusaoAlteracaoConsulta;
-    private javax.swing.JTabbedPane jTabbedPaneVeiculoEntradaSaida;
     private javax.swing.JTable jTableEntradaSaidaInformacoesRotativo;
     private javax.swing.JTable jTableEntradaSaidaMovimentacoesRotativo;
     private javax.swing.JTable jTableMovimento;
@@ -3449,12 +3612,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldEntradaHora;
     private javax.swing.JTextField jTextFieldEntradaPlaca;
     private javax.swing.JTextField jTextFieldEntradaPrisma;
-    private javax.swing.JTextField jTextFieldPacoteDataInicio;
-    private javax.swing.JTextField jTextFieldPacoteDataTermino;
-    private javax.swing.JTextField jTextFieldPacoteIncluirAlterarTipo;
-    private javax.swing.JTextField jTextFieldPacoteQtdDiasOuUtilizacoes;
+    private javax.swing.JTextField jTextFieldPacoteIncluirAlterar;
+    private javax.swing.JTextField jTextFieldPacoteQuantidade;
     private javax.swing.JTextField jTextFieldPacoteValor;
-    private javax.swing.JTextField jTextFieldRotativoIncluirAlterarTipo;
+    private javax.swing.JTextField jTextFieldRotativoIncluirAlterar;
     private javax.swing.JTextField jTextFieldRotativoTipo;
     private javax.swing.JTextField jTextFieldSaidaControle;
     private javax.swing.JTextField jTextFieldSaidaData;
@@ -3508,34 +3669,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
     }
 
-    private void mensal() {
-        menuPrincipalBotoesDesabilitar();
-        jTabbedPaneOpcoes.setEnabledAt(0, false);
-        jTabbedPaneOpcoes.setEnabledAt(1, true);
-        jTabbedPaneOpcoes.setEnabledAt(2, false);
-        jTabbedPaneOpcoes.setEnabledAt(3, false);
-        jTabbedPaneOpcoes.setEnabledAt(4, false);
-        jTabbedPaneOpcoes.setEnabledAt(5, false);
-        jTabbedPaneOpcoes.setEnabledAt(6, false);
-        jTabbedPaneOpcoes.setSelectedIndex(1);
-    }
-
-    private void pacote() {
-        menuPrincipalBotoesDesabilitar();
-        jTabbedPaneOpcoes.setEnabledAt(0, false);
-        jTabbedPaneOpcoes.setEnabledAt(1, false);
-        jTabbedPaneOpcoes.setEnabledAt(2, true);
-        jTabbedPaneOpcoes.setEnabledAt(3, false);
-        jTabbedPaneOpcoes.setEnabledAt(4, false);
-        jTabbedPaneOpcoes.setEnabledAt(5, false);
-        jTabbedPaneOpcoes.setEnabledAt(6, false);
-        jTabbedPaneOpcoes.setSelectedIndex(2);
-        jRadioButtonQtdDias.setSelected(true);
-        jRadioButtonQtdUtilizacoes.setSelected(false);
-    }
-
     private void confirmaSaidaSistema() {
-        menuPrincipalBotoesDesabilitar();
         jDialogConfirmaSaidaSistema.setVisible(true);
     }
 
@@ -3574,6 +3708,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void limparObjetosPatio() {
 
+        /*
         veiculo.setIdVeiculo(0);
         veiculo.setPlaca("");
         veiculo.setMarca("");
@@ -3590,20 +3725,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         patio.setEstacionado("");
         patio.setTipo("");
         patio.setDataEntrada("");
-        patio.setHoraMinutoDataEntrada("");
+        patio.setDataEntradaHoraMinuto("");
         patio.setHoraEntrada("");
         patio.setDataSaida("");
-        patio.setHoraMinutoDataSaida("");
+        patio.setDataSaidaHoraMinuto("");
         patio.setHoraSaida("");
         patio.setDiariaQuantidade(0);
-        patio.setDiariasValorTotal(0);
+        patio.setDiariaValorTotal(0);
         patio.setPernoiteQuantidade(0);
-        patio.setPernoitesValorTotal(0);
+        patio.setPernoiteValorTotal(0);
         patio.setPermanencia("");
-        patio.setValorDataEntrada(0);
-        patio.setValorDataSaida(0);
+        patio.setDataEntradaValor(0);
+        patio.setDataSaidaValor(0);
         patio.setValorTotal(0);
-
+         */
         txtEntradaPlacaOuPrisma.setText("");
         jTextFieldEntradaPlaca.setText("");
         jTextFieldEntradaPrisma.setText("");
@@ -3626,10 +3761,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTextFieldSaidaValor.setText("");
         jLabelPlacaOuPrisma.setText("Placa ou Prisma");
 
-        jTabbedPaneVeiculoEntradaSaida.setEnabledAt(0, true);
-        jTabbedPaneVeiculoEntradaSaida.setEnabledAt(1, false);
-        jTabbedPaneVeiculoEntradaSaida.setEnabledAt(2, false);
-        jTabbedPaneVeiculoEntradaSaida.setSelectedIndex(0);
+        jTabbedPaneEntradaSaida.setEnabledAt(0, true);
+        jTabbedPaneEntradaSaida.setEnabledAt(1, false);
+        jTabbedPaneEntradaSaida.setEnabledAt(2, false);
+        jTabbedPaneEntradaSaida.setSelectedIndex(0);
         txtEntradaPlacaOuPrisma.setDocument(new EntradaDado(7, "[^A-Z|^0-9]"));
     }
 
@@ -3673,8 +3808,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         patio.setRps(rps.format(new Date()));
         patio.setRps(patio.getRps().replaceAll("[^0-9]", ""));
         patio.setTipo(jTextFieldRotativoTipo.getText());
-        rotativo.setTipoRotativo(patio.getTipo());
-        buscaRotativoPreco(rotativo);
+        rotativo.setNome(patio.getTipo());
+        rotativo = buscaRotativoPreco(rotativo);
         patio.setPreco30Minutos(rotativo.getPreco30Minutos());
         patio.setPreco60Minutos(rotativo.getPreco60Minutos());
         patio.setPrecoDemaisFracoes(rotativo.getPrecoDemaisFracoes());
@@ -3699,10 +3834,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         patio.setHoraSaida(horaAtual.format(new Date()));
         jTextFieldSaidaData.setText(patio.getDataSaida());
         jTextFieldSaidaHora.setText(patio.getHoraSaida());
-        jTabbedPaneVeiculoEntradaSaida.setEnabledAt(0, false);
-        jTabbedPaneVeiculoEntradaSaida.setEnabledAt(1, false);
-        jTabbedPaneVeiculoEntradaSaida.setEnabledAt(2, true);
-        jTabbedPaneVeiculoEntradaSaida.setSelectedIndex(2);
+        jTabbedPaneEntradaSaida.setEnabledAt(0, false);
+        jTabbedPaneEntradaSaida.setEnabledAt(1, false);
+        jTabbedPaneEntradaSaida.setEnabledAt(2, true);
+        jTabbedPaneEntradaSaida.setSelectedIndex(2);
         jTextFieldSaidaPlaca.setText(patio.getPlacaFk());
         jTextFieldSaidaPrisma.setText(patio.getPrisma());
         jTextFieldSaidaTipo.setText(patio.getTipo());
@@ -3713,10 +3848,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         RotativoCalculoSaida rotativoCalculoSaida = new RotativoCalculoSaida();
         patio = rotativoCalculoSaida.calcularPermanenciaValor(patio);
 
-        jTextFieldSaidaHMEntrada.setText(patio.getHoraMinutoDataEntrada());
+        jTextFieldSaidaHMEntrada.setText(patio.getDataEntradaHoraMinuto());
         jTextFieldSaidaDiarias.setText(String.valueOf(patio.getDiariaQuantidade()));
         jTextFieldSaidaPernoites.setText(String.valueOf(patio.getPernoiteQuantidade()));
-        jTextFieldSaidaHMSaida.setText(patio.getHoraMinutoDataSaida());
+        jTextFieldSaidaHMSaida.setText(patio.getDataSaidaHoraMinuto());
         jTextFieldSaidaValor.setText(new DecimalFormat("#,##0.00").format(patio.getValorTotal()));
         jTextFieldSaidaPermanenciaTotal.setText(patio.getPermanencia());
 
@@ -3739,9 +3874,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void escolhaRotativoTipo() {
-        jTabbedPaneVeiculoEntradaSaida.setEnabledAt(0, false);
-        jTabbedPaneVeiculoEntradaSaida.setEnabledAt(1, true);
-        jTabbedPaneVeiculoEntradaSaida.setSelectedIndex(1);
+        jTabbedPaneEntradaSaida.setEnabledAt(0, false);
+        jTabbedPaneEntradaSaida.setEnabledAt(1, true);
+        jTabbedPaneEntradaSaida.setSelectedIndex(1);
         jTextFieldEntradaPlaca.setText(veiculo.getPlaca());
         txtEntradaPlacaOuPrisma.setEditable(false);
         txtEntradaPlacaOuPrisma.setFocusable(false);
@@ -3749,41 +3884,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jListRotativoTipo.setFocusable(true);
         jListRotativoTipo.requestFocus();
         rotativoDefaultListModel.clear();
-        rotativoDefaultListModel = rotativoService.rotativoCarregarTipos(rotativoDefaultListModel);
+        rotativoDefaultListModel = rotativoService.rotativoCarregarLista(rotativoDefaultListModel);
         jListRotativoTipo.setModel(rotativoDefaultListModel);
         jListRotativoTipo.setSelectedIndex(0);
-    }
-
-    private void configuracoes() {
-        menuPrincipalBotoesDesabilitar();
-        jTabbedPaneOpcoes.setEnabledAt(0, false);
-        jTabbedPaneOpcoes.setEnabledAt(1, false);
-        jTabbedPaneOpcoes.setEnabledAt(2, false);
-        jTabbedPaneOpcoes.setEnabledAt(3, false);
-        jTabbedPaneOpcoes.setEnabledAt(4, false);
-        jTabbedPaneOpcoes.setEnabledAt(5, false);
-        jTabbedPaneOpcoes.setEnabledAt(6, true);
-        jTabbedPaneOpcoes.setSelectedIndex(6);
-        jListConfiguracoes.setFocusable(true);
-        jListConfiguracoes.requestFocus();
-        jListConfiguracoes.setSelectedIndex(0);
-        configuracoesEscolhaTolerancia();
-    }
-
-    private void menuPrincipalRotativo() {
-        menuPrincipalBotoesDesabilitar();
-        jTabbedPaneOpcoes.setEnabledAt(0, false);
-        jTabbedPaneOpcoes.setEnabledAt(1, false);
-        jTabbedPaneOpcoes.setEnabledAt(2, false);
-        jTabbedPaneOpcoes.setEnabledAt(3, true);
-        jTabbedPaneOpcoes.setEnabledAt(4, false);
-        jTabbedPaneOpcoes.setEnabledAt(5, false);
-        jTabbedPaneOpcoes.setEnabledAt(6, false);
-        jTabbedPaneOpcoes.setSelectedIndex(3);
-        if (jTableRotativo.getRowCount() != 0) {
-            jTableRotativo.addRowSelectionInterval(0, 0);
-            rotativoExibirDados();
-        }
     }
 
     private void movimentacoesEntrada() {
@@ -3874,7 +3977,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
     }
 
-    private void rotativoRotativo() {
+    private void rotativoTabelaRotativo() {
         rotativoArrayList.clear();
         ((DefaultTableModel) jTableRotativo.getModel()).setRowCount(0);
         ((DefaultTableModel) jTableRotativo.getModel()).setColumnCount(0);
@@ -3887,7 +3990,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         rotativoDefaultTableModel.addColumn("Pernoite");
 
         for (int i = 0; i < rotativoArrayList.size(); i++) {
-            rotativoDefaultTableModel.addRow(new String[]{rotativoArrayList.get(i).getTipoRotativo(),
+            rotativoDefaultTableModel.addRow(new String[]{rotativoArrayList.get(i).getNome(),
                 new DecimalFormat("R$ #,##0.00").format(rotativoArrayList.get(i).getPreco30Minutos()),
                 new DecimalFormat("R$ #,##0.00").format(rotativoArrayList.get(i).getPreco60Minutos()),
                 new DecimalFormat("R$ #,##0.00").format(rotativoArrayList.get(i).getPrecoDemaisFracoes()),
@@ -3906,139 +4009,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTableEntradaSaidaInformacoesRotativo.setColumnModel(jTableRotativo.getColumnModel());
     }
 
-    private Rotativo buscaRotativoPreco(Rotativo rotativoTipoPreco) {
-        rotativoTipoPreco = rotativoService.rotativoCarregarPrecos(rotativoTipoPreco);
-        return rotativoTipoPreco;
+    private void pacoteTabelaPacote() {
+        pacoteArrayList.clear();
+        ((DefaultTableModel) jTablePacote.getModel()).setRowCount(0);
+        ((DefaultTableModel) jTablePacote.getModel()).setColumnCount(0);
+        pacoteArrayList = pacoteService.pacoteCarregarLista(pacoteArrayList);
+        pacoteDefaultTableModel.addColumn("Nome");
+        pacoteDefaultTableModel.addColumn("Dias Ou Utilização");
+        pacoteDefaultTableModel.addColumn("Quantidade");
+        pacoteDefaultTableModel.addColumn("Data Início");
+        pacoteDefaultTableModel.addColumn("Data Término");
+        pacoteDefaultTableModel.addColumn("Valor R$");
+
+        for (int i = 0; i < pacoteArrayList.size(); i++) {
+            pacoteDefaultTableModel.addRow(new String[]{
+                pacoteArrayList.get(i).getNome(),
+                pacoteArrayList.get(i).getUtilizacoesOuDias(),
+                Integer.toString(pacoteArrayList.get(i).getQuantidade()),
+                pacoteArrayList.get(i).getDataInicio(),
+                pacoteArrayList.get(i).getDataTermino(),
+                new DecimalFormat("R$ #,##0.00").format(pacoteArrayList.get(i).getValor())
+            });
+        }
+        jTablePacote.setModel(pacoteDefaultTableModel);
+        jTablePacote.getColumnModel().getColumn(0).setPreferredWidth(65);
+        jTablePacote.getColumnModel().getColumn(1).setPreferredWidth(33);
+        jTablePacote.getColumnModel().getColumn(2).setPreferredWidth(33);
+        jTablePacote.getColumnModel().getColumn(3).setPreferredWidth(50);
+        jTablePacote.getColumnModel().getColumn(4).setPreferredWidth(20);
+        jTablePacote.getColumnModel().getColumn(5).setPreferredWidth(20);
     }
 
-    private void rotativoBotaoSairCancelar() {
-        switch (jButtonRotativoSairCancelar.getText()) {
-            case "Sair":
-                menuPrincipalEntradaSaida();
-                rotativoRotativo();
-                break;
-            case "Cancelar":
-                jButtonRotativoIncluirOk.setEnabled(true);
-                jButtonRotativoExcluirCancelar.setEnabled(true);
-                jButtonRotativoAlterarOk.setText("Alterar");
-                jButtonRotativoSairCancelar.setText("Sair");
-                jButtonRotativoAlterarOk.setMnemonic('A');
-                jButtonRotativoSairCancelar.setMnemonic('S');
-                rotativoTextosDesabilitar();
-                JOptionPane.showMessageDialog(this, "Alterações canceladas!!!");
-                break;
-            default:
-                break;
-        }
-    }
-
-    private void rotativoBotaoAlterarOk() {
-        switch (jButtonRotativoAlterarOk.getText()) {
-            case "Alterar":
-                if (jTableRotativo.getRowCount() != 0) {
-                    jButtonRotativoIncluirOk.setEnabled(false);
-                    jButtonRotativoExcluirCancelar.setEnabled(false);
-                    jButtonRotativoAlterarOk.setText("Ok");
-                    jButtonRotativoSairCancelar.setText("Cancelar");
-                    jButtonRotativoAlterarOk.setMnemonic('O');
-                    jButtonRotativoSairCancelar.setMnemonic('C');
-                    rotativoTextosHabilitar();
-                }
-                break;
-            case "Ok":
-                jButtonRotativoIncluirOk.setEnabled(true);
-                jButtonRotativoExcluirCancelar.setEnabled(true);
-                jButtonRotativoAlterarOk.setText("Alterar");
-                jButtonRotativoSairCancelar.setText("Sair");
-                jButtonRotativoAlterarOk.setMnemonic('A');
-                jButtonRotativoSairCancelar.setMnemonic('S');
-                rotativoTextosDesabilitar();
-                rotativo.setTipoRotativo(jTextFieldRotativoIncluirAlterarTipo.getText());
-                rotativo.setPreco30Minutos(Float.parseFloat(txtRotativoPreco30minutos.getText().replaceAll("\\.", "").replaceAll(",", ".")));
-                rotativo.setPreco60Minutos(Float.parseFloat(txtRotativoPreco60minutos.getText().replaceAll("\\.", "").replaceAll(",", ".")));
-                rotativo.setPrecoDemaisFracoes(Float.parseFloat(txtRotativoPrecoDemaisFracoes.getText().replaceAll("\\.", "").replaceAll(",", ".")));
-                rotativo.setPrecoDiaria(Float.parseFloat(txtRotativoPrecoDiaria.getText().replaceAll("\\.", "").replaceAll(",", ".")));
-                rotativo.setPrecoPernoite(Float.parseFloat(txtRotativoPrecoPernoite.getText().replaceAll("\\.", "").replaceAll(",", ".")));
-                rotativoService.rotativoAlterarPrecos(String.valueOf(jTableRotativo.getValueAt(jTableRotativo.getSelectedRow(), 0)), rotativo);
-                rotativoRotativo();
-                JOptionPane.showMessageDialog(this, "Alterações efetuadas com sucesso!!!");
-            default:
-                break;
-        }
-    }
-
-    private void rotativoBotaoIncluirOk() {
-        switch (jButtonRotativoIncluirOk.getText()) {
-            case "Incluir":
-                ok = "Incluir";
-                jButtonRotativoAlterarOk.setEnabled(false);
-                jButtonRotativoSairCancelar.setEnabled(false);
-                jButtonRotativoIncluirOk.setText("Ok");
-                jButtonRotativoExcluirCancelar.setText("Cancelar");
-                jButtonRotativoIncluirOk.setMnemonic('O');
-                jButtonRotativoExcluirCancelar.setMnemonic('C');
-                rotativoTextosHabilitar();
-                break;
-            case "Ok":
-                if (ok.equalsIgnoreCase("Excluir")) { //Ok para exclusão
-                    jButtonRotativoAlterarOk.setEnabled(true);
-                    jButtonRotativoSairCancelar.setEnabled(true);
-                    jButtonRotativoIncluirOk.setText("Incluir");
-                    jButtonRotativoExcluirCancelar.setText("Excluir");
-                    jButtonRotativoIncluirOk.setMnemonic('I');
-                    jButtonRotativoExcluirCancelar.setMnemonic('E');
-                    rotativo.setTipoRotativo(String.valueOf(jTableRotativo.getValueAt(jTableRotativo.getSelectedRow(), 0)));
-                    rotativoService.rotativoExcluirTipoPrecos(rotativo);
-                    JOptionPane.showMessageDialog(this, "Exclusão efetuadas com sucesso!!!");
-                } else { //Ok para Inclusão
-                    jButtonRotativoAlterarOk.setEnabled(true);
-                    jButtonRotativoSairCancelar.setEnabled(true);
-                    jButtonRotativoIncluirOk.setText("Incluir");
-                    jButtonRotativoExcluirCancelar.setText("Excluir");
-                    jButtonRotativoIncluirOk.setMnemonic('I');
-                    jButtonRotativoExcluirCancelar.setMnemonic('E');
-                    rotativoTextosDesabilitar();
-                    rotativo.setTipoRotativo(jTextFieldRotativoIncluirAlterarTipo.getText());
-                    rotativo.setPreco30Minutos(Float.parseFloat(txtRotativoPreco30minutos.getText().replaceAll("\\.", "").replaceAll(",", ".")));
-                    rotativo.setPreco60Minutos(Float.parseFloat(txtRotativoPreco60minutos.getText().replaceAll("\\.", "").replaceAll(",", ".")));
-                    rotativo.setPrecoDemaisFracoes(Float.parseFloat(txtRotativoPrecoDemaisFracoes.getText().replaceAll("\\.", "").replaceAll(",", ".")));
-                    rotativo.setPrecoDiaria(Float.parseFloat(txtRotativoPrecoDiaria.getText().replaceAll("\\.", "").replaceAll(",", ".")));
-                    rotativo.setPrecoPernoite(Float.parseFloat(txtRotativoPrecoPernoite.getText().replaceAll("\\.", "").replaceAll(",", ".")));
-                    rotativoService.rotativoIncluirTipoPrecos(rotativo);
-                    JOptionPane.showMessageDialog(this, "Inclusão efetuada com sucesso!!!");
-                }
-                rotativoRotativo();
-                rotativoExibirDados();
-            default:
-                break;
-        }
-    }
-
-    private void rotativoBotaoExcluirCancelar() {
-        switch (jButtonRotativoExcluirCancelar.getText()) {
-            case "Excluir":
-                if (jTableRotativo.getRowCount() != 0) {
-                    ok = "Excluir";
-                    jButtonRotativoAlterarOk.setEnabled(false);
-                    jButtonRotativoSairCancelar.setEnabled(false);
-                    jButtonRotativoIncluirOk.setText("Ok");
-                    jButtonRotativoExcluirCancelar.setText("Cancelar");
-                    jButtonRotativoIncluirOk.setMnemonic('O');
-                    jButtonRotativoExcluirCancelar.setMnemonic('C');
-                }
-                break;
-            case "Cancelar":
-                jButtonRotativoAlterarOk.setEnabled(true);
-                jButtonRotativoSairCancelar.setEnabled(true);
-                jButtonRotativoIncluirOk.setText("Incluir");
-                jButtonRotativoExcluirCancelar.setText("Excluir");
-                jButtonRotativoIncluirOk.setMnemonic('I');
-                jButtonRotativoExcluirCancelar.setMnemonic('E');
-                rotativoTextosDesabilitar();
-                JOptionPane.showMessageDialog(this, "Modificações cancelada!!!");
-            default:
-                break;
-        }
+    private Rotativo buscaRotativoPreco(Rotativo rotativo) {
+        rotativo = rotativoService.rotativoCarregarAtributos(rotativo);
+        return rotativo;
     }
 
     private void configuracoesEscolhaTolerancia() {
@@ -4155,14 +4159,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void configuracoesSairCancelar() {
         switch (jButtonConfiguracoesSairCancelar.getText()) {
             case "Sair":
-                menuPrincipalEntradaSaida();
+                menuPrincipal("entradasaida");
                 break;
             case "Cancelar":
                 jListConfiguracoes.setEnabled(true);
                 jListConfiguracoes.requestFocus();
                 jButtonConfiguracoesSairCancelar.setText("Sair");
                 jButtonConfiguracoesAlterarOk.setText("Alterar");
-                configuracoes();
+                menuPrincipal("configuracoes");
                 JOptionPane.showMessageDialog(this, "Alterações canceladas!!!");
                 break;
             default:
@@ -4181,66 +4185,67 @@ public class TelaPrincipal extends javax.swing.JFrame {
         txtInformacoesPernoiteTermino.setText(configuracoes.getPernoiteTermino());
     }
 
-    private void patio() {
-        menuPrincipalBotoesDesabilitar();
+    private void menuPrincipal(String menu) {
         jTabbedPaneOpcoes.setEnabledAt(0, false);
-        jTabbedPaneOpcoes.setEnabledAt(1, false);
-        jTabbedPaneOpcoes.setEnabledAt(2, false);
-        jTabbedPaneOpcoes.setEnabledAt(3, false);
-        jTabbedPaneOpcoes.setEnabledAt(4, true);
-        jTabbedPaneOpcoes.setEnabledAt(5, false);
-        jTabbedPaneOpcoes.setEnabledAt(6, false);
-        jTabbedPaneOpcoes.setSelectedIndex(4);
-        patioListaVeiculo();
-    }
-
-    private void menuPrincipalEntradaSaida() {
-        menuPrincipalBotoesHabilitar();
-        jTabbedPaneOpcoes.setEnabledAt(0, true);
         jTabbedPaneOpcoes.setEnabledAt(1, false);
         jTabbedPaneOpcoes.setEnabledAt(2, false);
         jTabbedPaneOpcoes.setEnabledAt(3, false);
         jTabbedPaneOpcoes.setEnabledAt(4, false);
         jTabbedPaneOpcoes.setEnabledAt(5, false);
         jTabbedPaneOpcoes.setEnabledAt(6, false);
-        jTabbedPaneOpcoes.setSelectedIndex(0);
+        menuPrincipalBotoesStatus(false);
+        switch (menu) {
+            case "entradasaida":
+                jTabbedPaneOpcoes.setEnabledAt(0, true);
+                jTabbedPaneOpcoes.setSelectedIndex(0);
+                menuPrincipalBotoesStatus(true);
+                break;
+            case "mensalista":
+                jTabbedPaneOpcoes.setEnabledAt(1, true);
+                jTabbedPaneOpcoes.setSelectedIndex(1);
+                break;
+            case "pacote":
+                jTabbedPaneOpcoes.setEnabledAt(2, true);
+                jTabbedPaneOpcoes.setSelectedIndex(2);
+                break;
+            case "rotativo":
+                jTabbedPaneOpcoes.setEnabledAt(3, true);
+                jTabbedPaneOpcoes.setSelectedIndex(3);
+                break;
+            case "patio":
+                jTabbedPaneOpcoes.setEnabledAt(4, true);
+                jTabbedPaneOpcoes.setSelectedIndex(4);
+                patioListaVeiculo();
+                break;
+            case "movimento":
+                jTabbedPaneOpcoes.setEnabledAt(5, true);
+                jTabbedPaneOpcoes.setSelectedIndex(5);
+                break;
+            case "configuracoes":
+                jTabbedPaneOpcoes.setEnabledAt(6, true);
+                jTabbedPaneOpcoes.setSelectedIndex(6);
+                jListConfiguracoes.setFocusable(true);
+                jListConfiguracoes.requestFocus();
+                jListConfiguracoes.setSelectedIndex(0);
+                configuracoesEscolhaTolerancia();
+                break;
+            default:
+                break;
+        }
     }
 
-    private void menuPrincipalBotoesHabilitar() {
-        jButtonF1.setEnabled(true);
-        jButtonF2.setEnabled(true);
-        jButtonF3.setEnabled(true);
-        jButtonF4.setEnabled(true);
-        jButtonF5.setEnabled(true);
-        jButtonF6.setEnabled(true);
-        jButtonF8.setEnabled(true);
-        jButtonF10.setEnabled(true);
+    private void menuPrincipalBotoesStatus(boolean status) {
+        jButtonF1.setEnabled(status);
+        jButtonF2.setEnabled(status);
+        jButtonF3.setEnabled(status);
+        jButtonF4.setEnabled(status);
+        jButtonF5.setEnabled(status);
+        jButtonF6.setEnabled(status);
+        jButtonF8.setEnabled(status);
+        jButtonF10.setEnabled(status);
     }
 
-    private void menuPrincipalBotoesDesabilitar() {
-        jButtonF1.setEnabled(false);
-        jButtonF2.setEnabled(false);
-        jButtonF3.setEnabled(false);
-        jButtonF4.setEnabled(false);
-        jButtonF5.setEnabled(false);
-        jButtonF6.setEnabled(false);
-        jButtonF8.setEnabled(false);
-        jButtonF10.setEnabled(false);
-    }
-
-    private void movimento() {
-        menuPrincipalBotoesDesabilitar();
-        jTabbedPaneOpcoes.setEnabledAt(0, false);
-        jTabbedPaneOpcoes.setEnabledAt(1, false);
-        jTabbedPaneOpcoes.setEnabledAt(2, false);
-        jTabbedPaneOpcoes.setEnabledAt(3, false);
-        jTabbedPaneOpcoes.setEnabledAt(4, false);
-        jTabbedPaneOpcoes.setEnabledAt(5, true);
-        jTabbedPaneOpcoes.setEnabledAt(6, false);
-        jTabbedPaneOpcoes.setSelectedIndex(5);
-    }
-
-    private void entradaSaidaMovimentacoesRotativo() {
+    private void entradaSaidaMovimentacoesTabelaRotativo() {
         ((DefaultTableModel) jTableEntradaSaidaMovimentacoesRotativo.getModel()).setRowCount(0);
         ((DefaultTableModel) jTableEntradaSaidaMovimentacoesRotativo.getModel()).setColumnCount(0);
         movimentacoesDefaultTableModel.addColumn("Ação");
@@ -4297,18 +4302,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
     }
 
-    
-    private void rotativoExibirDados() {
-        if (jTableRotativo.getRowCount() != 0) {
-            jTextFieldRotativoIncluirAlterarTipo.setText(null);
-            rotativo.setPreco30Minutos(0);
-            rotativo.setPreco60Minutos(0);
-            rotativo.setPrecoDemaisFracoes(0);
-            rotativo.setPrecoDiaria(0);
-            rotativo.setPrecoPernoite(0);
-            rotativo.setTipoRotativo(String.valueOf(jTableRotativo.getValueAt(jTableRotativo.getSelectedRow(), 0)));
-            rotativo = rotativoService.rotativoCarregarPrecos(rotativo);
-            jTextFieldRotativoIncluirAlterarTipo.setText(rotativo.getTipoRotativo());
+    private void rotativoExibirAtributos() {
+        if (jTableRotativo.getRowCount() != 0 && jTableRotativo.getSelectedRowCount() != 0) {
+            //jTableRotativo.addRowSelectionInterval(0, 0); SELECIONA A PRIMEIRA CELULA DA PRIMEIRA LINHA
+            rotativo.setNome(String.valueOf(jTableRotativo.getValueAt(jTableRotativo.getSelectedRow(), 0)));
+            rotativo = rotativoService.rotativoCarregarAtributos(rotativo);
+            jTextFieldRotativoIncluirAlterar.setText(rotativo.getNome());
             txtRotativoPreco30minutos.setText(new DecimalFormat("#,##0.00").format(rotativo.getPreco30Minutos()));
             txtRotativoPreco60minutos.setText(new DecimalFormat("#,##0.00").format(rotativo.getPreco60Minutos()));
             txtRotativoPrecoDemaisFracoes.setText(new DecimalFormat("#,##0.00").format(rotativo.getPrecoDemaisFracoes()));
@@ -4317,59 +4316,67 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
     }
 
-    private void rotativoTextosHabilitar() {
-        jTextFieldRotativoIncluirAlterarTipo.setEditable(true);
-        jTextFieldRotativoIncluirAlterarTipo.setFocusable(true);
-        jTextFieldRotativoIncluirAlterarTipo.requestFocus();
-        jTextFieldRotativoIncluirAlterarTipo.setText(null);
-        txtRotativoPreco30minutos.setFocusable(true);
-        txtRotativoPreco30minutos.setEditable(true);
-        txtRotativoPreco30minutos.setText(null);
-        txtRotativoPreco60minutos.setFocusable(true);
-        txtRotativoPreco60minutos.setEditable(true);
-        txtRotativoPreco60minutos.setText(null);
-        txtRotativoPrecoDemaisFracoes.setFocusable(true);
-        txtRotativoPrecoDemaisFracoes.setEditable(true);
-        txtRotativoPrecoDemaisFracoes.setText(null);
-        txtRotativoPrecoDiaria.setFocusable(true);
-        txtRotativoPrecoDiaria.setEditable(true);
-        txtRotativoPrecoDiaria.setText(null);
-        txtRotativoPrecoPernoite.setFocusable(true);
-        txtRotativoPrecoPernoite.setEditable(true);
-        txtRotativoPrecoPernoite.setText(null);
+    private void rotativoCamposStatus(boolean status) {
+        jTextFieldRotativoIncluirAlterar.setEditable(status);
+        jTextFieldRotativoIncluirAlterar.setFocusable(status);
+        jTextFieldRotativoIncluirAlterar.requestFocus();
+        txtRotativoPreco30minutos.setFocusable(status);
+        txtRotativoPreco30minutos.setEditable(status);
+        txtRotativoPreco60minutos.setFocusable(status);
+        txtRotativoPreco60minutos.setEditable(status);
+        txtRotativoPrecoDemaisFracoes.setFocusable(status);
+        txtRotativoPrecoDemaisFracoes.setEditable(status);
+        txtRotativoPrecoDiaria.setFocusable(status);
+        txtRotativoPrecoDiaria.setEditable(status);
+        txtRotativoPrecoPernoite.setFocusable(status);
+        txtRotativoPrecoPernoite.setEditable(status);
+        if (status = true) {
+            jTextFieldRotativoIncluirAlterar.setText(null);
+            txtRotativoPreco30minutos.setText(null);
+            txtRotativoPreco60minutos.setText(null);
+            txtRotativoPrecoDemaisFracoes.setText(null);
+            txtRotativoPrecoDiaria.setText(null);
+            txtRotativoPrecoPernoite.setText(null);
+        }
     }
 
-    private void rotativoTextosDesabilitar() {
-        jTextFieldRotativoIncluirAlterarTipo.setEditable(false);
-        jTextFieldRotativoIncluirAlterarTipo.setFocusable(false);
-        txtRotativoPreco30minutos.setFocusable(false);
-        txtRotativoPreco30minutos.setEditable(false);
-        txtRotativoPreco60minutos.setFocusable(false);
-        txtRotativoPreco60minutos.setEditable(false);
-        txtRotativoPrecoDemaisFracoes.setFocusable(false);
-        txtRotativoPrecoDemaisFracoes.setEditable(false);
-        txtRotativoPrecoDiaria.setFocusable(false);
-        txtRotativoPrecoDiaria.setEditable(false);
-        txtRotativoPrecoPernoite.setFocusable(false);
-        txtRotativoPrecoPernoite.setEditable(false);
+    private void pacoteExibirAtributos() {
+        if (jTablePacote.getRowCount() != 0 && jTablePacote.getSelectedRowCount() != 0) {
+            pacote.setNome(String.valueOf(jTablePacote.getValueAt(jTablePacote.getSelectedRow(), 0)));
+            pacote = pacoteService.pacoteCarregarAtributos(pacote);
+            jTextFieldPacoteIncluirAlterar.setText(pacote.getNome());
+            if (pacote.getUtilizacoesOuDias().equalsIgnoreCase("Dias")) {
+                jRadioButtonDias.setSelected(true);
+                jRadioButtonUtilizacoes.setSelected(false);
+                jLabelPacoteQtdDiasOuUtilizacoes.setText("Quant. de dias");
+            } else {
+                jRadioButtonDias.setSelected(false);
+                jRadioButtonUtilizacoes.setSelected(true);
+                jLabelPacoteQtdDiasOuUtilizacoes.setText("Quant. de utilizações");
+            }
+            jTextFieldPacoteQuantidade.setText(String.valueOf(pacote.getQuantidade()));
+            jTextFieldPacoteValor.setText(new DecimalFormat("#,##0.00").format(pacote.getValor()));
+        }
     }
 
     private void configuracaoMascaraEntradaJTextField() {
+        //ROTATIVO**********************************************************************************
         txtRotativoPreco30minutos.setDocument(new EntradaValor(7, 2));
         txtRotativoPreco60minutos.setDocument(new EntradaValor(7, 2));
         txtRotativoPrecoDemaisFracoes.setDocument(new EntradaValor(7, 2));
         txtRotativoPrecoDiaria.setDocument(new EntradaValor(7, 2));
         txtRotativoPrecoPernoite.setDocument(new EntradaValor(7, 2));
-
+        //PACOTE************************************************************************************
+        jTextFieldPacoteValor.setDocument(new EntradaValor(7, 2));
+        jTextFieldPacoteQuantidade.setDocument(new EntradaDado(2, "[^0-9]"));
+        //CONFIGURAÇÕES*****************************************************************************
         txtConfiguracoesDiariaHora.setDocument(new EntradaDado(2, "[^0-9]"));
         txtConfiguracoesDiariaMinuto.setDocument(new EntradaDado(2, "[^0-9]"));
-
         txtConfiguracoesToleranciaDesistencia.setDocument(new EntradaDado(2, "[^0-9]"));
         txtConfiguracoesToleranciaFracao.setDocument(new EntradaDado(2, "[^0-9]"));
-
         txtConfiguracoesPernoiteInicio.setDocument(new EntradaHora());
         txtConfiguracoesPernoiteTermino.setDocument(new EntradaHora());
-
+        //PLACA ou PRISMA***************************************************************************
         txtEntradaPlacaOuPrisma.setHorizontalAlignment(JTextField.CENTER);
         txtEntradaPlacaOuPrisma.setDocument(new EntradaDado(7, "[^A-Z|^0-9]"));
     }
@@ -4397,14 +4404,36 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTabbedPaneOpcoes.setEnabledAt(4, false);
         jTabbedPaneOpcoes.setEnabledAt(5, false);
         jTabbedPaneOpcoes.setEnabledAt(6, false);
-        jTabbedPaneVeiculoEntradaSaida.setEnabledAt(1, false);
-        jTabbedPaneVeiculoEntradaSaida.setEnabledAt(2, false);
+        jTabbedPaneEntradaSaida.setEnabledAt(1, false);
+        jTabbedPaneEntradaSaida.setEnabledAt(2, false);
     }
 
     private void configuracaoJTable() {
-        entradaSaidaMovimentacoesRotativo();
-        rotativoRotativo();
+        entradaSaidaMovimentacoesTabelaRotativo();
+        rotativoTabelaRotativo();
+        pacoteTabelaPacote();
         jTableEntradaSaidaInformacoesRotativo.setFocusable(false);
         jTableEntradaSaidaInformacoesRotativo.setEnabled(false);
+    }
+
+    private void pacoteCamposStatus(boolean status) {
+        jTextFieldPacoteIncluirAlterar.setEditable(status);
+        jTextFieldPacoteIncluirAlterar.setFocusable(status);
+        jTextFieldPacoteIncluirAlterar.requestFocus();
+        jRadioButtonDias.setSelected(status);
+        jRadioButtonDias.setEnabled(status);
+        jRadioButtonDias.setFocusable(status);
+        jRadioButtonUtilizacoes.setSelected(!status);
+        jRadioButtonUtilizacoes.setEnabled(status);
+        jRadioButtonUtilizacoes.setFocusable(status);
+        jTextFieldPacoteQuantidade.setEditable(status);
+        jTextFieldPacoteQuantidade.setFocusable(status);
+        jTextFieldPacoteValor.setEditable(status);
+        jTextFieldPacoteValor.setFocusable(status);
+        if (status = true) {
+            jTextFieldPacoteIncluirAlterar.setText(null);
+            jTextFieldPacoteQuantidade.setText(null);
+            jTextFieldPacoteValor.setText(null);
+        }
     }
 }

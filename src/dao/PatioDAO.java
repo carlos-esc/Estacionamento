@@ -64,7 +64,7 @@ public class PatioDAO {
         return patioLista;
     }
 
-    public void estacionaVeiculo(Patio patio) {
+    public void patioEstacionaVeiculo(Patio patio) {
         try {
             String sql = "INSERT INTO patio(id_veiculo_fk, placa_fk, rps, prisma, tipo, preco30minutos, preco60minutos, precodemaisfracoes, precodiaria, precopernoite, estacionado, dataentrada, horaentrada, toleranciadesistencia, toleranciaentrefracoes, diariahoras, diariaminutos, pernoiteinicio, pernoitetermino) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement stmt = conexao.prepareStatement(sql);
@@ -94,20 +94,24 @@ public class PatioDAO {
         }
     }
 
-    public void retiraVeiculo(Patio patio) {
+    public void PatioRetiraVeiculo(Patio patio) {
         try {
-            String sql = "UPDATE patio SET estacionado=?, datasaida=?, horasaida=?, permanencia=?, valortotal=?, horaminutodataentrada=?, horaminutodatasaida=?, diarias=?, pernoites=? WHERE prisma=? AND estacionado='sim'";
+            String sql = "UPDATE patio SET estacionado=?, datasaida=?, horasaida=?, permanencia=?, valortotal=?, dataentradahoraminuto=?, dataentradavalor=?, datasaidahoraminuto=?, datasaidavalor=?, diariaquantidade=?, diariavalortotal=?, pernoitequantidade=?, pernoitevalortotal=? WHERE prisma=? AND estacionado='sim'";
             PreparedStatement stmt = conexao.prepareStatement(sql);
             stmt.setString(1, "nao");
             stmt.setString(2, patio.getDataSaida());
             stmt.setString(3, patio.getHoraSaida());
             stmt.setString(4, patio.getPermanencia());
             stmt.setFloat(5, patio.getValorTotal());
-            stmt.setString(6, patio.getHoraMinutoDataEntrada());
-            stmt.setString(7, patio.getHoraMinutoDataSaida());
-            stmt.setInt(8, patio.getDiariaQuantidade());
-            stmt.setInt(9, patio.getPernoiteQuantidade());
-            stmt.setString(10, patio.getPrisma());
+            stmt.setString(6, patio.getDataEntradaHoraMinuto());
+            stmt.setFloat(7, patio.getDataEntradaValor());
+            stmt.setString(8, patio.getDataSaidaHoraMinuto());
+            stmt.setFloat(9, patio.getDataSaidaValor());
+            stmt.setInt(10, patio.getDiariaQuantidade());
+            stmt.setFloat(11, patio.getDiariaValorTotal());
+            stmt.setInt(12, patio.getPernoiteQuantidade());
+            stmt.setFloat(13, patio.getPernoiteValorTotal());
+            stmt.setString(14, patio.getPrisma());
             System.out.println("patio.getprisma PatioDAO " + patio.getPrisma());
             int rowsUpdated = stmt.executeUpdate();
             if (rowsUpdated > 0) {
@@ -121,7 +125,7 @@ public class PatioDAO {
         }
     }
 
-    public Patio verificaVeiculoEstacionado(Patio patio) {
+    public Patio patioVerificaVeiculoEstacionado(Patio patio) {
         try {
             String sql = "SELECT * FROM patio INNER JOIN veiculo ON patio.id_veiculo_fk = veiculo.id_veiculo WHERE patio.id_veiculo_fk=? AND patio.estacionado='sim'";
             PreparedStatement stmt = conexao.prepareStatement(sql);
@@ -146,7 +150,7 @@ public class PatioDAO {
         return patio;
     }
 
-    public Patio verificaPrismaUtilizado(Patio patio) {
+    public Patio patioVerificaPrismaUtilizado(Patio patio) {
         try {
             String sql = "SELECT * FROM patio INNER JOIN veiculo ON patio.id_veiculo_fk = veiculo.id_veiculo WHERE patio.prisma=? AND patio.estacionado='sim'";
             PreparedStatement stmt = conexao.prepareStatement(sql);
@@ -194,5 +198,4 @@ public class PatioDAO {
         }
         return patio;
     }
-
 }

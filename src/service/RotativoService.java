@@ -7,36 +7,40 @@ import modelo.Rotativo;
 
 public class RotativoService {
 
-    RotativoDAO precosDAO = new RotativoDAO();
+    RotativoDAO rotativoServiceDAO = new RotativoDAO();
 
     public Rotativo rotativoIncluirTipoPrecos(Rotativo rotativoTipoPreco){
-        precosDAO.rotativoIncluirTipoPrecos(rotativoTipoPreco);
+        rotativoServiceDAO.rotativoIncluir(rotativoTipoPreco);
         return rotativoTipoPreco;
     }
     
     public Rotativo rotativoExcluirTipoPrecos(Rotativo rotativoTipoPreco){
-        precosDAO.rotativoExcluirTipoPrecos(rotativoTipoPreco);
+        rotativoServiceDAO.rotativoExcluir(rotativoTipoPreco);
         return rotativoTipoPreco;
     }
     
-    public Rotativo rotativoCarregarPrecos(Rotativo rotativoTipoPreco){
-        precosDAO.rotativoCarregarPrecos(rotativoTipoPreco);
+    public Rotativo rotativoCarregarAtributos(Rotativo rotativoTipoPreco){
+        rotativoServiceDAO.rotativoCarregarAtributos(rotativoTipoPreco);
         return rotativoTipoPreco;
     }
     
     public Rotativo rotativoAlterarPrecos(String rotativoTipoAnterior, Rotativo rotativoTipoPreco){
-        precosDAO.rotativoAlterarPrecos(rotativoTipoAnterior, rotativoTipoPreco);
+        rotativoServiceDAO.rotativoAlterar(rotativoTipoAnterior, rotativoTipoPreco);
         return rotativoTipoPreco;
     }
     
-    public DefaultListModel rotativoCarregarTipos(DefaultListModel rotativoTipoLista){
-        precosDAO.rotativoCarregarTipos(rotativoTipoLista);
-        return rotativoTipoLista;
+    public DefaultListModel rotativoCarregarLista(DefaultListModel rotativoDefaultListModel){
+        rotativoServiceDAO.rotativoCarregarLista(rotativoDefaultListModel);
+        return rotativoDefaultListModel;
     }
     
     public List rotativoCarregarTipoPrecoLista(List rotativoTipoPrecoLista){
-        precosDAO.rotativoCarregarTipoPrecoLista(rotativoTipoPrecoLista);
+        rotativoServiceDAO.rotativoCarregarListaTodos(rotativoTipoPrecoLista);
         return rotativoTipoPrecoLista;
     }
-        
+    
+    public Rotativo rotativoVerificaExistencia(Rotativo rotativoTipoPreco){
+        rotativoServiceDAO.rotativoCarregarAtributos(rotativoTipoPreco);
+        return rotativoTipoPreco;
+    }   
 }

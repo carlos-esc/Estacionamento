@@ -3,12 +3,12 @@ package modelo;
 public class Pacote {
     
     private int idPacote;
-    private String tipoPacote;
+    private String nome;
     private String utilizacoesOuDias;
     private int quantidade;
     private String dataInicio;
-    private String dateTermino;
-    private float preco;
+    private String dataTermino;
+    private float valor;
 
     /**
      * @return the idPacote
@@ -25,19 +25,19 @@ public class Pacote {
     }
 
     /**
-     * @return the tipoPacote
+     * @return the nome
      */
-    public String getTipoPacote() {
-        return tipoPacote;
+    public String getNome() {
+        return nome;
     }
 
     /**
-     * @param tipoPacote the tipoPacote to set
+     * @param nome the nome to set
      */
-    public void setTipoPacote(String tipoPacote) {
-        this.tipoPacote = tipoPacote;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
-
+    
     /**
      * @return the utilizacoesOuDias
      */
@@ -81,30 +81,30 @@ public class Pacote {
     }
 
     /**
-     * @return the dateTermino
+     * @return the dataTermino
      */
-    public String getDateTermino() {
-        return dateTermino;
+    public String getDataTermino() {
+        return dataTermino;
     }
 
     /**
-     * @param dateTermino the dateTermino to set
+     * @param dataTermino the dateTermino to set
      */
-    public void setDateTermino(String dateTermino) {
-        this.dateTermino = dateTermino;
+    public void setDataTermino(String dataTermino) {
+        this.dataTermino = dataTermino;
     }
 
     /**
-     * @return the preco
+     * @return the valor
      */
-    public float getPreco() {
-        return preco;
+    public float getValor() {
+        return valor;
     }
 
     /**
-     * @param preco the preco to set
+     * @param valor the preco to set
      */
-    public void setPreco(float preco) {
-        this.preco = preco;
+    public void setValor(float valor) {
+        this.valor = valor;
     }
 }

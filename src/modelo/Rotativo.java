@@ -3,7 +3,7 @@ package modelo;
 public class Rotativo {
     
     private int idRotativo;
-    private String tipoRotativo;
+    private String nome;
     private float preco30Minutos;
     private float preco60Minutos;
     private float precoDemaisFracoes;
@@ -25,17 +25,17 @@ public class Rotativo {
     }
 
     /**
-     * @return the tipoRotativo
+     * @return the nome
      */
-    public String getTipoRotativo() {
-        return tipoRotativo;
+    public String getNome() {
+        return nome;
     }
 
     /**
-     * @param tipoRotativo the tipoRotativo to set
+     * @param nome the tipoRotativo to set
      */
-    public void setTipoRotativo(String tipoRotativo) {
-        this.tipoRotativo = tipoRotativo;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     /**

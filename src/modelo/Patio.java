@@ -27,17 +27,15 @@ public class Patio {
     private String horaSaida;
     private String permanencia;
     private float valorTotal;
-    private String horaMinutoDataEntrada;
-    private String horaMinutoDataSaida; 
-    
-    //modelo/RotativoCalculaSaida
+    private String dataEntradaHoraMinuto;
+    private float dataEntradaValor;
+    private String dataSaidaHoraMinuto; 
+    private float dataSaidaValor;
     private int diariaQuantidade;
-    private float diariasValorTotal;
+    private float diariaValorTotal;
     private int pernoiteQuantidade;
-    private float pernoitesValorTotal;
-    private float valorDataEntrada;
-    private float valorDataSaida;
-    
+    private float pernoiteValorTotal;
+   
     /**
      * @return the rps
      */
@@ -165,17 +163,17 @@ public class Patio {
     }
 
     /**
-     * @return the diariasValorTotal
+     * @return the diariaValorTotal
      */
-    public float getDiariasValorTotal() {
-        return diariasValorTotal;
+    public float getDiariaValorTotal() {
+        return diariaValorTotal;
     }
 
     /**
-     * @param diariasValorTotal the diariasValorTotal to set
+     * @param diariaValorTotal the diariaValorTotal to set
      */
-    public void setDiariasValorTotal(float diariasValorTotal) {
-        this.diariasValorTotal = diariasValorTotal;
+    public void setDiariaValorTotal(float diariaValorTotal) {
+        this.diariaValorTotal = diariaValorTotal;
     }
 
     /**
@@ -193,17 +191,17 @@ public class Patio {
     }
 
     /**
-     * @return the pernoitesValorTotal
+     * @return the pernoiteValorTotal
      */
-    public float getPernoitesValorTotal() {
-        return pernoitesValorTotal;
+    public float getPernoiteValorTotal() {
+        return pernoiteValorTotal;
     }
 
     /**
-     * @param pernoitesValorTotal the pernoitesValorTotal to set
+     * @param pernoiteValorTotal the pernoiteValorTotal to set
      */
-    public void setPernoitesValorTotal(float pernoitesValorTotal) {
-        this.pernoitesValorTotal = pernoitesValorTotal;
+    public void setPernoiteValorTotal(float pernoiteValorTotal) {
+        this.pernoiteValorTotal = pernoiteValorTotal;
     }
 
     /**
@@ -221,31 +219,31 @@ public class Patio {
     }
 
     /**
-     * @return the valorDataEntrada
+     * @return the dataEntradaValor
      */
-    public float getValorDataEntrada() {
-        return valorDataEntrada;
+    public float getDataEntradaValor() {
+        return dataEntradaValor;
     }
 
     /**
-     * @param valorDataEntrada the valorDataEntrada to set
+     * @param dataEntradaValor the dataEntradaValor to set
      */
-    public void setValorDataEntrada(float valorDataEntrada) {
-        this.valorDataEntrada = valorDataEntrada;
+    public void setDataEntradaValor(float dataEntradaValor) {
+        this.dataEntradaValor = dataEntradaValor;
     }
 
     /**
-     * @return the valorDataSaida
+     * @return the dataSaidaValor
      */
-    public float getValorDataSaida() {
-        return valorDataSaida;
+    public float getDataSaidaValor() {
+        return dataSaidaValor;
     }
 
     /**
-     * @param valorDataSaida the valorDataSaida to set
+     * @param dataSaidaValor the dataSaidaValor to set
      */
-    public void setValorDataSaida(float valorDataSaida) {
-        this.valorDataSaida = valorDataSaida;
+    public void setDataSaidaValor(float dataSaidaValor) {
+        this.dataSaidaValor = dataSaidaValor;
     }
 
     /**
@@ -361,31 +359,31 @@ public class Patio {
     }
 
     /**
-     * @return the horaMinutoDataEntrada
+     * @return the dataEntradaHoraMinuto
      */
-    public String getHoraMinutoDataEntrada() {
-        return horaMinutoDataEntrada;
+    public String getDataEntradaHoraMinuto() {
+        return dataEntradaHoraMinuto;
     }
 
     /**
-     * @param horaMinutoDataEntrada the horaMinutoDataEntrada to set
+     * @param dataEntradaHoraMinuto the dataEntradaHoraMinuto to set
      */
-    public void setHoraMinutoDataEntrada(String horaMinutoDataEntrada) {
-        this.horaMinutoDataEntrada = horaMinutoDataEntrada;
+    public void setDataEntradaHoraMinuto(String dataEntradaHoraMinuto) {
+        this.dataEntradaHoraMinuto = dataEntradaHoraMinuto;
     }
 
     /**
-     * @return the horaMinutoDataSaida
+     * @return the dataSaidaHoraMinuto
      */
-    public String getHoraMinutoDataSaida() {
-        return horaMinutoDataSaida;
+    public String getDataSaidaHoraMinuto() {
+        return dataSaidaHoraMinuto;
     }
 
     /**
-     * @param horaMinutoDataSaida the horaMinutoDataSaida to set
+     * @param dataSaidaHoraMinuto the dataSaidaHoraMinuto to set
      */
-    public void setHoraMinutoDataSaida(String horaMinutoDataSaida) {
-        this.horaMinutoDataSaida = horaMinutoDataSaida;
+    public void setDataSaidaHoraMinuto(String dataSaidaHoraMinuto) {
+        this.dataSaidaHoraMinuto = dataSaidaHoraMinuto;
     }
 
     /**

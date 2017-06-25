@@ -13,22 +13,22 @@ public class PatioService {
     }
     
     public Patio estacionarVeiculo (Patio patio) {
-        patioDAO.estacionaVeiculo(patio);
+        patioDAO.patioEstacionaVeiculo(patio);
         return patio;
     }
     
     public Patio retiraVeiculo (Patio patio) {
-        patioDAO.retiraVeiculo(patio);
+        patioDAO.PatioRetiraVeiculo(patio);
         return patio;
     }
     
     public Patio verificarVeiculo (Patio patio) {
-        patioDAO.verificaVeiculoEstacionado(patio);
+        patioDAO.patioVerificaVeiculoEstacionado(patio);
         return patio;
     }    
     
     public Patio verificarPrisma (Patio patio) {
-        patioDAO.verificaPrismaUtilizado(patio);
+        patioDAO.patioVerificaPrismaUtilizado(patio);
         return patio;
     }
 }

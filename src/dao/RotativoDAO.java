@@ -19,16 +19,16 @@ public class RotativoDAO {
         this.conexao = new ConexaoFactory().getConnection();
     }
     
-    public void rotativoIncluirTipoPrecos(Rotativo rotativoTipoPreco) {
+    public void rotativoIncluir(Rotativo rotativo) {
         try {                         
-            String sql = "INSERT INTO rotativotipopreco(tipo, preco30minutos, preco60minutos, precodemaisfracoes, precodiaria, precopernoite) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO rotativo(tipo, preco30minutos, preco60minutos, precodemaisfracoes, precodiaria, precopernoite) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement stmt = conexao.prepareStatement(sql);
-            stmt.setString(1, rotativoTipoPreco.getTipoRotativo());
-            stmt.setFloat(2, rotativoTipoPreco.getPreco30Minutos());
-            stmt.setFloat(3, rotativoTipoPreco.getPreco60Minutos());
-            stmt.setFloat(4, rotativoTipoPreco.getPrecoDemaisFracoes());
-            stmt.setFloat(5, rotativoTipoPreco.getPrecoDiaria());
-            stmt.setFloat(6, rotativoTipoPreco.getPrecoPernoite());
+            stmt.setString(1, rotativo.getNome());
+            stmt.setFloat(2, rotativo.getPreco30Minutos());
+            stmt.setFloat(3, rotativo.getPreco60Minutos());
+            stmt.setFloat(4, rotativo.getPrecoDemaisFracoes());
+            stmt.setFloat(5, rotativo.getPrecoDiaria());
+            stmt.setFloat(6, rotativo.getPrecoPernoite());
             stmt.executeUpdate();
             stmt.close();
         } catch (SQLException ex) {
@@ -36,11 +36,11 @@ public class RotativoDAO {
         }
     }
         
-    public void rotativoExcluirTipoPrecos(Rotativo rotativoTipoPreco) {
+    public void rotativoExcluir(Rotativo rotativo) {
         try {                         
-            String sql = "DELETE FROM rotativotipopreco WHERE tipo=?";
+            String sql = "DELETE FROM rotativo WHERE tipo=?";
             PreparedStatement stmt = conexao.prepareStatement(sql);
-            stmt.setString(1, rotativoTipoPreco.getTipoRotativo());
+            stmt.setString(1, rotativo.getNome());
             stmt.executeUpdate();
             stmt.close();
         } catch (SQLException ex) {
@@ -48,19 +48,20 @@ public class RotativoDAO {
         }
     }
     
-    public Rotativo rotativoCarregarPrecos(Rotativo rotativoTipoPreco) {
+    public Rotativo rotativoCarregarAtributos(Rotativo rotativo) {
         try {
-            String sql = "SELECT * FROM rotativotipopreco WHERE tipo=?";
+            String sql = "SELECT * FROM rotativo WHERE tipo=?";
             PreparedStatement stmt = conexao.prepareStatement(sql);
-            stmt.setString(1, rotativoTipoPreco.getTipoRotativo());
+            stmt.setString(1, rotativo.getNome());
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                rotativoTipoPreco.setPreco30Minutos(rs.getFloat("preco30minutos"));
-                rotativoTipoPreco.setPreco60Minutos(rs.getFloat("preco60minutos"));
-                rotativoTipoPreco.setPrecoDemaisFracoes(rs.getFloat("precodemaisfracoes"));
-                rotativoTipoPreco.setPrecoDiaria(rs.getFloat("precodiaria"));
-                rotativoTipoPreco.setPrecoPernoite(rs.getFloat("precopernoite"));
+                rotativo.setIdRotativo(rs.getInt("id_rotativo"));
+                rotativo.setPreco30Minutos(rs.getFloat("preco30minutos"));
+                rotativo.setPreco60Minutos(rs.getFloat("preco60minutos"));
+                rotativo.setPrecoDemaisFracoes(rs.getFloat("precodemaisfracoes"));
+                rotativo.setPrecoDiaria(rs.getFloat("precodiaria"));
+                rotativo.setPrecoPernoite(rs.getFloat("precopernoite"));
             } else {
                 System.out.println("O tipo de rotativo não foi encontrado!!!");
             }
@@ -69,25 +70,25 @@ public class RotativoDAO {
         } catch (SQLException ex) {
             Logger.getLogger(VeiculoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return rotativoTipoPreco;
+        return rotativo;
     }
 
-    public void rotativoAlterarPrecos(String rotativoTipoAnterior, Rotativo rotativoTipoPreco) {
+    public void rotativoAlterar(String rotativoTipoAnterior, Rotativo rotativo) {
         try {
-            String sql = "UPDATE rotativotipopreco SET tipo=?, preco30minutos=?, preco60minutos=?, precodemaisfracoes=?, precodiaria=?, precopernoite=? WHERE tipo=?";
+            String sql = "UPDATE rotativo SET tipo=?, preco30minutos=?, preco60minutos=?, precodemaisfracoes=?, precodiaria=?, precopernoite=? WHERE tipo=?";
             PreparedStatement stmt = conexao.prepareStatement(sql);
-            stmt.setString(1, rotativoTipoPreco.getTipoRotativo());
-            stmt.setFloat(2, rotativoTipoPreco.getPreco30Minutos());
-            stmt.setFloat(3, rotativoTipoPreco.getPreco60Minutos());
-            stmt.setFloat(4, rotativoTipoPreco.getPrecoDemaisFracoes());
-            stmt.setFloat(5, rotativoTipoPreco.getPrecoDiaria());
-            stmt.setFloat(6, rotativoTipoPreco.getPrecoPernoite());
+            stmt.setString(1, rotativo.getNome());
+            stmt.setFloat(2, rotativo.getPreco30Minutos());
+            stmt.setFloat(3, rotativo.getPreco60Minutos());
+            stmt.setFloat(4, rotativo.getPrecoDemaisFracoes());
+            stmt.setFloat(5, rotativo.getPrecoDiaria());
+            stmt.setFloat(6, rotativo.getPrecoPernoite());
             stmt.setString(7, rotativoTipoAnterior);
             int rowsUpdated = stmt.executeUpdate();
             if (rowsUpdated > 0) {
-                System.out.println("As alterações do [" + rotativoTipoPreco.getTipoRotativo() + "] foram atualizados com sucesso!!!");
+                System.out.println("As alterações do [" + rotativo.getNome() + "] foram atualizados com sucesso!!!");
             } else {
-                System.out.println("O [" + rotativoTipoPreco.getTipoRotativo() + "] não existe!!!");
+                System.out.println("O [" + rotativo.getNome() + "] não existe!!!");
             }
             stmt.close();
         } catch (SQLException ex) {
@@ -95,14 +96,14 @@ public class RotativoDAO {
         }
     }
 
-    public DefaultListModel rotativoCarregarTipos(DefaultListModel rotativoTipoLista) {
+    public DefaultListModel rotativoCarregarLista(DefaultListModel rotativoDefaultListModel) {
         try {
-            String sql = "SELECT tipo FROM rotativotipopreco";
+            String sql = "SELECT tipo FROM rotativo";
             PreparedStatement stmt = conexao.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             int i = 0;
             while (rs.next()) {
-                rotativoTipoLista.add(i, rs.getString("tipo"));
+                rotativoDefaultListModel.add(i, rs.getString("tipo"));
                 i++;
             }
             rs.close();
@@ -110,30 +111,30 @@ public class RotativoDAO {
         } catch (SQLException ex) {
             Logger.getLogger(VeiculoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return rotativoTipoLista;
+        return rotativoDefaultListModel;
     }
 
-    public List rotativoCarregarTipoPrecoLista(List rotativoTipoPrecoLista) {
+    public List rotativoCarregarListaTodos(List rotativoList) {
         try {
-            String sql = "SELECT * FROM rotativotipopreco";
+            String sql = "SELECT * FROM rotativo";
             PreparedStatement stmt = conexao.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                Rotativo rotativoTipoPreco = new Rotativo();
-                rotativoTipoPreco.setIdRotativo(rs.getInt("id_rotativo"));
-                rotativoTipoPreco.setTipoRotativo(rs.getString("tipo"));
-                rotativoTipoPreco.setPreco30Minutos(rs.getFloat("preco30minutos"));
-                rotativoTipoPreco.setPreco60Minutos(rs.getFloat("preco60minutos"));
-                rotativoTipoPreco.setPrecoDemaisFracoes(rs.getFloat("precodemaisfracoes"));
-                rotativoTipoPreco.setPrecoDiaria(rs.getFloat("precodiaria"));
-                rotativoTipoPreco.setPrecoPernoite(rs.getFloat("precopernoite"));
-                rotativoTipoPrecoLista.add(rotativoTipoPreco);
+                Rotativo rotativo = new Rotativo();
+                rotativo.setIdRotativo(rs.getInt("id_rotativo"));
+                rotativo.setNome(rs.getString("tipo"));
+                rotativo.setPreco30Minutos(rs.getFloat("preco30minutos"));
+                rotativo.setPreco60Minutos(rs.getFloat("preco60minutos"));
+                rotativo.setPrecoDemaisFracoes(rs.getFloat("precodemaisfracoes"));
+                rotativo.setPrecoDiaria(rs.getFloat("precodiaria"));
+                rotativo.setPrecoPernoite(rs.getFloat("precopernoite"));
+                rotativoList.add(rotativo);
             }
             rs.close();
             stmt.close();
         } catch (SQLException ex) {
             Logger.getLogger(VeiculoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return rotativoTipoPrecoLista;
+        return rotativoList;
     }
 }

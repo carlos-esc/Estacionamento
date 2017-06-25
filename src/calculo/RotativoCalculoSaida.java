@@ -48,14 +48,14 @@ public class RotativoCalculoSaida {
        long diferencaHorasMinutos = horaSaida.getTime() - horaEntrada.getTime();
         horasRotativoNoDiaEntrada = diferencaHorasMinutos / (60 * 60 * 1000) % 24;
         minutosRotativoNoDiaEntrada = diferencaHorasMinutos / (60 * 1000) % 60;
-        patio.setHoraMinutoDataEntrada("");
+        patio.setDataEntradaHoraMinuto("");
         if (horasRotativoNoDiaEntrada > patio.getDiariaHoras()) {
             patio.setValorTotal(patio.getPrecoDiaria());
-            patio.setHoraMinutoDataEntrada("Diária");
+            patio.setDataEntradaHoraMinuto("Diária");
             patio.setDiariaQuantidade(1);
         } else if (horasRotativoNoDiaEntrada >= patio.getDiariaHoras() && minutosRotativoNoDiaEntrada >= (patio.getDiariaMinutos() + patio.getToleranciaEntreFracoes())) {
             patio.setValorTotal(patio.getPrecoDiaria());
-            patio.setHoraMinutoDataEntrada("Diária");
+            patio.setDataEntradaHoraMinuto("Diária");
             patio.setDiariaQuantidade(1);
         } else if (horasRotativoNoDiaEntrada == 1 && minutosRotativoNoDiaEntrada == patio.getToleranciaEntreFracoes()) {
             patio.setValorTotal(patio.getPreco60Minutos());
@@ -64,7 +64,7 @@ public class RotativoCalculoSaida {
         } else if (horasRotativoNoDiaEntrada == 0 && minutosRotativoNoDiaEntrada > patio.getToleranciaDesistencia()) {
             patio.setValorTotal(patio.getPreco30Minutos());
         } else if (horasRotativoNoDiaEntrada == 0 && minutosRotativoNoDiaEntrada <= patio.getToleranciaDesistencia()) {
-            patio.setHoraMinutoDataEntrada("Tolerância");
+            patio.setDataEntradaHoraMinuto("Tolerância");
             patio.setValorTotal(0);
         } else {
             long meiaHora = (int) (diferencaHorasMinutos / (60 * 1000)) / 30;
@@ -87,26 +87,23 @@ public class RotativoCalculoSaida {
 
     private Patio calcularRotativoDiaDaEntrada(Patio patio) {
         long diferencaHorasMinutos;
-        patio.setHoraMinutoDataEntrada("");
         Date pernoiteInicio = null, pernoiteTermino = null;
-
         try {
             pernoiteInicio = sdfHora.parse(patio.getPernoiteInicio());
             pernoiteTermino = sdfHora.parse(patio.getPernoiteTermino());
         } catch (ParseException ex) {
             Logger.getLogger(RotativoCalculoSaida.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         if (horaEntrada.getTime() < pernoiteInicio.getTime()) {
             diferencaHorasMinutos = pernoiteInicio.getTime() - horaEntrada.getTime();
             horasRotativoNoDiaEntrada = diferencaHorasMinutos / (60 * 60 * 1000) % 24;
             minutosRotativoNoDiaEntrada = diferencaHorasMinutos / (60 * 1000) % 60;
             if (horasRotativoNoDiaEntrada > patio.getDiariaHoras()) {
                 diariaQuantidade++;
-                patio.setHoraMinutoDataEntrada("Diária");
+                patio.setDataEntradaHoraMinuto("Diária");
             } else if (horasRotativoNoDiaEntrada >= patio.getDiariaHoras() && minutosRotativoNoDiaEntrada >= patio.getDiariaMinutos()) {
                 diariaQuantidade++;
-                patio.setHoraMinutoDataEntrada("Diária");
+                patio.setDataEntradaHoraMinuto("Diária");
             } else {
                 if (horasRotativoNoDiaEntrada == 1 && minutosRotativoNoDiaEntrada == 0) {
                     valorRotativoNoDiaEntrada = patio.getPreco60Minutos();
@@ -123,9 +120,11 @@ public class RotativoCalculoSaida {
                     }
                     valorRotativoNoDiaEntrada = valorRotativoNoDiaEntrada + patio.getPreco60Minutos();
                 }
-                patio.setHoraMinutoDataEntrada(new DecimalFormat("00h | ").format(horasRotativoNoDiaEntrada) + new DecimalFormat("00m").format(minutosRotativoNoDiaEntrada));
+                patio.setDataEntradaHoraMinuto(new DecimalFormat("00h | ").format(horasRotativoNoDiaEntrada) + new DecimalFormat("00m").format(minutosRotativoNoDiaEntrada));
             }
-            patio.setValorDataEntrada(valorRotativoNoDiaEntrada);
+            patio.setDataEntradaValor(valorRotativoNoDiaEntrada);
+        } else {
+            patio.setDataEntradaHoraMinuto("Pernoite");
         }
         return patio;
     }
@@ -154,18 +153,18 @@ public class RotativoCalculoSaida {
             Logger.getLogger(RotativoCalculoSaida.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (horaSaida.getTime() <= pernoiteTermino.getTime()) {
-            patio.setHoraMinutoDataSaida("Pernoite");
+            patio.setDataSaidaHoraMinuto("Pernoite");
         } else {
             long diferencaHorasMinutos = horaSaida.getTime() - pernoiteTermino.getTime();
             horasRotativoNoDiaSaida = diferencaHorasMinutos / (60 * 60 * 1000) % 24;
             minutosRotativoNoDiaSaida = diferencaHorasMinutos / (60 * 1000) % 60;
-            patio.setHoraMinutoDataSaida("");
+            patio.setDataSaidaHoraMinuto("");
             if (horasRotativoNoDiaSaida > patio.getDiariaHoras()) {
                 diariaQuantidade++;
-                patio.setHoraMinutoDataSaida("Diária");
+                patio.setDataSaidaHoraMinuto("Diária");
             } else if (horasRotativoNoDiaSaida >= patio.getDiariaHoras() && minutosRotativoNoDiaSaida >= (patio.getDiariaMinutos() + patio.getToleranciaEntreFracoes())) {
                 diariaQuantidade++;
-                patio.setHoraMinutoDataSaida("Diária");
+                patio.setDataSaidaHoraMinuto("Diária");
             } else {
                 long meiaHora = (int) (diferencaHorasMinutos / (60 * 1000)) / 30;
                 long resto = diferencaHorasMinutos / (60 * 1000) % 30;
@@ -173,16 +172,16 @@ public class RotativoCalculoSaida {
                 if (resto > patio.getToleranciaEntreFracoes()) {
                     valorRotativoNoDiaSaida = valorRotativoNoDiaSaida + patio.getPrecoDemaisFracoes();
                 }
-                patio.setHoraMinutoDataSaida(new DecimalFormat("00h | ").format(horasRotativoNoDiaSaida) + new DecimalFormat("00m").format(minutosRotativoNoDiaSaida));
+                patio.setDataSaidaHoraMinuto(new DecimalFormat("00h | ").format(horasRotativoNoDiaSaida) + new DecimalFormat("00m").format(minutosRotativoNoDiaSaida));
             }
         }
-        patio.setValorDataSaida(valorRotativoNoDiaSaida);
+        patio.setDataSaidaValor(valorRotativoNoDiaSaida);
         patio.setDiariaQuantidade(diariaQuantidade);
         patio.setPernoiteQuantidade(pernoiteQuantidade);
-        patio.setDiariasValorTotal(diariaQuantidade * patio.getPrecoDiaria());
-        patio.setPernoitesValorTotal(pernoiteQuantidade * patio.getPrecoPernoite());
+        patio.setDiariaValorTotal(diariaQuantidade * patio.getPrecoDiaria());
+        patio.setPernoiteValorTotal(pernoiteQuantidade * patio.getPrecoPernoite());
 
-        patio.setValorTotal(patio.getValorDataEntrada() + patio.getValorDataSaida() + patio.getDiariasValorTotal() + patio.getPernoitesValorTotal());
+        patio.setValorTotal(patio.getDataEntradaValor() + patio.getDataSaidaValor() + patio.getDiariaValorTotal() + patio.getPernoiteValorTotal());
         return patio;
     }
 
