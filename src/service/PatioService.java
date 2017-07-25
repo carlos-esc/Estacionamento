@@ -7,9 +7,14 @@ import modelo.Patio;
 public class PatioService { 
     PatioDAO patioDAO = new PatioDAO();
     
-    public List patioLista (List patioLista) {
-        patioDAO.patioLista(patioLista);
+    public List patioLista (List patioLista, String patioOrdenarLista) {
+        patioDAO.patioLista(patioLista, patioOrdenarLista);
         return patioLista;
+    }
+    
+    public List movimentoLista (List movimentoLista, String movimentoData) {
+        patioDAO.movimentoLista(movimentoLista, movimentoData);
+        return movimentoLista;
     }
     
     public Patio estacionarVeiculo (Patio patio) {

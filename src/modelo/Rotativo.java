@@ -3,6 +3,7 @@ package modelo;
 public class Rotativo {
     
     private int idRotativo;
+    private final String tipo;
     private String nome;
     private float preco30Minutos;
     private float preco60Minutos;
@@ -10,6 +11,10 @@ public class Rotativo {
     private float precoDiaria;
     private float precoPernoite;
 
+    public Rotativo (){
+        tipo = "Rotativo";
+    }
+    
     /**
      * @return the idRotativo
      */
@@ -106,5 +111,12 @@ public class Rotativo {
      */
     public void setPrecoPernoite(float precoPernoite) {
         this.precoPernoite = precoPernoite;
+    }
+
+    /**
+     * @return the tipo
+     */
+    public String getTipo() {
+        return tipo;
     }
 }

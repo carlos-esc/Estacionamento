@@ -21,14 +21,15 @@ public class RotativoDAO {
     
     public void rotativoIncluir(Rotativo rotativo) {
         try {                         
-            String sql = "INSERT INTO rotativo(tipo, preco30minutos, preco60minutos, precodemaisfracoes, precodiaria, precopernoite) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO rotativo(tipo, nome, preco30minutos, preco60minutos, precodemaisfracoes, precodiaria, precopernoite) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement stmt = conexao.prepareStatement(sql);
-            stmt.setString(1, rotativo.getNome());
-            stmt.setFloat(2, rotativo.getPreco30Minutos());
-            stmt.setFloat(3, rotativo.getPreco60Minutos());
-            stmt.setFloat(4, rotativo.getPrecoDemaisFracoes());
-            stmt.setFloat(5, rotativo.getPrecoDiaria());
-            stmt.setFloat(6, rotativo.getPrecoPernoite());
+            stmt.setString(1, rotativo.getTipo());
+            stmt.setString(2, rotativo.getNome());
+            stmt.setFloat(3, rotativo.getPreco30Minutos());
+            stmt.setFloat(4, rotativo.getPreco60Minutos());
+            stmt.setFloat(5, rotativo.getPrecoDemaisFracoes());
+            stmt.setFloat(6, rotativo.getPrecoDiaria());
+            stmt.setFloat(7, rotativo.getPrecoPernoite());
             stmt.executeUpdate();
             stmt.close();
         } catch (SQLException ex) {
@@ -38,7 +39,7 @@ public class RotativoDAO {
         
     public void rotativoExcluir(Rotativo rotativo) {
         try {                         
-            String sql = "DELETE FROM rotativo WHERE tipo=?";
+            String sql = "DELETE FROM rotativo WHERE nome=?";
             PreparedStatement stmt = conexao.prepareStatement(sql);
             stmt.setString(1, rotativo.getNome());
             stmt.executeUpdate();
@@ -50,7 +51,7 @@ public class RotativoDAO {
     
     public Rotativo rotativoCarregarAtributos(Rotativo rotativo) {
         try {
-            String sql = "SELECT * FROM rotativo WHERE tipo=?";
+            String sql = "SELECT * FROM rotativo WHERE nome=?";
             PreparedStatement stmt = conexao.prepareStatement(sql);
             stmt.setString(1, rotativo.getNome());
             ResultSet rs = stmt.executeQuery();
@@ -75,7 +76,7 @@ public class RotativoDAO {
 
     public void rotativoAlterar(String rotativoTipoAnterior, Rotativo rotativo) {
         try {
-            String sql = "UPDATE rotativo SET tipo=?, preco30minutos=?, preco60minutos=?, precodemaisfracoes=?, precodiaria=?, precopernoite=? WHERE tipo=?";
+            String sql = "UPDATE rotativo SET nome=?, preco30minutos=?, preco60minutos=?, precodemaisfracoes=?, precodiaria=?, precopernoite=? WHERE nome=?";
             PreparedStatement stmt = conexao.prepareStatement(sql);
             stmt.setString(1, rotativo.getNome());
             stmt.setFloat(2, rotativo.getPreco30Minutos());
@@ -98,12 +99,12 @@ public class RotativoDAO {
 
     public DefaultListModel rotativoCarregarLista(DefaultListModel rotativoDefaultListModel) {
         try {
-            String sql = "SELECT tipo FROM rotativo";
+            String sql = "SELECT nome FROM rotativo";
             PreparedStatement stmt = conexao.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             int i = 0;
             while (rs.next()) {
-                rotativoDefaultListModel.add(i, rs.getString("tipo"));
+                rotativoDefaultListModel.add(i, rs.getString("nome"));
                 i++;
             }
             rs.close();
@@ -122,7 +123,7 @@ public class RotativoDAO {
             while (rs.next()) {
                 Rotativo rotativo = new Rotativo();
                 rotativo.setIdRotativo(rs.getInt("id_rotativo"));
-                rotativo.setNome(rs.getString("tipo"));
+                rotativo.setNome(rs.getString("nome"));
                 rotativo.setPreco30Minutos(rs.getFloat("preco30minutos"));
                 rotativo.setPreco60Minutos(rs.getFloat("preco60minutos"));
                 rotativo.setPrecoDemaisFracoes(rs.getFloat("precodemaisfracoes"));

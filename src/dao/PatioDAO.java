@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Patio;
 import calculo.RotativoCalculoSaida;
+import java.text.ParseException;
 
 public class PatioDAO {
 
@@ -23,19 +24,103 @@ public class PatioDAO {
         this.conexao = new ConexaoFactory().getConnection();
     }
 
-    public List patioLista(List patioLista) {
+    public List movimentoLista(List movimentoLista, String movimentoData) {
         try {
-            String sql = "SELECT * FROM patio INNER JOIN veiculo ON (patio.id_veiculo_fk = veiculo.id_veiculo) WHERE patio.estacionado='sim'";
+            SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat sdfHora = new SimpleDateFormat("HH:mm");
+            String sql = "SELECT * FROM patio INNER JOIN veiculo ON (patio.id_veiculo_fk = veiculo.id_veiculo)";
             PreparedStatement stmt = conexao.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
+            RotativoCalculoSaida rotativoCalculaSaida = new RotativoCalculoSaida();
+            Date patioDataEntrada, patioDataSaida, movimentoDataPesquisa;
+            movimentoDataPesquisa = sdfData.parse(movimentoData);
+            while (rs.next()) {
+                patioDataEntrada = sdfData.parse(rs.getString("dataentrada"));
+                if (patioDataEntrada.getTime() > movimentoDataPesquisa.getTime()) {
+
+                } else {
+                    if (patioDataEntrada.getTime() <= movimentoDataPesquisa.getTime() && rs.getString("datasaida") == null) {
+                        patioDataSaida = new Date();
+                    } else {
+                        patioDataSaida = sdfData.parse(rs.getString("datasaida"));
+                    }
+                    if (patioDataSaida.getTime() >= movimentoDataPesquisa.getTime()) {
+                        Patio patio = new Patio();
+                        patio.setDataSaida(sdfData.format(new Date()));
+                        patio.setHoraSaida(sdfHora.format(new Date()));
+
+                        patio.setPlacaFk(rs.getString("placa"));
+                        patio.setPrisma(rs.getString("prisma"));
+                        patio.setRps(rs.getString("rps"));
+                        patio.setTipo(rs.getString("tipo"));
+                        patio.setPreco30Minutos(rs.getFloat("preco30minutos"));
+                        patio.setPreco60Minutos(rs.getFloat("preco60minutos"));
+                        patio.setPrecoDemaisFracoes(rs.getFloat("precodemaisfracoes"));
+                        patio.setPrecoDiaria(rs.getFloat("precodiaria"));
+                        patio.setPrecoPernoite(rs.getFloat("precopernoite"));
+                        patio.setDataEntrada(rs.getString("dataentrada"));
+                        patio.setHoraEntrada(rs.getString("horaentrada"));
+                        patio.setToleranciaDesistencia(rs.getInt("toleranciadesistencia"));
+                        patio.setToleranciaEntreFracoes(rs.getInt("toleranciaentrefracoes"));
+                        patio.setDiariaHoras(rs.getInt("diariahoras"));
+                        patio.setDiariaMinutos(rs.getInt("diariaminutos"));
+                        patio.setPernoiteInicio(rs.getString("pernoiteinicio"));
+                        patio.setPernoiteTermino(rs.getString("pernoitetermino"));
+
+                        if (rs.getString("datasaida") != null) {
+                            patio.setDataSaida(rs.getString("datasaida"));
+                            patio.setHoraSaida(rs.getString("horasaida"));
+                            patio.setPermanencia(rs.getString("permanencia"));
+                            patio.setValorTotal(rs.getFloat("valortotal"));
+                        } else {
+                            patio = rotativoCalculaSaida.calcularPermanenciaValor(patio);
+                            patio.setDataSaida("Veículo no");
+                            patio.setHoraSaida("pátio");
+                        }
+                        movimentoLista.add(patio);
+                    }
+                }
+            }
+            rs.close();
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(VeiculoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(PatioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return movimentoLista;
+    }
+
+    public List patioLista(List patioLista, String patioOrdenarLista) {
+        try {
             SimpleDateFormat dataAtual = new SimpleDateFormat("dd/MM/yyyy");
             SimpleDateFormat horaAtual = new SimpleDateFormat("HH:mm");
+            String sql = "";
+            switch (patioOrdenarLista) {
+                case "entrada":
+                    sql = "SELECT * FROM patio INNER JOIN veiculo ON (patio.id_veiculo_fk = veiculo.id_veiculo) WHERE patio.estacionado='sim'";
+                    break;
+                case "placa":
+                    sql = "SELECT * FROM patio INNER JOIN veiculo ON (patio.id_veiculo_fk = veiculo.id_veiculo) WHERE patio.estacionado='sim' ORDER BY placa ASC";
+                    break;
+                case "prisma":
+                    sql = "SELECT * FROM patio INNER JOIN veiculo ON (patio.id_veiculo_fk = veiculo.id_veiculo) WHERE patio.estacionado='sim' ORDER BY prisma * 1 ASC";
+                    break;
+                case "tipo":
+                    sql = "SELECT * FROM patio INNER JOIN veiculo ON (patio.id_veiculo_fk = veiculo.id_veiculo) WHERE patio.estacionado='sim' ORDER BY tipo ASC";
+                    break;
+                default:
+                    sql = "SELECT * FROM patio INNER JOIN veiculo ON (patio.id_veiculo_fk = veiculo.id_veiculo) WHERE patio.estacionado='sim'";
+                    break;
+            }
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
             RotativoCalculoSaida rotativoCalculaSaida = new RotativoCalculoSaida();
-            while (rs.next()) {               
+            while (rs.next()) {
                 Patio patio = new Patio();
                 patio.setDataSaida(dataAtual.format(new Date()));
                 patio.setHoraSaida(horaAtual.format(new Date()));
-                
+
                 patio.setPlacaFk(rs.getString("placa"));
                 patio.setPrisma(rs.getString("prisma"));
                 patio.setRps(rs.getString("rps"));
@@ -53,7 +138,17 @@ public class PatioDAO {
                 patio.setDiariaMinutos(rs.getInt("diariaminutos"));
                 patio.setPernoiteInicio(rs.getString("pernoiteinicio"));
                 patio.setPernoiteTermino(rs.getString("pernoitetermino"));
-                patio = rotativoCalculaSaida.calcularPermanenciaValor(patio);
+
+                if (rs.getString("datasaida") != null) {
+                    patio.setDataSaida(rs.getString("datasaida"));
+                    patio.setHoraSaida(rs.getString("horasaida"));
+                    patio.setPermanencia(rs.getString("permanencia"));
+                    patio.setValorTotal(rs.getFloat("valortotal"));
+                } else {
+                    patio = rotativoCalculaSaida.calcularPermanenciaValor(patio);
+                    patio.setDataSaida("----------");
+                    patio.setHoraSaida("----------");
+                }
                 patioLista.add(patio);
             }
             rs.close();

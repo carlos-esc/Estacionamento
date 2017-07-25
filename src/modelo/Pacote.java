@@ -3,6 +3,7 @@ package modelo;
 public class Pacote {
     
     private int idPacote;
+    private final String tipo;
     private String nome;
     private String utilizacoesOuDias;
     private int quantidade;
@@ -10,6 +11,10 @@ public class Pacote {
     private String dataTermino;
     private float valor;
 
+    public Pacote(){
+        tipo = "Pacote";
+    }    
+    
     /**
      * @return the idPacote
      */
@@ -106,5 +111,12 @@ public class Pacote {
      */
     public void setValor(float valor) {
         this.valor = valor;
+    }
+
+    /**
+     * @return the tipo
+     */
+    public String getTipo() {
+        return tipo;
     }
 }

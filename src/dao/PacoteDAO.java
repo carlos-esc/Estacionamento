@@ -68,14 +68,15 @@ public class PacoteDAO {
     
     public void pacoteIncluir(Pacote pacote) {
         try {                         
-            String sql = "INSERT INTO pacote(nome, utilizacoesoudias, quantidade, datainicio, datatermino, valor) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO pacote(tipo, nome, utilizacoesoudias, quantidade, datainicio, datatermino, valor) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement stmt = conexao.prepareStatement(sql);
-            stmt.setString(1, pacote.getNome());
-            stmt.setString(2, pacote.getUtilizacoesOuDias());
-            stmt.setInt(3, pacote.getQuantidade());
-            stmt.setString(4, "00/00/0000");
+            stmt.setString(1, pacote.getTipo());
+            stmt.setString(2, pacote.getNome());
+            stmt.setString(3, pacote.getUtilizacoesOuDias());
+            stmt.setInt(4, pacote.getQuantidade());
             stmt.setString(5, "00/00/0000");
-            stmt.setFloat(6, pacote.getValor());
+            stmt.setString(6, "00/00/0000");
+            stmt.setFloat(7, pacote.getValor());
             stmt.executeUpdate();
             stmt.close();
         } catch (SQLException ex) {
