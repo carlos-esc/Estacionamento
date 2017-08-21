@@ -49,14 +49,16 @@ public class RotativoDAO {
         }
     }
     
-    public Rotativo rotativoCarregarAtributos(Rotativo rotativo) {
+    public Rotativo rotativoCarregarAtributos(String nomeRotativo) {
         try {
             String sql = "SELECT * FROM rotativo WHERE nome=?";
             PreparedStatement stmt = conexao.prepareStatement(sql);
-            stmt.setString(1, rotativo.getNome());
+            stmt.setString(1, nomeRotativo);
             ResultSet rs = stmt.executeQuery();
-
+            Rotativo rotativo = new Rotativo();
             if (rs.next()) {
+                rotativo.setNome(rs.getString("nome"));
+                rotativo.setTipo(rs.getString("tipo"));
                 rotativo.setIdRotativo(rs.getInt("id_rotativo"));
                 rotativo.setPreco30Minutos(rs.getFloat("preco30minutos"));
                 rotativo.setPreco60Minutos(rs.getFloat("preco60minutos"));
@@ -68,10 +70,11 @@ public class RotativoDAO {
             }
             rs.close();
             stmt.close();
+            return rotativo;
         } catch (SQLException ex) {
             Logger.getLogger(VeiculoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
         }
-        return rotativo;
     }
 
     public void rotativoAlterar(String rotativoTipoAnterior, Rotativo rotativo) {

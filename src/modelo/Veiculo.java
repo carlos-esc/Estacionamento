@@ -3,13 +3,26 @@ package modelo;
 public class Veiculo {
     private int idVeiculo;
     private String placa;
-    private String dataHoraRegistro;
+    private String dataHoraCadastro;
+    private String dataHoraPrimeiraUtilizacao;
+    private String dataHoraUltimaAlteracao;
     private String marca;
     private String modelo;
-    private String anoFabricacao;
-    private String anoModelo;
     private String cor;
-    
+    private String anoModelo;
+    /**
+     * @return the idVeiculo
+     */
+    public int getIdVeiculo() {
+        return idVeiculo;
+    }
+
+    /**
+     * @param idVeiculo the idVeiculo to set
+     */
+    public void setIdVeiculo(int idVeiculo) {
+        this.idVeiculo = idVeiculo;
+    }
 
     /**
      * @return the placa
@@ -23,6 +36,48 @@ public class Veiculo {
      */
     public void setPlaca(String placa) {
         this.placa = placa;
+    }
+
+    /**
+     * @return the dataHoraCadastro
+     */
+    public String getDataHoraCadastro() {
+        return dataHoraCadastro;
+    }
+
+    /**
+     * @param dataHoraCadastro the dataHoraCadastro to set
+     */
+    public void setDataHoraCadastro(String dataHoraCadastro) {
+        this.dataHoraCadastro = dataHoraCadastro;
+    }
+
+    /**
+     * @return the dataHoraPrimeiraUtilizacao
+     */
+    public String getDataHoraPrimeiraUtilizacao() {
+        return dataHoraPrimeiraUtilizacao;
+    }
+
+    /**
+     * @param dataHoraPrimeiraUtilizacao the dataHoraPrimeiraUtilizacao to set
+     */
+    public void setDataHoraPrimeiraUtilizacao(String dataHoraPrimeiraUtilizacao) {
+        this.dataHoraPrimeiraUtilizacao = dataHoraPrimeiraUtilizacao;
+    }
+
+    /**
+     * @return the dataHoraUltimaAlteracao
+     */
+    public String getDataHoraUltimaAlteracao() {
+        return dataHoraUltimaAlteracao;
+    }
+
+    /**
+     * @param dataHoraUltimaAlteracao the dataHoraUltimaAlteracao to set
+     */
+    public void setDataHoraUltimaAlteracao(String dataHoraUltimaAlteracao) {
+        this.dataHoraUltimaAlteracao = dataHoraUltimaAlteracao;
     }
 
     /**
@@ -54,34 +109,6 @@ public class Veiculo {
     }
 
     /**
-     * @return the anoFabricacao
-     */
-    public String getAnoFabricacao() {
-        return anoFabricacao;
-    }
-
-    /**
-     * @param anoFabricacao the anoFabricacao to set
-     */
-    public void setAnoFabricacao(String anoFabricacao) {
-        this.anoFabricacao = anoFabricacao;
-    }
-
-    /**
-     * @return the anoModelo
-     */
-    public String getAnoModelo() {
-        return anoModelo;
-    }
-
-    /**
-     * @param anoModelo the anoModelo to set
-     */
-    public void setAnoModelo(String anoModelo) {
-        this.anoModelo = anoModelo;
-    }
-
-    /**
      * @return the cor
      */
     public String getCor() {
@@ -96,30 +123,16 @@ public class Veiculo {
     }
 
     /**
-     * @return the dataHoraRegistro
+     * @return the anoModelo
      */
-    public String getDataHoraRegistro() {
-        return dataHoraRegistro;
+    public String getAnoModelo() {
+        return anoModelo;
     }
 
     /**
-     * @param dataHoraRegistro the dataHoraRegistro to set
+     * @param anoModelo the anoModelo to set
      */
-    public void setDataHoraRegistro(String dataHoraRegistro) {
-        this.dataHoraRegistro = dataHoraRegistro;
-    }
-
-    /**
-     * @return the idVeiculo
-     */
-    public int getIdVeiculo() {
-        return idVeiculo;
-    }
-
-    /**
-     * @param idVeiculo the idVeiculo to set
-     */
-    public void setIdVeiculo(int idVeiculo) {
-        this.idVeiculo = idVeiculo;
+    public void setAnoModelo(String anoModelo) {
+        this.anoModelo = anoModelo;
     }
 }

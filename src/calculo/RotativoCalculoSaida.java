@@ -11,8 +11,8 @@ import modelo.Patio;
 import modelo.Rotativo;
 
 public class RotativoCalculoSaida {
-
-    private Rotativo rotativo = new Rotativo();
+    
+   private Rotativo rotativo = new Rotativo();
 
     private Calendar calendario;
     private SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
@@ -21,9 +21,9 @@ public class RotativoCalculoSaida {
     private long patioPermanenciaTotal;
 
     private int diariaQuantidade, pernoiteQuantidade;
-    private float rotativoHoraEntrada, rotativoMinutoEntrada, rotativoDataEntradaValor, 
-                  rotativoHoraSaida, rotativoMinutoSaida, rotativoDataSaidaValor;
-
+    private float rotativoHoraEntrada = 0, rotativoMinutoEntrada = 0, rotativoDataEntradaValor = 0, 
+                  rotativoHoraSaida = 0, rotativoMinutoSaida = 0, rotativoDataSaidaValor = 0;
+    
     public Patio calcularPermanenciaValor(Patio patio) {
         try {
             patioDataEntradaVariavel = sdfData.parse(patio.getDataEntrada());
@@ -31,6 +31,8 @@ public class RotativoCalculoSaida {
             patioHoraEntrada = sdfHora.parse(patio.getHoraEntrada());
             patioDataSaida = sdfData.parse(patio.getDataSaida());
             patioHoraSaida = sdfHora.parse(patio.getHoraSaida());
+            diariaQuantidade = 0;
+            pernoiteQuantidade = 0;
             patioPermanenciaTotal = (patioDataSaida.getTime() + patioHoraSaida.getTime()) - (patioDataEntrada.getTime() + patioHoraEntrada.getTime());
             calcularPermanenciaTotal(patioPermanenciaTotal, patio);
         } catch (ParseException ex) {
@@ -79,14 +81,14 @@ public class RotativoCalculoSaida {
     }
 
     private Patio calcularRotativoComSaidaEmDiaDiferente(Patio patio) {
-        calcularRotativoDiaDaEntrada(patio);
-        calcularRotativoDiariasPernoites(patio);
-        calcularRotativoDiaDaSaida(patio);
+        patio = calcularRotativoDiaDaEntrada(patio);
+        patio = calcularRotativoDiariasPernoites(patio);
+        patio = calcularRotativoDiaDaSaida(patio);
         return patio;
     }
 
     private Patio calcularRotativoDiaDaEntrada(Patio patio) {
-        long diferencaHorasMinutos;
+        long diferencaHorasMinutos = 0;
         Date pernoiteInicio = null, pernoiteTermino = null;
         try {
             pernoiteInicio = sdfHora.parse(patio.getPernoiteInicio());
@@ -182,6 +184,14 @@ public class RotativoCalculoSaida {
         patio.setPernoiteValorTotal(pernoiteQuantidade * patio.getPrecoPernoite());
 
         patio.setValorTotal(patio.getDataEntradaValor() + patio.getDataSaidaValor() + patio.getDiariaValorTotal() + patio.getPernoiteValorTotal());
+        
+        System.out.print("\n\n\nDiaria quantidade: " + patio.getDiariaQuantidade());
+        System.out.print("\nPernoite quantidade: " + patio.getPernoiteQuantidade());
+        System.out.print("\nData entrada valor R$ " + patio.getDataEntradaValor());
+        System.out.print("\nData saida valor R$ " + patio.getDataSaidaValor());
+        System.out.print("\nDiaria valor R$ " + patio.getDiariaValorTotal());
+        System.out.print("\nPernoite valorR$ " + patio.getPernoiteValorTotal());
+        System.out.print("\nValor total R$ " + patio.getValorTotal());
         return patio;
     }
 

@@ -19,9 +19,10 @@ public class RotativoService {
         return rotativoTipoPreco;
     }
     
-    public Rotativo rotativoCarregarAtributos(Rotativo rotativoTipoPreco){
-        rotativoServiceDAO.rotativoCarregarAtributos(rotativoTipoPreco);
-        return rotativoTipoPreco;
+    public Rotativo rotativoCarregarAtributos(String nomeRotativo){
+        Rotativo rotativo = new Rotativo();
+        rotativo = rotativoServiceDAO.rotativoCarregarAtributos(nomeRotativo);
+        return rotativo;
     }
     
     public Rotativo rotativoAlterarPrecos(String rotativoTipoAnterior, Rotativo rotativoTipoPreco){
@@ -39,8 +40,9 @@ public class RotativoService {
         return rotativoTipoPrecoLista;
     }
     
-    public Rotativo rotativoVerificaExistencia(Rotativo rotativoTipoPreco){
-        rotativoServiceDAO.rotativoCarregarAtributos(rotativoTipoPreco);
-        return rotativoTipoPreco;
+    public Rotativo rotativoVerificaExistencia(String nomeRotativo){
+        Rotativo rotativo = new Rotativo();
+        rotativo = rotativoServiceDAO.rotativoCarregarAtributos(nomeRotativo);
+        return rotativo;
     }   
 }

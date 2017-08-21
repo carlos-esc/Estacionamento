@@ -2,7 +2,10 @@ package service;
 
 import dao.PatioDAO;
 import java.util.List;
+import modelo.Cliente;
+import modelo.Contrato;
 import modelo.Patio;
+import modelo.Veiculo;
 
 public class PatioService { 
     PatioDAO patioDAO = new PatioDAO();
@@ -27,13 +30,20 @@ public class PatioService {
         return patio;
     }
     
-    public Patio verificarVeiculo (Patio patio) {
-        patioDAO.patioVerificaVeiculoEstacionado(patio);
+    public Patio verificarVeiculo (String placa) {
+        Patio patio = new Patio();
+        patio = patioDAO.patioVerificaVeiculoEstacionado(placa);
         return patio;
     }    
     
     public Patio verificarPrisma (Patio patio) {
         patioDAO.patioVerificaPrismaUtilizado(patio);
+        return patio;
+    }
+    
+    public Patio contratoCienteVagaIsOcupada(Contrato contrato) {
+        Patio patio = new Patio();
+        patio = patioDAO.contratoCienteVagaIsOcupada(contrato);
         return patio;
     }
 }
