@@ -252,7 +252,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel105 = new javax.swing.JLabel();
         jButtonClientePesquisaExibir = new javax.swing.JButton();
         jButtonClientePesquisaAlterar = new javax.swing.JButton();
-        jButtonClientePesquisaAtivarInativar = new javax.swing.JButton();
+        jButtonClientePesquisaCancelar = new javax.swing.JButton();
         jRadioButtonAtivos = new javax.swing.JRadioButton();
         jRadioButtonInativos = new javax.swing.JRadioButton();
         jRadioButtonAtiInaTodos = new javax.swing.JRadioButton();
@@ -297,6 +297,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jFormattedTextFieldMensalistaCepResi = new javax.swing.JFormattedTextField();
         jFormattedTextFieldMensalistaTelefoneResi = new javax.swing.JFormattedTextField();
         jFormattedTextFieldMensalistaCpf = new javax.swing.JFormattedTextField();
+        jLabel55 = new javax.swing.JLabel();
+        jTextFieldClienteNumero = new javax.swing.JTextField();
         jPanel36 = new javax.swing.JPanel();
         jTextFieldMensalistaEmpresa = new javax.swing.JTextField();
         jLabel71 = new javax.swing.JLabel();
@@ -362,10 +364,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jFormattedTextFieldMensalistaPlaca03 = new javax.swing.JFormattedTextField();
         jFormattedTextFieldMensalistaPlaca04 = new javax.swing.JFormattedTextField();
         jPanel38 = new javax.swing.JPanel();
-        jButtonClienteCadastroOk = new javax.swing.JButton();
-        jButtonClienteCadastroCancelar = new javax.swing.JButton();
+        jButtonClienteCadastroSim = new javax.swing.JButton();
+        jButtonClienteCadastroNao = new javax.swing.JButton();
         jLabelMensalistaStatus = new javax.swing.JLabel();
-        jButtonClienteCadastroAtivarInativar = new javax.swing.JButton();
+        jButtonClienteCadastroCancelar = new javax.swing.JButton();
         jButtonClienteCadastroAlterar = new javax.swing.JButton();
         jButtonClienteCadastroSair = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
@@ -376,11 +378,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel106 = new javax.swing.JLabel();
         jLabel107 = new javax.swing.JLabel();
         jLabel108 = new javax.swing.JLabel();
-        jTextFieldMensalistaDiaVencimentoMensalidade = new javax.swing.JTextField();
-        jTextFieldMensalistaStatus = new javax.swing.JTextField();
+        jTextFieldContratoDiaVencimento = new javax.swing.JTextField();
+        jTextFieldContratoStatus = new javax.swing.JTextField();
         jFormattedTextFieldContratoDataInicio = new javax.swing.JFormattedTextField();
-        jFormattedTextFieldMensalistaDataUltimaAlteracao = new javax.swing.JFormattedTextField();
-        jTextFieldMensalistaContratoNumero = new javax.swing.JTextField();
+        jFormattedTextFieldContratoDataCancelamento = new javax.swing.JFormattedTextField();
+        jTextFieldContratoNumero = new javax.swing.JTextField();
         jLabel54 = new javax.swing.JLabel();
         jFormattedTextFieldContratoDataTermino = new javax.swing.JFormattedTextField();
         jRadioButtonContratoDias = new javax.swing.JRadioButton();
@@ -390,7 +392,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jSeparator10 = new javax.swing.JSeparator();
         jRadioButtonContratoMensalista = new javax.swing.JRadioButton();
         jRadioButtonContratoPacote = new javax.swing.JRadioButton();
-        jFormattedTextFieldContratoQuantidadeDiasUtilizacoes = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldContratoQuantidade = new javax.swing.JFormattedTextField();
+        jLabel112 = new javax.swing.JLabel();
+        jTextFieldContratoValor = new javax.swing.JTextField();
+        jSeparator11 = new javax.swing.JSeparator();
+        jSeparator12 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JSeparator();
@@ -401,21 +407,36 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableContratoClienteFatura = new javax.swing.JTable();
         jLabel113 = new javax.swing.JLabel();
-        jPanel35 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jLabel124 = new javax.swing.JLabel();
+        jTextFieldContratoFaturaCliente = new javax.swing.JTextField();
         jLabel117 = new javax.swing.JLabel();
+        jFormattedTextFieldContratoFaturaCPF = new javax.swing.JFormattedTextField();
+        jPanel34 = new javax.swing.JPanel();
+        jLabel115 = new javax.swing.JLabel();
+        jLabel116 = new javax.swing.JLabel();
         jLabel118 = new javax.swing.JLabel();
         jLabel119 = new javax.swing.JLabel();
         jLabel120 = new javax.swing.JLabel();
+        jTextFieldContratoFaturaDiaVencimento = new javax.swing.JTextField();
+        jTextFieldContratoFaturaStatus = new javax.swing.JTextField();
+        jFormattedTextFieldContratoFaturaDataInicio = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldContratoFaturaUltimaAlteracao = new javax.swing.JFormattedTextField();
+        jTextFieldContratoFaturaNumero = new javax.swing.JTextField();
         jLabel121 = new javax.swing.JLabel();
-        jTextFieldClientePagamentoDiaVencimento = new javax.swing.JTextField();
-        jTextFieldClientePagamentoStatus = new javax.swing.JTextField();
-        jFormattedTextFieldClientePagamentoDataInclusao = new javax.swing.JFormattedTextField();
-        jFormattedTextFieldClientePagamentoDataUltimaAlteracao = new javax.swing.JFormattedTextField();
-        jTextFieldClientePagamentoNumeroContrato = new javax.swing.JTextField();
+        jFormattedTextFieldContratoFaturaDataTermino = new javax.swing.JFormattedTextField();
+        jRadioButtonContratoFaturaDias = new javax.swing.JRadioButton();
+        jRadioButtonContratoFaturaUtilizacoes = new javax.swing.JRadioButton();
         jLabel122 = new javax.swing.JLabel();
-        jTextFieldClientePagamentoTipo = new javax.swing.JTextField();
-        jTextFieldClientePagamentoNome = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        jSeparator13 = new javax.swing.JSeparator();
+        jSeparator14 = new javax.swing.JSeparator();
+        jRadioButtonContratoFaturaMensalista = new javax.swing.JRadioButton();
+        jRadioButtonContratoFaturaPacote = new javax.swing.JRadioButton();
+        jFormattedTextFieldContratoFaturaQuantidade = new javax.swing.JFormattedTextField();
+        jLabel123 = new javax.swing.JLabel();
+        jSeparator15 = new javax.swing.JSeparator();
+        jSeparator16 = new javax.swing.JSeparator();
+        jTextFieldContratoFaturaValor = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -497,6 +518,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonF6 = new javax.swing.JButton();
         jButtonF8 = new javax.swing.JButton();
         jButtonF10 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         jDialogConfirmaSaidaVeiculo.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         jDialogConfirmaSaidaVeiculo.setTitle("Estacionamento (Confirma a Saída do Veículo?)");
@@ -1690,17 +1712,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jPanel40.add(jButtonClientePesquisaAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 60, -1, -1));
 
-        jButtonClientePesquisaAtivarInativar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButtonClientePesquisaAtivarInativar.setMnemonic('I');
-        jButtonClientePesquisaAtivarInativar.setText("Ativar/Inativar");
-        jButtonClientePesquisaAtivarInativar.setPreferredSize(new java.awt.Dimension(90, 30));
-        jButtonClientePesquisaAtivarInativar.setRequestFocusEnabled(false);
-        jButtonClientePesquisaAtivarInativar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonClientePesquisaCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButtonClientePesquisaCancelar.setMnemonic('I');
+        jButtonClientePesquisaCancelar.setText("Cancelar");
+        jButtonClientePesquisaCancelar.setPreferredSize(new java.awt.Dimension(90, 30));
+        jButtonClientePesquisaCancelar.setRequestFocusEnabled(false);
+        jButtonClientePesquisaCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonClientePesquisaAtivarInativarActionPerformed(evt);
+                jButtonClientePesquisaCancelarActionPerformed(evt);
             }
         });
-        jPanel40.add(jButtonClientePesquisaAtivarInativar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 20, 110, -1));
+        jPanel40.add(jButtonClientePesquisaCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 20, -1, -1));
 
         buttonGroupClienteAtivoInativo.add(jRadioButtonAtivos);
         jRadioButtonAtivos.setSelected(true);
@@ -1718,7 +1740,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel40.add(jRadioButtonAtivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
 
         buttonGroupClienteAtivoInativo.add(jRadioButtonInativos);
-        jRadioButtonInativos.setText("Inativo");
+        jRadioButtonInativos.setText("Cancelado");
         jRadioButtonInativos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jRadioButtonInativosMouseClicked(evt);
@@ -1882,7 +1904,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jTextFieldMensalistaNomeActionPerformed(evt);
             }
         });
-        jPanel37.add(jTextFieldMensalistaNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 570, 30));
+        jPanel37.add(jTextFieldMensalistaNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 370, 30));
 
         jTextFieldMensalistaRuaResi.setEditable(false);
         jTextFieldMensalistaRuaResi.addActionListener(new java.awt.event.ActionListener() {
@@ -1985,7 +2007,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jFormattedTextFieldMensalistaCpf.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
         jPanel37.add(jFormattedTextFieldMensalistaCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 130, 30));
 
-        jPanel33.add(jPanel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 640, 310));
+        jLabel55.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel55.setText("Número do cliente");
+        jPanel37.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, -1, -1));
+
+        jTextFieldClienteNumero.setEditable(false);
+        jPanel37.add(jTextFieldClienteNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 25, 60, 20));
+
+        jPanel33.add(jPanel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 630, 310));
 
         jPanel36.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados profissionais"));
         jPanel36.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2100,7 +2129,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jFormattedTextFieldMensalistaTelefoneCome.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
         jPanel36.add(jFormattedTextFieldMensalistaTelefoneCome, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 120, 30));
 
-        jPanel33.add(jPanel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 110, 450, 310));
+        jPanel33.add(jPanel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 110, 450, 310));
 
         jPanel29.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Veículos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
         jPanel29.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2370,20 +2399,37 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel38.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel38.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonClienteCadastroOk.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButtonClienteCadastroOk.setMnemonic('I');
-        jButtonClienteCadastroOk.setText("Ok");
-        jButtonClienteCadastroOk.setPreferredSize(new java.awt.Dimension(90, 30));
-        jButtonClienteCadastroOk.setRequestFocusEnabled(false);
-        jButtonClienteCadastroOk.addActionListener(new java.awt.event.ActionListener() {
+        jButtonClienteCadastroSim.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButtonClienteCadastroSim.setMnemonic('I');
+        jButtonClienteCadastroSim.setText("Sim");
+        jButtonClienteCadastroSim.setPreferredSize(new java.awt.Dimension(90, 30));
+        jButtonClienteCadastroSim.setRequestFocusEnabled(false);
+        jButtonClienteCadastroSim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonClienteCadastroOkActionPerformed(evt);
+                jButtonClienteCadastroSimActionPerformed(evt);
             }
         });
-        jPanel38.add(jButtonClienteCadastroOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 15, -1, -1));
+        jPanel38.add(jButtonClienteCadastroSim, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 15, -1, -1));
+
+        jButtonClienteCadastroNao.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButtonClienteCadastroNao.setMnemonic('I');
+        jButtonClienteCadastroNao.setText("Não");
+        jButtonClienteCadastroNao.setPreferredSize(new java.awt.Dimension(90, 30));
+        jButtonClienteCadastroNao.setRequestFocusEnabled(false);
+        jButtonClienteCadastroNao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClienteCadastroNaoActionPerformed(evt);
+            }
+        });
+        jPanel38.add(jButtonClienteCadastroNao, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 15, -1, -1));
+
+        jLabelMensalistaStatus.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelMensalistaStatus.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelMensalistaStatus.setText("Status");
+        jPanel38.add(jLabelMensalistaStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 15, 550, -1));
 
         jButtonClienteCadastroCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButtonClienteCadastroCancelar.setMnemonic('I');
+        jButtonClienteCadastroCancelar.setMnemonic('E');
         jButtonClienteCadastroCancelar.setText("Cancelar");
         jButtonClienteCadastroCancelar.setPreferredSize(new java.awt.Dimension(90, 30));
         jButtonClienteCadastroCancelar.setRequestFocusEnabled(false);
@@ -2392,24 +2438,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jButtonClienteCadastroCancelarActionPerformed(evt);
             }
         });
-        jPanel38.add(jButtonClienteCadastroCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 15, -1, -1));
-
-        jLabelMensalistaStatus.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
-        jLabelMensalistaStatus.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelMensalistaStatus.setText("Status");
-        jPanel38.add(jLabelMensalistaStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 15, 550, -1));
-
-        jButtonClienteCadastroAtivarInativar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButtonClienteCadastroAtivarInativar.setMnemonic('E');
-        jButtonClienteCadastroAtivarInativar.setText("Ativar");
-        jButtonClienteCadastroAtivarInativar.setPreferredSize(new java.awt.Dimension(90, 30));
-        jButtonClienteCadastroAtivarInativar.setRequestFocusEnabled(false);
-        jButtonClienteCadastroAtivarInativar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonClienteCadastroAtivarInativarActionPerformed(evt);
-            }
-        });
-        jPanel38.add(jButtonClienteCadastroAtivarInativar, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 15, 110, -1));
+        jPanel38.add(jButtonClienteCadastroCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 15, 110, -1));
 
         jButtonClienteCadastroAlterar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButtonClienteCadastroAlterar.setMnemonic('A');
@@ -2452,29 +2481,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel52.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel52.setText("Data início");
-        jPanel31.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, -1, -1));
+        jPanel31.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, -1, -1));
 
         jLabel106.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel106.setText("Ultima alteração");
-        jPanel31.add(jLabel106, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 35, -1, -1));
+        jLabel106.setText("Data Cancelamento");
+        jPanel31.add(jLabel106, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 30, -1, 20));
 
         jLabel107.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel107.setText("Status");
-        jPanel31.add(jLabel107, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 35, -1, -1));
+        jPanel31.add(jLabel107, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 60, -1, -1));
 
         jLabel108.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel108.setText("Dia vencimento");
-        jPanel31.add(jLabel108, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 35, -1, -1));
+        jLabel108.setText("Valor R$");
+        jPanel31.add(jLabel108, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 30, -1, -1));
 
-        jTextFieldMensalistaDiaVencimentoMensalidade.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldContratoDiaVencimento.setEditable(false);
+        jTextFieldContratoDiaVencimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldMensalistaDiaVencimentoMensalidadeActionPerformed(evt);
+                jTextFieldContratoDiaVencimentoActionPerformed(evt);
             }
         });
-        jPanel31.add(jTextFieldMensalistaDiaVencimentoMensalidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 35, 30, -1));
+        jPanel31.add(jTextFieldContratoDiaVencimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 60, 30, -1));
 
-        jTextFieldMensalistaStatus.setEditable(false);
-        jPanel31.add(jTextFieldMensalistaStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 35, 70, -1));
+        jTextFieldContratoStatus.setEditable(false);
+        jPanel31.add(jTextFieldContratoStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 60, 70, -1));
 
         jFormattedTextFieldContratoDataInicio.setEditable(false);
         try {
@@ -2483,23 +2513,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         jFormattedTextFieldContratoDataInicio.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
-        jPanel31.add(jFormattedTextFieldContratoDataInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 70, -1));
+        jPanel31.add(jFormattedTextFieldContratoDataInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 30, 70, -1));
 
-        jFormattedTextFieldMensalistaDataUltimaAlteracao.setEditable(false);
+        jFormattedTextFieldContratoDataCancelamento.setEditable(false);
         try {
-            jFormattedTextFieldMensalistaDataUltimaAlteracao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            jFormattedTextFieldContratoDataCancelamento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextFieldMensalistaDataUltimaAlteracao.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
-        jPanel31.add(jFormattedTextFieldMensalistaDataUltimaAlteracao, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 35, 70, -1));
+        jFormattedTextFieldContratoDataCancelamento.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
+        jPanel31.add(jFormattedTextFieldContratoDataCancelamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 30, 70, 20));
 
-        jTextFieldMensalistaContratoNumero.setEditable(false);
-        jPanel31.add(jTextFieldMensalistaContratoNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 35, 60, -1));
+        jTextFieldContratoNumero.setEditable(false);
+        jPanel31.add(jTextFieldContratoNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 35, 60, -1));
 
         jLabel54.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel54.setText("Data término");
-        jPanel31.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, -1, -1));
+        jPanel31.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, -1, -1));
 
         jFormattedTextFieldContratoDataTermino.setEditable(false);
         try {
@@ -2508,7 +2538,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         jFormattedTextFieldContratoDataTermino.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
-        jPanel31.add(jFormattedTextFieldContratoDataTermino, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, 70, -1));
+        jPanel31.add(jFormattedTextFieldContratoDataTermino, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, 70, -1));
 
         buttonGroupContratoDiasUtilizacoes.add(jRadioButtonContratoDias);
         jRadioButtonContratoDias.setText("Dias");
@@ -2517,7 +2547,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jRadioButtonContratoDiasMouseClicked(evt);
             }
         });
-        jPanel31.add(jRadioButtonContratoDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
+        jPanel31.add(jRadioButtonContratoDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
 
         buttonGroupContratoDiasUtilizacoes.add(jRadioButtonContratoUtilizacoes);
         jRadioButtonContratoUtilizacoes.setText("Utilizações");
@@ -2526,17 +2556,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jRadioButtonContratoUtilizacoesMouseClicked(evt);
             }
         });
-        jPanel31.add(jRadioButtonContratoUtilizacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, -1, -1));
+        jPanel31.add(jRadioButtonContratoUtilizacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
 
         jLabel114.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jLabel114.setText("Quantidade");
-        jPanel31.add(jLabel114, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 35, -1, -1));
+        jPanel31.add(jLabel114, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, -1, -1));
 
         jSeparator9.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel31.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 10, 60));
+        jPanel31.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(945, 20, 10, 60));
 
         jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel31.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 10, 60));
+        jPanel31.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 20, 10, 60));
 
         buttonGroupContratoMensalistaPacote.add(jRadioButtonContratoMensalista);
         jRadioButtonContratoMensalista.setText("Mensalista");
@@ -2545,7 +2575,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jRadioButtonContratoMensalistaMouseClicked(evt);
             }
         });
-        jPanel31.add(jRadioButtonContratoMensalista, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
+        jPanel31.add(jRadioButtonContratoMensalista, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
 
         buttonGroupContratoMensalistaPacote.add(jRadioButtonContratoPacote);
         jRadioButtonContratoPacote.setText("Pacote");
@@ -2554,28 +2584,46 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jRadioButtonContratoPacoteMouseClicked(evt);
             }
         });
-        jPanel31.add(jRadioButtonContratoPacote, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, -1, -1));
+        jPanel31.add(jRadioButtonContratoPacote, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, -1, -1));
 
         try {
-            jFormattedTextFieldContratoQuantidadeDiasUtilizacoes.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##")));
+            jFormattedTextFieldContratoQuantidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextFieldContratoQuantidadeDiasUtilizacoes.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jFormattedTextFieldContratoQuantidadeDiasUtilizacoes.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
-        jFormattedTextFieldContratoQuantidadeDiasUtilizacoes.addKeyListener(new java.awt.event.KeyAdapter() {
+        jFormattedTextFieldContratoQuantidade.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jFormattedTextFieldContratoQuantidade.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
+        jFormattedTextFieldContratoQuantidade.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jFormattedTextFieldContratoQuantidadeDiasUtilizacoesKeyPressed(evt);
+                jFormattedTextFieldContratoQuantidadeKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jFormattedTextFieldContratoQuantidadeDiasUtilizacoesKeyReleased(evt);
+                jFormattedTextFieldContratoQuantidadeKeyReleased(evt);
             }
         });
-        jPanel31.add(jFormattedTextFieldContratoQuantidadeDiasUtilizacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 35, 30, -1));
+        jPanel31.add(jFormattedTextFieldContratoQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 30, -1));
 
-        jPanel33.add(jPanel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1170, 90));
+        jLabel112.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel112.setText("Dia vencimento");
+        jPanel31.add(jLabel112, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 60, -1, -1));
+
+        jTextFieldContratoValor.setEditable(false);
+        jPanel31.add(jTextFieldContratoValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 30, 70, -1));
+
+        jSeparator11.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel31.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(555, 20, 10, 60));
+
+        jSeparator12.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel31.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(765, 20, 10, 60));
+
+        jPanel33.add(jPanel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1160, 90));
 
         jButton1.setText("Consulta");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel33.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1057, 500, 92, -1));
 
         jButton2.setText("Pagamento");
@@ -2592,7 +2640,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel33.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 430, 10, 170));
 
-        jTabbedPaneClienteContrato.addTab("Cadastro", jPanel33);
+        jTabbedPaneClienteContrato.addTab("Consulta", jPanel33);
 
         jPanel32.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -2607,77 +2655,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             }
         ));
+        jTableContratoClienteFatura.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableContratoClienteFatura.setRowHeight(30);
         jScrollPane2.setViewportView(jTableContratoClienteFatura);
 
-        jPanel32.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 1160, -1));
+        jPanel32.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1160, 400));
 
         jLabel113.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel113.setText("Histórico de pagamentos de:");
-        jPanel32.add(jLabel113, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, 20));
-
-        jPanel35.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Contrato", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 16))); // NOI18N
-        jPanel35.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel117.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel117.setText("Número do contrato");
-        jPanel35.add(jLabel117, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
-
-        jLabel118.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel118.setText("Data inclusão");
-        jPanel35.add(jLabel118, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
-
-        jLabel119.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel119.setText("Data ultima alteração");
-        jPanel35.add(jLabel119, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 50, -1, -1));
-
-        jLabel120.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel120.setText("Status");
-        jPanel35.add(jLabel120, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 50, -1, -1));
-
-        jLabel121.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel121.setText("Dia vencimento");
-        jPanel35.add(jLabel121, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, -1, -1));
-
-        jTextFieldClientePagamentoDiaVencimento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldClientePagamentoDiaVencimentoActionPerformed(evt);
-            }
-        });
-        jPanel35.add(jTextFieldClientePagamentoDiaVencimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 40, 50, -1));
-
-        jTextFieldClientePagamentoStatus.setEditable(false);
-        jPanel35.add(jTextFieldClientePagamentoStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 40, 70, -1));
-
-        jFormattedTextFieldClientePagamentoDataInclusao.setEditable(false);
-        try {
-            jFormattedTextFieldClientePagamentoDataInclusao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        jFormattedTextFieldClientePagamentoDataInclusao.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
-        jPanel35.add(jFormattedTextFieldClientePagamentoDataInclusao, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 100, -1));
-
-        jFormattedTextFieldClientePagamentoDataUltimaAlteracao.setEditable(false);
-        try {
-            jFormattedTextFieldClientePagamentoDataUltimaAlteracao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        jFormattedTextFieldClientePagamentoDataUltimaAlteracao.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
-        jPanel35.add(jFormattedTextFieldClientePagamentoDataUltimaAlteracao, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 40, 90, -1));
-
-        jTextFieldClientePagamentoNumeroContrato.setEditable(false);
-        jPanel35.add(jTextFieldClientePagamentoNumeroContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 120, -1));
-
-        jLabel122.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel122.setText("Tipo");
-        jPanel35.add(jLabel122, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, -1, -1));
-
-        jTextFieldClientePagamentoTipo.setEditable(false);
-        jPanel35.add(jTextFieldClientePagamentoTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 100, -1));
-
-        jPanel32.add(jPanel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1170, 90));
-        jPanel32.add(jTextFieldClientePagamentoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 95, 490, -1));
+        jLabel113.setText("Histórico de faturas:");
+        jPanel32.add(jLabel113, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, 20));
 
         jButton3.setText("Sair");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -2687,7 +2673,177 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jPanel32.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 570, -1, -1));
 
-        jTabbedPaneClienteContrato.addTab("Pagamento", jPanel32);
+        jLabel124.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel124.setText("Cliente");
+        jPanel32.add(jLabel124, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, -1));
+
+        jTextFieldContratoFaturaCliente.setEditable(false);
+        jPanel32.add(jTextFieldContratoFaturaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 360, -1));
+
+        jLabel117.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel117.setText("CPF");
+        jPanel32.add(jLabel117, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, -1, -1));
+
+        jFormattedTextFieldContratoFaturaCPF.setEditable(false);
+        try {
+            jFormattedTextFieldContratoFaturaCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jPanel32.add(jFormattedTextFieldContratoFaturaCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 110, 160, -1));
+
+        jPanel34.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Contrato", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 16))); // NOI18N
+        jPanel34.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel115.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel115.setText("Número do contrato");
+        jPanel34.add(jLabel115, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 35, -1, -1));
+
+        jLabel116.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel116.setText("Data início");
+        jPanel34.add(jLabel116, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, -1, -1));
+
+        jLabel118.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel118.setText("Data Cancelamento");
+        jPanel34.add(jLabel118, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 30, -1, 20));
+
+        jLabel119.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel119.setText("Status");
+        jPanel34.add(jLabel119, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 60, -1, -1));
+
+        jLabel120.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel120.setText("Valor R$");
+        jPanel34.add(jLabel120, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 30, -1, -1));
+
+        jTextFieldContratoFaturaDiaVencimento.setEditable(false);
+        jTextFieldContratoFaturaDiaVencimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldContratoFaturaDiaVencimentoActionPerformed(evt);
+            }
+        });
+        jPanel34.add(jTextFieldContratoFaturaDiaVencimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 60, 30, -1));
+
+        jTextFieldContratoFaturaStatus.setEditable(false);
+        jPanel34.add(jTextFieldContratoFaturaStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 60, 70, -1));
+
+        jFormattedTextFieldContratoFaturaDataInicio.setEditable(false);
+        try {
+            jFormattedTextFieldContratoFaturaDataInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFormattedTextFieldContratoFaturaDataInicio.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
+        jPanel34.add(jFormattedTextFieldContratoFaturaDataInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 30, 70, -1));
+
+        jFormattedTextFieldContratoFaturaUltimaAlteracao.setEditable(false);
+        try {
+            jFormattedTextFieldContratoFaturaUltimaAlteracao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFormattedTextFieldContratoFaturaUltimaAlteracao.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
+        jPanel34.add(jFormattedTextFieldContratoFaturaUltimaAlteracao, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 30, 70, 20));
+
+        jTextFieldContratoFaturaNumero.setEditable(false);
+        jPanel34.add(jTextFieldContratoFaturaNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 35, 60, -1));
+
+        jLabel121.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel121.setText("Data término");
+        jPanel34.add(jLabel121, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, -1, -1));
+
+        jFormattedTextFieldContratoFaturaDataTermino.setEditable(false);
+        try {
+            jFormattedTextFieldContratoFaturaDataTermino.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFormattedTextFieldContratoFaturaDataTermino.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
+        jPanel34.add(jFormattedTextFieldContratoFaturaDataTermino, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, 70, -1));
+
+        buttonGroupContratoDiasUtilizacoes.add(jRadioButtonContratoFaturaDias);
+        jRadioButtonContratoFaturaDias.setText("Dias");
+        jRadioButtonContratoFaturaDias.setEnabled(false);
+        jRadioButtonContratoFaturaDias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButtonContratoFaturaDiasMouseClicked(evt);
+            }
+        });
+        jPanel34.add(jRadioButtonContratoFaturaDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
+
+        buttonGroupContratoDiasUtilizacoes.add(jRadioButtonContratoFaturaUtilizacoes);
+        jRadioButtonContratoFaturaUtilizacoes.setText("Utilizações");
+        jRadioButtonContratoFaturaUtilizacoes.setEnabled(false);
+        jRadioButtonContratoFaturaUtilizacoes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButtonContratoFaturaUtilizacoesMouseClicked(evt);
+            }
+        });
+        jPanel34.add(jRadioButtonContratoFaturaUtilizacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
+
+        jLabel122.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        jLabel122.setText("Quantidade");
+        jPanel34.add(jLabel122, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, -1, -1));
+
+        jSeparator13.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel34.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(945, 20, 10, 60));
+
+        jSeparator14.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel34.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 20, 10, 60));
+
+        buttonGroupContratoMensalistaPacote.add(jRadioButtonContratoFaturaMensalista);
+        jRadioButtonContratoFaturaMensalista.setText("Mensalista");
+        jRadioButtonContratoFaturaMensalista.setEnabled(false);
+        jRadioButtonContratoFaturaMensalista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButtonContratoFaturaMensalistaMouseClicked(evt);
+            }
+        });
+        jPanel34.add(jRadioButtonContratoFaturaMensalista, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+
+        buttonGroupContratoMensalistaPacote.add(jRadioButtonContratoFaturaPacote);
+        jRadioButtonContratoFaturaPacote.setText("Pacote");
+        jRadioButtonContratoFaturaPacote.setEnabled(false);
+        jRadioButtonContratoFaturaPacote.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButtonContratoFaturaPacoteMouseClicked(evt);
+            }
+        });
+        jPanel34.add(jRadioButtonContratoFaturaPacote, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, -1, -1));
+
+        jFormattedTextFieldContratoFaturaQuantidade.setEditable(false);
+        try {
+            jFormattedTextFieldContratoFaturaQuantidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFormattedTextFieldContratoFaturaQuantidade.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jFormattedTextFieldContratoFaturaQuantidade.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
+        jFormattedTextFieldContratoFaturaQuantidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jFormattedTextFieldContratoFaturaQuantidadeKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jFormattedTextFieldContratoFaturaQuantidadeKeyReleased(evt);
+            }
+        });
+        jPanel34.add(jFormattedTextFieldContratoFaturaQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 30, -1));
+
+        jLabel123.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel123.setText("Dia vencimento");
+        jPanel34.add(jLabel123, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 60, -1, -1));
+
+        jSeparator15.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel34.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(555, 20, 10, 60));
+
+        jSeparator16.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel34.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(765, 20, 10, 60));
+
+        jTextFieldContratoFaturaValor.setEditable(false);
+        jPanel34.add(jTextFieldContratoFaturaValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 30, 70, -1));
+
+        jPanel32.add(jPanel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1160, 90));
+
+        jTabbedPaneClienteContrato.addTab("Fatura", jPanel32);
 
         javax.swing.GroupLayout jPanelMensalLayout = new javax.swing.GroupLayout(jPanelMensal);
         jPanelMensal.setLayout(jPanelMensalLayout);
@@ -2702,7 +2858,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addComponent(jTabbedPaneClienteContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jTabbedPaneOpcoes.addTab("CLIENTE/CONTRATO", jPanelMensal);
+        jTabbedPaneOpcoes.addTab("CONTRATO", jPanelMensal);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -2883,7 +3039,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel23.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Veículos no pátio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 16))); // NOI18N
         jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTablePatio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jTablePatio.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTablePatio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTablePatio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2893,8 +3049,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             }
         ));
-        jTablePatio.setIntercellSpacing(new java.awt.Dimension(0, 1));
-        jTablePatio.setRowHeight(25);
+        jTablePatio.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        jTablePatio.setRowHeight(30);
         jTablePatio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTablePatioKeyPressed(evt);
@@ -3267,7 +3423,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel30.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jTabbedPaneOpcoes.addTab("tab8", jPanel30);
 
-        jPanelOpcoes.add(jTabbedPaneOpcoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 1170, 730));
+        jPanelOpcoes.add(jTabbedPaneOpcoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 1180, 730));
 
         getContentPane().add(jPanelOpcoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 1200, 750));
 
@@ -3275,7 +3431,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonF2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonF2.setText("F2 (Cliente/Contrato)");
+        jButtonF2.setText("F2 (Contrato)");
         jButtonF2.setFocusable(false);
         jButtonF2.setMaximumSize(new java.awt.Dimension(165, 40));
         jButtonF2.setMinimumSize(new java.awt.Dimension(165, 40));
@@ -3286,7 +3442,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jButtonF2ActionPerformed(evt);
             }
         });
-        jPanel5.add(jButtonF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 135, 180, -1));
+        jPanel5.add(jButtonF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 190, -1));
 
         jButtonF4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonF4.setText("F4 (Rotativo)");
@@ -3300,7 +3456,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jButtonF4ActionPerformed(evt);
             }
         });
-        jPanel5.add(jButtonF4, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 251, 180, -1));
+        jPanel5.add(jButtonF4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 190, -1));
 
         jButtonF5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonF5.setText("F5 (Pátio)");
@@ -3314,7 +3470,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jButtonF5ActionPerformed(evt);
             }
         });
-        jPanel5.add(jButtonF5, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 327, 180, -1));
+        jPanel5.add(jButtonF5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 190, -1));
 
         jButtonF6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonF6.setText("F6 (Movimento)");
@@ -3328,7 +3484,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jButtonF6ActionPerformed(evt);
             }
         });
-        jPanel5.add(jButtonF6, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 385, 180, -1));
+        jPanel5.add(jButtonF6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 190, -1));
 
         jButtonF8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonF8.setText("F8 (Configurações)");
@@ -3342,7 +3498,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jButtonF8ActionPerformed(evt);
             }
         });
-        jPanel5.add(jButtonF8, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 461, 180, -1));
+        jPanel5.add(jButtonF8, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 461, 190, -1));
 
         jButtonF10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonF10.setText("F10 (Sair)");
@@ -3356,7 +3512,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jButtonF10ActionPerformed(evt);
             }
         });
-        jPanel5.add(jButtonF10, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 519, 180, -1));
+        jPanel5.add(jButtonF10, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 519, 190, -1));
+
+        jButton4.setText("jButton4");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 670, -1, -1));
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 865));
 
@@ -3839,25 +4003,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButtonClienteCadastroAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteCadastroAlterarActionPerformed
         jButtonClienteCadastroAlterar.setEnabled(false);
-        jButtonClienteCadastroAtivarInativar.setEnabled(false);
-        jButtonClienteCadastroOk.setEnabled(true);
-        jButtonClienteCadastroCancelar.setEnabled(true);
+        jButtonClienteCadastroCancelar.setEnabled(false);
+        jButtonClienteCadastroSim.setEnabled(true);
+        jButtonClienteCadastroNao.setEnabled(true);
         contratoStatus = "Alteração";
-        jLabelMensalistaStatus.setText("Alteração de MENSALISTA!");
+        jLabelMensalistaStatus.setText("Alteração de CONTRATO!");
         clienteJTextFieldEditable(true);
+        contratoJTextFieldEditable(true);
     }//GEN-LAST:event_jButtonClienteCadastroAlterarActionPerformed
 
-    private void jButtonClienteCadastroAtivarInativarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteCadastroAtivarInativarActionPerformed
-        if (jTextFieldMensalistaStatus.getText().equalsIgnoreCase("Ativo")) {
-            jTextFieldMensalistaStatus.setText("Inativo");
-            jButtonClienteCadastroAtivarInativar.setText("Ativar");
-        } else if (jTextFieldMensalistaStatus.getText().equalsIgnoreCase("Inativo")) {
-            jTextFieldMensalistaStatus.setText("Ativo");
-            jButtonClienteCadastroAtivarInativar.setText("Inativar");
-        }
-    }//GEN-LAST:event_jButtonClienteCadastroAtivarInativarActionPerformed
-
     private void jButtonClienteCadastroCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteCadastroCancelarActionPerformed
+        if (jTextFieldContratoStatus.getText().equalsIgnoreCase("Ativo")) {
+            jLabelMensalistaStatus.setText("O CONTRATO esta " + contratoArrayList.get(0).getStatus() + ". Deseja cancelar?");
+        } else if (jTextFieldContratoStatus.getText().equalsIgnoreCase("Cancelado")) {
+            jLabelMensalistaStatus.setText("O CONTRATO foi cancelado em " + contratoArrayList.get(0).getDataCancelamento());
+        }
+        jButtonClienteCadastroAlterar.setEnabled(false);
+        jButtonClienteCadastroCancelar.setEnabled(false);
+        jButtonClienteCadastroSim.setEnabled(true);
+        jButtonClienteCadastroNao.setEnabled(true);
+        contratoStatus = "Cancelamento";
+    }//GEN-LAST:event_jButtonClienteCadastroCancelarActionPerformed
+
+    private void jButtonClienteCadastroNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteCadastroNaoActionPerformed
         switch (contratoStatus) {
             case "Inclusão":
                 JOptionPane.showMessageDialog(this, "Inclusão de mensalista cancelada!!!");
@@ -3867,71 +4035,87 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jTabbedPaneClienteContrato.setSelectedIndex(0);
                 break;
             case "Alteração":
+                contratoJTextFieldEditable(false);
+                contratoJTextFieldConteudo(null);
+                contratoConsultaPreencherJTextField(contratoArrayList.get(0));
                 clienteJTextFieldEditable(false);
-                clienteCadastroJTextFieldConteudo(null);
-                clientePreencherJTextFieldsCadastro(contrato);
+                clienteJTextFieldConteudo(null);
+                clientePreencherJTextField(contratoArrayList.get(0).getIdClienteFk());
                 jButtonClienteCadastroAlterar.setEnabled(true);
-                jButtonClienteCadastroAtivarInativar.setEnabled(true);
-                jButtonClienteCadastroOk.setEnabled(false);
-                jButtonClienteCadastroCancelar.setEnabled(false);
+                jButtonClienteCadastroCancelar.setEnabled(true);
+                jButtonClienteCadastroSim.setEnabled(false);
+                jButtonClienteCadastroNao.setEnabled(false);
                 contratoStatus = "Consulta";
-                jLabelMensalistaStatus.setText("Consulta dados mensalista!!!");
-                JOptionPane.showMessageDialog(this, "Alteração de mensalista cancelada!!!");
+                jLabelMensalistaStatus.setText("Consulta dados CONTRATO!!!");
+                JOptionPane.showMessageDialog(this, "Alteração do CONTRATO cancelada!!!");
+                break;
+            case "Cancelamento":
+                jButtonClienteCadastroAlterar.setEnabled(true);
+                jButtonClienteCadastroCancelar.setEnabled(true);
+                jButtonClienteCadastroSim.setEnabled(false);
+                jButtonClienteCadastroNao.setEnabled(false);
+                contratoStatus = "Consulta";
+                jLabelMensalistaStatus.setText("Consulta dados CONTRATO!!!");
+                JOptionPane.showMessageDialog(this, "O CONTRATO não foi CANCELADO!!!");
                 break;
             default:
                 break;
         }
-    }//GEN-LAST:event_jButtonClienteCadastroCancelarActionPerformed
+    }//GEN-LAST:event_jButtonClienteCadastroNaoActionPerformed
 
-    private void jButtonClienteCadastroOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteCadastroOkActionPerformed
+    private void jButtonClienteCadastroSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteCadastroSimActionPerformed
         switch (contratoStatus) {
             case "Inclusão":
-                if (mensalistaVerificaCamposValidos()) {
-                    contrato = clienteService.clienteIncluir(contratoPopularObjeto());
-                    contrato = contratoService.contratoIncluir(contrato);
-                    jTextFieldMensalistaContratoNumero.setText(String.valueOf(contrato.getIdContrato()));
-                    JOptionPane.showMessageDialog(this, "Inclusão de mensalista efetuada com sucesso!!!\n\n"
-                            + "NOME[ " + cliente.getNome() + " ]\n"
+                if (contratoVerificaCamposValidos()) {
+                    contrato.setIdClienteFk(clienteService.clienteIncluir(clientePopularObjeto()));
+                    contrato = contratoService.contratoIncluir(contratoPopularObjeto());
+                    contratoVerificaVeiculosCadastrados(contrato);
+                    jTextFieldContratoNumero.setText(String.valueOf(contrato.getIdContrato()));
+                    jTextFieldClienteNumero.setText(String.valueOf(cliente.getIdCliente()));
+                    JOptionPane.showMessageDialog(this, "Inclusão de contrato efetuada com sucesso!!!\n\n"
+                            + "NOME[ " + contrato.getIdClienteFk().getNome() + " ]\n"
                             + "N. CONTRATO[ " + contrato.getIdContrato() + " ]");
-                    jLabelMensalistaStatus.setText("Consultando dados do mensalista!!!");
+                    jLabelMensalistaStatus.setText("Consultando dados do contrato!!!");
                 }
                 break;
             case "Alteração":
-                if (mensalistaVerificaCamposValidos()) {
+                if (contratoVerificaCamposValidos()) {
                     SimpleDateFormat dataAlteracao = new SimpleDateFormat("ddMMyyyy");
-                    jFormattedTextFieldMensalistaDataUltimaAlteracao.setText(dataAlteracao.format(new Date()));
-                    contrato = clienteService.clienteAlterar(contrato);
+                    jFormattedTextFieldContratoDataCancelamento.setText(dataAlteracao.format(new Date()));
+                    contrato.setIdClienteFk(clienteService.clienteAlterar(clientePopularObjeto()));
+                    contrato = contratoService.contratoAlterar(contratoPopularObjeto());
+                    contratoVerificaVeiculosCadastrados(contrato);
                     JOptionPane.showMessageDialog(this, "Alteração efetuada com sucesso!!!\n\n"
-                            + "NOME[ " + cliente.getNome() + " ]\n"
+                            + "NOME[ " + contrato.getIdClienteFk().getNome() + " ]\n"
                             + "N. CONTRATO[ " + contrato.getIdContrato() + " ]\n\n"
-                            + "Ultima alteração realizada em[ " + jFormattedTextFieldMensalistaDataUltimaAlteracao.getText() + " ]");
-                    jLabelMensalistaStatus.setText("Consultando dados do mensalista!!!");
+                            + "Ultima alteração realizada em[ " + jFormattedTextFieldContratoDataCancelamento.getText() + " ]");
+                    jLabelMensalistaStatus.setText("Consultando dados do contrato!!!");
                 }
                 break;
-            case "AtivarInativar":
-                SimpleDateFormat dataAlteracao = new SimpleDateFormat("ddMMyyyy");
-                jFormattedTextFieldMensalistaDataUltimaAlteracao.setText(dataAlteracao.format(new Date()));
-                if (jTextFieldMensalistaStatus.getText().equalsIgnoreCase("Ativo")) {
-                    jTextFieldMensalistaStatus.setText("Inativo");
-                } else if (jTextFieldMensalistaStatus.getText().equalsIgnoreCase("Inativo")) {
-                    jTextFieldMensalistaStatus.setText("Ativo");
-                }
-                contrato = clienteService.clienteAlterar(contrato);
-                jButtonClienteCadastroAlterar.setEnabled(true);
-                jButtonClienteCadastroAtivarInativar.setEnabled(true);
-                jButtonClienteCadastroOk.setEnabled(false);
+            case "Cancelamento":
+                SimpleDateFormat dataCancelamento = new SimpleDateFormat("dd/MM/yyyy");
                 jButtonClienteCadastroCancelar.setEnabled(false);
-                JOptionPane.showMessageDialog(this, "Alteração efetuada com sucesso!!!\n\n"
-                        + "NOME[ " + cliente.getNome() + " ]\n"
+                contratoArrayList = contratoService.contratoList("%", "%", "%", String.valueOf(contrato.getIdContrato()));
+                contrato = contratoArrayList.get(0);
+                contrato.setStatus("Cancelado");
+                jTextFieldContratoStatus.setText(contrato.getStatus());
+                contrato.setDataCancelamento(dataCancelamento.format(new Date()));
+                jFormattedTextFieldContratoDataCancelamento.setText(contrato.getDataCancelamento());
+                contrato = contratoService.contratoCancelar(contrato);
+                jButtonClienteCadastroAlterar.setEnabled(false);
+                jButtonClienteCadastroSim.setEnabled(false);
+                jButtonClienteCadastroNao.setEnabled(false);
+                JOptionPane.showMessageDialog(this, "Cancelamento efetuado com sucesso!!!\n\n"
+                        + "NOME[ " + contrato.getIdClienteFk().getNome() + " ]\n"
                         + "N. CONTRATO[ " + contrato.getIdContrato() + " ]\n\n"
-                        + "Ultima alteração realizada em[ " + jFormattedTextFieldMensalistaDataUltimaAlteracao.getText() + " ]\n\n"
-                        + "O mensalista agora esta: " + contrato.getStatus());
+                        + "Data Cancelamento realizado em[ " + jFormattedTextFieldContratoDataCancelamento.getText() + " ]\n\n"
+                        + "O contrato agora está: " + contrato.getStatus());
                 jLabelMensalistaStatus.setText("Consultando dados do contrato!!!");
                 break;
             default:
                 break;
         }
-    }//GEN-LAST:event_jButtonClienteCadastroOkActionPerformed
+    }//GEN-LAST:event_jButtonClienteCadastroSimActionPerformed
 
     private void jTextFieldMensalistaAno04ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMensalistaAno04ActionPerformed
         // TODO add your handling code here:
@@ -4061,58 +4245,63 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldMensalistaEmailActionPerformed
 
-    private void jButtonClientePesquisaAtivarInativarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClientePesquisaAtivarInativarActionPerformed
+    private void jButtonClientePesquisaCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClientePesquisaCancelarActionPerformed
         if (jTableClienteContrato.getRowCount() != 0 && jTableClienteContrato.getSelectedRowCount() != 0) {
             contrato.setIdContrato(Integer.parseInt((String) jTableClienteContrato.getModel().getValueAt(jTableClienteContrato.getSelectedRow(), 0)));
             contratoArrayList = contratoService.contratoList("%", "%", "%", String.valueOf(contrato.getIdContrato()));
             if (contratoArrayList.get(0).getIdContrato() != 0) {
-                clientePreencherJTextFieldsCadastro(contratoArrayList.get(0));
+                contratoConsultaPreencherJTextField(contratoArrayList.get(0));
+                contratoJTextFieldEditable(false);
+                clientePreencherJTextField(contratoArrayList.get(0).getIdClienteFk());
                 clienteJTextFieldEditable(false);
-                if (jTextFieldMensalistaStatus.getText().equalsIgnoreCase("Ativo")) {
-                    jLabelMensalistaStatus.setText("O CONTRATO esta " + contrato.getStatus() + ". Deseja inativar?");
-                    jButtonClienteCadastroAtivarInativar.setText("Inativar");
-                } else if (jTextFieldMensalistaStatus.getText().equalsIgnoreCase("Inativo")) {
-                    jLabelMensalistaStatus.setText("O CONTRATO esta " + contrato.getStatus() + ". Deseja Ativar?");
-                    jButtonClienteCadastroAtivarInativar.setText("Ativar");
+                if (jTextFieldContratoStatus.getText().equalsIgnoreCase("Cancelado")) {
+                    jLabelMensalistaStatus.setText("O CONTRATO foi " + contratoArrayList.get(0).getStatus() + " em " + contratoArrayList.get(0).getDataCancelamento());
+                    jButtonClienteCadastroSim.setEnabled(false);
+                    jButtonClienteCadastroNao.setEnabled(false);
+                } else if (jTextFieldContratoStatus.getText().equalsIgnoreCase("Ativo")) {
+                    jLabelMensalistaStatus.setText("Contrato " + contratoArrayList.get(0).getStatus() + ". Deseja CANCELAR?");
+                    jButtonClienteCadastroSim.setEnabled(true);
+                    jButtonClienteCadastroNao.setEnabled(true);
                 }
                 jTabbedPaneClienteContrato.setEnabledAt(0, false);
                 jTabbedPaneClienteContrato.setEnabledAt(1, true);
                 jTabbedPaneClienteContrato.setEnabledAt(2, false);
                 jTabbedPaneClienteContrato.setSelectedIndex(1);
+                jButtonClienteCadastroCancelar.setEnabled(false);
                 jButtonClienteCadastroAlterar.setEnabled(false);
-                jButtonClienteCadastroAtivarInativar.setEnabled(false);
-                jButtonClienteCadastroOk.setEnabled(true);
-                jButtonClienteCadastroCancelar.setEnabled(true);
-                contratoStatus = "AtivarInativar";
+                contratoStatus = "Cancelamento";
             } else {
                 JOptionPane.showMessageDialog(this, "Cliente não encontrado!!!");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Selecione um Cliente!!!");
         }
-    }//GEN-LAST:event_jButtonClientePesquisaAtivarInativarActionPerformed
+    }//GEN-LAST:event_jButtonClientePesquisaCancelarActionPerformed
 
     private void jButtonClientePesquisaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClientePesquisaAlterarActionPerformed
         if (jTableClienteContrato.getRowCount() != 0 && jTableClienteContrato.getSelectedRowCount() != 0) {
             contrato.setIdContrato(Integer.parseInt((String) jTableClienteContrato.getModel().getValueAt(jTableClienteContrato.getSelectedRow(), 0)));
             contratoArrayList = contratoService.contratoList("%", "%", "%", String.valueOf(contrato.getIdContrato()));
             if (contratoArrayList.get(0).getIdContrato() != 0) {
-                clienteCadastroJTextFieldConteudo(null);
-                clientePreencherJTextFieldsCadastro(contrato);
+                contratoJTextFieldConteudo(null);
+                contratoConsultaPreencherJTextField(contratoArrayList.get(0));
+                contratoJTextFieldEditable(true);
+                clienteJTextFieldConteudo(null);
+                clientePreencherJTextField(contratoArrayList.get(0).getIdClienteFk());
                 clienteJTextFieldEditable(true);
-                if (jTextFieldMensalistaStatus.getText().equalsIgnoreCase("Ativo")) {
-                    jButtonClienteCadastroAtivarInativar.setText("Inativar");
-                } else if (jTextFieldMensalistaStatus.getText().equalsIgnoreCase("Inativo")) {
-                    jButtonClienteCadastroAtivarInativar.setText("Ativar");
+                if (jTextFieldContratoStatus.getText().equalsIgnoreCase("Ativo")) {
+                    jButtonClienteCadastroCancelar.setText("Inativar");
+                } else if (jTextFieldContratoStatus.getText().equalsIgnoreCase("Inativo")) {
+                    jButtonClienteCadastroCancelar.setText("Ativar");
                 }
                 jTabbedPaneClienteContrato.setEnabledAt(0, false);
                 jTabbedPaneClienteContrato.setEnabledAt(1, true);
                 jTabbedPaneClienteContrato.setEnabledAt(2, false);
                 jTabbedPaneClienteContrato.setSelectedIndex(1);
                 jButtonClienteCadastroAlterar.setEnabled(false);
-                jButtonClienteCadastroAtivarInativar.setEnabled(false);
-                jButtonClienteCadastroOk.setEnabled(true);
-                jButtonClienteCadastroCancelar.setEnabled(true);
+                jButtonClienteCadastroCancelar.setEnabled(false);
+                jButtonClienteCadastroSim.setEnabled(true);
+                jButtonClienteCadastroNao.setEnabled(true);
                 contratoStatus = "Alteração";
                 jLabelMensalistaStatus.setText("Alteração de CONTRATO!!!");
             } else {
@@ -4128,29 +4317,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
             contrato.setIdContrato(Integer.parseInt((String) jTableClienteContrato.getModel().getValueAt(jTableClienteContrato.getSelectedRow(), 0)));
             contratoArrayList = contratoService.contratoList("%", "%", "%", String.valueOf(contrato.getIdContrato()));
             if (contratoArrayList.get(0).getIdContrato() != 0) {
-                clienteCadastroJTextFieldConteudo(null);
-                clientePreencherJTextFieldsCadastro(contratoArrayList.get(0));
+                clienteJTextFieldConteudo(null);
+                clientePreencherJTextField(contratoArrayList.get(0).getIdClienteFk());
+                contratoConsultaPreencherJTextField(contratoArrayList.get(0));
                 clienteJTextFieldEditable(false);
-                if (jTextFieldMensalistaStatus.getText().equalsIgnoreCase("Ativo")) {
-                    jButtonClienteCadastroAtivarInativar.setText("Inativar");
-                } else if (jTextFieldMensalistaStatus.getText().equalsIgnoreCase("Inativo")) {
-                    jButtonClienteCadastroAtivarInativar.setText("Ativar");
+                contratoJTextFieldEditable(false);
+                if (jTextFieldContratoStatus.getText().equalsIgnoreCase("Ativo")) {
+                    jButtonClienteCadastroCancelar.setEnabled(true);
+                } else if (jTextFieldContratoStatus.getText().equalsIgnoreCase("Cancelado")) {
+                    jButtonClienteCadastroCancelar.setEnabled(false);
                 }
                 jTabbedPaneClienteContrato.setEnabledAt(0, false);
                 jTabbedPaneClienteContrato.setEnabledAt(1, true);
                 jTabbedPaneClienteContrato.setEnabledAt(2, false);
                 jTabbedPaneClienteContrato.setSelectedIndex(1);
                 jButtonClienteCadastroAlterar.setEnabled(true);
-                jButtonClienteCadastroAtivarInativar.setEnabled(true);
-                jButtonClienteCadastroOk.setEnabled(false);
-                jButtonClienteCadastroCancelar.setEnabled(false);
+                jButtonClienteCadastroSim.setEnabled(false);
+                jButtonClienteCadastroNao.setEnabled(false);
                 contratoStatus = "Consulta";
-                jLabelMensalistaStatus.setText("Consultando dados do Cliente!!!");
+                jLabelMensalistaStatus.setText("Consultando dados do Contrato!!!");
             } else {
-                JOptionPane.showMessageDialog(this, "Cliente não encontrado!!!");
+                JOptionPane.showMessageDialog(this, "Contrato não encontrado!!!");
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Selecione um Cliente!!!");
+            JOptionPane.showMessageDialog(this, "Selecione um Contrato!!!");
         }
     }//GEN-LAST:event_jButtonClientePesquisaExibirActionPerformed
 
@@ -4172,18 +4362,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTabbedPaneClienteContrato.setEnabledAt(2, false);
         jTabbedPaneClienteContrato.setSelectedIndex(1);
         jButtonClienteCadastroAlterar.setEnabled(false);
-        jButtonClienteCadastroAtivarInativar.setEnabled(false);
-        jButtonClienteCadastroAtivarInativar.setText("Inativar");
-        jButtonClienteCadastroOk.setEnabled(true);
-        jButtonClienteCadastroCancelar.setEnabled(true);
+        jButtonClienteCadastroCancelar.setEnabled(false);
+        jButtonClienteCadastroCancelar.setText("Inativar");
+        jButtonClienteCadastroSim.setEnabled(true);
+        jButtonClienteCadastroNao.setEnabled(true);
         contratoStatus = "Inclusão";
         jLabelMensalistaStatus.setText("Inclusão de CONTRATO!");
         jRadioButtonContratoMensalista.setSelected(true);
         jRadioButtonContratoDias.setSelected(true);
         clienteJTextFieldEditable(true);
-        clienteCadastroJTextFieldConteudo(null);
+        contratoJTextFieldEditable(true);
+        clienteJTextFieldConteudo(null);
+        contratoJTextFieldConteudo(null);
         contratoEscolhaMensalistaPacote();
-        jTextFieldMensalistaStatus.setText("Ativo");
+        jTextFieldContratoStatus.setText("Ativo");
     }//GEN-LAST:event_jButtonClientePesquisaIncluirActionPerformed
 
     private void jTableClienteContratoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableClienteContratoKeyPressed
@@ -4260,20 +4452,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonMensalistaActionPerformed
 
-    private void jTextFieldMensalistaDiaVencimentoMensalidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMensalistaDiaVencimentoMensalidadeActionPerformed
+    private void jTextFieldContratoDiaVencimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContratoDiaVencimentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldMensalistaDiaVencimentoMensalidadeActionPerformed
-
-    private void jTextFieldClientePagamentoDiaVencimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldClientePagamentoDiaVencimentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldClientePagamentoDiaVencimentoActionPerformed
+    }//GEN-LAST:event_jTextFieldContratoDiaVencimentoActionPerformed
 
     private void jButtonClientePesquisaPagamentosConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClientePesquisaPagamentosConsultaActionPerformed
         if (jTableClienteContrato.getRowCount() != 0 && jTableClienteContrato.getSelectedRowCount() != 0) {
             contrato.setIdContrato(Integer.parseInt((String) jTableClienteContrato.getModel().getValueAt(jTableClienteContrato.getSelectedRow(), 0)));
             contratoArrayList = contratoService.contratoList("%", "%", "%", String.valueOf(contrato.getIdContrato()));
-            clientePagamentoJTextFieldConteudo(null);
-            clientePagamentoPreencherJTextField(contratoArrayList.get(0));
+            contratoFaturaPreencherJTextField(contratoArrayList.get(0));
             contratoClienteFatura(contrato = contratoArrayList.get(0));
             jTabbedPaneClienteContrato.setEnabledAt(0, false);
             jTabbedPaneClienteContrato.setEnabledAt(1, false);
@@ -4294,30 +4481,72 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jRadioButtonContratoMensalistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonContratoMensalistaMouseClicked
-        jRadioButtonContratoUtilizacoes.setEnabled(true);
-        contratoEscolhaMensalistaPacote();
+        if (jRadioButtonContratoMensalista.isEnabled()) {
+            contratoEscolhaMensalistaPacote();
+        }
     }//GEN-LAST:event_jRadioButtonContratoMensalistaMouseClicked
 
     private void jRadioButtonContratoPacoteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonContratoPacoteMouseClicked
-        jRadioButtonContratoUtilizacoes.setEnabled(false);
-        contratoEscolhaMensalistaPacote();
+        if (jRadioButtonContratoPacote.isEnabled()) {
+            contratoEscolhaMensalistaPacote();
+        }
     }//GEN-LAST:event_jRadioButtonContratoPacoteMouseClicked
 
     private void jRadioButtonContratoDiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonContratoDiasMouseClicked
-        contratoEscolhaMensalistaPacote();
+        if (jRadioButtonContratoDias.isEnabled()) {
+            contratoEscolhaMensalistaPacote();
+        }
     }//GEN-LAST:event_jRadioButtonContratoDiasMouseClicked
 
     private void jRadioButtonContratoUtilizacoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonContratoUtilizacoesMouseClicked
-        contratoEscolhaMensalistaPacote();
+        if (jRadioButtonContratoUtilizacoes.isEnabled()) {
+            contratoEscolhaMensalistaPacote();
+        }
     }//GEN-LAST:event_jRadioButtonContratoUtilizacoesMouseClicked
 
-    private void jFormattedTextFieldContratoQuantidadeDiasUtilizacoesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFormattedTextFieldContratoQuantidadeDiasUtilizacoesKeyPressed
+    private void jFormattedTextFieldContratoQuantidadeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFormattedTextFieldContratoQuantidadeKeyPressed
 
-    }//GEN-LAST:event_jFormattedTextFieldContratoQuantidadeDiasUtilizacoesKeyPressed
+    }//GEN-LAST:event_jFormattedTextFieldContratoQuantidadeKeyPressed
 
-    private void jFormattedTextFieldContratoQuantidadeDiasUtilizacoesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFormattedTextFieldContratoQuantidadeDiasUtilizacoesKeyReleased
+    private void jFormattedTextFieldContratoQuantidadeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFormattedTextFieldContratoQuantidadeKeyReleased
         contratoValidaQuantidadeDiasUtilizacoes();
-    }//GEN-LAST:event_jFormattedTextFieldContratoQuantidadeDiasUtilizacoesKeyReleased
+    }//GEN-LAST:event_jFormattedTextFieldContratoQuantidadeKeyReleased
+
+    private void jTextFieldContratoFaturaDiaVencimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContratoFaturaDiaVencimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldContratoFaturaDiaVencimentoActionPerformed
+
+    private void jRadioButtonContratoFaturaDiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonContratoFaturaDiasMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonContratoFaturaDiasMouseClicked
+
+    private void jRadioButtonContratoFaturaUtilizacoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonContratoFaturaUtilizacoesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonContratoFaturaUtilizacoesMouseClicked
+
+    private void jRadioButtonContratoFaturaMensalistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonContratoFaturaMensalistaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonContratoFaturaMensalistaMouseClicked
+
+    private void jRadioButtonContratoFaturaPacoteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonContratoFaturaPacoteMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonContratoFaturaPacoteMouseClicked
+
+    private void jFormattedTextFieldContratoFaturaQuantidadeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFormattedTextFieldContratoFaturaQuantidadeKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldContratoFaturaQuantidadeKeyPressed
+
+    private void jFormattedTextFieldContratoFaturaQuantidadeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFormattedTextFieldContratoFaturaQuantidadeKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldContratoFaturaQuantidadeKeyReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        contratoService.contratoGeraFatura();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4363,13 +4592,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonClienteCadastroAlterar;
-    private javax.swing.JButton jButtonClienteCadastroAtivarInativar;
     private javax.swing.JButton jButtonClienteCadastroCancelar;
-    private javax.swing.JButton jButtonClienteCadastroOk;
+    private javax.swing.JButton jButtonClienteCadastroNao;
     private javax.swing.JButton jButtonClienteCadastroSair;
+    private javax.swing.JButton jButtonClienteCadastroSim;
     private javax.swing.JButton jButtonClientePesquisaAlterar;
-    private javax.swing.JButton jButtonClientePesquisaAtivarInativar;
+    private javax.swing.JButton jButtonClientePesquisaCancelar;
     private javax.swing.JButton jButtonClientePesquisaExibir;
     private javax.swing.JButton jButtonClientePesquisaIncluir;
     private javax.swing.JButton jButtonClientePesquisaLocalizar;
@@ -4405,17 +4635,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog jDialogConfirmaSaidaSistema;
     private javax.swing.JDialog jDialogConfirmaSaidaVeiculo;
     private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextFieldClientePagamentoDataInclusao;
-    private javax.swing.JFormattedTextField jFormattedTextFieldClientePagamentoDataUltimaAlteracao;
+    private javax.swing.JFormattedTextField jFormattedTextFieldContratoDataCancelamento;
     private javax.swing.JFormattedTextField jFormattedTextFieldContratoDataInicio;
     private javax.swing.JFormattedTextField jFormattedTextFieldContratoDataTermino;
-    private javax.swing.JFormattedTextField jFormattedTextFieldContratoQuantidadeDiasUtilizacoes;
+    private javax.swing.JFormattedTextField jFormattedTextFieldContratoFaturaCPF;
+    private javax.swing.JFormattedTextField jFormattedTextFieldContratoFaturaDataInicio;
+    private javax.swing.JFormattedTextField jFormattedTextFieldContratoFaturaDataTermino;
+    private javax.swing.JFormattedTextField jFormattedTextFieldContratoFaturaQuantidade;
+    private javax.swing.JFormattedTextField jFormattedTextFieldContratoFaturaUltimaAlteracao;
+    private javax.swing.JFormattedTextField jFormattedTextFieldContratoQuantidade;
     private javax.swing.JFormattedTextField jFormattedTextFieldMensalistaCelularResi;
     private javax.swing.JFormattedTextField jFormattedTextFieldMensalistaCepCome;
     private javax.swing.JFormattedTextField jFormattedTextFieldMensalistaCepResi;
     private javax.swing.JFormattedTextField jFormattedTextFieldMensalistaCpf;
     private javax.swing.JFormattedTextField jFormattedTextFieldMensalistaDataNascimento;
-    private javax.swing.JFormattedTextField jFormattedTextFieldMensalistaDataUltimaAlteracao;
     private javax.swing.JFormattedTextField jFormattedTextFieldMensalistaPlaca01;
     private javax.swing.JFormattedTextField jFormattedTextFieldMensalistaPlaca02;
     private javax.swing.JFormattedTextField jFormattedTextFieldMensalistaPlaca03;
@@ -4437,8 +4670,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel110;
     private javax.swing.JLabel jLabel111;
+    private javax.swing.JLabel jLabel112;
     private javax.swing.JLabel jLabel113;
     private javax.swing.JLabel jLabel114;
+    private javax.swing.JLabel jLabel115;
+    private javax.swing.JLabel jLabel116;
     private javax.swing.JLabel jLabel117;
     private javax.swing.JLabel jLabel118;
     private javax.swing.JLabel jLabel119;
@@ -4446,6 +4682,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel121;
     private javax.swing.JLabel jLabel122;
+    private javax.swing.JLabel jLabel123;
+    private javax.swing.JLabel jLabel124;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -4492,6 +4730,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
@@ -4568,7 +4807,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel33;
-    private javax.swing.JPanel jPanel35;
+    private javax.swing.JPanel jPanel34;
     private javax.swing.JPanel jPanel36;
     private javax.swing.JPanel jPanel37;
     private javax.swing.JPanel jPanel38;
@@ -4591,6 +4830,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonAtiInaTodos;
     private javax.swing.JRadioButton jRadioButtonAtivos;
     private javax.swing.JRadioButton jRadioButtonContratoDias;
+    private javax.swing.JRadioButton jRadioButtonContratoFaturaDias;
+    private javax.swing.JRadioButton jRadioButtonContratoFaturaMensalista;
+    private javax.swing.JRadioButton jRadioButtonContratoFaturaPacote;
+    private javax.swing.JRadioButton jRadioButtonContratoFaturaUtilizacoes;
     private javax.swing.JRadioButton jRadioButtonContratoMensalista;
     private javax.swing.JRadioButton jRadioButtonContratoPacote;
     private javax.swing.JRadioButton jRadioButtonContratoUtilizacoes;
@@ -4613,6 +4856,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPaneMovimentacoes;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator14;
+    private javax.swing.JSeparator jSeparator15;
+    private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -4637,15 +4886,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextField jTextFieldClienteNomePesquisa;
-    private javax.swing.JTextField jTextFieldClientePagamentoDiaVencimento;
-    private javax.swing.JTextField jTextFieldClientePagamentoNome;
-    private javax.swing.JTextField jTextFieldClientePagamentoNumeroContrato;
-    private javax.swing.JTextField jTextFieldClientePagamentoStatus;
-    private javax.swing.JTextField jTextFieldClientePagamentoTipo;
+    private javax.swing.JTextField jTextFieldClienteNumero;
     private javax.swing.JTextField jTextFieldConfirmaSaidaPlaca;
     private javax.swing.JTextField jTextFieldConfirmaSaidaPlaca1;
     private javax.swing.JTextField jTextFieldConfirmaSaidaPrisma;
     private javax.swing.JTextField jTextFieldConfirmaSaidaPrisma1;
+    private javax.swing.JTextField jTextFieldContratoDiaVencimento;
+    private javax.swing.JTextField jTextFieldContratoFaturaCliente;
+    private javax.swing.JTextField jTextFieldContratoFaturaDiaVencimento;
+    private javax.swing.JTextField jTextFieldContratoFaturaNumero;
+    private javax.swing.JTextField jTextFieldContratoFaturaStatus;
+    private javax.swing.JTextField jTextFieldContratoFaturaValor;
+    private javax.swing.JTextField jTextFieldContratoNumero;
+    private javax.swing.JTextField jTextFieldContratoStatus;
+    private javax.swing.JTextField jTextFieldContratoValor;
     private javax.swing.JTextField jTextFieldEntradaData;
     private javax.swing.JTextField jTextFieldEntradaHora;
     private javax.swing.JTextField jTextFieldEntradaPlaca;
@@ -4660,12 +4914,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldMensalistaCidadeResi;
     private javax.swing.JTextField jTextFieldMensalistaComplementoCome;
     private javax.swing.JTextField jTextFieldMensalistaComplementoResi;
-    private javax.swing.JTextField jTextFieldMensalistaContratoNumero;
     private javax.swing.JTextField jTextFieldMensalistaCor01;
     private javax.swing.JTextField jTextFieldMensalistaCor02;
     private javax.swing.JTextField jTextFieldMensalistaCor03;
     private javax.swing.JTextField jTextFieldMensalistaCor04;
-    private javax.swing.JTextField jTextFieldMensalistaDiaVencimentoMensalidade;
     private javax.swing.JTextField jTextFieldMensalistaEmail;
     private javax.swing.JTextField jTextFieldMensalistaEmpresa;
     private javax.swing.JTextField jTextFieldMensalistaEstadoCome;
@@ -4684,7 +4936,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldMensalistaNumeroResi;
     private javax.swing.JTextField jTextFieldMensalistaRuaCome;
     private javax.swing.JTextField jTextFieldMensalistaRuaResi;
-    private javax.swing.JTextField jTextFieldMensalistaStatus;
     private javax.swing.JTextField jTextFieldRotativoIncluirAlterar;
     private javax.swing.JTextField jTextFieldRotativoTipo;
     private javax.swing.JTextField jTextFieldSaidaControle;
@@ -4737,35 +4988,35 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 } else {
                     contrato = placaIsContratoCliente(veiculo.getPlaca());
                     if (contrato.getIdContrato() != 0) {
-                        patio = patioService.contratoCienteVagaIsOcupada(contrato);
+                        patio = patioService.contratoClienteVagaIsOcupada(contrato);
                         if (patio.getPlaca().equalsIgnoreCase("VagaLivre")) {
                             patio.setPlaca(dadoEntrada);
                             patio.setTipo("Mensalista");
                             jTextFieldEntradaPlaca.setText(veiculo.getPlaca());
                             escolhaRotativoTipo();
                         } else if (patio.getPlaca().equalsIgnoreCase(contrato.getVeiculo1().getPlaca())) {
-                            JOptionPane.showMessageDialog(this, "VAGA OCUPADA!!!\n\n" + contrato.getCliente().getNome() + " já esta com a vaga ocupada pelo veículo:"
+                            JOptionPane.showMessageDialog(this, "VAGA OCUPADA!!!\n\n" + contrato.getIdClienteFk().getNome() + " já esta com a vaga ocupada pelo veículo:"
                                     + "\nPlaca: [01] " + contrato.getVeiculo1().getPlaca()
                                     + "\nPrisma:" + patio.getPrisma()
                                     + "\nModelo: " + contrato.getVeiculo1().getAnoModelo()
                                     + "\nCor: " + contrato.getVeiculo1().getCor());
                             limparObjetosPatio();
                         } else if (patio.getPlaca().equalsIgnoreCase(contrato.getVeiculo2().getPlaca())) {
-                            JOptionPane.showMessageDialog(this, "VAGA OCUPADA!!!\n\n" + contrato.getCliente().getNome() + " já esta com a vaga ocupada pelo veículo:"
+                            JOptionPane.showMessageDialog(this, "VAGA OCUPADA!!!\n\n" + contrato.getIdClienteFk().getNome() + " já esta com a vaga ocupada pelo veículo:"
                                     + "\nPlaca: [02] " + contrato.getVeiculo2().getPlaca()
                                     + "\nPrisma:" + patio.getPrisma()
                                     + "\nModelo: " + contrato.getVeiculo2().getAnoModelo()
                                     + "\nCor: " + contrato.getVeiculo2().getCor());
                             limparObjetosPatio();
                         } else if (patio.getPlaca().equalsIgnoreCase(contrato.getVeiculo3().getPlaca())) {
-                            JOptionPane.showMessageDialog(this, "VAGA OCUPADA!!!\n\n" + contrato.getCliente().getNome() + " já esta com a vaga ocupada pelo veículo:"
+                            JOptionPane.showMessageDialog(this, "VAGA OCUPADA!!!\n\n" + contrato.getIdClienteFk().getNome() + " já esta com a vaga ocupada pelo veículo:"
                                     + "\nPlaca: [03] " + contrato.getVeiculo3().getPlaca()
                                     + "\nPrisma:" + patio.getPrisma()
                                     + "\nModelo: " + contrato.getVeiculo3().getAnoModelo()
                                     + "\nCor: " + contrato.getVeiculo3().getCor());
                             limparObjetosPatio();
                         } else if (patio.getPlaca().equalsIgnoreCase(contrato.getVeiculo4().getPlaca())) {
-                            JOptionPane.showMessageDialog(this, "VAGA OCUPADA!!!\n\n" + contrato.getCliente().getNome() + " já esta com a vaga ocupada pelo veículo:"
+                            JOptionPane.showMessageDialog(this, "VAGA OCUPADA!!!\n\n" + contrato.getIdClienteFk().getNome() + " já esta com a vaga ocupada pelo veículo:"
                                     + "\nPlaca: [04] " + contrato.getVeiculo4().getPlaca()
                                     + "\nPrisma:" + patio.getPrisma()
                                     + "\nModelo: " + contrato.getVeiculo4().getAnoModelo()
@@ -4930,10 +5181,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         if (patio.getTipo().equalsIgnoreCase("Rotativo")) {
             rotativo = rotativoService.rotativoCarregarAtributos(jTextFieldRotativoTipo.getText());
-            patio.setTipo(rotativo.getNome());
-
-            System.out.println("rotativo.gettipo: " + rotativo.getTipo());
-            System.out.println("patio.gettipo: " + patio.getTipo());
+            patio.setNome(rotativo.getNome());
         }
 
         patio.setPreco30Minutos(rotativo.getPreco30Minutos());
@@ -5075,9 +5323,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 Object colunaTipo = table.getValueAt(row, 2);//Coluna Status
 
                 if (row % 2 == 0) {
-                    setBackground(new Color(255, 255, 255));
+                    setBackground(new Color(220, 220, 220));
+                    setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
                 } else {
-                    setBackground(new Color(230, 230, 230));
+                    setBackground(null);
+                    setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
                 }
                 setFont(new Font("", Font.PLAIN, 16));//("Nome da fonte", estilo da fonte, tamanho da fonte)
                 if (colunaTipo != null) {//Se existir a celula Tipo
@@ -5534,9 +5784,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     Object colunaDataSaida = table.getValueAt(row, 6);//Coluna
 
                     if (row % 2 == 0) {
-                        setBackground(new Color(255, 255, 255));
+                        setBackground(new Color(220, 220, 220));
+                        setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
                     } else {
-                        setBackground(new Color(230, 230, 230));
+                        setBackground(null);
+                        setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
                     }
                     setFont(new Font("", Font.PLAIN, 16));//("Nome da fonte", estilo da fonte, tamanho da fonte)
                     if (colunaTipo != null) {//Se existir a celula Tipo
@@ -5580,7 +5832,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             clienteStatus = "Ativo";
         }
         if (jRadioButtonInativos.isSelected()) {
-            clienteStatus = "Inativo";
+            clienteStatus = "Cancelado";
         }
         if (jRadioButtonAtiInaTodos.isSelected()) {
             clienteStatus = "%";
@@ -5603,48 +5855,48 @@ public class TelaPrincipal extends javax.swing.JFrame {
         contratoDefaultTableModel.addColumn("E-mail");
 
         for (int i = 0; i < contratoArrayList.size(); i++) {
-            if (contratoArrayList.get(i).getCliente().getCpf() == null || contratoArrayList.get(i).getCliente().getCpf().equalsIgnoreCase("")) {
-                contratoArrayList.get(i).getCliente().setCpf("0");
+            if (contratoArrayList.get(i).getIdClienteFk().getCpf() == null || contratoArrayList.get(i).getIdClienteFk().getCpf().equalsIgnoreCase("")) {
+                contratoArrayList.get(i).getIdClienteFk().setCpf("0");
             }
-            contratoArrayList.get(i).getCliente().setCpf(String.format("%011d", Long.parseLong(contratoArrayList.get(i).getCliente().getCpf())));
+            contratoArrayList.get(i).getIdClienteFk().setCpf(String.format("%011d", Long.parseLong(contratoArrayList.get(i).getIdClienteFk().getCpf())));
             if (contratoArrayList.get(i).getDiaVencimento() == null || contratoArrayList.get(i).getDiaVencimento().equalsIgnoreCase("")) {
                 contratoArrayList.get(i).setDiaVencimento("0");
             }
             contratoArrayList.get(i).setDiaVencimento(String.format("%02d", Long.parseLong(contratoArrayList.get(i).getDiaVencimento())));
-            if (contratoArrayList.get(i).getCliente().getIdentidade() == null || contratoArrayList.get(i).getCliente().getIdentidade().equalsIgnoreCase("")) {
-                contratoArrayList.get(i).getCliente().setIdentidade("0");
+            if (contratoArrayList.get(i).getIdClienteFk().getIdentidade() == null || contratoArrayList.get(i).getIdClienteFk().getIdentidade().equalsIgnoreCase("")) {
+                contratoArrayList.get(i).getIdClienteFk().setIdentidade("0");
             }
-            contratoArrayList.get(i).getCliente().setIdentidade(String.format("%010d", Long.parseLong(contratoArrayList.get(i).getCliente().getIdentidade())));
-            if (contratoArrayList.get(i).getCliente().getTelefone() == null || contratoArrayList.get(i).getCliente().getTelefone().equalsIgnoreCase("")) {
-                contratoArrayList.get(i).getCliente().setTelefone("0");
+            contratoArrayList.get(i).getIdClienteFk().setIdentidade(String.format("%010d", Long.parseLong(contratoArrayList.get(i).getIdClienteFk().getIdentidade())));
+            if (contratoArrayList.get(i).getIdClienteFk().getTelefone() == null || contratoArrayList.get(i).getIdClienteFk().getTelefone().equalsIgnoreCase("")) {
+                contratoArrayList.get(i).getIdClienteFk().setTelefone("0");
             }
-            contratoArrayList.get(i).getCliente().setTelefone(String.format("%010d", Long.parseLong(contratoArrayList.get(i).getCliente().getTelefone())));
-            if (contratoArrayList.get(i).getCliente().getCelular() == null || contratoArrayList.get(i).getCliente().getCelular().equalsIgnoreCase("")) {
-                contratoArrayList.get(i).getCliente().setCelular("0");
+            contratoArrayList.get(i).getIdClienteFk().setTelefone(String.format("%010d", Long.parseLong(contratoArrayList.get(i).getIdClienteFk().getTelefone())));
+            if (contratoArrayList.get(i).getIdClienteFk().getCelular() == null || contratoArrayList.get(i).getIdClienteFk().getCelular().equalsIgnoreCase("")) {
+                contratoArrayList.get(i).getIdClienteFk().setCelular("0");
             }
-            contratoArrayList.get(i).getCliente().setCelular(String.format("%011d", Long.parseLong(contratoArrayList.get(i).getCliente().getCelular())));
-            if (contratoArrayList.get(i).getCliente().getCepResidencia() == null || contratoArrayList.get(i).getCliente().getCepResidencia().equalsIgnoreCase("")) {
-                contratoArrayList.get(i).getCliente().setCepResidencia("0");
+            contratoArrayList.get(i).getIdClienteFk().setCelular(String.format("%011d", Long.parseLong(contratoArrayList.get(i).getIdClienteFk().getCelular())));
+            if (contratoArrayList.get(i).getIdClienteFk().getCepResidencia() == null || contratoArrayList.get(i).getIdClienteFk().getCepResidencia().equalsIgnoreCase("")) {
+                contratoArrayList.get(i).getIdClienteFk().setCepResidencia("0");
             }
-            contratoArrayList.get(i).getCliente().setCepResidencia(String.format("%08d", Long.parseLong(contratoArrayList.get(i).getCliente().getCepResidencia())));
-            if (contratoArrayList.get(i).getCliente().getCepComercial() == null || contratoArrayList.get(i).getCliente().getCepComercial().equalsIgnoreCase("")) {
-                contratoArrayList.get(i).getCliente().setCepComercial("0");
+            contratoArrayList.get(i).getIdClienteFk().setCepResidencia(String.format("%08d", Long.parseLong(contratoArrayList.get(i).getIdClienteFk().getCepResidencia())));
+            if (contratoArrayList.get(i).getIdClienteFk().getCepComercial() == null || contratoArrayList.get(i).getIdClienteFk().getCepComercial().equalsIgnoreCase("")) {
+                contratoArrayList.get(i).getIdClienteFk().setCepComercial("0");
             }
-            contratoArrayList.get(i).getCliente().setCepComercial(String.format("%08d", Long.parseLong(contratoArrayList.get(i).getCliente().getCepComercial())));
-            if (contratoArrayList.get(i).getCliente().getTelefoneComercial() == null || contratoArrayList.get(i).getCliente().getTelefoneComercial().equalsIgnoreCase("")) {
-                contratoArrayList.get(i).getCliente().setTelefoneComercial("0");
+            contratoArrayList.get(i).getIdClienteFk().setCepComercial(String.format("%08d", Long.parseLong(contratoArrayList.get(i).getIdClienteFk().getCepComercial())));
+            if (contratoArrayList.get(i).getIdClienteFk().getTelefoneComercial() == null || contratoArrayList.get(i).getIdClienteFk().getTelefoneComercial().equalsIgnoreCase("")) {
+                contratoArrayList.get(i).getIdClienteFk().setTelefoneComercial("0");
             }
-            contratoArrayList.get(i).getCliente().setTelefoneComercial(String.format("%010d", Long.parseLong(contratoArrayList.get(i).getCliente().getTelefoneComercial())));
+            contratoArrayList.get(i).getIdClienteFk().setTelefoneComercial(String.format("%010d", Long.parseLong(contratoArrayList.get(i).getIdClienteFk().getTelefoneComercial())));
             contratoDefaultTableModel.addRow(new String[]{
                 String.valueOf(contratoArrayList.get(i).getIdContrato()),
-                contratoArrayList.get(i).getCliente().getNome(),
-                contratoArrayList.get(i).getCliente().getCpf().substring(0, 3) + "." + contratoArrayList.get(i).getCliente().getCpf().substring(3, 6) + "." + contratoArrayList.get(i).getCliente().getCpf().substring(6, 9) + "-" + contratoArrayList.get(i).getCliente().getCpf().substring(9, 11),
-                contratoArrayList.get(i).getTipo(),
+                contratoArrayList.get(i).getIdClienteFk().getNome(),
+                contratoArrayList.get(i).getIdClienteFk().getCpf().substring(0, 3) + "." + contratoArrayList.get(i).getIdClienteFk().getCpf().substring(3, 6) + "." + contratoArrayList.get(i).getIdClienteFk().getCpf().substring(6, 9) + "-" + contratoArrayList.get(i).getIdClienteFk().getCpf().substring(9, 11),
+                contratoArrayList.get(i).getMensalistaOuPacote(),
                 contratoArrayList.get(i).getStatus(),
                 contratoArrayList.get(i).getDiaVencimento(),
-                "(" + contratoArrayList.get(i).getCliente().getTelefone().substring(0, 2) + ")" + contratoArrayList.get(i).getCliente().getTelefone().substring(2, 6) + "-" + contratoArrayList.get(i).getCliente().getTelefone().substring(6, 10),
-                "(" + contratoArrayList.get(i).getCliente().getCelular().substring(0, 2) + ")" + contratoArrayList.get(i).getCliente().getCelular().substring(2, 3) + "." + contratoArrayList.get(i).getCliente().getCelular().substring(3, 7) + "-" + contratoArrayList.get(i).getCliente().getCelular().substring(7, 11),
-                contratoArrayList.get(i).getCliente().getEmail()
+                "(" + contratoArrayList.get(i).getIdClienteFk().getTelefone().substring(0, 2) + ")" + contratoArrayList.get(i).getIdClienteFk().getTelefone().substring(2, 6) + "-" + contratoArrayList.get(i).getIdClienteFk().getTelefone().substring(6, 10),
+                "(" + contratoArrayList.get(i).getIdClienteFk().getCelular().substring(0, 2) + ")" + contratoArrayList.get(i).getIdClienteFk().getCelular().substring(2, 3) + "." + contratoArrayList.get(i).getIdClienteFk().getCelular().substring(3, 7) + "-" + contratoArrayList.get(i).getIdClienteFk().getCelular().substring(7, 11),
+                contratoArrayList.get(i).getIdClienteFk().getEmail()
             });
         }
 
@@ -5653,7 +5905,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTableClienteContrato.getColumnModel().getColumn(1).setPreferredWidth(400);
         jTableClienteContrato.getColumnModel().getColumn(2).setPreferredWidth(140);
         jTableClienteContrato.getColumnModel().getColumn(3).setPreferredWidth(95);
-        jTableClienteContrato.getColumnModel().getColumn(4).setPreferredWidth(70);
+        jTableClienteContrato.getColumnModel().getColumn(4).setPreferredWidth(90);
         jTableClienteContrato.getColumnModel().getColumn(5).setPreferredWidth(45);
         jTableClienteContrato.getColumnModel().getColumn(6).setPreferredWidth(130);
         jTableClienteContrato.getColumnModel().getColumn(7).setPreferredWidth(140);
@@ -5675,7 +5927,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 if (colunaStatus != null) {//Se existir a celula Tipo
                     if (colunaStatus.equals("Ativo")) {
                         setForeground(new Color(0, 150, 0));//Fonte
-                    } else if (colunaStatus.equals("Inativo")) {
+                    } else if (colunaStatus.equals("Cancelado")) {
                         setForeground(new Color(150, 0, 0));//Fonte
                     }
                 }
@@ -5688,7 +5940,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
     }
 
-    private boolean mensalistaVerificaCamposValidos() {
+    private boolean contratoVerificaCamposValidos() {
         if (jTextFieldMensalistaNome.getText().replaceAll(" ", "").equalsIgnoreCase("")
                 || jFormattedTextFieldMensalistaCpf.getText().replaceAll(" ", "").equalsIgnoreCase("")
                 || (jFormattedTextFieldMensalistaPlaca01.getText().replaceAll(" ", "").equalsIgnoreCase("")
@@ -5704,10 +5956,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     if (jFormattedTextFieldMensalistaPlaca03.getText().replaceAll(" ", "").equalsIgnoreCase("") || verificadorEntradaDado.verificaDadoTipo(jFormattedTextFieldMensalistaPlaca03.getText()).equalsIgnoreCase("placa")) {
                         if (jFormattedTextFieldMensalistaPlaca04.getText().replaceAll(" ", "").equalsIgnoreCase("") || verificadorEntradaDado.verificaDadoTipo(jFormattedTextFieldMensalistaPlaca04.getText()).equalsIgnoreCase("placa")) {
                             jButtonClienteCadastroAlterar.setEnabled(true);
-                            jButtonClienteCadastroAtivarInativar.setEnabled(true);
-                            jButtonClienteCadastroOk.setEnabled(false);
-                            jButtonClienteCadastroCancelar.setEnabled(false);
+                            jButtonClienteCadastroCancelar.setEnabled(true);
+                            jButtonClienteCadastroSim.setEnabled(false);
+                            jButtonClienteCadastroNao.setEnabled(false);
                             clienteJTextFieldEditable(false);
+                            contratoJTextFieldEditable(false);
                             return (true);
                         } else {
                             JOptionPane.showMessageDialog(this, "Formato da placa do veículo 04 inválido!!!");
@@ -5733,38 +5986,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private Contrato contratoPopularObjeto() {
-        //Populando Objeto Cliente (contrato)
-        cliente.setDataInclusao(jFormattedTextFieldContratoDataInicio.getText().replaceAll("/", "").replaceAll(" ", ""));
-
-        contrato.setDiaVencimento(jTextFieldMensalistaDiaVencimentoMensalidade.getText().replaceAll(" ", ""));
-        cliente.setDataUltimaAlteracao(jFormattedTextFieldMensalistaDataUltimaAlteracao.getText().replaceAll("/", "").replaceAll(" ", ""));
-        contrato.setStatus(jTextFieldMensalistaStatus.getText().replaceAll(" ", ""));
-        //Populando Objeto Cliente (Dados Pessoais)
-        cliente.setNome(jTextFieldMensalistaNome.getText());
-        cliente.setCpf(jFormattedTextFieldMensalistaCpf.getText().replaceAll("\\.", "").replaceAll("-", "").replaceAll(" ", ""));
-        cliente.setDataNascimento(jFormattedTextFieldMensalistaDataNascimento.getText().replaceAll("/", "").replaceAll(" ", ""));
-        cliente.setIdentidade(jTextFieldMensalistaIdentidade.getText());
-        cliente.setTelefone(jFormattedTextFieldMensalistaTelefoneResi.getText().replaceAll("\\(", "").replaceAll("\\)", "").replaceAll("-", "").replaceAll(" ", ""));
-        cliente.setCelular(jFormattedTextFieldMensalistaCelularResi.getText().replaceAll("\\(", "").replaceAll("\\)", "").replaceAll("\\.", "").replaceAll("-", "").replaceAll(" ", ""));
-        cliente.setEmail(jTextFieldMensalistaEmail.getText());
-        cliente.setCepResidencia(jFormattedTextFieldMensalistaCepResi.getText().replaceAll("\\.", "").replaceAll("-", "").replaceAll(" ", ""));
-        cliente.setRuaResidencia(jTextFieldMensalistaRuaResi.getText());
-        cliente.setNumeroResidencia(jTextFieldMensalistaNumeroResi.getText());
-        cliente.setComplementoResidencia(jTextFieldMensalistaComplementoResi.getText());
-        cliente.setBairroResidencia(jTextFieldMensalistaBairroResi.getText());
-        cliente.setCidadeResidencia(jTextFieldMensalistaCidadeResi.getText());
-        cliente.setEstadoResidencia(jTextFieldMensalistaEstadoResi.getText());
-        //Populando Objeto Cliente (Dados Profissionais)
-        cliente.setEmpresa(jTextFieldMensalistaEmpresa.getText());
-        cliente.setCepComercial(jFormattedTextFieldMensalistaCepCome.getText().replaceAll("\\.", "").replaceAll("-", "").replaceAll(" ", ""));
-        cliente.setRuaComercial(jTextFieldMensalistaRuaCome.getText());
-        cliente.setNumeroComercial(jTextFieldMensalistaNumeroCome.getText());
-        cliente.setComplementoComercial(jTextFieldMensalistaComplementoCome.getText());
-        cliente.setBairroComercial(jTextFieldMensalistaBairroCome.getText());
-        cliente.setCidadeComercial(jTextFieldMensalistaCidadeCome.getText());
-        cliente.setEstadoComercial(jTextFieldMensalistaEstadoCome.getText());
-        cliente.setTelefoneComercial(jFormattedTextFieldMensalistaTelefoneCome.getText().replaceAll("\\(", "").replaceAll("\\)", "").replaceAll("-", "").replaceAll(" ", ""));
-        //Populando Objeto Cliente (Veículos)
+        if (jRadioButtonContratoMensalista.isSelected()) {
+            contrato.setMensalistaOuPacote("Mensalista");
+        } else if (jRadioButtonContratoPacote.isSelected()) {
+            contrato.setMensalistaOuPacote("Pacote");
+        }
+        if (jRadioButtonContratoDias.isSelected()) {
+            contrato.setDiasOuUtilizacoes("Dias");
+        } else if (jRadioButtonContratoUtilizacoes.isSelected()) {
+            contrato.setDiasOuUtilizacoes("Utilizações");
+        }
+        contrato.setQuantidade(Integer.valueOf(jFormattedTextFieldContratoQuantidade.getText().replaceAll(" ", "")));
+        contrato.setDataInicio(jFormattedTextFieldContratoDataInicio.getText());
+        contrato.setDataTermino(jFormattedTextFieldContratoDataTermino.getText());
+        contrato.setValor(Float.valueOf(jTextFieldContratoValor.getText()));
+        contrato.setDiaVencimento(jTextFieldContratoDiaVencimento.getText().replaceAll(" ", ""));
+        contrato.setDataCancelamento(jFormattedTextFieldContratoDataCancelamento.getText());
+        contrato.setStatus(jTextFieldContratoStatus.getText().replaceAll(" ", ""));
+        //Populando Objeto (Veículos)
         contrato.getVeiculo1().setPlaca(jFormattedTextFieldMensalistaPlaca01.getText());
         contrato.getVeiculo1().setMarca(jTextFieldMensalistaMontadora01.getText());
         contrato.getVeiculo1().setModelo(jTextFieldMensalistaModelo01.getText());
@@ -5788,44 +6027,46 @@ public class TelaPrincipal extends javax.swing.JFrame {
         contrato.getVeiculo4().setModelo(jTextFieldMensalistaModelo04.getText());
         contrato.getVeiculo4().setCor(jTextFieldMensalistaCor04.getText());
         contrato.getVeiculo4().setAnoModelo(jTextFieldMensalistaAno04.getText());
-        contrato.setCliente(cliente);
         return contrato;
     }
 
-    private void clienteCadastroJTextFieldConteudo(String conteudo) {
-        //Preenchendo JTextField dados contrato
-        jTextFieldMensalistaContratoNumero.setText(conteudo);
-        jFormattedTextFieldContratoDataInicio.setText(conteudo);
+    private Cliente clientePopularObjeto() {
+        cliente.setDataInclusao(jFormattedTextFieldContratoDataInicio.getText());
+        cliente.setDataUltimaAlteracao(jFormattedTextFieldContratoDataCancelamento.getText());
+        cliente.setNome(jTextFieldMensalistaNome.getText());
+        cliente.setCpf(jFormattedTextFieldMensalistaCpf.getText().replaceAll("\\.", "").replaceAll("-", "").replaceAll(" ", ""));
+        cliente.setDataNascimento(jFormattedTextFieldMensalistaDataNascimento.getText());
+        cliente.setIdentidade(jTextFieldMensalistaIdentidade.getText());
+        cliente.setTelefone(jFormattedTextFieldMensalistaTelefoneResi.getText().replaceAll("\\(", "").replaceAll("\\)", "").replaceAll("-", "").replaceAll(" ", ""));
+        cliente.setCelular(jFormattedTextFieldMensalistaCelularResi.getText().replaceAll("\\(", "").replaceAll("\\)", "").replaceAll("\\.", "").replaceAll("-", "").replaceAll(" ", ""));
+        cliente.setEmail(jTextFieldMensalistaEmail.getText());
+        cliente.setCepResidencia(jFormattedTextFieldMensalistaCepResi.getText().replaceAll("\\.", "").replaceAll("-", "").replaceAll(" ", ""));
+        cliente.setRuaResidencia(jTextFieldMensalistaRuaResi.getText());
+        cliente.setNumeroResidencia(jTextFieldMensalistaNumeroResi.getText());
+        cliente.setComplementoResidencia(jTextFieldMensalistaComplementoResi.getText());
+        cliente.setBairroResidencia(jTextFieldMensalistaBairroResi.getText());
+        cliente.setCidadeResidencia(jTextFieldMensalistaCidadeResi.getText());
+        cliente.setEstadoResidencia(jTextFieldMensalistaEstadoResi.getText());
+        //Populando Objeto Cliente (Dados Profissionais)
+        cliente.setEmpresa(jTextFieldMensalistaEmpresa.getText());
+        cliente.setCepComercial(jFormattedTextFieldMensalistaCepCome.getText().replaceAll("\\.", "").replaceAll("-", "").replaceAll(" ", ""));
+        cliente.setRuaComercial(jTextFieldMensalistaRuaCome.getText());
+        cliente.setNumeroComercial(jTextFieldMensalistaNumeroCome.getText());
+        cliente.setComplementoComercial(jTextFieldMensalistaComplementoCome.getText());
+        cliente.setBairroComercial(jTextFieldMensalistaBairroCome.getText());
+        cliente.setCidadeComercial(jTextFieldMensalistaCidadeCome.getText());
+        cliente.setEstadoComercial(jTextFieldMensalistaEstadoCome.getText());
+        cliente.setTelefoneComercial(jFormattedTextFieldMensalistaTelefoneCome.getText().replaceAll("\\(", "").replaceAll("\\)", "").replaceAll("-", "").replaceAll(" ", ""));
+        return cliente;
+    }
 
-        jTextFieldMensalistaDiaVencimentoMensalidade.setText(conteudo);
-        jFormattedTextFieldMensalistaDataUltimaAlteracao.setText(conteudo);
-        jTextFieldMensalistaStatus.setText(conteudo);
-        //(Dados Pessoais)
-        jTextFieldMensalistaNome.setText(conteudo);
-        jFormattedTextFieldMensalistaCpf.setText(conteudo);
-        jTextFieldMensalistaIdentidade.setText(conteudo);
-        jFormattedTextFieldMensalistaDataNascimento.setText(conteudo);
-        jFormattedTextFieldMensalistaTelefoneResi.setText(conteudo);
-        jFormattedTextFieldMensalistaCelularResi.setText(conteudo);
-        jTextFieldMensalistaEmail.setText(conteudo);
-        jFormattedTextFieldMensalistaCepResi.setText(conteudo);
-        jTextFieldMensalistaRuaResi.setText(conteudo);
-        jTextFieldMensalistaNumeroResi.setText(conteudo);
-        jTextFieldMensalistaComplementoResi.setText(conteudo);
-        jTextFieldMensalistaBairroResi.setText(conteudo);
-        jTextFieldMensalistaCidadeResi.setText(conteudo);
-        jTextFieldMensalistaEstadoResi.setText(conteudo);
-        //(Dados Profissionais)
-        jTextFieldMensalistaEmpresa.setText(conteudo);
-        jFormattedTextFieldMensalistaCepCome.setText(conteudo);
-        jTextFieldMensalistaRuaCome.setText(conteudo);
-        jTextFieldMensalistaNumeroCome.setText(conteudo);
-        jTextFieldMensalistaComplementoCome.setText(conteudo);
-        jTextFieldMensalistaBairroCome.setText(conteudo);
-        jTextFieldMensalistaCidadeCome.setText(conteudo);
-        jTextFieldMensalistaEstadoCome.setText(conteudo);
-        jFormattedTextFieldMensalistaTelefoneCome.setText(conteudo);
-        //(Veículos)
+    private void contratoJTextFieldConteudo(String conteudo) {
+        jTextFieldContratoNumero.setText(conteudo);
+        jTextFieldContratoDiaVencimento.setText(conteudo);
+        jFormattedTextFieldContratoDataCancelamento.setText(conteudo);
+        jRadioButtonContratoMensalista.setSelected(true);
+        jRadioButtonContratoDias.setSelected(true);
+
         jFormattedTextFieldMensalistaPlaca01.setText(conteudo);
         jTextFieldMensalistaMontadora01.setText(conteudo);
         jTextFieldMensalistaModelo01.setText(conteudo);
@@ -5851,40 +6092,43 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTextFieldMensalistaAno04.setText(conteudo);
     }
 
-    private void clienteJTextFieldEditable(boolean status) {
-        //JTextField dados contrato
-        //jTextFieldMensalistaContratoNumero.setEditable(status);
-        //jFormattedTextFieldMensalistaDataInclusao.setEditable(status);
-        //jTextFieldClienteTipo.setEditable(status);
-        jTextFieldMensalistaDiaVencimentoMensalidade.setEditable(status);
-        //jFormattedTextFieldMensalistaDataUltimaAlteracao.setEditable(status);
-        //jTextFieldMensalistaStatus.setEditable(status);
-        //(Dados Pessoais)
-        jTextFieldMensalistaNome.setEditable(status);
-        jFormattedTextFieldMensalistaCpf.setEditable(status);
-        jTextFieldMensalistaIdentidade.setEditable(status);
-        jFormattedTextFieldMensalistaDataNascimento.setEditable(status);
-        jFormattedTextFieldMensalistaTelefoneResi.setEditable(status);
-        jFormattedTextFieldMensalistaCelularResi.setEditable(status);
-        jTextFieldMensalistaEmail.setEditable(status);
-        jFormattedTextFieldMensalistaCepResi.setEditable(status);
-        jTextFieldMensalistaRuaResi.setEditable(status);
-        jTextFieldMensalistaNumeroResi.setEditable(status);
-        jTextFieldMensalistaComplementoResi.setEditable(status);
-        jTextFieldMensalistaBairroResi.setEditable(status);
-        jTextFieldMensalistaCidadeResi.setEditable(status);
-        jTextFieldMensalistaEstadoResi.setEditable(status);
+    private void clienteJTextFieldConteudo(String conteudo) {
+        jTextFieldMensalistaNome.setText(conteudo);
+        jFormattedTextFieldMensalistaCpf.setText(conteudo);
+        jTextFieldMensalistaIdentidade.setText(conteudo);
+        jFormattedTextFieldMensalistaDataNascimento.setText(conteudo);
+        jFormattedTextFieldMensalistaTelefoneResi.setText(conteudo);
+        jFormattedTextFieldMensalistaCelularResi.setText(conteudo);
+        jTextFieldMensalistaEmail.setText(conteudo);
+        jFormattedTextFieldMensalistaCepResi.setText(conteudo);
+        jTextFieldMensalistaRuaResi.setText(conteudo);
+        jTextFieldMensalistaNumeroResi.setText(conteudo);
+        jTextFieldMensalistaComplementoResi.setText(conteudo);
+        jTextFieldMensalistaBairroResi.setText(conteudo);
+        jTextFieldMensalistaCidadeResi.setText(conteudo);
+        jTextFieldMensalistaEstadoResi.setText(conteudo);
         //(Dados Profissionais)
-        jTextFieldMensalistaEmpresa.setEditable(status);
-        jFormattedTextFieldMensalistaCepCome.setEditable(status);
-        jTextFieldMensalistaRuaCome.setEditable(status);
-        jTextFieldMensalistaNumeroCome.setEditable(status);
-        jTextFieldMensalistaComplementoCome.setEditable(status);
-        jTextFieldMensalistaBairroCome.setEditable(status);
-        jTextFieldMensalistaCidadeCome.setEditable(status);
-        jTextFieldMensalistaEstadoCome.setEditable(status);
-        jFormattedTextFieldMensalistaTelefoneCome.setEditable(status);
-        //(Veículos)
+        jTextFieldMensalistaEmpresa.setText(conteudo);
+        jFormattedTextFieldMensalistaCepCome.setText(conteudo);
+        jTextFieldMensalistaRuaCome.setText(conteudo);
+        jTextFieldMensalistaNumeroCome.setText(conteudo);
+        jTextFieldMensalistaComplementoCome.setText(conteudo);
+        jTextFieldMensalistaBairroCome.setText(conteudo);
+        jTextFieldMensalistaCidadeCome.setText(conteudo);
+        jTextFieldMensalistaEstadoCome.setText(conteudo);
+        jFormattedTextFieldMensalistaTelefoneCome.setText(conteudo);
+    }
+
+    private void contratoJTextFieldEditable(boolean status) {
+        jRadioButtonContratoMensalista.setEnabled(status);
+        jRadioButtonContratoPacote.setEnabled(status);
+        jRadioButtonContratoDias.setEnabled(status);
+        jRadioButtonContratoUtilizacoes.setEnabled(status);
+        jFormattedTextFieldContratoQuantidade.setEditable(status);
+        jFormattedTextFieldContratoDataInicio.setEditable(status);
+        jTextFieldContratoValor.setEditable(status);
+        jTextFieldContratoDiaVencimento.setEditable(status);
+
         jFormattedTextFieldMensalistaPlaca01.setEditable(status);
         jTextFieldMensalistaMontadora01.setEditable(status);
         jTextFieldMensalistaModelo01.setEditable(status);
@@ -5910,39 +6154,56 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTextFieldMensalistaAno04.setEditable(status);
     }
 
-    private void clientePreencherJTextFieldsCadastro(Contrato contrato) {
-        //Preenchendo JTextField dados contrato
-        jTextFieldMensalistaContratoNumero.setText(String.valueOf(contrato.getIdContrato()));
-        jFormattedTextFieldContratoDataInicio.setText(contrato.getCliente().getDataInclusao());
+    private void clienteJTextFieldEditable(boolean status) {
 
-        jTextFieldMensalistaDiaVencimentoMensalidade.setText(contrato.getDiaVencimento());
-        jFormattedTextFieldMensalistaDataUltimaAlteracao.setText(contrato.getCliente().getDataUltimaAlteracao());
-        jTextFieldMensalistaStatus.setText(contrato.getStatus());
-        //Preenchendo JTextField com dados cadastrais Pessoais
-        jTextFieldMensalistaNome.setText(contrato.getCliente().getNome());
-        jFormattedTextFieldMensalistaCpf.setText(contrato.getCliente().getCpf());
-        jTextFieldMensalistaIdentidade.setText(contrato.getCliente().getIdentidade());
-        jFormattedTextFieldMensalistaTelefoneResi.setText(contrato.getCliente().getTelefone());
-        jFormattedTextFieldMensalistaCelularResi.setText(contrato.getCliente().getCelular());
-        jTextFieldMensalistaEmail.setText(contrato.getCliente().getEmail());
-        jFormattedTextFieldMensalistaCepResi.setText(contrato.getCliente().getCepResidencia());
-        jTextFieldMensalistaRuaResi.setText(contrato.getCliente().getRuaResidencia());
-        jTextFieldMensalistaNumeroResi.setText(contrato.getCliente().getNumeroResidencia());
-        jTextFieldMensalistaComplementoResi.setText(contrato.getCliente().getComplementoResidencia());
-        jTextFieldMensalistaBairroResi.setText(contrato.getCliente().getBairroResidencia());
-        jTextFieldMensalistaCidadeResi.setText(contrato.getCliente().getCidadeResidencia());
-        jTextFieldMensalistaEstadoResi.setText(contrato.getCliente().getEstadoResidencia());
-        //Preenchendo JTextField com dados cadastrais Profissionais
-        jTextFieldMensalistaEmpresa.setText(contrato.getCliente().getEmpresa());
-        jFormattedTextFieldMensalistaCepCome.setText(contrato.getCliente().getCepComercial());
-        jTextFieldMensalistaRuaCome.setText(contrato.getCliente().getRuaComercial());
-        jTextFieldMensalistaNumeroCome.setText(contrato.getCliente().getNumeroComercial());
-        jTextFieldMensalistaComplementoCome.setText(contrato.getCliente().getComplementoComercial());
-        jTextFieldMensalistaBairroCome.setText(contrato.getCliente().getBairroComercial());
-        jTextFieldMensalistaCidadeCome.setText(contrato.getCliente().getCidadeComercial());
-        jTextFieldMensalistaEstadoCome.setText(contrato.getCliente().getEstadoComercial());
-        jFormattedTextFieldMensalistaTelefoneCome.setText(contrato.getCliente().getTelefoneComercial());
-        //Preenchendo JTextField com dados cadastrais Veículos
+        jTextFieldMensalistaNome.setEditable(status);
+        jFormattedTextFieldMensalistaCpf.setEditable(status);
+        jTextFieldMensalistaIdentidade.setEditable(status);
+        jFormattedTextFieldMensalistaDataNascimento.setEditable(status);
+        jFormattedTextFieldMensalistaTelefoneResi.setEditable(status);
+        jFormattedTextFieldMensalistaCelularResi.setEditable(status);
+        jTextFieldMensalistaEmail.setEditable(status);
+        jFormattedTextFieldMensalistaCepResi.setEditable(status);
+        jTextFieldMensalistaRuaResi.setEditable(status);
+        jTextFieldMensalistaNumeroResi.setEditable(status);
+        jTextFieldMensalistaComplementoResi.setEditable(status);
+        jTextFieldMensalistaBairroResi.setEditable(status);
+        jTextFieldMensalistaCidadeResi.setEditable(status);
+        jTextFieldMensalistaEstadoResi.setEditable(status);
+        //(Dados Profissionais)
+        jTextFieldMensalistaEmpresa.setEditable(status);
+        jFormattedTextFieldMensalistaCepCome.setEditable(status);
+        jTextFieldMensalistaRuaCome.setEditable(status);
+        jTextFieldMensalistaNumeroCome.setEditable(status);
+        jTextFieldMensalistaComplementoCome.setEditable(status);
+        jTextFieldMensalistaBairroCome.setEditable(status);
+        jTextFieldMensalistaCidadeCome.setEditable(status);
+        jTextFieldMensalistaEstadoCome.setEditable(status);
+        jFormattedTextFieldMensalistaTelefoneCome.setEditable(status);
+    }
+
+    private void contratoConsultaPreencherJTextField(Contrato contrato) {
+        if (contrato.getMensalistaOuPacote().equalsIgnoreCase("Mensalista")) {
+            jRadioButtonContratoMensalista.setSelected(true);
+        } else if (contrato.getMensalistaOuPacote().equalsIgnoreCase("Pacote")) {
+            jRadioButtonContratoPacote.setSelected(true);
+        }
+
+        if (contrato.getDiasOuUtilizacoes().equalsIgnoreCase("Dias")) {
+            jRadioButtonContratoDias.setSelected(true);
+        } else if (contrato.getDiasOuUtilizacoes().equalsIgnoreCase("Utilizações")) {
+            jRadioButtonContratoUtilizacoes.setSelected(true);
+        }
+
+        jTextFieldContratoNumero.setText(String.valueOf(contrato.getIdContrato()));
+        jFormattedTextFieldContratoQuantidade.setText(String.valueOf(contrato.getQuantidade()));
+        jFormattedTextFieldContratoDataInicio.setText(contrato.getDataInicio());
+        jFormattedTextFieldContratoDataTermino.setText(contrato.getDataTermino());
+        jTextFieldContratoValor.setText(new DecimalFormat("#,##0.00").format(contrato.getValor()));
+        jTextFieldContratoDiaVencimento.setText(contrato.getDiaVencimento());
+        jFormattedTextFieldContratoDataCancelamento.setText(contrato.getDataCancelamento());
+        jTextFieldContratoStatus.setText(contrato.getStatus());
+
         jFormattedTextFieldMensalistaPlaca01.setText(contrato.getVeiculo1().getPlaca());
         jTextFieldMensalistaMontadora01.setText(contrato.getVeiculo1().getMarca());
         jTextFieldMensalistaModelo01.setText(contrato.getVeiculo1().getModelo());
@@ -5963,6 +6224,33 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTextFieldMensalistaModelo04.setText(contrato.getVeiculo4().getModelo());
         jTextFieldMensalistaCor04.setText(contrato.getVeiculo4().getCor());
         jTextFieldMensalistaAno04.setText(contrato.getVeiculo4().getAnoModelo());
+    }
+
+    private void clientePreencherJTextField(Cliente cliente) {
+        jTextFieldMensalistaNome.setText(cliente.getNome());
+        jTextFieldClienteNumero.setText(String.valueOf(cliente.getIdCliente()));
+        jFormattedTextFieldMensalistaCpf.setText(cliente.getCpf());
+        jTextFieldMensalistaIdentidade.setText(cliente.getIdentidade());
+        jFormattedTextFieldMensalistaTelefoneResi.setText(cliente.getTelefone());
+        jFormattedTextFieldMensalistaCelularResi.setText(cliente.getCelular());
+        jTextFieldMensalistaEmail.setText(cliente.getEmail());
+        jFormattedTextFieldMensalistaCepResi.setText(cliente.getCepResidencia());
+        jTextFieldMensalistaRuaResi.setText(cliente.getRuaResidencia());
+        jTextFieldMensalistaNumeroResi.setText(cliente.getNumeroResidencia());
+        jTextFieldMensalistaComplementoResi.setText(cliente.getComplementoResidencia());
+        jTextFieldMensalistaBairroResi.setText(cliente.getBairroResidencia());
+        jTextFieldMensalistaCidadeResi.setText(cliente.getCidadeResidencia());
+        jTextFieldMensalistaEstadoResi.setText(cliente.getEstadoResidencia());
+        //Preenchendo JTextField com dados cadastrais Profissionais
+        jTextFieldMensalistaEmpresa.setText(cliente.getEmpresa());
+        jFormattedTextFieldMensalistaCepCome.setText(cliente.getCepComercial());
+        jTextFieldMensalistaRuaCome.setText(cliente.getRuaComercial());
+        jTextFieldMensalistaNumeroCome.setText(cliente.getNumeroComercial());
+        jTextFieldMensalistaComplementoCome.setText(cliente.getComplementoComercial());
+        jTextFieldMensalistaBairroCome.setText(cliente.getBairroComercial());
+        jTextFieldMensalistaCidadeCome.setText(cliente.getCidadeComercial());
+        jTextFieldMensalistaEstadoCome.setText(cliente.getEstadoComercial());
+        jFormattedTextFieldMensalistaTelefoneCome.setText(cliente.getTelefoneComercial());
     }
 
     private Contrato placaIsContratoCliente(String placa) {
@@ -6000,7 +6288,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
             JOptionPane.showMessageDialog(this, "Veículo de cliente!!!\n"
                     + "\nN. Contrato: " + contrato.getIdContrato()
-                    + "\nNome: " + contrato.getCliente().getNome()
+                    + "\nNome: " + cliente.getNome()
                     + "\nPlaca: " + placa
                     + "\nMontadora: " + marca
                     + "\nModelo: " + modelo
@@ -6010,24 +6298,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
         return contrato;
     }
 
-    private void clientePagamentoJTextFieldConteudo(String conteudo) {
-        jTextFieldClientePagamentoNumeroContrato.setText(conteudo);
-        jFormattedTextFieldClientePagamentoDataInclusao.setText(conteudo);
-        jTextFieldClientePagamentoTipo.setText(conteudo);
-        jTextFieldClientePagamentoDiaVencimento.setText(conteudo);
-        jFormattedTextFieldClientePagamentoDataUltimaAlteracao.setText(conteudo);
-        jTextFieldClientePagamentoStatus.setText(conteudo);
-        jTextFieldClientePagamentoNome.setText(conteudo);
-    }
+    private void contratoFaturaPreencherJTextField(Contrato contrato) {
+        if (contrato.getMensalistaOuPacote().equalsIgnoreCase("Mensalista")) {
+            jRadioButtonContratoFaturaMensalista.setSelected(true);
+        } else if (contrato.getMensalistaOuPacote().equalsIgnoreCase("Pacote")) {
+            jRadioButtonContratoFaturaPacote.setSelected(true);
+        }
 
-    private void clientePagamentoPreencherJTextField(Contrato contrato) {
-        jTextFieldClientePagamentoNumeroContrato.setText(String.valueOf(contrato.getIdContrato()));
-        jFormattedTextFieldClientePagamentoDataInclusao.setText(contrato.getDataInicio());
-        jTextFieldClientePagamentoTipo.setText(contrato.getTipo());
-        jTextFieldClientePagamentoDiaVencimento.setText(contrato.getDiaVencimento());
-        jFormattedTextFieldClientePagamentoDataUltimaAlteracao.setText(contrato.getCliente().getDataUltimaAlteracao());
-        jTextFieldClientePagamentoStatus.setText(contrato.getStatus());
-        jTextFieldClientePagamentoNome.setText(contrato.getCliente().getNome());
+        if (contrato.getDiasOuUtilizacoes().equalsIgnoreCase("Dias")) {
+            jRadioButtonContratoFaturaDias.setSelected(true);
+        } else if (contrato.getDiasOuUtilizacoes().equalsIgnoreCase("Utilizações")) {
+            jRadioButtonContratoFaturaUtilizacoes.setSelected(true);
+        }
+
+        jTextFieldContratoFaturaNumero.setText(String.valueOf(contrato.getIdContrato()));
+        jFormattedTextFieldContratoFaturaQuantidade.setText(String.valueOf(contrato.getQuantidade()));
+        jFormattedTextFieldContratoFaturaDataInicio.setText(contrato.getDataInicio());
+        jFormattedTextFieldContratoFaturaDataTermino.setText(contrato.getDataTermino());
+        jTextFieldContratoFaturaValor.setText(new DecimalFormat("#,##0.00").format(contrato.getValor()));
+        jTextFieldContratoFaturaDiaVencimento.setText(contrato.getDiaVencimento());
+        jFormattedTextFieldContratoFaturaUltimaAlteracao.setText(contrato.getDataCancelamento());
+        jTextFieldContratoFaturaStatus.setText(contrato.getStatus());
+
+        jTextFieldContratoFaturaCliente.setText(contrato.getIdClienteFk().getNome());
+        jFormattedTextFieldContratoFaturaCPF.setText(contrato.getIdClienteFk().getCpf());
     }
 
     private void contratoClienteFatura(Contrato contrato) {
@@ -6035,50 +6329,47 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ((DefaultTableModel) jTableContratoClienteFatura.getModel()).setColumnCount(0);
         faturaArrayList.clear();
         faturaArrayList = faturaService.faturasContratoCliente(contrato.getIdContrato());
-        faturaDefaultTableModel.addColumn("N. Fatura");
-        faturaDefaultTableModel.addColumn("N. Contrato");
-        faturaDefaultTableModel.addColumn("Cliente");
-        faturaDefaultTableModel.addColumn("CPF");
+        faturaDefaultTableModel.addColumn("N.Contrato");
+        faturaDefaultTableModel.addColumn("N.Fatura");
         faturaDefaultTableModel.addColumn("Tipo");
         faturaDefaultTableModel.addColumn("Mês Referência");
         faturaDefaultTableModel.addColumn("Período");
-        faturaDefaultTableModel.addColumn("Dia Vencimento");
-        faturaDefaultTableModel.addColumn("Status");
+        faturaDefaultTableModel.addColumn("Vencimento");
         faturaDefaultTableModel.addColumn("Valor R$");
+        faturaDefaultTableModel.addColumn("Data Pagamento");
+        faturaDefaultTableModel.addColumn("Status");
 
         for (int i = 0; i < faturaArrayList.size(); i++) {
             //clienteArrayList.get(i).setCpf(String.format("%011d", Long.parseLong(clienteArrayList.get(i).getCpf())));
             faturaDefaultTableModel.addRow(new String[]{
-                String.valueOf(faturaArrayList.get(i).getIdFatura()),
                 String.valueOf(faturaArrayList.get(i).getIdContratoFK()),
-                contrato.getCliente().getNome(),
-                contrato.getCliente().getCpf(),
-                contrato.getTipo(),
+                String.valueOf(faturaArrayList.get(i).getIdFatura()),
+                contrato.getMensalistaOuPacote(),
                 faturaArrayList.get(i).getMesReferencia(),
-                contrato.getDataInicio().substring(0, 2) + "/" + contrato.getDataInicio().substring(2, 4) + "/" + contrato.getDataInicio().substring(4, 8) + "à" + contrato.getDataTermino().substring(0, 2) + "/" + contrato.getDataTermino().substring(2, 4) + "/" + contrato.getDataTermino().substring(4, 8),
-                contrato.getDiaVencimento(),
-                faturaArrayList.get(i).getStatus(),
-                new DecimalFormat("#,##0.00").format(contrato.getValor()),});
+                faturaArrayList.get(i).getPeriodo(),
+                faturaArrayList.get(i).getVencimento(),
+                new DecimalFormat("#,##0.00").format(faturaArrayList.get(i).getValor()),
+                faturaArrayList.get(i).getDataPagamento(),
+                faturaArrayList.get(i).getStatus()});
         }
 
         jTableContratoClienteFatura.setModel(faturaDefaultTableModel);
-        jTableContratoClienteFatura.getColumnModel().getColumn(0).setPreferredWidth(75);
-        jTableContratoClienteFatura.getColumnModel().getColumn(1).setPreferredWidth(75);
-        jTableContratoClienteFatura.getColumnModel().getColumn(2).setPreferredWidth(140);
+        jTableContratoClienteFatura.getColumnModel().getColumn(0).setPreferredWidth(70);
+        jTableContratoClienteFatura.getColumnModel().getColumn(1).setPreferredWidth(70);
+        jTableContratoClienteFatura.getColumnModel().getColumn(2).setPreferredWidth(95);
         jTableContratoClienteFatura.getColumnModel().getColumn(3).setPreferredWidth(95);
-        jTableContratoClienteFatura.getColumnModel().getColumn(4).setPreferredWidth(70);
-        jTableContratoClienteFatura.getColumnModel().getColumn(5).setPreferredWidth(45);
-        jTableContratoClienteFatura.getColumnModel().getColumn(6).setPreferredWidth(130);
-        jTableContratoClienteFatura.getColumnModel().getColumn(7).setPreferredWidth(140);
-        jTableContratoClienteFatura.getColumnModel().getColumn(8).setPreferredWidth(150);
-        jTableContratoClienteFatura.getColumnModel().getColumn(8).setPreferredWidth(150);
+        jTableContratoClienteFatura.getColumnModel().getColumn(4).setPreferredWidth(200);
+        jTableContratoClienteFatura.getColumnModel().getColumn(5).setPreferredWidth(95);
+        jTableContratoClienteFatura.getColumnModel().getColumn(6).setPreferredWidth(75);
+        jTableContratoClienteFatura.getColumnModel().getColumn(7).setPreferredWidth(95);
+        jTableContratoClienteFatura.getColumnModel().getColumn(8).setPreferredWidth(75);
         jTableContratoClienteFatura.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(
                     JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
                 super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 
-                Object colunaStatus = table.getValueAt(row, 4);//Coluna Status
+                Object colunaStatus = table.getValueAt(row, 8);//Coluna Status
 
                 if (row % 2 == 0) {
                     setBackground(new Color(255, 255, 255));
@@ -6087,10 +6378,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 }
                 setFont(new Font("", Font.PLAIN, 16));//("Nome da fonte", estilo da fonte, tamanho da fonte)
                 if (colunaStatus != null) {//Se existir a celula Tipo
-                    if (colunaStatus.equals("Ativo")) {
-                        setForeground(new Color(0, 150, 0));//Fonte
-                    } else if (colunaStatus.equals("Inativo")) {
-                        setForeground(new Color(150, 0, 0));//Fonte
+                    if (!colunaStatus.equals("Paga")) {
+                        setForeground(new Color(255, 0, 0));//Fonte
+                    } else {
+                        setForeground(Color.BLACK);//Fonte
                     }
                 }
 
@@ -6106,19 +6397,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         SimpleDateFormat dataInicio = new SimpleDateFormat("ddMMyyyy");
         jFormattedTextFieldContratoDataInicio.setText(dataInicio.format(new Date()));
         jFormattedTextFieldContratoDataTermino.setText("01012020");
+        if (jRadioButtonContratoMensalista.isSelected()) {
+            jRadioButtonContratoUtilizacoes.setEnabled(true);
+        } else {
+            jRadioButtonContratoUtilizacoes.setEnabled(false);
+        }
         if (jRadioButtonContratoMensalista.isSelected() && jRadioButtonContratoDias.isSelected()) {
-            jFormattedTextFieldContratoQuantidadeDiasUtilizacoes.setEditable(false);
-            jFormattedTextFieldContratoQuantidadeDiasUtilizacoes.setText("30");
+            jFormattedTextFieldContratoQuantidade.setEditable(false);
+            jFormattedTextFieldContratoQuantidade.setText("30");
             jFormattedTextFieldContratoDataInicio.setEditable(true);
             jFormattedTextFieldContratoDataTermino.setEditable(false);
         } else if (jRadioButtonContratoMensalista.isSelected() && jRadioButtonContratoUtilizacoes.isSelected()) {
-            jFormattedTextFieldContratoQuantidadeDiasUtilizacoes.setEditable(true);
-            jFormattedTextFieldContratoQuantidadeDiasUtilizacoes.setText("");
+            jFormattedTextFieldContratoQuantidade.setEditable(true);
+            jFormattedTextFieldContratoQuantidade.setText("");
             jFormattedTextFieldContratoDataInicio.setEditable(true);
             jFormattedTextFieldContratoDataTermino.setEditable(false);
         } else if (jRadioButtonContratoPacote.isSelected()) {
-            jFormattedTextFieldContratoQuantidadeDiasUtilizacoes.setEditable(true);
-            jFormattedTextFieldContratoQuantidadeDiasUtilizacoes.setText("");
+            jFormattedTextFieldContratoQuantidade.setEditable(true);
+            jFormattedTextFieldContratoQuantidade.setText("");
             jRadioButtonContratoDias.setSelected(true);
             jRadioButtonContratoUtilizacoes.setEnabled(false);
             jFormattedTextFieldContratoDataInicio.setEditable(true);
@@ -6128,13 +6424,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void contratoValidaQuantidadeDiasUtilizacoes() {
-        if (jFormattedTextFieldContratoQuantidadeDiasUtilizacoes.getText().replaceAll(" ", "").equalsIgnoreCase("")) {
-            jFormattedTextFieldContratoDataTermino.setText(jFormattedTextFieldContratoDataInicio.getText());
+        if (jFormattedTextFieldContratoQuantidade.getText().replaceAll(" ", "").equalsIgnoreCase("")) {
+            if (jRadioButtonContratoMensalista.isSelected()) {
+                jFormattedTextFieldContratoDataTermino.setText("01/01/2020");
+            } else {
+                jFormattedTextFieldContratoDataTermino.setText(jFormattedTextFieldContratoDataInicio.getText());
+            }
         } else {
-            if (Integer.valueOf(jFormattedTextFieldContratoQuantidadeDiasUtilizacoes.getText().replaceAll(" ", "")) > 30) {
-                jFormattedTextFieldContratoQuantidadeDiasUtilizacoes.setText("30");
-            } else if (Integer.valueOf(jFormattedTextFieldContratoQuantidadeDiasUtilizacoes.getText().replaceAll(" ", "")) < 1) {
-                jFormattedTextFieldContratoQuantidadeDiasUtilizacoes.setText("1");
+            if (Integer.valueOf(jFormattedTextFieldContratoQuantidade.getText().replaceAll(" ", "")) > 30) {
+                jFormattedTextFieldContratoQuantidade.setText("30");
+            } else if (Integer.valueOf(jFormattedTextFieldContratoQuantidade.getText().replaceAll(" ", "")) < 1) {
+                jFormattedTextFieldContratoQuantidade.setText("1");
             }
             if (jRadioButtonContratoPacote.isSelected()) {
                 contratoPreencherDataTermino();
@@ -6149,11 +6449,54 @@ public class TelaPrincipal extends javax.swing.JFrame {
         try {
             contratoDataInicio = sdfContratoData.parse(jFormattedTextFieldContratoDataInicio.getText().replaceAll(" ", ""));
             contratoCalendario.setTime(contratoDataInicio);
-            contratoCalendario.add(Calendar.DATE, +Integer.valueOf(jFormattedTextFieldContratoQuantidadeDiasUtilizacoes.getText().replaceAll(" ", "")));
+            int quantidade = Integer.valueOf(jFormattedTextFieldContratoQuantidade.getText().replaceAll(" ", "")) - 1;
+            contratoCalendario.add(Calendar.DATE, +quantidade);
             contratoDataTermino = contratoCalendario.getTime();
             jFormattedTextFieldContratoDataTermino.setText(sdfContratoData.format(contratoDataTermino));
         } catch (ParseException ex) {
             Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void contratoVerificaVeiculosCadastrados(Contrato contrato) {
+        SimpleDateFormat dataHoraAtual = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        if (verificadorEntradaDado.verificaDadoTipo(jFormattedTextFieldMensalistaPlaca01.getText()).equalsIgnoreCase("placa")) {
+            if (veiculoService.veiculoIsCadastrado(jFormattedTextFieldMensalistaPlaca01.getText()).getPlaca().equalsIgnoreCase("")) {
+                contrato.getVeiculo1().setDataHoraCadastro(dataHoraAtual.format(new Date()));
+                veiculoService.veiculoIncluir(contrato.getVeiculo1());
+            } else {
+                contrato.getVeiculo1().setDataHoraUltimaAlteracao(dataHoraAtual.format(new Date()));
+                veiculoService.veiculoAlterar(contrato.getVeiculo1());
+            }
+        }
+
+        if (verificadorEntradaDado.verificaDadoTipo(jFormattedTextFieldMensalistaPlaca02.getText()).equalsIgnoreCase("placa")) {
+            if (veiculoService.veiculoIsCadastrado(jFormattedTextFieldMensalistaPlaca02.getText()).getPlaca().equalsIgnoreCase("")) {
+                contrato.getVeiculo2().setDataHoraCadastro(dataHoraAtual.format(new Date()));
+                veiculoService.veiculoIncluir(contrato.getVeiculo2());
+            } else {
+                contrato.getVeiculo2().setDataHoraUltimaAlteracao(dataHoraAtual.format(new Date()));
+                veiculoService.veiculoAlterar(contrato.getVeiculo2());
+            }
+        }
+
+        if (verificadorEntradaDado.verificaDadoTipo(jFormattedTextFieldMensalistaPlaca03.getText()).equalsIgnoreCase("placa")) {
+            if (veiculoService.veiculoIsCadastrado(jFormattedTextFieldMensalistaPlaca03.getText()).getPlaca().equalsIgnoreCase("")) {
+                contrato.getVeiculo3().setDataHoraCadastro(dataHoraAtual.format(new Date()));
+                veiculoService.veiculoIncluir(contrato.getVeiculo3());
+            } else {
+                contrato.getVeiculo3().setDataHoraUltimaAlteracao(dataHoraAtual.format(new Date()));
+                veiculoService.veiculoAlterar(contrato.getVeiculo3());
+            }
+        }
+        if (verificadorEntradaDado.verificaDadoTipo(jFormattedTextFieldMensalistaPlaca04.getText()).equalsIgnoreCase("placa")) {
+            if (veiculoService.veiculoIsCadastrado(jFormattedTextFieldMensalistaPlaca04.getText()).getPlaca().equalsIgnoreCase("")) {
+                contrato.getVeiculo4().setDataHoraCadastro(dataHoraAtual.format(new Date()));
+                veiculoService.veiculoIncluir(contrato.getVeiculo4());
+            } else {
+                contrato.getVeiculo4().setDataHoraUltimaAlteracao(dataHoraAtual.format(new Date()));
+                veiculoService.veiculoAlterar(contrato.getVeiculo4());
+            }
         }
     }
 }

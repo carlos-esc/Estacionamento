@@ -41,7 +41,7 @@ public class PatioService {
         return patio;
     }
     
-    public Patio contratoCienteVagaIsOcupada(Contrato contrato) {
+    public Patio contratoClienteVagaIsOcupada(Contrato contrato) {
         Patio patio = new Patio();
         patio = patioDAO.contratoCienteVagaIsOcupada(contrato);
         return patio;

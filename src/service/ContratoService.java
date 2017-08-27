@@ -24,4 +24,18 @@ public class ContratoService {
         contrato = contratoDAO.contratoIncluir(contrato);
         return contrato;
     }
+    
+    public Contrato contratoAlterar(Contrato contrato){
+        contrato = contratoDAO.contratoAlterar(contrato);
+        return contrato;
+    }
+    
+    public Contrato contratoCancelar(Contrato contrato){
+        contrato = contratoDAO.contratoCancelar(contrato);
+        return contrato;
+    }
+    
+    public void contratoGeraFatura(){
+        contratoDAO.contratoGeraFatura();
+    }
 }

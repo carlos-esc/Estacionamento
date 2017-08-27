@@ -8,6 +8,7 @@ public class Patio {
     private String rps;
     private String prisma;
     private String tipo;
+    private String nome;
     private float preco30Minutos;
     private float preco60Minutos;
     private float precoDemaisFracoes;
@@ -35,6 +36,7 @@ public class Patio {
     private float diariaValorTotal;
     private int pernoiteQuantidade;
     private float pernoiteValorTotal;
+    
     /**
      * @return the idPatio
      */
@@ -481,5 +483,19 @@ public class Patio {
      */
     public void setPernoiteValorTotal(float pernoiteValorTotal) {
         this.pernoiteValorTotal = pernoiteValorTotal;
+    }
+
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }

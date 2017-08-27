@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Cliente;
-import modelo.Contrato;
 
 public class ClienteDAO {
 
@@ -64,83 +63,83 @@ public class ClienteDAO {
         }
     }
 
-    public Contrato clienteIncluir(Contrato contrato) {
+    public Cliente clienteIncluir(Cliente cliente) {
         try {
             String sql = "INSERT INTO cliente(data_inclusao, data_ultima_alteracao, nome, cpf, identidade, telefone, celular, email, data_nascimento, cep_residencia, rua_residencia, numero_residencia, complemento_residencia, bairro_residencia, cidade_residencia, estado_residencia, empresa, cep_comercial, rua_comercial, numero_comercial, complemento_comercial, bairro_comercial, cidade_comercial, estado_comercial, telefone_comercial) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement stmt = conexao.prepareStatement(sql);
-            stmt.setString(1, contrato.getCliente().getDataInclusao());
-            stmt.setString(2, contrato.getCliente().getDataUltimaAlteracao());
-            stmt.setString(3, contrato.getCliente().getNome());
-            stmt.setString(4, contrato.getCliente().getCpf());
-            stmt.setString(5, contrato.getCliente().getIdentidade());
-            stmt.setString(6, contrato.getCliente().getTelefone());
-            stmt.setString(7, contrato.getCliente().getCelular());
-            stmt.setString(8, contrato.getCliente().getEmail());
-            stmt.setString(9, contrato.getCliente().getDataNascimento());
-            stmt.setString(10, contrato.getCliente().getCepResidencia());
-            stmt.setString(11, contrato.getCliente().getRuaResidencia());
-            stmt.setString(12, contrato.getCliente().getNumeroResidencia());
-            stmt.setString(13, contrato.getCliente().getComplementoResidencia());
-            stmt.setString(14, contrato.getCliente().getBairroResidencia());
-            stmt.setString(15, contrato.getCliente().getCidadeResidencia());
-            stmt.setString(16, contrato.getCliente().getEstadoResidencia());
+            stmt.setString(1, cliente.getDataInclusao());
+            stmt.setString(2, cliente.getDataUltimaAlteracao());
+            stmt.setString(3, cliente.getNome());
+            stmt.setString(4, cliente.getCpf());
+            stmt.setString(5, cliente.getIdentidade());
+            stmt.setString(6, cliente.getTelefone());
+            stmt.setString(7, cliente.getCelular());
+            stmt.setString(8, cliente.getEmail());
+            stmt.setString(9, cliente.getDataNascimento());
+            stmt.setString(10, cliente.getCepResidencia());
+            stmt.setString(11, cliente.getRuaResidencia());
+            stmt.setString(12, cliente.getNumeroResidencia());
+            stmt.setString(13, cliente.getComplementoResidencia());
+            stmt.setString(14, cliente.getBairroResidencia());
+            stmt.setString(15, cliente.getCidadeResidencia());
+            stmt.setString(16, cliente.getEstadoResidencia());
 
-            stmt.setString(17, contrato.getCliente().getEmpresa());
-            stmt.setString(18, contrato.getCliente().getCepComercial());
-            stmt.setString(19, contrato.getCliente().getRuaComercial());
-            stmt.setString(20, contrato.getCliente().getNumeroComercial());
-            stmt.setString(21, contrato.getCliente().getComplementoComercial());
-            stmt.setString(22, contrato.getCliente().getBairroComercial());
-            stmt.setString(23, contrato.getCliente().getCidadeComercial());
-            stmt.setString(24, contrato.getCliente().getEstadoComercial());
-            stmt.setString(25, contrato.getCliente().getTelefoneComercial());
+            stmt.setString(17, cliente.getEmpresa());
+            stmt.setString(18, cliente.getCepComercial());
+            stmt.setString(19, cliente.getRuaComercial());
+            stmt.setString(20, cliente.getNumeroComercial());
+            stmt.setString(21, cliente.getComplementoComercial());
+            stmt.setString(22, cliente.getBairroComercial());
+            stmt.setString(23, cliente.getCidadeComercial());
+            stmt.setString(24, cliente.getEstadoComercial());
+            stmt.setString(25, cliente.getTelefoneComercial());
             stmt.executeUpdate();
             ResultSet resultSet = stmt.executeQuery("SELECT LAST_INSERT_ID()");
             if (resultSet.next()) {
-                contrato.getCliente().setIdCliente(resultSet.getInt("LAST_INSERT_ID()"));
+                cliente.setIdCliente(resultSet.getInt("LAST_INSERT_ID()"));
             }
             stmt.close();
         } catch (SQLException ex) {
             Logger.getLogger(VeiculoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return contrato;
+        return cliente;
     }
 
-    public Contrato clientaAlterar(Contrato contrato) {
+    public Cliente clientaAlterar(Cliente cliente) {
         try {
-            String sql = "UPDATE cliente SET data_ultima_alteracao=?, nome=?, cpf=?, identidade=?, telefone=?, celular=?, email=?, data_nascimento=?, cep_residencia=?, rua_residencia=?, numero_residencia=?, complemento_residencia=?, bairro_residencia=?, cidade_residencia=?, estado_residencia=?, "
-                    + "empresa=?, cep_comercial=?, rua_comercial=?, numero_comercial=?, complemento_comercial=?, bairro_comercial=?, cidade_comercial=?, estado_comercial=?, telefone_comercial=?";
+            String sql = "UPDATE cliente SET data_ultima_alteracao=?, nome=?, identidade=?, telefone=?, celular=?, email=?, data_nascimento=?, cep_residencia=?, rua_residencia=?, numero_residencia=?, complemento_residencia=?, bairro_residencia=?, cidade_residencia=?, estado_residencia=?, "
+                    + "empresa=?, cep_comercial=?, rua_comercial=?, numero_comercial=?, complemento_comercial=?, bairro_comercial=?, cidade_comercial=?, estado_comercial=?, telefone_comercial=? WHERE cpf=?";
             PreparedStatement stmt = conexao.prepareStatement(sql);
-            stmt.setString(2, contrato.getCliente().getDataUltimaAlteracao());
-            stmt.setString(3, contrato.getCliente().getNome());
-            stmt.setString(4, contrato.getCliente().getCpf());
-            stmt.setString(5, contrato.getCliente().getIdentidade());
-            stmt.setString(6, contrato.getCliente().getTelefone());
-            stmt.setString(7, contrato.getCliente().getCelular());
-            stmt.setString(8, contrato.getCliente().getEmail());
-            stmt.setString(9, contrato.getCliente().getDataNascimento());
-            stmt.setString(10, contrato.getCliente().getCepResidencia());
-            stmt.setString(11, contrato.getCliente().getRuaResidencia());
-            stmt.setString(12, contrato.getCliente().getNumeroResidencia());
-            stmt.setString(13, contrato.getCliente().getComplementoResidencia());
-            stmt.setString(14, contrato.getCliente().getBairroResidencia());
-            stmt.setString(15, contrato.getCliente().getCidadeResidencia());
-            stmt.setString(16, contrato.getCliente().getEstadoResidencia());
+            stmt.setString(1, cliente.getDataUltimaAlteracao());
+            stmt.setString(2, cliente.getNome());
+            stmt.setString(3, cliente.getIdentidade());
+            stmt.setString(4, cliente.getTelefone());
+            stmt.setString(5, cliente.getCelular());
+            stmt.setString(6, cliente.getEmail());
+            stmt.setString(7, cliente.getDataNascimento());
+            stmt.setString(8, cliente.getCepResidencia());
+            stmt.setString(9, cliente.getRuaResidencia());
+            stmt.setString(10, cliente.getNumeroResidencia());
+            stmt.setString(11, cliente.getComplementoResidencia());
+            stmt.setString(12, cliente.getBairroResidencia());
+            stmt.setString(13, cliente.getCidadeResidencia());
+            stmt.setString(14, cliente.getEstadoResidencia());
 
-            stmt.setString(17, contrato.getCliente().getEmpresa());
-            stmt.setString(18, contrato.getCliente().getCepComercial());
-            stmt.setString(19, contrato.getCliente().getRuaComercial());
-            stmt.setString(20, contrato.getCliente().getNumeroComercial());
-            stmt.setString(21, contrato.getCliente().getComplementoComercial());
-            stmt.setString(22, contrato.getCliente().getBairroComercial());
-            stmt.setString(23, contrato.getCliente().getCidadeComercial());
-            stmt.setString(24, contrato.getCliente().getEstadoComercial());
-            stmt.setString(25, contrato.getCliente().getTelefoneComercial());
+            stmt.setString(15, cliente.getEmpresa());
+            stmt.setString(16, cliente.getCepComercial());
+            stmt.setString(17, cliente.getRuaComercial());
+            stmt.setString(18, cliente.getNumeroComercial());
+            stmt.setString(19, cliente.getComplementoComercial());
+            stmt.setString(20, cliente.getBairroComercial());
+            stmt.setString(21, cliente.getCidadeComercial());
+            stmt.setString(22, cliente.getEstadoComercial());
+            stmt.setString(23, cliente.getTelefoneComercial());
+            stmt.setString(24, cliente.getCpf());
             stmt.executeUpdate();
             stmt.close();
         } catch (SQLException ex) {
             Logger.getLogger(PatioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return contrato;
+        return cliente;
     }
 }

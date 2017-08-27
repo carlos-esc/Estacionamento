@@ -16,13 +16,13 @@ public class ClienteService {
         return clienteArrayList;
     }
     
-    public Contrato clienteIncluir(Contrato contrato){
-        contrato = clienteDAO.clienteIncluir(contrato);
-        return contrato;
+    public Cliente clienteIncluir(Cliente cliente){
+        cliente = clienteDAO.clienteIncluir(cliente);
+        return cliente;
     }
     
-    public Contrato clienteAlterar(Contrato contrato){
-        clienteDAO.clientaAlterar(contrato);
-        return contrato;
+    public Cliente clienteAlterar(Cliente cliente){
+        clienteDAO.clientaAlterar(cliente);
+        return cliente;
     }
 }

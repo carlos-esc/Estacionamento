@@ -3,17 +3,17 @@ package modelo;
 public class Contrato {
     private int idContrato;
     private String status;
-    private String tipo;
-    private String medicao;
+    private String mensalistaOuPacote;
+    private String diasOuUtilizacoes;
     private int quantidade;
     private String dataInicio;
     private String dataTermino;
     private String diaVencimento;
-    private String ultimaAlteracao;
+    private String dataCancelamento;
     private float valor;
     
     //DADOS CLIENTE
-    private Cliente cliente = new Cliente();
+    private Cliente idClienteFk = new Cliente();
     
     //DADOS VEÍCULOS
     private Veiculo veiculo1 = new Veiculo();
@@ -50,17 +50,17 @@ public class Contrato {
     }
 
     /**
-     * @return the tipo
+     * @return the mensalistaOuPacote
      */
-    public String getTipo() {
-        return tipo;
+    public String getMensalistaOuPacote() {
+        return mensalistaOuPacote;
     }
 
     /**
-     * @param tipo the tipo to set
+     * @param mensalistaOuPacote the mensalistaOuPacote to set
      */
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setMensalistaOuPacote(String mensalistaOuPacote) {
+        this.mensalistaOuPacote = mensalistaOuPacote;
     }
 
     /**
@@ -134,17 +134,17 @@ public class Contrato {
     }
 
     /**
-     * @return the cliente
+     * @return the idClienteFk
      */
-    public Cliente getCliente() {
-        return cliente;
+    public Cliente getIdClienteFk() {
+        return idClienteFk;
     }
 
     /**
-     * @param cliente the cliente to set
+     * @param idClienteFk the idClienteFk to set
      */
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setIdClienteFk(Cliente idClienteFk) {
+        this.idClienteFk = idClienteFk;
     }
 
     /**
@@ -204,30 +204,30 @@ public class Contrato {
     }
 
     /**
-     * @return the medicao
+     * @return the diasOuUtilizacoes
      */
-    public String getMedicao() {
-        return medicao;
+    public String getDiasOuUtilizacoes() {
+        return diasOuUtilizacoes;
     }
 
     /**
-     * @param medicao the medicao to set
+     * @param diasOuUtilizacoes the diasOuUtilizacoes to set
      */
-    public void setMedicao(String medicao) {
-        this.medicao = medicao;
+    public void setDiasOuUtilizacoes(String diasOuUtilizacoes) {
+        this.diasOuUtilizacoes = diasOuUtilizacoes;
     }
 
     /**
-     * @return the ultimaAlteracao
+     * @return the dataCancelamento
      */
-    public String getUltimaAlteracao() {
-        return ultimaAlteracao;
+    public String getDataCancelamento() {
+        return dataCancelamento;
     }
 
     /**
-     * @param ultimaAlteracao the ultimaAlteracao to set
+     * @param dataCancelamento the dataCancelamento to set
      */
-    public void setUltimaAlteracao(String ultimaAlteracao) {
-        this.ultimaAlteracao = ultimaAlteracao;
+    public void setDataCancelamento(String dataCancelamento) {
+        this.dataCancelamento = dataCancelamento;
     }
 }

@@ -165,27 +165,28 @@ public class PatioDAO {
 
     public void patioEstacionaVeiculo(Patio patio) {
         try {
-            String sql = "INSERT INTO patio(id_contrato_fk, placa, rps, prisma, tipo, preco_30_minutos, preco_60_minutos, preco_demais_fracoes, preco_diaria, preco_pernoite, estacionado, data_entrada, hora_entrada, tolerancia_desistencia, tolerancia_entre_fracoes, diaria_horas, diaria_minutos, pernoite_inicio, pernoite_termino) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO patio(id_contrato_fk, placa, rps, prisma, tipo, nome, preco_30_minutos, preco_60_minutos, preco_demais_fracoes, preco_diaria, preco_pernoite, estacionado, data_entrada, hora_entrada, tolerancia_desistencia, tolerancia_entre_fracoes, diaria_horas, diaria_minutos, pernoite_inicio, pernoite_termino) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement stmt = conexao.prepareStatement(sql);
             stmt.setInt(1, patio.getIdContratoFk());
             stmt.setString(2, patio.getPlaca());
             stmt.setString(3, patio.getRps());
             stmt.setString(4, patio.getPrisma());
             stmt.setString(5, patio.getTipo());
-            stmt.setFloat(6, patio.getPreco30Minutos());
-            stmt.setFloat(7, patio.getPreco60Minutos());
-            stmt.setFloat(8, patio.getPrecoDemaisFracoes());
-            stmt.setFloat(9, patio.getPrecoDiaria());
-            stmt.setFloat(10, patio.getPrecoPernoite());
-            stmt.setString(11, patio.getEstacionado());
-            stmt.setString(12, patio.getDataEntrada());
-            stmt.setString(13, patio.getHoraEntrada());
-            stmt.setInt(14, patio.getToleranciaDesistencia());
-            stmt.setInt(15, patio.getToleranciaEntreFracoes());
-            stmt.setInt(16, patio.getDiariaHoras());
-            stmt.setInt(17, patio.getDiariaMinutos());
-            stmt.setString(18, patio.getPernoiteInicio());
-            stmt.setString(19, patio.getPernoiteTermino());
+            stmt.setString(6, patio.getNome());
+            stmt.setFloat(7, patio.getPreco30Minutos());
+            stmt.setFloat(8, patio.getPreco60Minutos());
+            stmt.setFloat(9, patio.getPrecoDemaisFracoes());
+            stmt.setFloat(10, patio.getPrecoDiaria());
+            stmt.setFloat(11, patio.getPrecoPernoite());
+            stmt.setString(12, patio.getEstacionado());
+            stmt.setString(13, patio.getDataEntrada());
+            stmt.setString(14, patio.getHoraEntrada());
+            stmt.setInt(15, patio.getToleranciaDesistencia());
+            stmt.setInt(16, patio.getToleranciaEntreFracoes());
+            stmt.setInt(17, patio.getDiariaHoras());
+            stmt.setInt(18, patio.getDiariaMinutos());
+            stmt.setString(19, patio.getPernoiteInicio());
+            stmt.setString(20, patio.getPernoiteTermino());
             stmt.executeUpdate();
             stmt.close();
         } catch (SQLException ex) {

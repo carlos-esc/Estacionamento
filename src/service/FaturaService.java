@@ -13,4 +13,14 @@ public class FaturaService {
         faturaArrayList = faturaDAO.faturasContratoCliente(numeroContratoCliente);
         return faturaArrayList;
     }
+    
+    public boolean existeFaturaMesCorrente(int numeroContratoCliente, String mesReferencia) {
+        boolean boole = faturaDAO.existeFaturaMesCorrente(numeroContratoCliente, mesReferencia);
+        return boole;
+    }
+    
+    public Fatura faturaIncluir(Fatura fatura) {
+        fatura = faturaDAO.faturaIncluir(fatura);
+        return fatura;
+    }
 }

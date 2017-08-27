@@ -11,6 +11,11 @@ public class VeiculoService {
         return veiculo;
     }
     
+    public Veiculo veiculoAlterar (Veiculo veiculo) {
+        veiculoDAO.veiculoAlterar(veiculo);
+        return veiculo;
+    }
+    
     public Veiculo veiculoIsCadastrado (String placaVeiculo) {
         Veiculo veiculo = new Veiculo();
         veiculo = veiculoDAO.veiculoIsCadastrado(placaVeiculo);
