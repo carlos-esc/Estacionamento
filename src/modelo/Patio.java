@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.Date;
+
 public class Patio {    
     //bdestacionamento/patio (Preenchidos na ENTRADA do veículo)
     private int idPatio;
@@ -206,14 +208,14 @@ public class Patio {
     }
 
     /**
-     * @return the dataEntrada
+     * @return the dataHoraEntrada
      */
     public String getDataEntrada() {
         return dataEntrada;
     }
 
     /**
-     * @param dataEntrada the dataEntrada to set
+     * @param dataEntrada the dataHoraEntrada to set
      */
     public void setDataEntrada(String dataEntrada) {
         this.dataEntrada = dataEntrada;
@@ -318,14 +320,14 @@ public class Patio {
     }
 
     /**
-     * @return the dataSaida
+     * @return the dataHoraSaida
      */
     public String getDataSaida() {
         return dataSaida;
     }
 
     /**
-     * @param dataSaida the dataSaida to set
+     * @param dataSaida the dataHoraSaida to set
      */
     public void setDataSaida(String dataSaida) {
         this.dataSaida = dataSaida;

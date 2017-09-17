@@ -27,8 +27,7 @@ import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JTable;
-import javax.swing.UIManager;
-import javax.swing.plaf.FontUIResource;
+import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import mascarasentrada.EntradaHora;
@@ -45,13 +44,16 @@ import validacao.ValidaCPF;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
+    Veiculo veiculo = new Veiculo();
+    Patio patio = new Patio();
+    Contrato contrato = new Contrato();
+    PatioService patioService = new PatioService();
+
     //VEÍCULO******************************************************************************************
     VeiculoService veiculoService = new VeiculoService();
-    Veiculo veiculo = new Veiculo();
 
     //CONTRATO***************************************************************************************
     String contratoStatus;
-    Contrato contrato = new Contrato();
     ContratoService contratoService = new ContratoService();
     List<Contrato> contratoArrayList = new ArrayList<>();
     DefaultListModel contratoDefaultListModel = new DefaultListModel();
@@ -72,7 +74,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
     };
 
-    //CLIENTE PAGAMENTO FATURA*************************************************************************
+    //FATURA****************************************************************************************
     Fatura fatura = new Fatura();
     FaturaService faturaService = new FaturaService();
     List<Fatura> faturaArrayList = new ArrayList<>();
@@ -96,15 +98,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     };
 
     //PÁTIO********************************************************************************************
-    String patioOrdenarLista;
-    PatioService patioService = new PatioService();
-    Patio patio = new Patio();
     List<Patio> patioArrayList = new ArrayList<>();
     DefaultTableModel patioDefaultTableModel = new DefaultTableModel();
 
     //MOVIMENTO****************************************************************************************
-    String movimentoData;
-    List<Patio> movimentoArrayList = new ArrayList<>();
     DefaultTableModel movimentoDefaultTableModel = new DefaultTableModel();
 
     //CONGRAÇÕES***************************************************************************************
@@ -132,26 +129,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        jDialogConfirmaSaidaVeiculo = new javax.swing.JDialog();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jButtonSaidaVeiculoNao = new javax.swing.JButton();
-        jButtonSaidaVeiculoSim = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
-        jTextFieldConfirmaSaidaPlaca = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        jTextFieldConfirmaSaidaPrisma = new javax.swing.JTextField();
-        jDialogConfirmaEntradaVeiculo = new javax.swing.JDialog();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        jButtonEntradaVeiculoNao = new javax.swing.JButton();
-        jButtonEntradaVeiculoSim = new javax.swing.JButton();
-        jLabel31 = new javax.swing.JLabel();
-        jTextFieldConfirmaSaidaPlaca1 = new javax.swing.JTextField();
-        jLabel32 = new javax.swing.JLabel();
-        jTextFieldConfirmaSaidaPrisma1 = new javax.swing.JTextField();
         jDialogConfirmaSaidaSistema = new javax.swing.JDialog();
         jPanel7 = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
@@ -259,8 +237,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel109 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
-        jButtonMensalistaPesquisaPagar = new javax.swing.JButton();
-        jButtonClientePesquisaPagamentosConsulta = new javax.swing.JButton();
+        jButtonClientePesquisaFaturas = new javax.swing.JButton();
         jLabel111 = new javax.swing.JLabel();
         jRadioButtonMensalista = new javax.swing.JRadioButton();
         jRadioButtonPacote = new javax.swing.JRadioButton();
@@ -298,7 +275,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jFormattedTextFieldMensalistaTelefoneResi = new javax.swing.JFormattedTextField();
         jFormattedTextFieldMensalistaCpf = new javax.swing.JFormattedTextField();
         jLabel55 = new javax.swing.JLabel();
-        jTextFieldClienteNumero = new javax.swing.JTextField();
+        jTextFieldClienteIdCliente = new javax.swing.JTextField();
         jPanel36 = new javax.swing.JPanel();
         jTextFieldMensalistaEmpresa = new javax.swing.JTextField();
         jLabel71 = new javax.swing.JLabel();
@@ -397,17 +374,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTextFieldContratoValor = new javax.swing.JTextField();
         jSeparator11 = new javax.swing.JSeparator();
         jSeparator12 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonContratoConsultaFatura = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel110 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         jPanel32 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTableContratoClienteFatura = new javax.swing.JTable();
+        jTableContratoFatura = new javax.swing.JTable();
         jLabel113 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        jButtonContratoFaturaSair = new javax.swing.JButton();
         jLabel124 = new javax.swing.JLabel();
         jTextFieldContratoFaturaCliente = new javax.swing.JTextField();
         jLabel117 = new javax.swing.JLabel();
@@ -437,6 +412,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jSeparator15 = new javax.swing.JSeparator();
         jSeparator16 = new javax.swing.JSeparator();
         jTextFieldContratoFaturaValor = new javax.swing.JTextField();
+        jButtonContratoFaturaPagarFatura = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -469,14 +445,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonPatioListaPrisma = new javax.swing.JButton();
         jButtonPatioListaTipo = new javax.swing.JButton();
         jButtonPatioListaEntrada = new javax.swing.JButton();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        jTablePatioResumo = new javax.swing.JTable();
+        jLabel125 = new javax.swing.JLabel();
         jPanel24 = new javax.swing.JPanel();
         jPanel25 = new javax.swing.JPanel();
         jButtonMovimentoSair = new javax.swing.JButton();
         jScrollPane12 = new javax.swing.JScrollPane();
-        jTableMovimento = new javax.swing.JTable();
+        jTableMovimentoRecebimentoRotativoAtualFuturo = new javax.swing.JTable();
         jPanel11 = new javax.swing.JPanel();
         jButtonMovimentoListar = new javax.swing.JButton();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldMovimentoData = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldMovimentoHora = new javax.swing.JFormattedTextField();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        jTableMovimentoResumo = new javax.swing.JTable();
+        jLabel126 = new javax.swing.JLabel();
+        jLabel127 = new javax.swing.JLabel();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        jTableMovimentoRecebimentoMensalidadePacote = new javax.swing.JTable();
+        jLabel128 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jTabbedPaneConfiguracoesItemAlteracao = new javax.swing.JTabbedPane();
@@ -512,269 +499,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel30 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jButtonF2 = new javax.swing.JButton();
-        jButtonF4 = new javax.swing.JButton();
-        jButtonF5 = new javax.swing.JButton();
-        jButtonF6 = new javax.swing.JButton();
-        jButtonF8 = new javax.swing.JButton();
-        jButtonF10 = new javax.swing.JButton();
+        jButtonF5Contrato = new javax.swing.JButton();
+        jButtonF4Rotativo = new javax.swing.JButton();
+        jButtonF1Patio = new javax.swing.JButton();
+        jButtonF2Movimento = new javax.swing.JButton();
+        jButtonF8Configuracoes = new javax.swing.JButton();
+        jButtonF10Sair = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-
-        jDialogConfirmaSaidaVeiculo.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        jDialogConfirmaSaidaVeiculo.setTitle("Estacionamento (Confirma a Saída do Veículo?)");
-        jDialogConfirmaSaidaVeiculo.setAlwaysOnTop(true);
-        jDialogConfirmaSaidaVeiculo.setResizable(false);
-        jDialogConfirmaSaidaVeiculo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jDialogConfirmaSaidaVeiculoMouseReleased(evt);
-            }
-        });
-        jDialogConfirmaSaidaVeiculo.addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                jDialogConfirmaSaidaVeiculoWindowActivated(evt);
-            }
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                jDialogConfirmaSaidaVeiculoWindowClosing(evt);
-            }
-        });
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel13.setText("Confirma saída do veiculo?");
-
-        jButtonSaidaVeiculoNao.setMnemonic('N');
-        jButtonSaidaVeiculoNao.setText("Não");
-        jButtonSaidaVeiculoNao.setRequestFocusEnabled(false);
-        jButtonSaidaVeiculoNao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSaidaVeiculoNaoActionPerformed(evt);
-            }
-        });
-
-        jButtonSaidaVeiculoSim.setMnemonic('S');
-        jButtonSaidaVeiculoSim.setText("Sim");
-        jButtonSaidaVeiculoSim.setRequestFocusEnabled(false);
-        jButtonSaidaVeiculoSim.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSaidaVeiculoSimActionPerformed(evt);
-            }
-        });
-
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel14.setText("Placa");
-
-        jTextFieldConfirmaSaidaPlaca.setEditable(false);
-        jTextFieldConfirmaSaidaPlaca.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextFieldConfirmaSaidaPlaca.setFocusable(false);
-        jTextFieldConfirmaSaidaPlaca.setRequestFocusEnabled(false);
-
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jTextFieldSaidaPlaca, org.jdesktop.beansbinding.ELProperty.create("${text}"), jTextFieldConfirmaSaidaPlaca, org.jdesktop.beansbinding.BeanProperty.create("text"));
-        bindingGroup.addBinding(binding);
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel15.setText("Prisma");
-
-        jTextFieldConfirmaSaidaPrisma.setEditable(false);
-        jTextFieldConfirmaSaidaPrisma.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextFieldConfirmaSaidaPrisma.setFocusable(false);
-        jTextFieldConfirmaSaidaPrisma.setRequestFocusEnabled(false);
-
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jTextFieldSaidaPrisma, org.jdesktop.beansbinding.ELProperty.create("${text}"), jTextFieldConfirmaSaidaPrisma, org.jdesktop.beansbinding.BeanProperty.create("text"));
-        bindingGroup.addBinding(binding);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(236, 236, 236)
-                .addComponent(jLabel13)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(170, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldConfirmaSaidaPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldConfirmaSaidaPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(191, 191, 191))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButtonSaidaVeiculoSim, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(95, 95, 95)
-                        .addComponent(jButtonSaidaVeiculoNao)
-                        .addGap(207, 207, 207))))
-        );
-
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButtonSaidaVeiculoNao, jButtonSaidaVeiculoSim});
-
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(jTextFieldConfirmaSaidaPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15)
-                    .addComponent(jTextFieldConfirmaSaidaPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSaidaVeiculoSim)
-                    .addComponent(jButtonSaidaVeiculoNao))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonSaidaVeiculoNao, jButtonSaidaVeiculoSim});
-
-        javax.swing.GroupLayout jDialogConfirmaSaidaVeiculoLayout = new javax.swing.GroupLayout(jDialogConfirmaSaidaVeiculo.getContentPane());
-        jDialogConfirmaSaidaVeiculo.getContentPane().setLayout(jDialogConfirmaSaidaVeiculoLayout);
-        jDialogConfirmaSaidaVeiculoLayout.setHorizontalGroup(
-            jDialogConfirmaSaidaVeiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialogConfirmaSaidaVeiculoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jDialogConfirmaSaidaVeiculoLayout.setVerticalGroup(
-            jDialogConfirmaSaidaVeiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialogConfirmaSaidaVeiculoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jDialogConfirmaEntradaVeiculo.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        jDialogConfirmaEntradaVeiculo.setTitle("Estacionamento (Confirma a Saída do Veículo?)");
-        jDialogConfirmaEntradaVeiculo.setAlwaysOnTop(true);
-        jDialogConfirmaEntradaVeiculo.setResizable(false);
-        jDialogConfirmaEntradaVeiculo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jDialogConfirmaEntradaVeiculoMouseReleased(evt);
-            }
-        });
-        jDialogConfirmaEntradaVeiculo.addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                jDialogConfirmaEntradaVeiculoWindowActivated(evt);
-            }
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                jDialogConfirmaEntradaVeiculoWindowClosing(evt);
-            }
-        });
-
-        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel16.setText("Confirma entrada do veiculo?");
-
-        jButtonEntradaVeiculoNao.setMnemonic('N');
-        jButtonEntradaVeiculoNao.setText("Não");
-        jButtonEntradaVeiculoNao.setRequestFocusEnabled(false);
-        jButtonEntradaVeiculoNao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEntradaVeiculoNaoActionPerformed(evt);
-            }
-        });
-
-        jButtonEntradaVeiculoSim.setMnemonic('S');
-        jButtonEntradaVeiculoSim.setText("Sim");
-        jButtonEntradaVeiculoSim.setRequestFocusEnabled(false);
-        jButtonEntradaVeiculoSim.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEntradaVeiculoSimActionPerformed(evt);
-            }
-        });
-
-        jLabel31.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel31.setText("Placa");
-
-        jTextFieldConfirmaSaidaPlaca1.setEditable(false);
-        jTextFieldConfirmaSaidaPlaca1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextFieldConfirmaSaidaPlaca1.setFocusable(false);
-        jTextFieldConfirmaSaidaPlaca1.setRequestFocusEnabled(false);
-
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jTextFieldEntradaPlaca, org.jdesktop.beansbinding.ELProperty.create("${text}"), jTextFieldConfirmaSaidaPlaca1, org.jdesktop.beansbinding.BeanProperty.create("text"));
-        bindingGroup.addBinding(binding);
-
-        jLabel32.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel32.setText("Prisma");
-
-        jTextFieldConfirmaSaidaPrisma1.setEditable(false);
-        jTextFieldConfirmaSaidaPrisma1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextFieldConfirmaSaidaPrisma1.setFocusable(false);
-        jTextFieldConfirmaSaidaPrisma1.setRequestFocusEnabled(false);
-
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jTextFieldEntradaPrisma, org.jdesktop.beansbinding.ELProperty.create("${text}"), jTextFieldConfirmaSaidaPrisma1, org.jdesktop.beansbinding.BeanProperty.create("text"));
-        bindingGroup.addBinding(binding);
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(170, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel31)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldConfirmaSaidaPlaca1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel32)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldConfirmaSaidaPrisma1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(191, 191, 191))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jButtonEntradaVeiculoSim, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(95, 95, 95)
-                        .addComponent(jButtonEntradaVeiculoNao)
-                        .addGap(207, 207, 207))))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(211, 211, 211)
-                .addComponent(jLabel16)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButtonEntradaVeiculoNao, jButtonEntradaVeiculoSim});
-
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel31)
-                    .addComponent(jTextFieldConfirmaSaidaPlaca1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel32)
-                    .addComponent(jTextFieldConfirmaSaidaPrisma1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonEntradaVeiculoSim)
-                    .addComponent(jButtonEntradaVeiculoNao))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonEntradaVeiculoNao, jButtonEntradaVeiculoSim});
-
-        javax.swing.GroupLayout jDialogConfirmaEntradaVeiculoLayout = new javax.swing.GroupLayout(jDialogConfirmaEntradaVeiculo.getContentPane());
-        jDialogConfirmaEntradaVeiculo.getContentPane().setLayout(jDialogConfirmaEntradaVeiculoLayout);
-        jDialogConfirmaEntradaVeiculoLayout.setHorizontalGroup(
-            jDialogConfirmaEntradaVeiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialogConfirmaEntradaVeiculoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jDialogConfirmaEntradaVeiculoLayout.setVerticalGroup(
-            jDialogConfirmaEntradaVeiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialogConfirmaEntradaVeiculoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         jDialogConfirmaSaidaSistema.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         jDialogConfirmaSaidaSistema.setTitle("Coelho´s Parking (Confirma Saída do Sistema?)");
@@ -1683,7 +1414,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel39.add(jButtonClientePesquisaLocalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 52, -1, -1));
 
         jLabel105.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel105.setText("Para exibir a lista completa deixe o campo Nome em braco e clique em pesquisar.");
+        jLabel105.setText("Para exibir a lista completa deixe o campo Nome em braco e clique em localizar.");
         jPanel39.add(jLabel105, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 29, -1, -1));
 
         jPanel40.add(jPanel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 5, 480, 90));
@@ -1772,20 +1503,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jSeparator8.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel40.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 10, 10, 90));
 
-        jButtonMensalistaPesquisaPagar.setText("Pagar");
-        jPanel40.add(jButtonMensalistaPesquisaPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 70, 92, -1));
-
-        jButtonClientePesquisaPagamentosConsulta.setText("Consulta");
-        jButtonClientePesquisaPagamentosConsulta.addActionListener(new java.awt.event.ActionListener() {
+        jButtonClientePesquisaFaturas.setText("Fatura");
+        jButtonClientePesquisaFaturas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonClientePesquisaPagamentosConsultaActionPerformed(evt);
+                jButtonClientePesquisaFaturasActionPerformed(evt);
             }
         });
-        jPanel40.add(jButtonClientePesquisaPagamentosConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 30, 92, -1));
+        jPanel40.add(jButtonClientePesquisaFaturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 50, 92, 30));
 
         jLabel111.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel111.setText("Pagamentos");
-        jPanel40.add(jLabel111, new org.netbeans.lib.awtextra.AbsoluteConstraints(1055, 10, -1, -1));
+        jLabel111.setText("Consulta");
+        jPanel40.add(jLabel111, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 30, -1, -1));
 
         buttonGroupClienteMensalistaPacote.add(jRadioButtonMensalista);
         jRadioButtonMensalista.setSelected(true);
@@ -2011,8 +1739,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel55.setText("Número do cliente");
         jPanel37.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, -1, -1));
 
-        jTextFieldClienteNumero.setEditable(false);
-        jPanel37.add(jTextFieldClienteNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 25, 60, 20));
+        jTextFieldClienteIdCliente.setEditable(false);
+        jPanel37.add(jTextFieldClienteIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 25, 60, 20));
 
         jPanel33.add(jPanel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 630, 310));
 
@@ -2618,24 +2346,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel33.add(jPanel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1160, 90));
 
-        jButton1.setText("Consulta");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonContratoConsultaFatura.setText("Fatura");
+        jButtonContratoConsultaFatura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonContratoConsultaFaturaActionPerformed(evt);
             }
         });
-        jPanel33.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1057, 500, 92, -1));
-
-        jButton2.setText("Pagamento");
-        jPanel33.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1057, 540, 92, -1));
+        jPanel33.add(jButtonContratoConsultaFatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(1057, 500, 92, 30));
 
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel33.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1161, 430, 10, 170));
 
         jLabel110.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel110.setText("Serviço");
-        jPanel33.add(jLabel110, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 450, -1, -1));
-        jPanel33.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 470, 105, 10));
+        jLabel110.setText("Consulta");
+        jPanel33.add(jLabel110, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 480, -1, -1));
 
         jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel33.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 430, 10, 170));
@@ -2644,7 +2368,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel32.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTableContratoClienteFatura.setModel(new javax.swing.table.DefaultTableModel(
+        jTableContratoFatura.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -2655,34 +2379,35 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             }
         ));
-        jTableContratoClienteFatura.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jTableContratoClienteFatura.setRowHeight(30);
-        jScrollPane2.setViewportView(jTableContratoClienteFatura);
+        jTableContratoFatura.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableContratoFatura.setRowHeight(30);
+        jScrollPane2.setViewportView(jTableContratoFatura);
 
-        jPanel32.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1160, 400));
+        jPanel32.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1170, 480));
 
         jLabel113.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel113.setText("Histórico de faturas:");
         jPanel32.add(jLabel113, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, 20));
 
-        jButton3.setText("Sair");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonContratoFaturaSair.setText("Sair");
+        jButtonContratoFaturaSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButtonContratoFaturaSairActionPerformed(evt);
             }
         });
-        jPanel32.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 570, -1, -1));
+        jPanel32.add(jButtonContratoFaturaSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 630, 90, 30));
 
         jLabel124.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel124.setText("Cliente");
-        jPanel32.add(jLabel124, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, -1));
+        jPanel32.add(jLabel124, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 115, -1, -1));
 
         jTextFieldContratoFaturaCliente.setEditable(false);
+        jTextFieldContratoFaturaCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel32.add(jTextFieldContratoFaturaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 360, -1));
 
         jLabel117.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel117.setText("CPF");
-        jPanel32.add(jLabel117, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, -1, -1));
+        jPanel32.add(jLabel117, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 115, -1, -1));
 
         jFormattedTextFieldContratoFaturaCPF.setEditable(false);
         try {
@@ -2690,6 +2415,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextFieldContratoFaturaCPF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel32.add(jFormattedTextFieldContratoFaturaCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 110, 160, -1));
 
         jPanel34.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Contrato", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 16))); // NOI18N
@@ -2843,15 +2569,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel32.add(jPanel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1160, 90));
 
+        jButtonContratoFaturaPagarFatura.setText("Pagar Fatura");
+        jButtonContratoFaturaPagarFatura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonContratoFaturaPagarFaturaActionPerformed(evt);
+            }
+        });
+        jPanel32.add(jButtonContratoFaturaPagarFatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 630, 110, 30));
+
         jTabbedPaneClienteContrato.addTab("Fatura", jPanel32);
 
         javax.swing.GroupLayout jPanelMensalLayout = new javax.swing.GroupLayout(jPanelMensal);
         jPanelMensal.setLayout(jPanelMensalLayout);
         jPanelMensalLayout.setHorizontalGroup(
             jPanelMensalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelMensalLayout.createSequentialGroup()
-                .addComponent(jTabbedPaneClienteContrato, javax.swing.GroupLayout.PREFERRED_SIZE, 1166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jTabbedPaneClienteContrato, javax.swing.GroupLayout.PREFERRED_SIZE, 1175, Short.MAX_VALUE)
         );
         jPanelMensalLayout.setVerticalGroup(
             jPanelMensalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3058,7 +2790,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jScrollPane11.setViewportView(jTablePatio);
 
-        jPanel23.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 38, 1118, 550));
+        jPanel23.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 38, 1118, 360));
 
         jButtonPatioSair.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButtonPatioSair.setText("Sair");
@@ -3115,6 +2847,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel23.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 600, 450, 70));
 
+        jTablePatioResumo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jTablePatioResumo.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTablePatioResumo.setRowHeight(25);
+        jScrollPane13.setViewportView(jTablePatioResumo);
+
+        jPanel23.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 1120, 170));
+
+        jLabel125.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel125.setText("Resumo do pátio");
+        jPanel23.add(jLabel125, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
+
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);
         jPanel22Layout.setHorizontalGroup(
@@ -3146,10 +2896,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jButtonMovimentoSairActionPerformed(evt);
             }
         });
-        jPanel25.add(jButtonMovimentoSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 630, -1, -1));
+        jPanel25.add(jButtonMovimentoSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 630, -1, -1));
 
-        jTableMovimento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTableMovimento.setModel(new javax.swing.table.DefaultTableModel(
+        jTableMovimentoRecebimentoRotativoAtualFuturo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTableMovimentoRecebimentoRotativoAtualFuturo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -3157,13 +2907,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             }
         ));
-        jTableMovimento.setIntercellSpacing(new java.awt.Dimension(0, 1));
-        jTableMovimento.setRowHeight(25);
-        jScrollPane12.setViewportView(jTableMovimento);
+        jTableMovimentoRecebimentoRotativoAtualFuturo.setIntercellSpacing(new java.awt.Dimension(0, 1));
+        jTableMovimentoRecebimentoRotativoAtualFuturo.setRowHeight(30);
+        jScrollPane12.setViewportView(jTableMovimentoRecebimentoRotativoAtualFuturo);
 
-        jPanel25.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 1118, 537));
+        jPanel25.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 1118, 350));
 
-        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Digite a data do movimento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Digite a data e hora do movimento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonMovimentoListar.setText("Listar");
@@ -3173,18 +2923,67 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jButtonMovimentoListarActionPerformed(evt);
             }
         });
-        jPanel11.add(jButtonMovimentoListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 29, 93, -1));
+        jPanel11.add(jButtonMovimentoListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 93, -1));
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            jFormattedTextFieldMovimentoData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField1.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
-        jFormattedTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel11.add(jFormattedTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 29, 110, 30));
+        jFormattedTextFieldMovimentoData.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
+        jFormattedTextFieldMovimentoData.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel11.add(jFormattedTextFieldMovimentoData, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 110, 30));
 
-        jPanel25.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(296, 595, 290, 80));
+        try {
+            jFormattedTextFieldMovimentoHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFormattedTextFieldMovimentoHora.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
+        jFormattedTextFieldMovimentoHora.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel11.add(jFormattedTextFieldMovimentoHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 70, 30));
+
+        jPanel25.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, 430, 60));
+
+        jTableMovimentoResumo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jTableMovimentoResumo.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableMovimentoResumo.setRowHeight(20);
+        jScrollPane14.setViewportView(jTableMovimentoResumo);
+
+        jPanel25.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 420, 360, 240));
+
+        jLabel126.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel126.setText("Resumo do movimento");
+        jPanel25.add(jLabel126, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 400, -1, -1));
+
+        jLabel127.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel127.setText("Recebimento de Rotativo atual e futuro");
+        jPanel25.add(jLabel127, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        jTableMovimentoRecebimentoMensalidadePacote.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jTableMovimentoRecebimentoMensalidadePacote.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableMovimentoRecebimentoMensalidadePacote.setRowHeight(25);
+        jScrollPane15.setViewportView(jTableMovimentoRecebimentoMensalidadePacote);
+
+        jPanel25.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 740, 180));
+
+        jLabel128.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel128.setText("Recebimento de Mensalidade e Pacote");
+        jPanel25.add(jLabel128, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
 
         javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
         jPanel24.setLayout(jPanel24Layout);
@@ -3430,89 +3229,89 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 18))); // NOI18N
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonF2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonF2.setText("F2 (Contrato)");
-        jButtonF2.setFocusable(false);
-        jButtonF2.setMaximumSize(new java.awt.Dimension(165, 40));
-        jButtonF2.setMinimumSize(new java.awt.Dimension(165, 40));
-        jButtonF2.setPreferredSize(new java.awt.Dimension(165, 40));
-        jButtonF2.setRequestFocusEnabled(false);
-        jButtonF2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonF5Contrato.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonF5Contrato.setText("F5 (Contrato)");
+        jButtonF5Contrato.setFocusable(false);
+        jButtonF5Contrato.setMaximumSize(new java.awt.Dimension(165, 40));
+        jButtonF5Contrato.setMinimumSize(new java.awt.Dimension(165, 40));
+        jButtonF5Contrato.setPreferredSize(new java.awt.Dimension(165, 40));
+        jButtonF5Contrato.setRequestFocusEnabled(false);
+        jButtonF5Contrato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonF2ActionPerformed(evt);
+                jButtonF5ContratoActionPerformed(evt);
             }
         });
-        jPanel5.add(jButtonF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 190, -1));
+        jPanel5.add(jButtonF5Contrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 190, -1));
 
-        jButtonF4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonF4.setText("F4 (Rotativo)");
-        jButtonF4.setFocusable(false);
-        jButtonF4.setMaximumSize(new java.awt.Dimension(165, 40));
-        jButtonF4.setMinimumSize(new java.awt.Dimension(165, 40));
-        jButtonF4.setPreferredSize(new java.awt.Dimension(165, 40));
-        jButtonF4.setRequestFocusEnabled(false);
-        jButtonF4.addActionListener(new java.awt.event.ActionListener() {
+        jButtonF4Rotativo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonF4Rotativo.setText("F4 (Rotativo)");
+        jButtonF4Rotativo.setFocusable(false);
+        jButtonF4Rotativo.setMaximumSize(new java.awt.Dimension(165, 40));
+        jButtonF4Rotativo.setMinimumSize(new java.awt.Dimension(165, 40));
+        jButtonF4Rotativo.setPreferredSize(new java.awt.Dimension(165, 40));
+        jButtonF4Rotativo.setRequestFocusEnabled(false);
+        jButtonF4Rotativo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonF4ActionPerformed(evt);
+                jButtonF4RotativoActionPerformed(evt);
             }
         });
-        jPanel5.add(jButtonF4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 190, -1));
+        jPanel5.add(jButtonF4Rotativo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 190, -1));
 
-        jButtonF5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonF5.setText("F5 (Pátio)");
-        jButtonF5.setFocusable(false);
-        jButtonF5.setMaximumSize(new java.awt.Dimension(165, 40));
-        jButtonF5.setMinimumSize(new java.awt.Dimension(165, 40));
-        jButtonF5.setPreferredSize(new java.awt.Dimension(165, 40));
-        jButtonF5.setRequestFocusEnabled(false);
-        jButtonF5.addActionListener(new java.awt.event.ActionListener() {
+        jButtonF1Patio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonF1Patio.setText("F1 (Pátio)");
+        jButtonF1Patio.setFocusable(false);
+        jButtonF1Patio.setMaximumSize(new java.awt.Dimension(165, 40));
+        jButtonF1Patio.setMinimumSize(new java.awt.Dimension(165, 40));
+        jButtonF1Patio.setPreferredSize(new java.awt.Dimension(165, 40));
+        jButtonF1Patio.setRequestFocusEnabled(false);
+        jButtonF1Patio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonF5ActionPerformed(evt);
+                jButtonF1PatioActionPerformed(evt);
             }
         });
-        jPanel5.add(jButtonF5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 190, -1));
+        jPanel5.add(jButtonF1Patio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 190, -1));
 
-        jButtonF6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonF6.setText("F6 (Movimento)");
-        jButtonF6.setFocusable(false);
-        jButtonF6.setMaximumSize(new java.awt.Dimension(165, 40));
-        jButtonF6.setMinimumSize(new java.awt.Dimension(165, 40));
-        jButtonF6.setPreferredSize(new java.awt.Dimension(165, 40));
-        jButtonF6.setRequestFocusEnabled(false);
-        jButtonF6.addActionListener(new java.awt.event.ActionListener() {
+        jButtonF2Movimento.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonF2Movimento.setText("F2 (Movimento)");
+        jButtonF2Movimento.setFocusable(false);
+        jButtonF2Movimento.setMaximumSize(new java.awt.Dimension(165, 40));
+        jButtonF2Movimento.setMinimumSize(new java.awt.Dimension(165, 40));
+        jButtonF2Movimento.setPreferredSize(new java.awt.Dimension(165, 40));
+        jButtonF2Movimento.setRequestFocusEnabled(false);
+        jButtonF2Movimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonF6ActionPerformed(evt);
+                jButtonF2MovimentoActionPerformed(evt);
             }
         });
-        jPanel5.add(jButtonF6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 190, -1));
+        jPanel5.add(jButtonF2Movimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 190, -1));
 
-        jButtonF8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonF8.setText("F8 (Configurações)");
-        jButtonF8.setFocusable(false);
-        jButtonF8.setMaximumSize(new java.awt.Dimension(165, 40));
-        jButtonF8.setMinimumSize(new java.awt.Dimension(165, 40));
-        jButtonF8.setPreferredSize(new java.awt.Dimension(165, 40));
-        jButtonF8.setRequestFocusEnabled(false);
-        jButtonF8.addActionListener(new java.awt.event.ActionListener() {
+        jButtonF8Configuracoes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonF8Configuracoes.setText("F8 (Configurações)");
+        jButtonF8Configuracoes.setFocusable(false);
+        jButtonF8Configuracoes.setMaximumSize(new java.awt.Dimension(165, 40));
+        jButtonF8Configuracoes.setMinimumSize(new java.awt.Dimension(165, 40));
+        jButtonF8Configuracoes.setPreferredSize(new java.awt.Dimension(165, 40));
+        jButtonF8Configuracoes.setRequestFocusEnabled(false);
+        jButtonF8Configuracoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonF8ActionPerformed(evt);
+                jButtonF8ConfiguracoesActionPerformed(evt);
             }
         });
-        jPanel5.add(jButtonF8, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 461, 190, -1));
+        jPanel5.add(jButtonF8Configuracoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 461, 190, -1));
 
-        jButtonF10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonF10.setText("F10 (Sair)");
-        jButtonF10.setFocusable(false);
-        jButtonF10.setMaximumSize(new java.awt.Dimension(165, 40));
-        jButtonF10.setMinimumSize(new java.awt.Dimension(165, 40));
-        jButtonF10.setPreferredSize(new java.awt.Dimension(165, 40));
-        jButtonF10.setRequestFocusEnabled(false);
-        jButtonF10.addActionListener(new java.awt.event.ActionListener() {
+        jButtonF10Sair.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonF10Sair.setText("F10 (Sair)");
+        jButtonF10Sair.setFocusable(false);
+        jButtonF10Sair.setMaximumSize(new java.awt.Dimension(165, 40));
+        jButtonF10Sair.setMinimumSize(new java.awt.Dimension(165, 40));
+        jButtonF10Sair.setPreferredSize(new java.awt.Dimension(165, 40));
+        jButtonF10Sair.setRequestFocusEnabled(false);
+        jButtonF10Sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonF10ActionPerformed(evt);
+                jButtonF10SairActionPerformed(evt);
             }
         });
-        jPanel5.add(jButtonF10, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 519, 190, -1));
+        jPanel5.add(jButtonF10Sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 519, 190, -1));
 
         jButton4.setText("jButton4");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -3523,8 +3322,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 670, -1, -1));
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 865));
-
-        bindingGroup.bind();
 
         pack();
         setLocationRelativeTo(null);
@@ -3544,17 +3341,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
             case KeyEvent.VK_ENTER:
                 verificaDadoDigitado(dadoEntrada);
                 break;
-            case KeyEvent.VK_F2:
-                menuPrincipal("cliente");
+            case KeyEvent.VK_F1:
+                patioListaVeiculo("entrada");
                 break;
-            case KeyEvent.VK_F3:
-                menuPrincipal("pacote");
+            case KeyEvent.VK_F2:
+                movimentoListaVeiculo(jFormattedTextFieldMovimentoData.getText(), jFormattedTextFieldMovimentoHora.getText());
                 break;
             case KeyEvent.VK_F4:
                 menuPrincipal("rotativo");
                 break;
             case KeyEvent.VK_F5:
-                menuPrincipal("patio");
+                menuPrincipal("contrato");
                 break;
             case KeyEvent.VK_F8:
                 menuPrincipal("configuracoes");
@@ -3630,46 +3427,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTextFieldSaidaValorActionPerformed
 
-    private void jDialogConfirmaSaidaVeiculoWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jDialogConfirmaSaidaVeiculoWindowActivated
-
-    }//GEN-LAST:event_jDialogConfirmaSaidaVeiculoWindowActivated
-
-    private void jButtonSaidaVeiculoSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaidaVeiculoSimActionPerformed
-        saidaVeiculoSim();
-    }//GEN-LAST:event_jButtonSaidaVeiculoSimActionPerformed
-
-    private void jButtonSaidaVeiculoNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaidaVeiculoNaoActionPerformed
-        saidaVeiculoNao();
-    }//GEN-LAST:event_jButtonSaidaVeiculoNaoActionPerformed
-
-    private void jDialogConfirmaSaidaVeiculoWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jDialogConfirmaSaidaVeiculoWindowClosing
-        saidaVeiculoNao();
-    }//GEN-LAST:event_jDialogConfirmaSaidaVeiculoWindowClosing
-
-    private void jDialogConfirmaSaidaVeiculoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDialogConfirmaSaidaVeiculoMouseReleased
-
-    }//GEN-LAST:event_jDialogConfirmaSaidaVeiculoMouseReleased
-
-    private void jButtonEntradaVeiculoNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntradaVeiculoNaoActionPerformed
-        entradaVeiculoNao();
-    }//GEN-LAST:event_jButtonEntradaVeiculoNaoActionPerformed
-
-    private void jButtonEntradaVeiculoSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntradaVeiculoSimActionPerformed
-        entradaVeiculoSim();
-    }//GEN-LAST:event_jButtonEntradaVeiculoSimActionPerformed
-
-    private void jDialogConfirmaEntradaVeiculoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDialogConfirmaEntradaVeiculoMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jDialogConfirmaEntradaVeiculoMouseReleased
-
-    private void jDialogConfirmaEntradaVeiculoWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jDialogConfirmaEntradaVeiculoWindowActivated
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jDialogConfirmaEntradaVeiculoWindowActivated
-
-    private void jDialogConfirmaEntradaVeiculoWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jDialogConfirmaEntradaVeiculoWindowClosing
-        entradaVeiculoNao();
-    }//GEN-LAST:event_jDialogConfirmaEntradaVeiculoWindowClosing
-
     private void jDialogConfirmaSaidaSistemaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDialogConfirmaSaidaSistemaMouseReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_jDialogConfirmaSaidaSistemaMouseReleased
@@ -3697,7 +3454,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jButtonRotativoSairCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRotativoSairCancelarActionPerformed
         switch (jButtonRotativoSairCancelar.getText()) {
             case "Sair":
-                menuPrincipal("entradasaida");
+                menuPrincipalBotaoEnabledPainelEnabledAt(true);
                 rotativoTabelaRotativo();
                 break;
             case "Cancelar":
@@ -3922,17 +3679,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtInformacoesPernoiteTerminoActionPerformed
 
     private void jButtonPatioSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPatioSairActionPerformed
-        menuPrincipal("entradasaida");
+        menuPrincipalBotaoEnabledPainelEnabledAt(true);
     }//GEN-LAST:event_jButtonPatioSairActionPerformed
 
     private void jButtonMovimentoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMovimentoSairActionPerformed
-        menuPrincipal("entradasaida");
+        menuPrincipalBotaoEnabledPainelEnabledAt(true);
     }//GEN-LAST:event_jButtonMovimentoSairActionPerformed
 
     private void jButtonMovimentoListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMovimentoListarActionPerformed
-        if (jFormattedTextField1.getText().matches("[0-9]{2,2}/[0-9]{2,2}/[0-9]{4,4}")) {
-            movimentoData = jFormattedTextField1.getText();
-            menuPrincipal("movimento");
+        if (jFormattedTextFieldMovimentoData.getText().matches("[0-9]{2,2}/[0-9]{2,2}/[0-9]{4,4}")) {
+            movimentoListaVeiculo(jFormattedTextFieldMovimentoData.getText(), jFormattedTextFieldMovimentoHora.getText());
+            movimentoListaFaturaPaga("%", "%", "%", jFormattedTextFieldMovimentoData.getText(), "%", "%");
         } else {
             JOptionPane.showMessageDialog(this, "A data informada não tem um formato válido!!!");
         }
@@ -3974,23 +3731,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void jButtonPatioListaPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPatioListaPlacaActionPerformed
-        patioOrdenarLista = "placa";
-        menuPrincipal("patio");
+        patioListaVeiculo("placa");
     }//GEN-LAST:event_jButtonPatioListaPlacaActionPerformed
 
     private void jButtonPatioListaPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPatioListaPrismaActionPerformed
-        patioOrdenarLista = "prisma";
-        menuPrincipal("patio");
+        patioListaVeiculo("prisma");
     }//GEN-LAST:event_jButtonPatioListaPrismaActionPerformed
 
     private void jButtonPatioListaTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPatioListaTipoActionPerformed
-        patioOrdenarLista = "tipo";
-        menuPrincipal("patio");
+        patioListaVeiculo("tipo");
     }//GEN-LAST:event_jButtonPatioListaTipoActionPerformed
 
     private void jButtonPatioListaEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPatioListaEntradaActionPerformed
-        patioOrdenarLista = "entrada";
-        menuPrincipal("patio");
+        patioListaVeiculo("entrada");
     }//GEN-LAST:event_jButtonPatioListaEntradaActionPerformed
 
     private void jButtonClienteCadastroSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteCadastroSairActionPerformed
@@ -4002,6 +3755,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonClienteCadastroSairActionPerformed
 
     private void jButtonClienteCadastroAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteCadastroAlterarActionPerformed
+        jButtonContratoConsultaFatura.setEnabled(false);
         jButtonClienteCadastroAlterar.setEnabled(false);
         jButtonClienteCadastroCancelar.setEnabled(false);
         jButtonClienteCadastroSim.setEnabled(true);
@@ -4018,6 +3772,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } else if (jTextFieldContratoStatus.getText().equalsIgnoreCase("Cancelado")) {
             jLabelMensalistaStatus.setText("O CONTRATO foi cancelado em " + contratoArrayList.get(0).getDataCancelamento());
         }
+        jButtonContratoConsultaFatura.setEnabled(false);
         jButtonClienteCadastroAlterar.setEnabled(false);
         jButtonClienteCadastroCancelar.setEnabled(false);
         jButtonClienteCadastroSim.setEnabled(true);
@@ -4043,6 +3798,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 clientePreencherJTextField(contratoArrayList.get(0).getIdClienteFk());
                 jButtonClienteCadastroAlterar.setEnabled(true);
                 jButtonClienteCadastroCancelar.setEnabled(true);
+                jButtonContratoConsultaFatura.setEnabled(true);
                 jButtonClienteCadastroSim.setEnabled(false);
                 jButtonClienteCadastroNao.setEnabled(false);
                 contratoStatus = "Consulta";
@@ -4071,7 +3827,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     contrato = contratoService.contratoIncluir(contratoPopularObjeto());
                     contratoVerificaVeiculosCadastrados(contrato);
                     jTextFieldContratoNumero.setText(String.valueOf(contrato.getIdContrato()));
-                    jTextFieldClienteNumero.setText(String.valueOf(cliente.getIdCliente()));
+                    jTextFieldClienteIdCliente.setText(String.valueOf(cliente.getIdCliente()));
                     JOptionPane.showMessageDialog(this, "Inclusão de contrato efetuada com sucesso!!!\n\n"
                             + "NOME[ " + contrato.getIdClienteFk().getNome() + " ]\n"
                             + "N. CONTRATO[ " + contrato.getIdContrato() + " ]");
@@ -4246,6 +4002,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldMensalistaEmailActionPerformed
 
     private void jButtonClientePesquisaCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClientePesquisaCancelarActionPerformed
+        Contrato contrato = new Contrato();
         if (jTableClienteContrato.getRowCount() != 0 && jTableClienteContrato.getSelectedRowCount() != 0) {
             contrato.setIdContrato(Integer.parseInt((String) jTableClienteContrato.getModel().getValueAt(jTableClienteContrato.getSelectedRow(), 0)));
             contratoArrayList = contratoService.contratoList("%", "%", "%", String.valueOf(contrato.getIdContrato()));
@@ -4267,6 +4024,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jTabbedPaneClienteContrato.setEnabledAt(1, true);
                 jTabbedPaneClienteContrato.setEnabledAt(2, false);
                 jTabbedPaneClienteContrato.setSelectedIndex(1);
+                jButtonContratoConsultaFatura.setEnabled(true);
                 jButtonClienteCadastroCancelar.setEnabled(false);
                 jButtonClienteCadastroAlterar.setEnabled(false);
                 contratoStatus = "Cancelamento";
@@ -4279,6 +4037,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonClientePesquisaCancelarActionPerformed
 
     private void jButtonClientePesquisaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClientePesquisaAlterarActionPerformed
+        Contrato contrato = new Contrato();
         if (jTableClienteContrato.getRowCount() != 0 && jTableClienteContrato.getSelectedRowCount() != 0) {
             contrato.setIdContrato(Integer.parseInt((String) jTableClienteContrato.getModel().getValueAt(jTableClienteContrato.getSelectedRow(), 0)));
             contratoArrayList = contratoService.contratoList("%", "%", "%", String.valueOf(contrato.getIdContrato()));
@@ -4298,6 +4057,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jTabbedPaneClienteContrato.setEnabledAt(1, true);
                 jTabbedPaneClienteContrato.setEnabledAt(2, false);
                 jTabbedPaneClienteContrato.setSelectedIndex(1);
+                jButtonContratoConsultaFatura.setEnabled(false);
                 jButtonClienteCadastroAlterar.setEnabled(false);
                 jButtonClienteCadastroCancelar.setEnabled(false);
                 jButtonClienteCadastroSim.setEnabled(true);
@@ -4313,6 +4073,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonClientePesquisaAlterarActionPerformed
 
     private void jButtonClientePesquisaExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClientePesquisaExibirActionPerformed
+        Contrato contrato = new Contrato();
         if (jTableClienteContrato.getRowCount() != 0 && jTableClienteContrato.getSelectedRowCount() != 0) {
             contrato.setIdContrato(Integer.parseInt((String) jTableClienteContrato.getModel().getValueAt(jTableClienteContrato.getSelectedRow(), 0)));
             contratoArrayList = contratoService.contratoList("%", "%", "%", String.valueOf(contrato.getIdContrato()));
@@ -4324,14 +4085,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 contratoJTextFieldEditable(false);
                 if (jTextFieldContratoStatus.getText().equalsIgnoreCase("Ativo")) {
                     jButtonClienteCadastroCancelar.setEnabled(true);
+                    jButtonClienteCadastroAlterar.setEnabled(true);
                 } else if (jTextFieldContratoStatus.getText().equalsIgnoreCase("Cancelado")) {
                     jButtonClienteCadastroCancelar.setEnabled(false);
+                    jButtonClienteCadastroAlterar.setEnabled(false);
                 }
                 jTabbedPaneClienteContrato.setEnabledAt(0, false);
                 jTabbedPaneClienteContrato.setEnabledAt(1, true);
                 jTabbedPaneClienteContrato.setEnabledAt(2, false);
                 jTabbedPaneClienteContrato.setSelectedIndex(1);
-                jButtonClienteCadastroAlterar.setEnabled(true);
+                jButtonContratoConsultaFatura.setEnabled(true);
                 jButtonClienteCadastroSim.setEnabled(false);
                 jButtonClienteCadastroNao.setEnabled(false);
                 contratoStatus = "Consulta";
@@ -4353,7 +4116,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldClienteNomePesquisaActionPerformed
 
     private void jButtonClientePesquisaSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClientePesquisaSairActionPerformed
-        menuPrincipal("entradasaida");
+        menuPrincipalBotaoEnabledPainelEnabledAt(true);
     }//GEN-LAST:event_jButtonClientePesquisaSairActionPerformed
 
     private void jButtonClientePesquisaIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClientePesquisaIncluirActionPerformed
@@ -4361,6 +4124,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTabbedPaneClienteContrato.setEnabledAt(1, true);
         jTabbedPaneClienteContrato.setEnabledAt(2, false);
         jTabbedPaneClienteContrato.setSelectedIndex(1);
+        jButtonContratoConsultaFatura.setEnabled(false);
         jButtonClienteCadastroAlterar.setEnabled(false);
         jButtonClienteCadastroCancelar.setEnabled(false);
         jButtonClienteCadastroCancelar.setText("Inativar");
@@ -4382,39 +4146,39 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTableClienteContratoKeyPressed
 
-    private void jButtonF10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF10ActionPerformed
+    private void jButtonF10SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF10SairActionPerformed
         confirmaSaidaSistema();
-    }//GEN-LAST:event_jButtonF10ActionPerformed
+    }//GEN-LAST:event_jButtonF10SairActionPerformed
 
-    private void jButtonF8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF8ActionPerformed
+    private void jButtonF8ConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF8ConfiguracoesActionPerformed
         menuPrincipal("configuracoes");
-    }//GEN-LAST:event_jButtonF8ActionPerformed
+    }//GEN-LAST:event_jButtonF8ConfiguracoesActionPerformed
 
-    private void jButtonF6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF6ActionPerformed
-        patioOrdenarLista = "movimento";
-        SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
-        jFormattedTextField1.setText(sdf.format(new Date()));
-        movimentoData = jFormattedTextField1.getText();
-        jPanel25.setBorder(BorderFactory.createTitledBorder("Movimento do dia: " + jFormattedTextField1.getText()));
-        menuPrincipal("movimento");
-    }//GEN-LAST:event_jButtonF6ActionPerformed
+    private void jButtonF2MovimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF2MovimentoActionPerformed
+        SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
+        jFormattedTextFieldMovimentoData.setText(sdfData.format(new Date()));
+        SimpleDateFormat sdfHora = new SimpleDateFormat("HH:mm");
+        jFormattedTextFieldMovimentoHora.setText(sdfHora.format(new Date()));
+        movimentoListaVeiculo(jFormattedTextFieldMovimentoData.getText(), jFormattedTextFieldMovimentoHora.getText());
+        movimentoListaFaturaPaga("%", "%", "%", jFormattedTextFieldMovimentoData.getText(), "%", "%");
 
-    private void jButtonF5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF5ActionPerformed
-        patioOrdenarLista = "entrada";
-        menuPrincipal("patio");
-    }//GEN-LAST:event_jButtonF5ActionPerformed
+    }//GEN-LAST:event_jButtonF2MovimentoActionPerformed
 
-    private void jButtonF4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF4ActionPerformed
+    private void jButtonF1PatioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF1PatioActionPerformed
+        patioListaVeiculo("entrada");
+    }//GEN-LAST:event_jButtonF1PatioActionPerformed
+
+    private void jButtonF4RotativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF4RotativoActionPerformed
         menuPrincipal("rotativo");
-    }//GEN-LAST:event_jButtonF4ActionPerformed
+    }//GEN-LAST:event_jButtonF4RotativoActionPerformed
 
-    private void jButtonF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF2ActionPerformed
+    private void jButtonF5ContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonF5ContratoActionPerformed
         jTabbedPaneClienteContrato.setEnabledAt(0, true);
         jTabbedPaneClienteContrato.setEnabledAt(1, false);
         jTabbedPaneClienteContrato.setEnabledAt(2, false);
         jTabbedPaneClienteContrato.setSelectedIndex(0);
-        menuPrincipal("cliente/contrato");
-    }//GEN-LAST:event_jButtonF2ActionPerformed
+        menuPrincipal("contrato");
+    }//GEN-LAST:event_jButtonF5ContratoActionPerformed
 
     private void jRadioButtonAtivosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonAtivosMouseClicked
         clienteContratoLista();
@@ -4456,12 +4220,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldContratoDiaVencimentoActionPerformed
 
-    private void jButtonClientePesquisaPagamentosConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClientePesquisaPagamentosConsultaActionPerformed
+    private void jButtonClientePesquisaFaturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClientePesquisaFaturasActionPerformed
+        Contrato contrato = new Contrato();
         if (jTableClienteContrato.getRowCount() != 0 && jTableClienteContrato.getSelectedRowCount() != 0) {
             contrato.setIdContrato(Integer.parseInt((String) jTableClienteContrato.getModel().getValueAt(jTableClienteContrato.getSelectedRow(), 0)));
             contratoArrayList = contratoService.contratoList("%", "%", "%", String.valueOf(contrato.getIdContrato()));
             contratoFaturaPreencherJTextField(contratoArrayList.get(0));
-            contratoClienteFatura(contrato = contratoArrayList.get(0));
+            contratoClienteFatura(contratoArrayList.get(0));
             jTabbedPaneClienteContrato.setEnabledAt(0, false);
             jTabbedPaneClienteContrato.setEnabledAt(1, false);
             jTabbedPaneClienteContrato.setEnabledAt(2, true);
@@ -4470,15 +4235,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Selecione um cliente!!!");
         }
-    }//GEN-LAST:event_jButtonClientePesquisaPagamentosConsultaActionPerformed
+    }//GEN-LAST:event_jButtonClientePesquisaFaturasActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButtonContratoFaturaSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonContratoFaturaSairActionPerformed
         jTabbedPaneClienteContrato.setEnabledAt(0, true);
         jTabbedPaneClienteContrato.setEnabledAt(1, false);
         jTabbedPaneClienteContrato.setEnabledAt(2, false);
         jTabbedPaneClienteContrato.setSelectedIndex(0);
         clienteContratoLista();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButtonContratoFaturaSairActionPerformed
 
     private void jRadioButtonContratoMensalistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonContratoMensalistaMouseClicked
         if (jRadioButtonContratoMensalista.isEnabled()) {
@@ -4540,13 +4305,42 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextFieldContratoFaturaQuantidadeKeyReleased
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButtonContratoConsultaFaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonContratoConsultaFaturaActionPerformed
+        Contrato contrato = new Contrato();
+        contrato.setIdContrato(Integer.valueOf(jTextFieldContratoNumero.getText()));
+        contratoArrayList = contratoService.contratoList("%", "%", "%", String.valueOf(contrato.getIdContrato()));
+        jTabbedPaneClienteContrato.setEnabledAt(0, false);
+        jTabbedPaneClienteContrato.setEnabledAt(1, false);
+        jTabbedPaneClienteContrato.setEnabledAt(2, true);
+        jTabbedPaneClienteContrato.setSelectedIndex(2);
+        contratoFaturaPreencherJTextField(contratoArrayList.get(0));
+        contratoClienteFatura(contratoArrayList.get(0));
+        contratoStatus = "Pagamento";
+    }//GEN-LAST:event_jButtonContratoConsultaFaturaActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         contratoService.contratoGeraFatura();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButtonContratoFaturaPagarFaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonContratoFaturaPagarFaturaActionPerformed
+        if (jTableContratoFatura.getRowCount() != 0 && jTableContratoFatura.getSelectedRowCount() != 0) {
+            if (jTableContratoFatura.getModel().getValueAt(jTableContratoFatura.getSelectedRow(), 10).equals("Paga")) {
+                JOptionPane.showMessageDialog(this, "A FATURA selecionada já está PAGA!!!");
+            } else {
+                fatura.setIdFatura(Integer.parseInt((String) jTableContratoFatura.getModel().getValueAt(jTableContratoFatura.getSelectedRow(), 1)));
+                int resp = JOptionPane.showConfirmDialog(this, "Deseja pagar a fatura de número [" + fatura.getIdFatura() + "]", "Confirma pagamento?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if (resp == JOptionPane.YES_OPTION) {
+                    faturaService.faturaPagamento(fatura.getIdFatura());
+                    contratoClienteFatura(contratoArrayList.get(0));
+                    JOptionPane.showMessageDialog(this, "A FATURA foi paga com sucesso!!!");
+                } else if (resp == JOptionPane.NO_OPTION) {
+                    JOptionPane.showMessageDialog(this, "O pagamento da fatura foi cancelado!!!");
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione uma Fatura!!!");
+        }
+    }//GEN-LAST:event_jButtonContratoFaturaPagarFaturaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4589,9 +4383,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroupClienteMensalistaPacote;
     private javax.swing.ButtonGroup buttonGroupContratoDiasUtilizacoes;
     private javax.swing.ButtonGroup buttonGroupContratoMensalistaPacote;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonClienteCadastroAlterar;
     private javax.swing.JButton jButtonClienteCadastroCancelar;
@@ -4601,21 +4392,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonClientePesquisaAlterar;
     private javax.swing.JButton jButtonClientePesquisaCancelar;
     private javax.swing.JButton jButtonClientePesquisaExibir;
+    private javax.swing.JButton jButtonClientePesquisaFaturas;
     private javax.swing.JButton jButtonClientePesquisaIncluir;
     private javax.swing.JButton jButtonClientePesquisaLocalizar;
-    private javax.swing.JButton jButtonClientePesquisaPagamentosConsulta;
     private javax.swing.JButton jButtonClientePesquisaSair;
     private javax.swing.JButton jButtonConfiguracoesAlterarOk;
     private javax.swing.JButton jButtonConfiguracoesSairCancelar;
-    private javax.swing.JButton jButtonEntradaVeiculoNao;
-    private javax.swing.JButton jButtonEntradaVeiculoSim;
-    private javax.swing.JButton jButtonF10;
-    private javax.swing.JButton jButtonF2;
-    private javax.swing.JButton jButtonF4;
-    private javax.swing.JButton jButtonF5;
-    private javax.swing.JButton jButtonF6;
-    private javax.swing.JButton jButtonF8;
-    private javax.swing.JButton jButtonMensalistaPesquisaPagar;
+    private javax.swing.JButton jButtonContratoConsultaFatura;
+    private javax.swing.JButton jButtonContratoFaturaPagarFatura;
+    private javax.swing.JButton jButtonContratoFaturaSair;
+    private javax.swing.JButton jButtonF10Sair;
+    private javax.swing.JButton jButtonF1Patio;
+    private javax.swing.JButton jButtonF2Movimento;
+    private javax.swing.JButton jButtonF4Rotativo;
+    private javax.swing.JButton jButtonF5Contrato;
+    private javax.swing.JButton jButtonF8Configuracoes;
     private javax.swing.JButton jButtonMovimentoListar;
     private javax.swing.JButton jButtonMovimentoSair;
     private javax.swing.JButton jButtonPatioListaEntrada;
@@ -4629,12 +4420,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRotativoSairCancelar;
     private javax.swing.JButton jButtonSaidaSistemaNao;
     private javax.swing.JButton jButtonSaidaSistemaSim;
-    private javax.swing.JButton jButtonSaidaVeiculoNao;
-    private javax.swing.JButton jButtonSaidaVeiculoSim;
-    private javax.swing.JDialog jDialogConfirmaEntradaVeiculo;
     private javax.swing.JDialog jDialogConfirmaSaidaSistema;
-    private javax.swing.JDialog jDialogConfirmaSaidaVeiculo;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextFieldContratoDataCancelamento;
     private javax.swing.JFormattedTextField jFormattedTextFieldContratoDataInicio;
     private javax.swing.JFormattedTextField jFormattedTextFieldContratoDataTermino;
@@ -4655,6 +4441,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFormattedTextFieldMensalistaPlaca04;
     private javax.swing.JFormattedTextField jFormattedTextFieldMensalistaTelefoneCome;
     private javax.swing.JFormattedTextField jFormattedTextFieldMensalistaTelefoneResi;
+    private javax.swing.JFormattedTextField jFormattedTextFieldMovimentoData;
+    private javax.swing.JFormattedTextField jFormattedTextFieldMovimentoHora;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -4684,10 +4472,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel122;
     private javax.swing.JLabel jLabel123;
     private javax.swing.JLabel jLabel124;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel125;
+    private javax.swing.JLabel jLabel126;
+    private javax.swing.JLabel jLabel127;
+    private javax.swing.JLabel jLabel128;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -4704,8 +4492,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
@@ -4802,7 +4588,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel29;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel32;
@@ -4812,7 +4597,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel37;
     private javax.swing.JPanel jPanel38;
     private javax.swing.JPanel jPanel39;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel40;
     private javax.swing.JPanel jPanel41;
     private javax.swing.JPanel jPanel5;
@@ -4845,6 +4629,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -4866,7 +4653,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
@@ -4875,22 +4661,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPaneEntradaSaida;
     private javax.swing.JTabbedPane jTabbedPaneOpcoes;
     private javax.swing.JTable jTableClienteContrato;
-    private javax.swing.JTable jTableContratoClienteFatura;
+    private javax.swing.JTable jTableContratoFatura;
     private javax.swing.JTable jTableEntradaSaidaInformacoesRotativo;
     private javax.swing.JTable jTableEntradaSaidaMovimentacoesRotativo;
-    private javax.swing.JTable jTableMovimento;
+    private javax.swing.JTable jTableMovimentoRecebimentoMensalidadePacote;
+    private javax.swing.JTable jTableMovimentoRecebimentoRotativoAtualFuturo;
+    private javax.swing.JTable jTableMovimentoResumo;
     private javax.swing.JTable jTablePatio;
+    private javax.swing.JTable jTablePatioResumo;
     private javax.swing.JTable jTableRotativo;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextField jTextFieldClienteIdCliente;
     private javax.swing.JTextField jTextFieldClienteNomePesquisa;
-    private javax.swing.JTextField jTextFieldClienteNumero;
-    private javax.swing.JTextField jTextFieldConfirmaSaidaPlaca;
-    private javax.swing.JTextField jTextFieldConfirmaSaidaPlaca1;
-    private javax.swing.JTextField jTextFieldConfirmaSaidaPrisma;
-    private javax.swing.JTextField jTextFieldConfirmaSaidaPrisma1;
     private javax.swing.JTextField jTextFieldContratoDiaVencimento;
     private javax.swing.JTextField jTextFieldContratoFaturaCliente;
     private javax.swing.JTextField jTextFieldContratoFaturaDiaVencimento;
@@ -4970,30 +4755,37 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtRotativoPrecoDemaisFracoes;
     private javax.swing.JTextField txtRotativoPrecoDiaria;
     private javax.swing.JTextField txtRotativoPrecoPernoite;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
     private void verificaDadoDigitado(String dadoEntrada) {
         dadoRetornoTipo = verificadorEntradaDado.verificaDadoTipo(dadoEntrada);
         switch (dadoRetornoTipo) {
             case "placa":
-                veiculo = veiculoService.veiculoIsCadastrado(dadoEntrada);
-                if (veiculo.getPlaca().equalsIgnoreCase("")) {
-                    veiculo.setPlaca(dadoEntrada);
-                    veiculo.setIdVeiculo(0);
-                }
-                patio = patioService.verificarVeiculo(veiculo.getPlaca());
-                if (patio.getEstacionado().equalsIgnoreCase("sim")) {
+                veiculo.setPlaca(dadoEntrada);
+                veiculo = veiculoService.veiculoIsCadastrado(veiculo.getPlaca());
+                patio = patioService.veiculoIsEstacionado(veiculo.getPlaca());
+                patio.setPlaca(veiculo.getPlaca());
+                if (patio.getIdPatio() != 0) {
                     JOptionPane.showMessageDialog(this, "O Veiculo placa: [" + patio.getPlaca() + "] Já está no pátio!\nO número do prisma é: [" + patio.getPrisma() + "]", "Informação!!!", JOptionPane.INFORMATION_MESSAGE);
                     limparObjetosPatio();
                 } else {
                     contrato = placaIsContratoCliente(veiculo.getPlaca());
+                    patio.setIdContratoFk(contrato.getIdContrato());
                     if (contrato.getIdContrato() != 0) {
-                        patio = patioService.contratoClienteVagaIsOcupada(contrato);
+                        patio = patioService.contratoClienteVagaIsOcupada(contrato, patio);
                         if (patio.getPlaca().equalsIgnoreCase("VagaLivre")) {
                             patio.setPlaca(dadoEntrada);
-                            patio.setTipo("Mensalista");
+                            patio.setTipo(contrato.getTipo());
                             jTextFieldEntradaPlaca.setText(veiculo.getPlaca());
-                            escolhaRotativoTipo();
+                            jTextFieldRotativoTipo.setText(patio.getTipo());
+                            jLabelPlacaOuPrisma.setText("Digite o prisma");
+                            jTabbedPaneEntradaSaida.setEnabledAt(0, false);
+                            jTabbedPaneEntradaSaida.setEnabledAt(1, true);
+                            jTabbedPaneEntradaSaida.setSelectedIndex(1);
+                            txtEntradaPlacaOuPrisma.setEditable(true);
+                            txtEntradaPlacaOuPrisma.setFocusable(true);
+                            txtEntradaPlacaOuPrisma.requestFocus();
+                            txtEntradaPlacaOuPrisma.setText(null);
+                            txtEntradaPlacaOuPrisma.setDocument(new EntradaDado(4, "[^0-9]"));
                         } else if (patio.getPlaca().equalsIgnoreCase(contrato.getVeiculo1().getPlaca())) {
                             JOptionPane.showMessageDialog(this, "VAGA OCUPADA!!!\n\n" + contrato.getIdClienteFk().getNome() + " já esta com a vaga ocupada pelo veículo:"
                                     + "\nPlaca: [01] " + contrato.getVeiculo1().getPlaca()
@@ -5029,13 +4821,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         jTextFieldEntradaPlaca.setText(veiculo.getPlaca());
                         patio.setPlaca(veiculo.getPlaca());
                         patio.setTipo("Rotativo");
-                        escolhaRotativoTipo();
+                        patio = escolhaRotativoTipo(patio);
+                        System.out.println("01 patio.getTipo(): " + patio.getTipo());
                     }
+                    jTextFieldEntradaPlaca.setText(veiculo.getPlaca());
                 }
                 break;
             case "prisma":
+                System.out.println("02 patio.getTipo(): " + patio.getTipo());
                 patio.setPrisma(dadoEntrada);
-                prismaNoPatio(patio);
+                prismaNoPatio(patio, veiculo);
+                System.out.println("03 patio.getTipo(): " + patio.getTipo());
                 break;
             default:
                 JOptionPane.showMessageDialog(this, "É um dado inválido!!!");
@@ -5048,11 +4844,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jDialogConfirmaSaidaSistema.setVisible(true);
     }
 
-    private void prismaNoPatio(Patio patio) {
+    private void prismaNoPatio(Patio patio, Veiculo veiculo) {
+        PatioService patioService = new PatioService();
         patio = patioService.verificarPrisma(patio);
         if (jLabelPlacaOuPrisma.getText().equalsIgnoreCase("Placa ou Prisma")) {
             if (patio.getEstacionado().equalsIgnoreCase("sim")) {
-                prepararSaidaVeiculoDoPatio();
+                prepararSaidaVeiculoDoPatio(patio);
             } else {
                 JOptionPane.showMessageDialog(this, "O prisma: [" + patio.getPrisma() + "] Não está registrado!!! \nPara estacionar o veiculo no pátio digite a placa...");
                 txtEntradaPlacaOuPrisma.setText(null);
@@ -5063,45 +4860,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 txtEntradaPlacaOuPrisma.setText(null);
             } else {
                 System.out.println("prepararEntradaVeiculoNoPatio");
-                prepararEntradaVeiculoNoPatio();
+                prepararEntradaVeiculoNoPatio(patio, veiculo);
             }
         }
     }
 
     private void limparObjetosPatio() {
-
-        veiculo.setIdVeiculo(0);
-        veiculo.setPlaca("");
-        veiculo.setMarca("");
-        veiculo.setModelo("");
-        veiculo.setDataHoraCadastro("");
-        veiculo.setDataHoraPrimeiraUtilizacao("");
-        veiculo.setDataHoraUltimaAlteracao("");
-        veiculo.setAnoModelo("");
-        veiculo.setCor("");
-
-        patio.setIdPatio(0);
-        patio.setIdContratoFk(0);
-        patio.setRps("");
-        patio.setPlaca("");
-        patio.setPrisma("");
-        patio.setEstacionado("");
-        patio.setTipo("");
-        patio.setDataEntrada("");
-        patio.setDataEntradaHoraMinuto("");
-        patio.setHoraEntrada("");
-        patio.setDataSaida("");
-        patio.setDataSaidaHoraMinuto("");
-        patio.setHoraSaida("");
-        patio.setDiariaQuantidade(0);
-        patio.setDiariaValorTotal(0);
-        patio.setPernoiteQuantidade(0);
-        patio.setPernoiteValorTotal(0);
-        patio.setPermanencia("");
-        patio.setDataEntradaValor(0);
-        patio.setDataSaidaValor(0);
-        patio.setValorTotal(0);
-
         txtEntradaPlacaOuPrisma.setText("");
         jTextFieldEntradaPlaca.setText("");
         jTextFieldEntradaPrisma.setText("");
@@ -5137,41 +4901,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         txtEntradaPlacaOuPrisma.requestFocus();
     }
 
-    private void entradaVeiculoSim() {
-        if (veiculo.getIdVeiculo() == 0) {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-            veiculo.setDataHoraCadastro(sdf.format(new Date()));
-            veiculo.setDataHoraPrimeiraUtilizacao(veiculo.getDataHoraCadastro());
-            veiculo = veiculoService.veiculoIncluir(veiculo);
-            patio.setIdContratoFk(0);
-            patio.setPlaca(veiculo.getPlaca());
-        } else {
-            patio.setIdContratoFk(contrato.getIdContrato());
-        }
-        patioService.estacionarVeiculo(patio);
-        movimentacoesEntrada();
-        limparObjetosPatio();
-        jDialogConfirmaEntradaVeiculo.dispose();
-    }
-
-    private void entradaVeiculoNao() {
-        limparObjetosPatio();
-        jDialogConfirmaEntradaVeiculo.dispose();
-    }
-
-    private void saidaVeiculoSim() {
-        patioService.retiraVeiculo(patio);
-        movimentacoesSaida();
-        limparObjetosPatio();
-        jDialogConfirmaSaidaVeiculo.dispose();
-    }
-
-    private void saidaVeiculoNao() {
-        limparObjetosPatio();
-        jDialogConfirmaSaidaVeiculo.dispose();
-    }
-
-    private void prepararEntradaVeiculoNoPatio() {
+    private void prepararEntradaVeiculoNoPatio(Patio patio, Veiculo veiculo) {
         SimpleDateFormat rps = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         jTextFieldEntradaData.setText(dataAtual.format(new Date()));
         jTextFieldEntradaHora.setText(horaAtual.format(new Date()));
@@ -5182,28 +4912,70 @@ public class TelaPrincipal extends javax.swing.JFrame {
         if (patio.getTipo().equalsIgnoreCase("Rotativo")) {
             rotativo = rotativoService.rotativoCarregarAtributos(jTextFieldRotativoTipo.getText());
             patio.setNome(rotativo.getNome());
+            patio.setPreco30Minutos(rotativo.getPreco30Minutos());
+            patio.setPreco60Minutos(rotativo.getPreco60Minutos());
+            patio.setPrecoDemaisFracoes(rotativo.getPrecoDemaisFracoes());
+            patio.setPrecoDiaria(rotativo.getPrecoDiaria());
+            patio.setPrecoPernoite(rotativo.getPrecoPernoite());
+            patio.setToleranciaDesistencia(configuracoes.getToleranciaDesistencia());
+            patio.setToleranciaEntreFracoes(configuracoes.getToleranciaFracoes());
+            patio.setDiariaHoras(configuracoes.getDiariaHora());
+            patio.setDiariaMinutos(configuracoes.getDiariaMinuto());
+            patio.setPernoiteInicio(configuracoes.getPernoiteInicio());
+            patio.setPernoiteTermino(configuracoes.getPernoiteTermino());
+        } else {
+            patio.setPreco30Minutos(0);
+            patio.setPreco60Minutos(0);
+            patio.setPrecoDemaisFracoes(0);
+            patio.setPrecoDiaria(0);
+            patio.setPrecoPernoite(0);
+            patio.setToleranciaDesistencia(0);
+            patio.setToleranciaEntreFracoes(0);
+            patio.setDiariaHoras(0);
+            patio.setDiariaMinutos(0);
+            patio.setPernoiteInicio(null);
+            patio.setPernoiteTermino(null);
         }
-
-        patio.setPreco30Minutos(rotativo.getPreco30Minutos());
-        patio.setPreco60Minutos(rotativo.getPreco60Minutos());
-        patio.setPrecoDemaisFracoes(rotativo.getPrecoDemaisFracoes());
-        patio.setPrecoDiaria(rotativo.getPrecoDiaria());
-        patio.setPrecoPernoite(rotativo.getPrecoPernoite());
         patio.setPrisma(jTextFieldEntradaPrisma.getText());
         patio.setEstacionado("sim");
         patio.setDataEntrada(jTextFieldEntradaData.getText());
         patio.setHoraEntrada(jTextFieldEntradaHora.getText());
-        patio.setToleranciaDesistencia(configuracoes.getToleranciaDesistencia());
-        patio.setToleranciaEntreFracoes(configuracoes.getToleranciaFracoes());
-        patio.setDiariaHoras(configuracoes.getDiariaHora());
-        patio.setDiariaMinutos(configuracoes.getDiariaMinuto());
-        patio.setPernoiteInicio(configuracoes.getPernoiteInicio());
-        patio.setPernoiteTermino(configuracoes.getPernoiteTermino());
 
-        jDialogConfirmaEntradaVeiculo.setVisible(true);
+        int resposta = JOptionPane.showConfirmDialog(this, "Confirma entrada do VEÍCULO?", "CONFIRMAÇÃO DE ENTRADA", JOptionPane.YES_NO_OPTION);
+
+        if (resposta == JOptionPane.YES_OPTION) {
+            if (veiculo.getIdVeiculo() == 0) {
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                veiculo.setDataHoraCadastro(sdf.format(new Date()));
+                veiculo.setDataHoraPrimeiraUtilizacao(veiculo.getDataHoraCadastro());
+                veiculo = veiculoService.veiculoIncluir(veiculo);
+            }
+            if (veiculo.getDataHoraPrimeiraUtilizacao() == null) {
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                veiculo.setDataHoraPrimeiraUtilizacao(sdf.format(new Date()));
+                veiculo = veiculoService.veiculoIncluirDataHoraPrimeiraUtilizacao(veiculo);
+            }
+            PatioService patioService = new PatioService();
+            patioService.estacionarVeiculo(patio);
+            movimentacoesDefaultTableModel.addRow(new String[]{
+                "ENTRADA",
+                patio.getPlaca(),
+                patio.getPrisma(),
+                patio.getTipo(),
+                patio.getDataEntrada(),
+                patio.getHoraEntrada(),
+                "-------------",
+                "-------------",
+                patio.getRps()
+            });
+            jTableEntradaSaidaMovimentacoesRotativo.changeSelection(jTableEntradaSaidaMovimentacoesRotativo.getRowCount() - 1, jTableEntradaSaidaMovimentacoesRotativo.getRowCount(), false, false);
+            limparObjetosPatio();
+        } else {
+            limparObjetosPatio();
+        }
     }
 
-    private void prepararSaidaVeiculoDoPatio() {
+    private void prepararSaidaVeiculoDoPatio(Patio patio) {
         patio.setDataSaida(dataAtual.format(new Date()));
         patio.setHoraSaida(horaAtual.format(new Date()));
         jTextFieldSaidaData.setText(patio.getDataSaida());
@@ -5229,10 +5001,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTextFieldSaidaValor.setText(new DecimalFormat("#,##0.00").format(patio.getValorTotal()));
         jTextFieldSaidaPermanenciaTotal.setText(patio.getPermanencia());
 
-        jDialogConfirmaSaidaVeiculo.setVisible(true);
+        int resposta = JOptionPane.showConfirmDialog(this, "Confirma saída do VEÍCULO?", "CONFIRMAÇÃO DE SAÍDA", JOptionPane.YES_NO_OPTION);
+
+        if (resposta == JOptionPane.YES_OPTION) {
+            PatioService patioService = new PatioService();
+            patioService.retiraVeiculo(patio);
+            movimentacoesDefaultTableModel.addRow(new String[]{
+                "SAÍDA",
+                patio.getPlaca(),
+                patio.getPrisma(),
+                patio.getTipo(),
+                patio.getDataEntrada(),
+                patio.getHoraEntrada(),
+                patio.getDataSaida(),
+                patio.getHoraSaida(),
+                patio.getRps()
+            });
+            jTableEntradaSaidaMovimentacoesRotativo.changeSelection(jTableEntradaSaidaMovimentacoesRotativo.getRowCount() - 1, jTableEntradaSaidaMovimentacoesRotativo.getRowCount(), false, false);
+            limparObjetosPatio();
+        } else {
+            limparObjetosPatio();
+        }
     }
 
-    private void escolhaRotativoTipo() {
+    private Patio escolhaRotativoTipo(Patio patio) {
         jTabbedPaneEntradaSaida.setEnabledAt(0, false);
         jTabbedPaneEntradaSaida.setEnabledAt(1, true);
         jTabbedPaneEntradaSaida.setSelectedIndex(1);
@@ -5246,43 +5038,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         rotativoDefaultListModel.addElement("Cancelar entrada do veículo");
         jListRotativoTipo.setModel(rotativoDefaultListModel);
         jListRotativoTipo.setSelectedIndex(0);
+        return patio;
     }
 
-    private void movimentacoesEntrada() {
-        movimentacoesDefaultTableModel.addRow(new String[]{
-            "ENTRADA",
-            patio.getPlaca(),
-            patio.getPrisma(),
-            patio.getTipo(),
-            patio.getDataEntrada(),
-            patio.getHoraEntrada(),
-            "-------------",
-            "-------------",
-            patio.getRps()
-        });
-        jTableEntradaSaidaMovimentacoesRotativo.changeSelection(jTableEntradaSaidaMovimentacoesRotativo.getRowCount() - 1, jTableEntradaSaidaMovimentacoesRotativo.getRowCount(), false, false);
-    }
-
-    private void movimentacoesSaida() {
-        movimentacoesDefaultTableModel.addRow(new String[]{
-            "SAÍDA",
-            patio.getPlaca(),
-            patio.getPrisma(),
-            patio.getTipo(),
-            patio.getDataEntrada(),
-            patio.getHoraEntrada(),
-            patio.getDataSaida(),
-            patio.getHoraSaida(),
-            patio.getRps()
-        });
-        jTableEntradaSaidaMovimentacoesRotativo.changeSelection(jTableEntradaSaidaMovimentacoesRotativo.getRowCount() - 1, jTableEntradaSaidaMovimentacoesRotativo.getRowCount(), false, false);
-    }
-
-    private void patioListaVeiculo() {
+    private void patioListaVeiculo(String ordemLista) {
+        menuPrincipalBotaoEnabledPainelEnabledAt(false);
+        jTabbedPaneOpcoes.setEnabledAt(3, true);
+        jTabbedPaneOpcoes.setSelectedIndex(3);
         patioArrayList.clear();
         ((DefaultTableModel) jTablePatio.getModel()).setRowCount(0);
         ((DefaultTableModel) jTablePatio.getModel()).setColumnCount(0);
-        patioArrayList = patioService.patioLista(patioArrayList, patioOrdenarLista);
+        PatioService patioService = new PatioService();
+        patioArrayList = patioService.patioLista(patioArrayList, ordemLista);
         patioDefaultTableModel.addColumn("Placa");
         patioDefaultTableModel.addColumn("Prisma");
         patioDefaultTableModel.addColumn("Tipo");
@@ -5322,6 +5089,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
                 Object colunaTipo = table.getValueAt(row, 2);//Coluna Status
 
+                setHorizontalAlignment(SwingConstants.RIGHT);
+
                 if (row % 2 == 0) {
                     setBackground(new Color(220, 220, 220));
                     setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
@@ -5337,6 +5106,155 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         setForeground(new Color(0, 0, 200));//Fonte
                     } else if (colunaTipo.equals("Mensalista")) {
                         setForeground(new Color(180, 140, 140));//Fonte
+                    }
+                }
+
+                if (isSelected) {
+                    setBackground(new Color(205, 179, 139));
+                }
+                return this;
+            }
+        });
+        patioListaVeiculoResumo(patioArrayList);
+    }
+
+    class Resumo {
+
+        private String tipo;
+        private int quantidade;
+        private float valor;
+
+        /**
+         * @return the tipo
+         */
+        public String getTipo() {
+            return tipo;
+        }
+
+        /**
+         * @param tipo the tipo to set
+         */
+        public void setTipo(String tipo) {
+            this.tipo = tipo;
+        }
+
+        /**
+         * @return the quantidade
+         */
+        public int getQuantidade() {
+            return quantidade;
+        }
+
+        /**
+         * @param quantidade the quantidade to set
+         */
+        public void setQuantidade(int quantidade) {
+            this.quantidade = quantidade;
+        }
+
+        /**
+         * @return the valor
+         */
+        public float getValor() {
+            return valor;
+        }
+
+        /**
+         * @param valor the valor to set
+         */
+        public void setValor(float valor) {
+            this.valor = valor;
+        }
+    }
+
+    private void patioListaVeiculoResumo(List<Patio> patioArrayList) {
+        List<String> listaTipo = new ArrayList<>();
+        List<Resumo> listaResumo = new ArrayList<>();
+        Resumo resumo;
+        for (int i = 0; i < patioArrayList.size(); i++) {
+            if (!listaTipo.contains(patioArrayList.get(i).getTipo())) {
+                listaTipo.add(patioArrayList.get(i).getTipo());
+            }
+        }
+
+        for (int i = 0; i < listaTipo.size(); i++) {
+            resumo = new Resumo();
+            resumo.setTipo(listaTipo.get(i));
+            listaResumo.add(resumo);
+        }
+
+        for (int i = 0; i < patioArrayList.size(); i++) {
+            for (int j = 0; j < listaResumo.size(); j++) {
+                if (listaResumo.get(j).getTipo().equalsIgnoreCase(patioArrayList.get(i).getTipo())) {
+                    listaResumo.get(j).setQuantidade(listaResumo.get(j).getQuantidade() + 1);
+                    listaResumo.get(j).setValor(listaResumo.get(j).getValor() + patioArrayList.get(i).getValorTotal());
+                    break;
+                }
+            }
+        }
+        ((DefaultTableModel) jTablePatioResumo.getModel()).setRowCount(0);
+        ((DefaultTableModel) jTablePatioResumo.getModel()).setColumnCount(0);
+        DefaultTableModel patioResumoDefaultTableModel = new DefaultTableModel();
+        patioResumoDefaultTableModel.addColumn("Veículo(s)");
+        patioResumoDefaultTableModel.addColumn("Quant.");
+        patioResumoDefaultTableModel.addColumn("Valor R$");
+        int quantidadeTotal = 0;
+        float valorTotal = 0;
+        for (int i = 0; i < listaResumo.size(); i++) {
+            quantidadeTotal += listaResumo.get(i).getQuantidade();
+            valorTotal += listaResumo.get(i).getValor();
+            patioResumoDefaultTableModel.addRow(new String[]{
+                listaResumo.get(i).getTipo(),
+                String.valueOf(listaResumo.get(i).getQuantidade()),
+                new DecimalFormat("R$ #,##0.00").format(listaResumo.get(i).getValor())
+            });
+        }
+        patioResumoDefaultTableModel.addRow(new String[]{
+            "=====",
+            "=====",
+            "====="
+        });
+        patioResumoDefaultTableModel.addRow(new String[]{
+            "Total",
+            String.valueOf(quantidadeTotal),
+            new DecimalFormat("R$ #,##0.00").format(valorTotal)
+        });
+        jTablePatioResumo.setModel(patioResumoDefaultTableModel);
+        jTablePatioResumo.getColumnModel().getColumn(0).setPreferredWidth(100);
+        jTablePatioResumo.getColumnModel().getColumn(1).setPreferredWidth(60);
+        jTablePatioResumo.getColumnModel().getColumn(2).setPreferredWidth(100);
+        jTablePatioResumo.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(
+                    JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+
+                Object colunaTipo = table.getValueAt(row, 0);//Coluna Status
+                Object linhaTipo = table.getValueAt(row, column);//Linha Status
+
+                if (linhaTipo.equals("=====")) {
+                    setHorizontalAlignment(SwingConstants.CENTER);
+                } else {
+                    setHorizontalAlignment(SwingConstants.RIGHT);
+                }
+
+                if (row % 2 == 0) {
+                    setBackground(new Color(220, 220, 220));
+                    setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
+                } else {
+                    setBackground(null);
+                    setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
+                }
+                setFont(new Font("", Font.PLAIN, 16));//("Nome da fonte", estilo da fonte, tamanho da fonte)
+                if (colunaTipo != null) {//Se existir a celula Tipo
+                    if (colunaTipo.equals("Rotativo")) {
+                        setForeground(new Color(0, 150, 0));//Fonte
+                    } else if (colunaTipo.equals("Pacote")) {
+                        setForeground(new Color(0, 0, 200));//Fonte
+                    } else if (colunaTipo.equals("Mensalista")) {
+                        setForeground(new Color(180, 140, 140));//Fonte
+                    } else if (colunaTipo.equals("Total")) {
+                        setForeground(new Color(0, 0, 0));//Fonte
                     }
                 }
 
@@ -5494,7 +5412,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void configuracoesSairCancelar() {
         switch (jButtonConfiguracoesSairCancelar.getText()) {
             case "Sair":
-                menuPrincipal("entradasaida");
+                menuPrincipalBotaoEnabledPainelEnabledAt(true);
                 break;
             case "Cancelar":
                 jListConfiguracoes.setEnabled(true);
@@ -5521,38 +5439,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void menuPrincipal(String menu) {
-        jTabbedPaneOpcoes.setEnabledAt(0, false);
-        jTabbedPaneOpcoes.setEnabledAt(1, false);
-        jTabbedPaneOpcoes.setEnabledAt(2, false);
-        jTabbedPaneOpcoes.setEnabledAt(3, false);
-        jTabbedPaneOpcoes.setEnabledAt(4, false);
-        jTabbedPaneOpcoes.setEnabledAt(5, false);
-        jTabbedPaneOpcoes.setEnabledAt(6, false);
-        menuPrincipalBotoesStatus(false);
+        menuPrincipalBotaoEnabledPainelEnabledAt(false);
         switch (menu) {
-            case "entradasaida":
-                jTabbedPaneOpcoes.setEnabledAt(0, true);
-                jTabbedPaneOpcoes.setSelectedIndex(0);
-                menuPrincipalBotoesStatus(true);
-                break;
-            case "cliente/contrato":
-                jTabbedPaneOpcoes.setEnabledAt(1, true);
-                jTabbedPaneOpcoes.setSelectedIndex(1);
-                clienteContratoLista();
-                break;
             case "rotativo":
                 jTabbedPaneOpcoes.setEnabledAt(2, true);
                 jTabbedPaneOpcoes.setSelectedIndex(2);
                 break;
-            case "patio":
-                jTabbedPaneOpcoes.setEnabledAt(3, true);
-                jTabbedPaneOpcoes.setSelectedIndex(3);
-                patioListaVeiculo();
-                break;
-            case "movimento":
-                jTabbedPaneOpcoes.setEnabledAt(4, true);
-                jTabbedPaneOpcoes.setSelectedIndex(4);
-                movimentoListaVeiculo();
+            case "contrato":
+                jTabbedPaneOpcoes.setEnabledAt(1, true);
+                jTabbedPaneOpcoes.setSelectedIndex(1);
+                clienteContratoLista();
                 break;
             case "configuracoes":
                 jTabbedPaneOpcoes.setEnabledAt(5, true);
@@ -5567,13 +5463,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
     }
 
-    private void menuPrincipalBotoesStatus(boolean status) {
-        jButtonF2.setEnabled(status);
-        jButtonF4.setEnabled(status);
-        jButtonF5.setEnabled(status);
-        jButtonF6.setEnabled(status);
-        jButtonF8.setEnabled(status);
-        jButtonF10.setEnabled(status);
+    private void menuPrincipalBotaoEnabledPainelEnabledAt(boolean status) {
+        jTabbedPaneOpcoes.setEnabledAt(0, false);
+        jTabbedPaneOpcoes.setEnabledAt(1, false);
+        jTabbedPaneOpcoes.setEnabledAt(2, false);
+        jTabbedPaneOpcoes.setEnabledAt(3, false);
+        jTabbedPaneOpcoes.setEnabledAt(4, false);
+        jTabbedPaneOpcoes.setEnabledAt(5, false);
+        jTabbedPaneOpcoes.setEnabledAt(6, false);
+        if (status) {
+            jTabbedPaneOpcoes.setEnabledAt(0, true);
+            jTabbedPaneOpcoes.setSelectedIndex(0);
+        }
+        jButtonF1Patio.setEnabled(status);
+        jButtonF2Movimento.setEnabled(status);
+        jButtonF4Rotativo.setEnabled(status);
+        jButtonF5Contrato.setEnabled(status);
+        jButtonF8Configuracoes.setEnabled(status);
+        jButtonF10Sair.setEnabled(status);
     }
 
     private void entradaSaidaMovimentacoesTabelaRotativo() {
@@ -5690,14 +5597,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void configuracaoJDialog() {
-        jDialogConfirmaEntradaVeiculo.setResizable(false);
-        jDialogConfirmaEntradaVeiculo.setModal(true);
-        jDialogConfirmaEntradaVeiculo.setBounds(530, 230, 823, 164);
-
-        jDialogConfirmaSaidaVeiculo.setResizable(false);
-        jDialogConfirmaSaidaVeiculo.setModal(true);
-        jDialogConfirmaSaidaVeiculo.setBounds(530, 230, 823, 164);
-
         jDialogConfirmaSaidaSistema.setSize(823, 164);
         jDialogConfirmaSaidaSistema.setLocationRelativeTo(null);
         jDialogConfirmaSaidaSistema.setResizable(false);
@@ -5723,16 +5622,32 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTableEntradaSaidaInformacoesRotativo.setEnabled(false);
     }
 
-    private void movimentoListaVeiculo() {
-        movimentoArrayList.clear();
-        movimentoArrayList = patioService.movimentoLista(movimentoArrayList, movimentoData);
+    private void movimentoListaVeiculo(String movimentoData, String movimentoHora) {
+        if (movimentoData.replaceAll("/", "").replaceAll(" ", "").equalsIgnoreCase("")) {
+            SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
+            jFormattedTextFieldMovimentoData.setText(sdfData.format(new Date()));
+            movimentoData = jFormattedTextFieldMovimentoData.getText();
+        }
+        if (movimentoHora.replaceAll(":", "").replaceAll(" ", "").equalsIgnoreCase("")) {
+            SimpleDateFormat sdfHora = new SimpleDateFormat("HH:mm");
+            jFormattedTextFieldMovimentoHora.setText(sdfHora.format(new Date()));
+            movimentoHora = jFormattedTextFieldMovimentoHora.getText();
+        }
+        menuPrincipalBotaoEnabledPainelEnabledAt(false);
+        jTabbedPaneOpcoes.setEnabledAt(4, true);
+        jTabbedPaneOpcoes.setSelectedIndex(4);
+        List<Patio> movimentoArrayList = new ArrayList<>();
+        PatioService patioService = new PatioService();
+        movimentoArrayList = patioService.movimentoListaNew(movimentoArrayList, movimentoData, movimentoHora);
         if (movimentoArrayList.size() == 0) {
+            jPanel25.setBorder(BorderFactory.createTitledBorder("Movimento do dia pesquisado: Não encontrado!!!"));
+            ((DefaultTableModel) jTableMovimentoRecebimentoRotativoAtualFuturo.getModel()).setRowCount(0);
+            ((DefaultTableModel) jTableMovimentoRecebimentoRotativoAtualFuturo.getModel()).setColumnCount(0);
             JOptionPane.showMessageDialog(this, "Não foi encontrado movimento para data pesquisada!!!");
         } else {
-            jPanel25.setBorder(BorderFactory.createTitledBorder("Movimento do dia: " + jFormattedTextField1.getText()));
-            SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
-            ((DefaultTableModel) jTableMovimento.getModel()).setRowCount(0);
-            ((DefaultTableModel) jTableMovimento.getModel()).setColumnCount(0);
+            jPanel25.setBorder(BorderFactory.createTitledBorder("Movimento do dia: " + jFormattedTextFieldMovimentoData.getText()));
+            ((DefaultTableModel) jTableMovimentoRecebimentoRotativoAtualFuturo.getModel()).setRowCount(0);
+            ((DefaultTableModel) jTableMovimentoRecebimentoRotativoAtualFuturo.getModel()).setColumnCount(0);
             movimentoDefaultTableModel.addColumn("Placa");
             movimentoDefaultTableModel.addColumn("Prisma");
             movimentoDefaultTableModel.addColumn("Tipo");
@@ -5763,18 +5678,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 });
             }
 
-            jTableMovimento.setModel(movimentoDefaultTableModel);
-            jTableMovimento.getColumnModel().getColumn(0).setPreferredWidth(8);
-            jTableMovimento.getColumnModel().getColumn(1).setPreferredWidth(8);
-            jTableMovimento.getColumnModel().getColumn(2).setPreferredWidth(15);
-            jTableMovimento.getColumnModel().getColumn(3).setPreferredWidth(60);
-            jTableMovimento.getColumnModel().getColumn(4).setPreferredWidth(22);
-            jTableMovimento.getColumnModel().getColumn(5).setPreferredWidth(20);
-            jTableMovimento.getColumnModel().getColumn(6).setPreferredWidth(22);
-            jTableMovimento.getColumnModel().getColumn(7).setPreferredWidth(20);
-            jTableMovimento.getColumnModel().getColumn(8).setPreferredWidth(65);
-            jTableMovimento.getColumnModel().getColumn(9).setPreferredWidth(50);
-            jTableMovimento.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+            jTableMovimentoRecebimentoRotativoAtualFuturo.setModel(movimentoDefaultTableModel);
+            jTableMovimentoRecebimentoRotativoAtualFuturo.getColumnModel().getColumn(0).setPreferredWidth(8);
+            jTableMovimentoRecebimentoRotativoAtualFuturo.getColumnModel().getColumn(1).setPreferredWidth(8);
+            jTableMovimentoRecebimentoRotativoAtualFuturo.getColumnModel().getColumn(2).setPreferredWidth(15);
+            jTableMovimentoRecebimentoRotativoAtualFuturo.getColumnModel().getColumn(3).setPreferredWidth(60);
+            jTableMovimentoRecebimentoRotativoAtualFuturo.getColumnModel().getColumn(4).setPreferredWidth(22);
+            jTableMovimentoRecebimentoRotativoAtualFuturo.getColumnModel().getColumn(5).setPreferredWidth(20);
+            jTableMovimentoRecebimentoRotativoAtualFuturo.getColumnModel().getColumn(6).setPreferredWidth(22);
+            jTableMovimentoRecebimentoRotativoAtualFuturo.getColumnModel().getColumn(7).setPreferredWidth(20);
+            jTableMovimentoRecebimentoRotativoAtualFuturo.getColumnModel().getColumn(8).setPreferredWidth(65);
+            jTableMovimentoRecebimentoRotativoAtualFuturo.getColumnModel().getColumn(9).setPreferredWidth(50);
+            jTableMovimentoRecebimentoRotativoAtualFuturo.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
                 @Override
                 public Component getTableCellRendererComponent(
                         JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
@@ -5810,7 +5725,171 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     return this;
                 }
             });
+            movimentoListaVeiculoResumo(movimentoArrayList);
         }
+    }
+
+    private void movimentoListaVeiculoResumo(List<Patio> movimentoArrayList) {
+        List<String> listaTipo = new ArrayList<>();
+        List<Resumo> listaResumoRecebidos = new ArrayList<>();
+        List<Resumo> listaResumoAReceber = new ArrayList<>();
+        Resumo teste;
+        listaTipo.clear();
+        listaResumoRecebidos.clear();
+        listaResumoAReceber.clear();
+        Resumo resumoRecebidos, resumoAReceber;
+
+        //Criando o List com os tipos de veiculos que estam no pátio
+        for (int i = 0; i < movimentoArrayList.size(); i++) {
+            if (!listaTipo.contains(movimentoArrayList.get(i).getTipo())) {
+                listaTipo.add(movimentoArrayList.get(i).getTipo());
+            }
+        }
+
+        for (int i = 0; i < listaTipo.size(); i++) {
+            resumoRecebidos = new Resumo();
+            resumoAReceber = new Resumo();
+            resumoRecebidos.setTipo(listaTipo.get(i));
+            resumoAReceber.setTipo(listaTipo.get(i));
+            listaResumoRecebidos.add(resumoRecebidos);
+            listaResumoAReceber.add(resumoAReceber);
+        }
+
+        for (int i = 0; i < movimentoArrayList.size(); i++) {
+            for (int j = 0; j < listaTipo.size(); j++) {
+                if (listaResumoRecebidos.get(j).getTipo().equalsIgnoreCase(movimentoArrayList.get(i).getTipo()) && !movimentoArrayList.get(i).getDataSaida().equalsIgnoreCase("Veículo no")) {
+                    listaResumoRecebidos.get(j).setQuantidade(listaResumoRecebidos.get(j).getQuantidade() + 1);
+                    listaResumoRecebidos.get(j).setValor(listaResumoRecebidos.get(j).getValor() + movimentoArrayList.get(i).getValorTotal());
+                    break;
+                } else if (listaResumoAReceber.get(j).getTipo().equalsIgnoreCase(movimentoArrayList.get(i).getTipo()) && movimentoArrayList.get(i).getDataSaida().equalsIgnoreCase("Veículo no")) {
+                    listaResumoAReceber.get(j).setQuantidade(listaResumoAReceber.get(j).getQuantidade() + 1);
+                    listaResumoAReceber.get(j).setValor(listaResumoAReceber.get(j).getValor() + movimentoArrayList.get(i).getValorTotal());
+                    break;
+                }
+            }
+        }
+
+        for (int i = listaResumoRecebidos.size() - 1 ; i > 0 ; i--) {
+            if (listaResumoRecebidos.get(i).quantidade == 0) {
+                listaResumoRecebidos.remove(i);
+            }
+        }
+      
+        for (int i = listaResumoAReceber.size() - 1; i > 0 ; i--) {
+            if (listaResumoAReceber.get(i).quantidade == 0) {
+                listaResumoAReceber.remove(i);
+            }
+        }
+        
+        ((DefaultTableModel) jTableMovimentoResumo.getModel()).setRowCount(0);
+        ((DefaultTableModel) jTableMovimentoResumo.getModel()).setColumnCount(0);
+        DefaultTableModel movimentoResumoDefaultTableModel = new DefaultTableModel();
+        movimentoResumoDefaultTableModel.addColumn("Status");
+        movimentoResumoDefaultTableModel.addColumn("Veículo(s)");
+        movimentoResumoDefaultTableModel.addColumn("Quant.");
+        movimentoResumoDefaultTableModel.addColumn("Valor R$");
+
+        int quantidadeTotalRecebidos = 0;
+        float valorTotalRecebidos = 0;
+
+        if (!listaResumoRecebidos.isEmpty()) {
+            for (int i = 0; i < listaResumoRecebidos.size(); i++) {
+                quantidadeTotalRecebidos += listaResumoRecebidos.get(i).getQuantidade();
+                valorTotalRecebidos += listaResumoRecebidos.get(i).getValor();
+                movimentoResumoDefaultTableModel.addRow(new String[]{
+                    "Recebidos",
+                    listaResumoRecebidos.get(i).getTipo(),
+                    String.valueOf(listaResumoRecebidos.get(i).getQuantidade()),
+                    new DecimalFormat("R$ #,##0.00").format(listaResumoRecebidos.get(i).getValor())
+                });
+            }
+        }
+        movimentoResumoDefaultTableModel.addRow(new String[]{
+            "Recebidos",
+            "Total",
+            String.valueOf(quantidadeTotalRecebidos),
+            new DecimalFormat("R$ #,##0.00").format(valorTotalRecebidos)
+        });
+
+        movimentoResumoDefaultTableModel.addRow(new String[]{
+            "",
+            "",
+            "",
+            "",});
+
+        int quantidadeTotalAReceber = 0;
+        float valorTotalAReceber = 0;
+        if (!listaResumoAReceber.isEmpty()) {
+            for (int i = 0; i < listaResumoAReceber.size(); i++) {
+                quantidadeTotalAReceber += listaResumoAReceber.get(i).getQuantidade();
+                valorTotalAReceber += listaResumoAReceber.get(i).getValor();
+                movimentoResumoDefaultTableModel.addRow(new String[]{
+                    "A Receber",
+                    listaResumoAReceber.get(i).getTipo(),
+                    String.valueOf(listaResumoAReceber.get(i).getQuantidade()),
+                    new DecimalFormat("R$ #,##0.00").format(listaResumoAReceber.get(i).getValor())
+                });
+            }
+        }
+        movimentoResumoDefaultTableModel.addRow(new String[]{
+            "A Receber",
+            "Total",
+            String.valueOf(quantidadeTotalAReceber),
+            new DecimalFormat("R$ #,##0.00").format(valorTotalAReceber)
+        });
+
+        jTableMovimentoResumo.setModel(movimentoResumoDefaultTableModel);
+        jTableMovimentoResumo.getColumnModel().getColumn(0).setPreferredWidth(100);
+        jTableMovimentoResumo.getColumnModel().getColumn(1).setPreferredWidth(92);
+        jTableMovimentoResumo.getColumnModel().getColumn(2).setPreferredWidth(60);
+        jTableMovimentoResumo.getColumnModel().getColumn(3).setPreferredWidth(100);
+        jTableMovimentoResumo.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(
+                    JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+
+                Object colunaTipo = table.getValueAt(row, 1);//Coluna Status
+                Object linhaTipo = table.getValueAt(row, column);//Linha Status
+
+                if (row % 2 == 0) {
+                    setBackground(new Color(220, 220, 220));
+                    setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
+                } else {
+                    setBackground(null);
+                    setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
+                }
+                setFont(new Font("", Font.PLAIN, 16));//("Nome da fonte", estilo da fonte, tamanho da fonte)
+                if (colunaTipo != null) {//Se existir a celula Tipo
+                    if (colunaTipo.equals("Rotativo")) {
+                        setForeground(new Color(0, 150, 0));//Fonte
+                        setFont(new Font(null, Font.PLAIN, 14));
+                    } else if (colunaTipo.equals("Pacote")) {
+                        setForeground(new Color(0, 0, 200));//Fonte
+                        setFont(new Font(null, Font.PLAIN, 14));
+                    } else if (colunaTipo.equals("Mensalista")) {
+                        setForeground(new Color(180, 140, 140));//Fonte
+                        setFont(new Font(null, Font.PLAIN, 14));
+                    } else if (colunaTipo.equals("Total")) {
+                        setForeground(new Color(0, 0, 0));//Fonte
+                        setFont(new Font(null, Font.BOLD, 16));
+                    }
+                }
+
+                if (isSelected) {
+                    setBackground(new Color(205, 179, 139));
+                }
+
+                if (linhaTipo.equals("")) {
+                    setHorizontalAlignment(SwingConstants.CENTER);
+                    setBackground(new Color(55, 55, 55));
+
+                } else {
+                    setHorizontalAlignment(SwingConstants.RIGHT);
+                }
+                return this;
+            }
+        });
     }
 
     private void clienteContratoLista() {
@@ -5848,6 +5927,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         contratoDefaultTableModel.addColumn("Nome");
         contratoDefaultTableModel.addColumn("CPF");
         contratoDefaultTableModel.addColumn("Tipo");
+        contratoDefaultTableModel.addColumn("Modo");
+        contratoDefaultTableModel.addColumn("Quant.");
         contratoDefaultTableModel.addColumn("Status");
         contratoDefaultTableModel.addColumn("Venc.");
         contratoDefaultTableModel.addColumn("Telefone");
@@ -5891,7 +5972,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 String.valueOf(contratoArrayList.get(i).getIdContrato()),
                 contratoArrayList.get(i).getIdClienteFk().getNome(),
                 contratoArrayList.get(i).getIdClienteFk().getCpf().substring(0, 3) + "." + contratoArrayList.get(i).getIdClienteFk().getCpf().substring(3, 6) + "." + contratoArrayList.get(i).getIdClienteFk().getCpf().substring(6, 9) + "-" + contratoArrayList.get(i).getIdClienteFk().getCpf().substring(9, 11),
-                contratoArrayList.get(i).getMensalistaOuPacote(),
+                contratoArrayList.get(i).getTipo(),
+                contratoArrayList.get(i).getModo(),
+                String.format("%02d", Integer.parseInt(String.valueOf(contratoArrayList.get(i).getQuantidade()))),
                 contratoArrayList.get(i).getStatus(),
                 contratoArrayList.get(i).getDiaVencimento(),
                 "(" + contratoArrayList.get(i).getIdClienteFk().getTelefone().substring(0, 2) + ")" + contratoArrayList.get(i).getIdClienteFk().getTelefone().substring(2, 6) + "-" + contratoArrayList.get(i).getIdClienteFk().getTelefone().substring(6, 10),
@@ -5905,18 +5988,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTableClienteContrato.getColumnModel().getColumn(1).setPreferredWidth(400);
         jTableClienteContrato.getColumnModel().getColumn(2).setPreferredWidth(140);
         jTableClienteContrato.getColumnModel().getColumn(3).setPreferredWidth(95);
-        jTableClienteContrato.getColumnModel().getColumn(4).setPreferredWidth(90);
-        jTableClienteContrato.getColumnModel().getColumn(5).setPreferredWidth(45);
-        jTableClienteContrato.getColumnModel().getColumn(6).setPreferredWidth(130);
-        jTableClienteContrato.getColumnModel().getColumn(7).setPreferredWidth(140);
-        jTableClienteContrato.getColumnModel().getColumn(8).setPreferredWidth(240);
+        jTableClienteContrato.getColumnModel().getColumn(4).setPreferredWidth(95);
+        jTableClienteContrato.getColumnModel().getColumn(5).setPreferredWidth(40);
+        jTableClienteContrato.getColumnModel().getColumn(6).setPreferredWidth(90);
+        jTableClienteContrato.getColumnModel().getColumn(7).setPreferredWidth(45);
+        jTableClienteContrato.getColumnModel().getColumn(8).setPreferredWidth(130);
+        jTableClienteContrato.getColumnModel().getColumn(9).setPreferredWidth(140);
+        jTableClienteContrato.getColumnModel().getColumn(10).setPreferredWidth(240);
         jTableClienteContrato.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(
                     JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
                 super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 
-                Object colunaStatus = table.getValueAt(row, 4);//Coluna Status
+                Object colunaStatus = table.getValueAt(row, 6);//Coluna Status
 
                 if (row % 2 == 0) {
                     setBackground(new Color(255, 255, 255));
@@ -5955,6 +6040,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 if (jFormattedTextFieldMensalistaPlaca02.getText().replaceAll(" ", "").equalsIgnoreCase("") || verificadorEntradaDado.verificaDadoTipo(jFormattedTextFieldMensalistaPlaca02.getText()).equalsIgnoreCase("placa")) {
                     if (jFormattedTextFieldMensalistaPlaca03.getText().replaceAll(" ", "").equalsIgnoreCase("") || verificadorEntradaDado.verificaDadoTipo(jFormattedTextFieldMensalistaPlaca03.getText()).equalsIgnoreCase("placa")) {
                         if (jFormattedTextFieldMensalistaPlaca04.getText().replaceAll(" ", "").equalsIgnoreCase("") || verificadorEntradaDado.verificaDadoTipo(jFormattedTextFieldMensalistaPlaca04.getText()).equalsIgnoreCase("placa")) {
+                            jButtonContratoConsultaFatura.setEnabled(true);
                             jButtonClienteCadastroAlterar.setEnabled(true);
                             jButtonClienteCadastroCancelar.setEnabled(true);
                             jButtonClienteCadastroSim.setEnabled(false);
@@ -5987,19 +6073,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private Contrato contratoPopularObjeto() {
         if (jRadioButtonContratoMensalista.isSelected()) {
-            contrato.setMensalistaOuPacote("Mensalista");
+            contrato.setTipo("Mensalista");
         } else if (jRadioButtonContratoPacote.isSelected()) {
-            contrato.setMensalistaOuPacote("Pacote");
+            contrato.setTipo("Pacote");
         }
         if (jRadioButtonContratoDias.isSelected()) {
-            contrato.setDiasOuUtilizacoes("Dias");
+            contrato.setModo("Dias");
         } else if (jRadioButtonContratoUtilizacoes.isSelected()) {
-            contrato.setDiasOuUtilizacoes("Utilizações");
+            contrato.setModo("Utilizações");
         }
         contrato.setQuantidade(Integer.valueOf(jFormattedTextFieldContratoQuantidade.getText().replaceAll(" ", "")));
         contrato.setDataInicio(jFormattedTextFieldContratoDataInicio.getText());
         contrato.setDataTermino(jFormattedTextFieldContratoDataTermino.getText());
-        contrato.setValor(Float.valueOf(jTextFieldContratoValor.getText()));
+        contrato.setValor(Float.valueOf(jTextFieldContratoValor.getText().replaceAll("\\.", "").replaceAll(",", "\\.")));
         contrato.setDiaVencimento(jTextFieldContratoDiaVencimento.getText().replaceAll(" ", ""));
         contrato.setDataCancelamento(jFormattedTextFieldContratoDataCancelamento.getText());
         contrato.setStatus(jTextFieldContratoStatus.getText().replaceAll(" ", ""));
@@ -6031,6 +6117,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private Cliente clientePopularObjeto() {
+        //cliente.setIdCliente(Integer.valueOf(jTextFieldClienteIdCliente.getText()));
         cliente.setDataInclusao(jFormattedTextFieldContratoDataInicio.getText());
         cliente.setDataUltimaAlteracao(jFormattedTextFieldContratoDataCancelamento.getText());
         cliente.setNome(jTextFieldMensalistaNome.getText());
@@ -6066,6 +6153,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jFormattedTextFieldContratoDataCancelamento.setText(conteudo);
         jRadioButtonContratoMensalista.setSelected(true);
         jRadioButtonContratoDias.setSelected(true);
+        jTextFieldContratoValor.setText(conteudo);
 
         jFormattedTextFieldMensalistaPlaca01.setText(conteudo);
         jTextFieldMensalistaMontadora01.setText(conteudo);
@@ -6183,15 +6271,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void contratoConsultaPreencherJTextField(Contrato contrato) {
-        if (contrato.getMensalistaOuPacote().equalsIgnoreCase("Mensalista")) {
+        if (contrato.getTipo().equalsIgnoreCase("Mensalista")) {
             jRadioButtonContratoMensalista.setSelected(true);
-        } else if (contrato.getMensalistaOuPacote().equalsIgnoreCase("Pacote")) {
+        } else if (contrato.getTipo().equalsIgnoreCase("Pacote")) {
             jRadioButtonContratoPacote.setSelected(true);
         }
 
-        if (contrato.getDiasOuUtilizacoes().equalsIgnoreCase("Dias")) {
+        if (contrato.getModo().equalsIgnoreCase("Dias")) {
             jRadioButtonContratoDias.setSelected(true);
-        } else if (contrato.getDiasOuUtilizacoes().equalsIgnoreCase("Utilizações")) {
+        } else if (contrato.getModo().equalsIgnoreCase("Utilizações")) {
             jRadioButtonContratoUtilizacoes.setSelected(true);
         }
 
@@ -6228,7 +6316,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void clientePreencherJTextField(Cliente cliente) {
         jTextFieldMensalistaNome.setText(cliente.getNome());
-        jTextFieldClienteNumero.setText(String.valueOf(cliente.getIdCliente()));
+        jTextFieldClienteIdCliente.setText(String.valueOf(cliente.getIdCliente()));
         jFormattedTextFieldMensalistaCpf.setText(cliente.getCpf());
         jTextFieldMensalistaIdentidade.setText(cliente.getIdentidade());
         jFormattedTextFieldMensalistaTelefoneResi.setText(cliente.getTelefone());
@@ -6254,6 +6342,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private Contrato placaIsContratoCliente(String placa) {
+        Contrato contrato = new Contrato();
         contrato = contratoService.contratoPlacaIsCliente(placa);
         System.out.println("Contrato Placa 01 " + contrato.getVeiculo1().getPlaca());
         System.out.println("Contrato Placa 02 " + contrato.getVeiculo2().getPlaca());
@@ -6288,7 +6377,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
             JOptionPane.showMessageDialog(this, "Veículo de cliente!!!\n"
                     + "\nN. Contrato: " + contrato.getIdContrato()
-                    + "\nNome: " + cliente.getNome()
+                    + "\nNome: " + contrato.getIdClienteFk().getNome()
                     + "\nPlaca: " + placa
                     + "\nMontadora: " + marca
                     + "\nModelo: " + modelo
@@ -6299,15 +6388,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void contratoFaturaPreencherJTextField(Contrato contrato) {
-        if (contrato.getMensalistaOuPacote().equalsIgnoreCase("Mensalista")) {
+        if (contrato.getTipo().equalsIgnoreCase("Mensalista")) {
             jRadioButtonContratoFaturaMensalista.setSelected(true);
-        } else if (contrato.getMensalistaOuPacote().equalsIgnoreCase("Pacote")) {
+        } else if (contrato.getTipo().equalsIgnoreCase("Pacote")) {
             jRadioButtonContratoFaturaPacote.setSelected(true);
         }
 
-        if (contrato.getDiasOuUtilizacoes().equalsIgnoreCase("Dias")) {
+        if (contrato.getModo().equalsIgnoreCase("Dias")) {
             jRadioButtonContratoFaturaDias.setSelected(true);
-        } else if (contrato.getDiasOuUtilizacoes().equalsIgnoreCase("Utilizações")) {
+        } else if (contrato.getModo().equalsIgnoreCase("Utilizações")) {
             jRadioButtonContratoFaturaUtilizacoes.setSelected(true);
         }
 
@@ -6325,13 +6414,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void contratoClienteFatura(Contrato contrato) {
-        ((DefaultTableModel) jTableContratoClienteFatura.getModel()).setRowCount(0);
-        ((DefaultTableModel) jTableContratoClienteFatura.getModel()).setColumnCount(0);
+        ((DefaultTableModel) jTableContratoFatura.getModel()).setRowCount(0);
+        ((DefaultTableModel) jTableContratoFatura.getModel()).setColumnCount(0);
         faturaArrayList.clear();
         faturaArrayList = faturaService.faturasContratoCliente(contrato.getIdContrato());
+        DefaultTableModel faturaDefaultTableModel = new DefaultTableModel() {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         faturaDefaultTableModel.addColumn("N.Contrato");
         faturaDefaultTableModel.addColumn("N.Fatura");
         faturaDefaultTableModel.addColumn("Tipo");
+        faturaDefaultTableModel.addColumn("Modo");
+        faturaDefaultTableModel.addColumn("Quant.");
         faturaDefaultTableModel.addColumn("Mês Referência");
         faturaDefaultTableModel.addColumn("Período");
         faturaDefaultTableModel.addColumn("Vencimento");
@@ -6344,7 +6440,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
             faturaDefaultTableModel.addRow(new String[]{
                 String.valueOf(faturaArrayList.get(i).getIdContratoFK()),
                 String.valueOf(faturaArrayList.get(i).getIdFatura()),
-                contrato.getMensalistaOuPacote(),
+                contrato.getTipo(),
+                contrato.getModo(),
+                String.format("%02d", Integer.parseInt(String.valueOf(contrato.getQuantidade()))),
                 faturaArrayList.get(i).getMesReferencia(),
                 faturaArrayList.get(i).getPeriodo(),
                 faturaArrayList.get(i).getVencimento(),
@@ -6353,23 +6451,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 faturaArrayList.get(i).getStatus()});
         }
 
-        jTableContratoClienteFatura.setModel(faturaDefaultTableModel);
-        jTableContratoClienteFatura.getColumnModel().getColumn(0).setPreferredWidth(70);
-        jTableContratoClienteFatura.getColumnModel().getColumn(1).setPreferredWidth(70);
-        jTableContratoClienteFatura.getColumnModel().getColumn(2).setPreferredWidth(95);
-        jTableContratoClienteFatura.getColumnModel().getColumn(3).setPreferredWidth(95);
-        jTableContratoClienteFatura.getColumnModel().getColumn(4).setPreferredWidth(200);
-        jTableContratoClienteFatura.getColumnModel().getColumn(5).setPreferredWidth(95);
-        jTableContratoClienteFatura.getColumnModel().getColumn(6).setPreferredWidth(75);
-        jTableContratoClienteFatura.getColumnModel().getColumn(7).setPreferredWidth(95);
-        jTableContratoClienteFatura.getColumnModel().getColumn(8).setPreferredWidth(75);
-        jTableContratoClienteFatura.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+        jTableContratoFatura.setModel(faturaDefaultTableModel);
+        jTableContratoFatura.getColumnModel().getColumn(0).setPreferredWidth(70);
+        jTableContratoFatura.getColumnModel().getColumn(1).setPreferredWidth(70);
+        jTableContratoFatura.getColumnModel().getColumn(2).setPreferredWidth(95);
+        jTableContratoFatura.getColumnModel().getColumn(3).setPreferredWidth(95);
+        jTableContratoFatura.getColumnModel().getColumn(4).setPreferredWidth(40);
+        jTableContratoFatura.getColumnModel().getColumn(5).setPreferredWidth(95);
+        jTableContratoFatura.getColumnModel().getColumn(6).setPreferredWidth(200);
+        jTableContratoFatura.getColumnModel().getColumn(7).setPreferredWidth(95);
+        jTableContratoFatura.getColumnModel().getColumn(8).setPreferredWidth(75);
+        jTableContratoFatura.getColumnModel().getColumn(9).setPreferredWidth(95);
+        jTableContratoFatura.getColumnModel().getColumn(10).setPreferredWidth(75);
+        jTableContratoFatura.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(
                     JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
                 super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 
-                Object colunaStatus = table.getValueAt(row, 8);//Coluna Status
+                Object colunaStatus = table.getValueAt(row, 10);//Coluna Status
 
                 if (row % 2 == 0) {
                     setBackground(new Color(255, 255, 255));
@@ -6381,7 +6481,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     if (!colunaStatus.equals("Paga")) {
                         setForeground(new Color(255, 0, 0));//Fonte
                     } else {
-                        setForeground(Color.BLACK);//Fonte
+                        setForeground(new Color(34, 139, 34));//Fonte
                     }
                 }
 
@@ -6391,6 +6491,93 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 return this;
             }
         });
+    }
+
+    private void movimentoListaFaturaPaga(String idContrato, String mesReferencia, String vencimento, String dataPagamento, String valor, String status) {
+        if (dataPagamento.replaceAll("/", "").replaceAll(" ", "").equalsIgnoreCase("")) {
+            SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
+            jFormattedTextFieldMovimentoData.setText(sdfData.format(new Date()));
+            dataPagamento = jFormattedTextFieldMovimentoData.getText();
+        }
+        ((DefaultTableModel) jTableMovimentoRecebimentoMensalidadePacote.getModel()).setRowCount(0);
+        ((DefaultTableModel) jTableMovimentoRecebimentoMensalidadePacote.getModel()).setColumnCount(0);
+        List<Fatura> faturaArrayList = new ArrayList<>();
+        faturaArrayList.clear();
+        faturaArrayList = faturaService.faturaPesquisaList(idContrato, mesReferencia, vencimento, dataPagamento, valor, status);
+
+        List<Contrato> contratoArrayList = new ArrayList<>();
+        ContratoService contratoService = new ContratoService();
+        contratoArrayList.clear();
+
+        for (int i = 0; i < faturaArrayList.size(); i++) {
+            contratoArrayList.add(contratoService.contratoList("", "", "", String.valueOf(faturaArrayList.get(i).getIdContratoFK())).get(0));
+            contratoArrayList.get(i).setIdFaturaFk(faturaArrayList.get(i));
+
+        }
+        DefaultTableModel faturaDefaultTableModel = new DefaultTableModel() {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        faturaDefaultTableModel.addColumn("N.Contrato");
+        faturaDefaultTableModel.addColumn("N.Fatura");
+        faturaDefaultTableModel.addColumn("Tipo");
+        faturaDefaultTableModel.addColumn("Cliente");
+        faturaDefaultTableModel.addColumn("Mês Referência");
+        faturaDefaultTableModel.addColumn("Vencimento");
+        faturaDefaultTableModel.addColumn("Valor R$");
+        faturaDefaultTableModel.addColumn("Data Paga...");
+
+        for (int i = 0; i < contratoArrayList.size(); i++) {
+            //clienteArrayList.get(i).setCpf(String.format("%011d", Long.parseLong(clienteArrayList.get(i).getCpf())));
+            faturaDefaultTableModel.addRow(new String[]{
+                String.valueOf(contratoArrayList.get(i).getIdFaturaFk().getIdContratoFK()),
+                String.valueOf(contratoArrayList.get(i).getIdFaturaFk().getIdFatura()),
+                contratoArrayList.get(i).getTipo(),
+                contratoArrayList.get(i).getIdClienteFk().getNome(),
+                contratoArrayList.get(i).getIdFaturaFk().getMesReferencia(),
+                contratoArrayList.get(i).getIdFaturaFk().getVencimento(),
+                new DecimalFormat("#,##0.00").format(contratoArrayList.get(i).getIdFaturaFk().getValor()),
+                contratoArrayList.get(i).getIdFaturaFk().getDataPagamento(),});
+        }
+
+        jTableMovimentoRecebimentoMensalidadePacote.setModel(faturaDefaultTableModel);
+        jTableMovimentoRecebimentoMensalidadePacote.getColumnModel().getColumn(0).setPreferredWidth(70);
+        jTableMovimentoRecebimentoMensalidadePacote.getColumnModel().getColumn(1).setPreferredWidth(65);
+        jTableMovimentoRecebimentoMensalidadePacote.getColumnModel().getColumn(2).setPreferredWidth(70);
+        jTableMovimentoRecebimentoMensalidadePacote.getColumnModel().getColumn(3).setPreferredWidth(190);
+        jTableMovimentoRecebimentoMensalidadePacote.getColumnModel().getColumn(4).setPreferredWidth(95);
+        jTableMovimentoRecebimentoMensalidadePacote.getColumnModel().getColumn(5).setPreferredWidth(80);
+        jTableMovimentoRecebimentoMensalidadePacote.getColumnModel().getColumn(6).setPreferredWidth(65);
+        jTableMovimentoRecebimentoMensalidadePacote.getColumnModel().getColumn(7).setPreferredWidth(90);
+        /*jTableMovimentoRecebimentoMensalidadePacote.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(
+                    JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+
+                Object colunaStatus = table.getValueAt(row, 10);//Coluna Status
+
+                if (row % 2 == 0) {
+                    setBackground(new Color(255, 255, 255));
+                } else {
+                    setBackground(new Color(230, 230, 230));
+                }
+                setFont(new Font("", Font.PLAIN, 16));//("Nome da fonte", estilo da fonte, tamanho da fonte)
+                if (colunaStatus != null) {//Se existir a celula Tipo
+                    if (!colunaStatus.equals("Paga")) {
+                        setForeground(new Color(255, 0, 0));//Fonte
+                    } else {
+                        setForeground(new Color(34, 139, 34));//Fonte
+                    }
+                }
+
+                if (isSelected) {
+                    setBackground(new Color(205, 179, 139));
+                }
+                return this;
+            }
+        });*/
     }
 
     private void contratoEscolhaMensalistaPacote() {
@@ -6461,7 +6648,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void contratoVerificaVeiculosCadastrados(Contrato contrato) {
         SimpleDateFormat dataHoraAtual = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         if (verificadorEntradaDado.verificaDadoTipo(jFormattedTextFieldMensalistaPlaca01.getText()).equalsIgnoreCase("placa")) {
-            if (veiculoService.veiculoIsCadastrado(jFormattedTextFieldMensalistaPlaca01.getText()).getPlaca().equalsIgnoreCase("")) {
+            if (veiculoService.veiculoIsCadastrado(jFormattedTextFieldMensalistaPlaca01.getText()).getIdVeiculo() == 0) {
                 contrato.getVeiculo1().setDataHoraCadastro(dataHoraAtual.format(new Date()));
                 veiculoService.veiculoIncluir(contrato.getVeiculo1());
             } else {
@@ -6471,7 +6658,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
 
         if (verificadorEntradaDado.verificaDadoTipo(jFormattedTextFieldMensalistaPlaca02.getText()).equalsIgnoreCase("placa")) {
-            if (veiculoService.veiculoIsCadastrado(jFormattedTextFieldMensalistaPlaca02.getText()).getPlaca().equalsIgnoreCase("")) {
+            if (veiculoService.veiculoIsCadastrado(jFormattedTextFieldMensalistaPlaca02.getText()).getIdVeiculo() == 0) {
                 contrato.getVeiculo2().setDataHoraCadastro(dataHoraAtual.format(new Date()));
                 veiculoService.veiculoIncluir(contrato.getVeiculo2());
             } else {
@@ -6481,7 +6668,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
 
         if (verificadorEntradaDado.verificaDadoTipo(jFormattedTextFieldMensalistaPlaca03.getText()).equalsIgnoreCase("placa")) {
-            if (veiculoService.veiculoIsCadastrado(jFormattedTextFieldMensalistaPlaca03.getText()).getPlaca().equalsIgnoreCase("")) {
+            if (veiculoService.veiculoIsCadastrado(jFormattedTextFieldMensalistaPlaca03.getText()).getIdVeiculo() == 0) {
                 contrato.getVeiculo3().setDataHoraCadastro(dataHoraAtual.format(new Date()));
                 veiculoService.veiculoIncluir(contrato.getVeiculo3());
             } else {
@@ -6490,7 +6677,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         }
         if (verificadorEntradaDado.verificaDadoTipo(jFormattedTextFieldMensalistaPlaca04.getText()).equalsIgnoreCase("placa")) {
-            if (veiculoService.veiculoIsCadastrado(jFormattedTextFieldMensalistaPlaca04.getText()).getPlaca().equalsIgnoreCase("")) {
+            if (veiculoService.veiculoIsCadastrado(jFormattedTextFieldMensalistaPlaca04.getText()).getIdVeiculo() == 0) {
                 contrato.getVeiculo4().setDataHoraCadastro(dataHoraAtual.format(new Date()));
                 veiculoService.veiculoIncluir(contrato.getVeiculo4());
             } else {

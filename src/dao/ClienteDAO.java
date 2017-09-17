@@ -108,7 +108,7 @@ public class ClienteDAO {
     public Cliente clientaAlterar(Cliente cliente) {
         try {
             String sql = "UPDATE cliente SET data_ultima_alteracao=?, nome=?, identidade=?, telefone=?, celular=?, email=?, data_nascimento=?, cep_residencia=?, rua_residencia=?, numero_residencia=?, complemento_residencia=?, bairro_residencia=?, cidade_residencia=?, estado_residencia=?, "
-                    + "empresa=?, cep_comercial=?, rua_comercial=?, numero_comercial=?, complemento_comercial=?, bairro_comercial=?, cidade_comercial=?, estado_comercial=?, telefone_comercial=? WHERE cpf=?";
+                    + "empresa=?, cep_comercial=?, rua_comercial=?, numero_comercial=?, complemento_comercial=?, bairro_comercial=?, cidade_comercial=?, estado_comercial=?, telefone_comercial=? WHERE id_cliente=?";
             PreparedStatement stmt = conexao.prepareStatement(sql);
             stmt.setString(1, cliente.getDataUltimaAlteracao());
             stmt.setString(2, cliente.getNome());
@@ -134,7 +134,7 @@ public class ClienteDAO {
             stmt.setString(21, cliente.getCidadeComercial());
             stmt.setString(22, cliente.getEstadoComercial());
             stmt.setString(23, cliente.getTelefoneComercial());
-            stmt.setString(24, cliente.getCpf());
+            stmt.setInt(24, cliente.getIdCliente());
             stmt.executeUpdate();
             stmt.close();
         } catch (SQLException ex) {

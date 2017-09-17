@@ -110,7 +110,7 @@ CREATE TABLE `contrato` (
   `placa_3` varchar(7) DEFAULT NULL,
   `placa_4` varchar(7) DEFAULT NULL,
   `status` varchar(9) NOT NULL,
-  `mensalista_ou_pacote` varchar(10) NOT NULL,
+  `tipo` varchar(10) NOT NULL,
   `dias_ou_utilizacoes` varchar(11) NOT NULL,
   `quantidade` int(2) NOT NULL,
   `data_inicio` varchar(10) NOT NULL,

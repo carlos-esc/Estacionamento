@@ -60,6 +60,20 @@ public class VeiculoDAO {
         return veiculo;
     }
     
+    public Veiculo veiculoIncluirDataHoraPrimeiraUtilizacao(Veiculo veiculo) {
+        try  {            
+            String sql = "UPDATE veiculo SET data_hora_primeira_utilizacao=? WHERE placa=?";
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            stmt.setString(1, veiculo.getDataHoraPrimeiraUtilizacao());
+            stmt.setString(2, veiculo.getPlaca());
+            stmt.executeUpdate();
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(VeiculoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return veiculo;
+    }
+    
     public Veiculo veiculoIsCadastrado(String placaVeiculo) {
         Veiculo veiculo = new Veiculo();
         try {
@@ -77,7 +91,8 @@ public class VeiculoDAO {
                 veiculo.setCor(rs.getString("cor"));
                 veiculo.setAnoModelo(rs.getString("ano_modelo"));
             } else {
-                veiculo.setPlaca("");
+                veiculo.setIdVeiculo(0);
+                veiculo.setPlaca(placaVeiculo);
             }
             rs.close();
             stmt.close();

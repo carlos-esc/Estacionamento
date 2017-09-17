@@ -10,7 +10,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,12 +26,12 @@ public class ContratoDAO {
         this.conexao = new ConexaoFactory().getConnection();
     }
 
-    public List ContratoList(String clienteNome, String contratoMensalistaOuPacote, String contratoStatus, String numeroContrato) {
+    public List<Contrato> ContratoList(String clienteNome, String contratoMensalistaOuPacote, String contratoStatus, String numeroContrato) {
         try {
             List<Contrato> contratoArrayList = new ArrayList<>();
             VeiculoService veiculoService = new VeiculoService();
             String sql = "SELECT * FROM contrato INNER JOIN cliente ON contrato.id_cliente_fk = cliente.id_cliente "
-                    + "WHERE cliente.nome LIKE '%" + clienteNome + "%' AND contrato.mensalista_ou_pacote LIKE '%" + contratoMensalistaOuPacote + "%' AND contrato.status LIKE '" + contratoStatus + "%' AND contrato.id_contrato LIKE '" + numeroContrato + "'";
+                    + "WHERE cliente.nome LIKE '%" + clienteNome + "%' AND contrato.tipo LIKE '%" + contratoMensalistaOuPacote + "%' AND contrato.status LIKE '" + contratoStatus + "%' AND contrato.id_contrato LIKE '" + numeroContrato + "'";
             PreparedStatement stmt = conexao.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -65,8 +64,8 @@ public class ContratoDAO {
                 //DADOS CONTRATO
                 contrato.setIdContrato(rs.getInt("id_contrato"));
                 contrato.setStatus(rs.getString("status"));
-                contrato.setMensalistaOuPacote(rs.getString("mensalista_ou_pacote"));
-                contrato.setDiasOuUtilizacoes(rs.getString("dias_ou_utilizacoes"));
+                contrato.setTipo(rs.getString("tipo"));
+                contrato.setModo(rs.getString("modo"));
                 contrato.setQuantidade(rs.getInt("quantidade"));
                 contrato.setDataInicio(rs.getString("data_inicio"));
                 contrato.setDataTermino(rs.getString("data_termino"));
@@ -136,8 +135,8 @@ public class ContratoDAO {
                 //DADOS CONTRATO
                 contrato.setIdContrato(rs.getInt("id_contrato"));
                 contrato.setStatus(rs.getString("status"));
-                contrato.setMensalistaOuPacote(rs.getString("mensalista_ou_pacote"));
-                contrato.setDiasOuUtilizacoes(rs.getString("dias_ou_utilizacoes"));
+                contrato.setTipo(rs.getString("tipo"));
+                contrato.setModo(rs.getString("modo"));
                 contrato.setQuantidade(rs.getInt("quantidade"));
                 contrato.setDataInicio(rs.getString("data_inicio"));
                 contrato.setDataTermino(rs.getString("data_termino"));
@@ -179,7 +178,7 @@ public class ContratoDAO {
 
     public Contrato contratoIncluir(Contrato contrato) {
         try {
-            String sql = "INSERT INTO contrato(id_cliente_fk, placa_1, placa_2, placa_3, placa_4, status, mensalista_ou_pacote, dias_ou_utilizacoes, quantidade, data_inicio, data_termino, dia_vencimento, data_cancelamento, valor) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO contrato(id_cliente_fk, placa_1, placa_2, placa_3, placa_4, status, tipo, modo, quantidade, data_inicio, data_termino, dia_vencimento, data_cancelamento, valor) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement stmt = conexao.prepareStatement(sql);
             stmt.setInt(1, contrato.getIdClienteFk().getIdCliente());
             stmt.setString(2, contrato.getVeiculo1().getPlaca());
@@ -187,8 +186,8 @@ public class ContratoDAO {
             stmt.setString(4, contrato.getVeiculo3().getPlaca());
             stmt.setString(5, contrato.getVeiculo4().getPlaca());
             stmt.setString(6, contrato.getStatus());
-            stmt.setString(7, contrato.getMensalistaOuPacote());
-            stmt.setString(8, contrato.getDiasOuUtilizacoes());
+            stmt.setString(7, contrato.getTipo());
+            stmt.setString(8, contrato.getModo());
             stmt.setInt(9, contrato.getQuantidade());
             stmt.setString(10, contrato.getDataInicio());
             stmt.setString(11, contrato.getDataTermino());
@@ -210,15 +209,15 @@ public class ContratoDAO {
 
     public Contrato contratoAlterar(Contrato contrato) {
         try {
-            String sql = "UPDATE contrato SET placa_1=?, placa_2=?, placa_3=?, placa_4=?, status=?, mensalista_ou_pacote=?, dias_ou_utilizacoes=?, quantidade=?, data_inicio=?, data_termino=?, dia_vencimento=?, data_cancelamento=?, valor=? WHERE id_contrato=?";
+            String sql = "UPDATE contrato SET placa_1=?, placa_2=?, placa_3=?, placa_4=?, status=?, tipo=?, modo=?, quantidade=?, data_inicio=?, data_termino=?, dia_vencimento=?, data_cancelamento=?, valor=? WHERE id_contrato=?";
             PreparedStatement stmt = conexao.prepareStatement(sql);
             stmt.setString(1, contrato.getVeiculo1().getPlaca());
             stmt.setString(2, contrato.getVeiculo2().getPlaca());
             stmt.setString(3, contrato.getVeiculo3().getPlaca());
             stmt.setString(4, contrato.getVeiculo4().getPlaca());
             stmt.setString(5, contrato.getStatus());
-            stmt.setString(6, contrato.getMensalistaOuPacote());
-            stmt.setString(7, contrato.getDiasOuUtilizacoes());
+            stmt.setString(6, contrato.getTipo());
+            stmt.setString(7, contrato.getModo());
             stmt.setInt(8, contrato.getQuantidade());
             stmt.setString(9, contrato.getDataInicio());
             stmt.setString(10, contrato.getDataTermino());

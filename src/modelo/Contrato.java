@@ -3,14 +3,17 @@ package modelo;
 public class Contrato {
     private int idContrato;
     private String status;
-    private String mensalistaOuPacote;
-    private String diasOuUtilizacoes;
+    private String tipo;
+    private String modo;
     private int quantidade;
     private String dataInicio;
     private String dataTermino;
     private String diaVencimento;
     private String dataCancelamento;
     private float valor;
+    
+    //Fatura
+    private Fatura idFaturaFk;
     
     //DADOS CLIENTE
     private Cliente idClienteFk = new Cliente();
@@ -50,17 +53,17 @@ public class Contrato {
     }
 
     /**
-     * @return the mensalistaOuPacote
+     * @return the tipo
      */
-    public String getMensalistaOuPacote() {
-        return mensalistaOuPacote;
+    public String getTipo() {
+        return tipo;
     }
 
     /**
-     * @param mensalistaOuPacote the mensalistaOuPacote to set
+     * @param tipo the tipo to set
      */
-    public void setMensalistaOuPacote(String mensalistaOuPacote) {
-        this.mensalistaOuPacote = mensalistaOuPacote;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     /**
@@ -204,17 +207,17 @@ public class Contrato {
     }
 
     /**
-     * @return the diasOuUtilizacoes
+     * @return the modo
      */
-    public String getDiasOuUtilizacoes() {
-        return diasOuUtilizacoes;
+    public String getModo() {
+        return modo;
     }
 
     /**
-     * @param diasOuUtilizacoes the diasOuUtilizacoes to set
+     * @param modo the modo to set
      */
-    public void setDiasOuUtilizacoes(String diasOuUtilizacoes) {
-        this.diasOuUtilizacoes = diasOuUtilizacoes;
+    public void setModo(String modo) {
+        this.modo = modo;
     }
 
     /**
@@ -229,5 +232,19 @@ public class Contrato {
      */
     public void setDataCancelamento(String dataCancelamento) {
         this.dataCancelamento = dataCancelamento;
+    }
+
+    /**
+     * @return the idFaturaFk
+     */
+    public Fatura getIdFaturaFk() {
+        return idFaturaFk;
+    }
+
+    /**
+     * @param idFaturaFk the idFaturaFk to set
+     */
+    public void setIdFaturaFk(Fatura idFaturaFk) {
+        this.idFaturaFk = idFaturaFk;
     }
 }

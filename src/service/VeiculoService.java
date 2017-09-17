@@ -16,6 +16,11 @@ public class VeiculoService {
         return veiculo;
     }
     
+    public Veiculo veiculoIncluirDataHoraPrimeiraUtilizacao(Veiculo veiculo) {
+        veiculoDAO.veiculoIncluirDataHoraPrimeiraUtilizacao(veiculo);
+        return veiculo;
+    }
+    
     public Veiculo veiculoIsCadastrado (String placaVeiculo) {
         Veiculo veiculo = new Veiculo();
         veiculo = veiculoDAO.veiculoIsCadastrado(placaVeiculo);

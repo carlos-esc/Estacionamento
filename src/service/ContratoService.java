@@ -8,7 +8,7 @@ import modelo.Contrato;
 public class ContratoService {
     ContratoDAO contratoDAO = new ContratoDAO();
 
-    public List contratoList(String clienteNome, String contratoTipo, String contratoStatus, String numeroContrato) {
+    public List<Contrato> contratoList(String clienteNome, String contratoTipo, String contratoStatus, String numeroContrato) {
         List<Contrato> contratoArrayList = new ArrayList<>();
         contratoArrayList = contratoDAO.ContratoList(clienteNome, contratoTipo, contratoStatus, numeroContrato);
         return contratoArrayList;

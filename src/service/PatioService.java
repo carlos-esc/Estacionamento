@@ -2,10 +2,8 @@ package service;
 
 import dao.PatioDAO;
 import java.util.List;
-import modelo.Cliente;
 import modelo.Contrato;
 import modelo.Patio;
-import modelo.Veiculo;
 
 public class PatioService { 
     PatioDAO patioDAO = new PatioDAO();
@@ -13,6 +11,11 @@ public class PatioService {
     public List patioLista (List patioLista, String patioOrdenarLista) {
         patioDAO.patioLista(patioLista, patioOrdenarLista);
         return patioLista;
+    }
+    
+    public List movimentoListaNew (List movimentoLista, String movimentoData, String movimentoHora) {
+        patioDAO.movimentoListaNew(movimentoLista, movimentoData, movimentoHora);
+        return movimentoLista;
     }
     
     public List movimentoLista (List movimentoLista, String movimentoData) {
@@ -30,9 +33,9 @@ public class PatioService {
         return patio;
     }
     
-    public Patio verificarVeiculo (String placa) {
+    public Patio veiculoIsEstacionado (String placa) {
         Patio patio = new Patio();
-        patio = patioDAO.patioVerificaVeiculoEstacionado(placa);
+        patio = patioDAO.veiculoIsEstacionado(placa);
         return patio;
     }    
     
@@ -41,9 +44,8 @@ public class PatioService {
         return patio;
     }
     
-    public Patio contratoClienteVagaIsOcupada(Contrato contrato) {
-        Patio patio = new Patio();
-        patio = patioDAO.contratoCienteVagaIsOcupada(contrato);
+    public Patio contratoClienteVagaIsOcupada(Contrato contrato, Patio patio) {
+        patio = patioDAO.contratoCienteVagaIsOcupada(contrato, patio);
         return patio;
     }
 }
