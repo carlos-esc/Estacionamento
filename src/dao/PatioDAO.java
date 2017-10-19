@@ -51,6 +51,7 @@ public class PatioDAO {
                     patio.setPrecoDemaisFracoes(rs.getFloat("preco_demais_fracoes"));
                     patio.setPrecoDiaria(rs.getFloat("preco_diaria"));
                     patio.setPrecoPernoite(rs.getFloat("preco_pernoite"));
+                    patio.setEstacionado(rs.getString("estacionado"));
                     patio.setDataEntrada(rs.getString("data_entrada").substring(8, 10) + "/" + rs.getString("data_entrada").substring(5, 7) + "/" + rs.getString("data_entrada").substring(0, 4));
                     patio.setHoraEntrada(rs.getString("hora_entrada").substring(0, 5));
                     patio.setToleranciaDesistencia(rs.getInt("tolerancia_desistencia"));
